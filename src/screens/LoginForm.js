@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Button, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Image } from 'react-native';
+import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Image } from 'react-native';
 
 export default class App extends Component {
   state = {
@@ -48,7 +48,11 @@ export default class App extends Component {
             secureTextEntry={true}
           />
           <View>
-            <Button title="Submit" onPress={this.handleSubmit} color='white' />
+            <TouchableOpacity  onPress={this.handleSubmit}>
+               <Text style={styles.legal}>
+                Submit
+              </Text>
+            </TouchableOpacity>
             <Text style={styles.legal}>
               Your login credentials are not saved!
             </Text>
