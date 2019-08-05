@@ -1,0 +1,43 @@
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+
+export default class LoginScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>I am Login Screen</Text>
+
+        <Text
+          style={styles.linky}
+          onPress={() => this.props.navigation.replace('signupScreen')} >
+          Go to Signup
+        </Text>
+
+        <Text
+          style={styles.linky}
+          onPress={() => this.props.navigation.navigate('forgottenPasswordScreen')} >
+          Go to Forgot Password
+        </Text>
+
+        <Text
+          style={styles.linky}
+          onPress={() => this.props.navigation.navigate('DrawerStack')} >
+          Pretend we logged in
+        </Text>
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#111117',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  linky: {
+    color: '#fff',
+    paddingTop: 10
+  }
+})
