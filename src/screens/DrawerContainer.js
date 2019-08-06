@@ -9,7 +9,7 @@ export default class DrawerContainer extends React.Component {
     return (
       <View style={styles.container}>
         <Text
-          onPress={() => navigation.navigate('VehicleState')}
+          onPress={() => navigation.navigate('MainScreen')}
           style={styles.DrawerItem}>
           Main control screen
         </Text>
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     padding: 15,
     margin: 5,
-    textAlign: 'center'
+    textAlign: 'left'
   }
 })

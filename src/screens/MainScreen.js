@@ -1,0 +1,192 @@
+import React, {Component} from 'react';
+import {StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, Dimensions} from 'react-native';
+import YourCarPic from '../components/YourCarPic'
+import Icon from 'react-native-vector-icons/FontAwesome5';
+const { height, width } = Dimensions.get('window');
+// import LinearGradient from 'react-native-linear-gradient';
+
+export default class MainScreen extends Component {
+  state = {
+    data: [
+      { id: "1", iconTitle:"chair", title: "" },
+      { id: "2", iconTitle:"angle-up", title: "" },
+      { id: "3", iconTitle:"thermometer-full", title: "MANUAL" },
+      { id: "4", iconTitle:"angle-up", title: "" },
+      { id: "5", iconTitle:"chair", title: "" },
+
+      { id: "6", iconTitle:"bolt", title: "port" },
+      { id: "7", iconTitle:"car", title: "frunk" },
+      { id: "8", iconTitle:"car", title: "panic" },
+      { id: "9", iconTitle:"car", title: "trunk" },
+      { id: "10", iconTitle:"door-closed", title: "vent" }
+    ]
+  };
+  render() {
+    const columns = 5;
+    return (
+      <View style={styles.container}>
+        {/* <LinearGradient colors={['#111117', '#333']} style={styles.linearGradient}> */}
+          <View style={ styles.topView} >
+          <YourCarPic />
+          </View>
+          <View style={ styles.bottomView} >
+            <View style={ styles.infoView} >
+              <View style={ styles.infoViewItem} >
+                <Icon style={styles.infoIcon} name="thermometer-half" size={10} color="#fff" />
+                <Text style={styles.info}>Interior 68° F</Text>
+              </View>
+              <View style={ styles.infoViewItem} >
+                <Icon style={styles.infoIcon} name="parking" size={10} color="#fff" />
+                <Text style={styles.info}>Parked</Text>
+              </View>
+              <View style={ styles.infoViewItem} >
+                <Icon style={styles.infoIcon} name="battery-three-quarters" size={10} color="#fff" />
+                <Text style={styles.info}>Charging</Text>
+              </View>
+            </View>
+            <View style={styles.calloutView} >
+              <View style={styles.calloutIconView}>
+                <Icon style={styles.calloutIcon} name="location-arrow" size={10} color="#333" />
+              </View>
+              <TextInput style={styles.calloutSearch} placeholderTextColor = "#fff" placeholder={"Where to?"} />
+          </View>
+          <FlatList
+          data={createRows(this.state.data, columns)}
+          scrollEnabled={false} 
+          keyExtractor={item => item.id}
+          numColumns={columns}
+          renderItem={({ item }) => {
+            if (item.empty) {
+              return <View style={[styles.item, styles.itemEmpty]} />;
+            }
+            return (
+              <TouchableOpacity>
+                <View style={styles.item}>
+                  <Icon style={styles.icon} name={item.iconTitle} size={25} color="#FFF" />
+                  <Text style={styles.text}>{item.title}</Text>
+                </View>
+              </TouchableOpacity>
+            );
+          }}
+        />
+        </View>
+        {/* </LinearGradient> */}
+      </View>
+    );
+  }
+}
+
+function createRows(data, columns) {
+  const rows = Math.floor(data.length / columns);
+  let lastRowElements = data.length - rows * columns;
+
+  while (lastRowElements !== columns) {
+    data.push({
+      id: `empty-${lastRowElements}`,
+      title: `empty-${lastRowElements}`,
+      empty: true
+    });
+    lastRowElements += 1;
+  }
+
+  return data;
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#111117',
+  },
+  topView: {
+    flex: 1,
+    paddingTop: height/5,
+    backgroundColor: 'transparent', 
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  bottomView: {
+    width: '100%', 
+    backgroundColor: 'transparent', 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 0
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: "#fff",
+    fontWeight: 'bold',
+    marginTop: 10,
+    paddingBottom: 20,
+  },
+  infoView: {
+    flexDirection: 'row',
+    marginLeft: 20
+  },
+  infoViewItem: {
+    paddingLeft: 2,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  info: {
+    textAlign: 'center',
+    color: "#fff",
+    margin: 5,
+  },
+  iconIcon: {
+  },
+  item: {
+    justifyContent: 'center',
+    alignItems: "center",
+    backgroundColor: "#111117",
+    // flexBasis: 0,
+    flexGrow: 1,
+    margin: 7,
+    width: 60,
+    height: 60,
+    maxWidth: 60,
+    maxHeight: 60
+  },
+  itemEmpty: {
+    backgroundColor: "transparent"
+  },
+  icon: {
+    paddingBottom: 10
+  },
+  text: {
+    color: "#fff",
+    textTransform: 'uppercase',
+    fontSize: 10
+  },
+  calloutView: {
+    flexDirection: "row",
+    backgroundColor: '#13181B',
+    borderRadius: 5,
+    width: "95%",
+    marginLeft: "30%",
+    marginRight: "30%",
+    marginTop: 10,
+    marginBottom: 40
+  },
+  calloutIconView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+  },
+  calloutIcon: {
+    color: "#fff"
+  },
+  calloutSearch: {
+    borderColor: "transparent",
+    color: "#fff",
+    marginLeft: 10,
+    width: "80%",
+    marginRight: 10,
+    height: 40,
+    borderWidth: 0.0 
+  }
+});

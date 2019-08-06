@@ -12,9 +12,11 @@ import Screen1 from '../screens/Screen1'
 import Screen2 from '../screens/Screen2'
 import Screen3 from '../screens/Screen3'
 import VehicleState from '../screens/VehicleState'
+import MainScreen from '../screens/MainScreen'
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const DrawerStack = createDrawerNavigator({
-  VehicleState : { screen: VehicleState },
+  MainScreen : { screen: MainScreen },
   screen1: { screen: Screen1 },
   screen2: { screen: Screen2 },
   screen3: { screen: Screen3 },
@@ -31,7 +33,8 @@ const DrawerStack = createDrawerNavigator({
       borderBottomWidth: 0,
     },
     gesturesEnabled: false,
-    headerLeft: <Text style={{color: '#fff', marginLeft: 20}} onPress={() => navigation.toggleDrawer()}>Menu</Text>
+    headerLeft:  <Icon style={{color: '#fff', marginLeft: 20}} name="bars" size={20} onPress={() => navigation.toggleDrawer()} color="#FFF" />
+   // <Text style={{color: '#fff', marginLeft: 20}} onPress={() => navigation.toggleDrawer()}>Menu</Text>
   })
 })
 
