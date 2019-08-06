@@ -14,7 +14,7 @@ export default class YourCarPic extends Component {
       // 405 x 165
       // 432 x 176
       // 459 x 187
-      <Image source={pic} style={{width: 459, height: 187}}/>
+      <Image source={pic} style={{width: 459, height: 187, position: 'absolute', top: 200}}/>
     );
   }
 }

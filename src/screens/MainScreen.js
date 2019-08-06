@@ -27,22 +27,26 @@ export default class MainScreen extends Component {
       <View style={styles.container}>
         {/* <LinearGradient colors={['#111117', '#333']} style={styles.linearGradient}> */}
           <View style={ styles.topView} >
+            <View style={ styles.milesView} >
+              <Text style={styles.milesViewTitle}>254</Text>
+              <Text style={styles.milesViewSubTitle}>mi</Text>
+            </View>
           <YourCarPic />
           </View>
           <View style={ styles.bottomView} >
             <View style={ styles.infoView} >
-              <View style={ styles.infoViewItem} >
+              <TouchableOpacity style={ styles.infoViewItem} onPress={()=>alert("tapped")}>
                 <Icon style={styles.infoIcon} name="thermometer-half" size={10} color="#fff" />
                 <Text style={styles.info}>Interior 68° F</Text>
-              </View>
-              <View style={ styles.infoViewItem} >
+              </TouchableOpacity>
+              <TouchableOpacity style={ styles.infoViewItem} onPress={()=>alert("tapped")}>
                 <Icon style={styles.infoIcon} name="parking" size={10} color="#fff" />
                 <Text style={styles.info}>Parked</Text>
-              </View>
-              <View style={ styles.infoViewItem} >
+              </TouchableOpacity>
+              <TouchableOpacity style={ styles.infoViewItem} onPress={()=>alert("tapped")}>
                 <Icon style={styles.infoIcon} name="battery-three-quarters" size={10} color="#fff" />
                 <Text style={styles.info}>Charging</Text>
-              </View>
+              </TouchableOpacity>
             </View>
             <View style={styles.calloutView} >
               <View style={styles.calloutIconView}>
@@ -60,7 +64,7 @@ export default class MainScreen extends Component {
               return <View style={[styles.item, styles.itemEmpty]} />;
             }
             return (
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=>alert("tapped")}>
                 <View style={styles.item}>
                   <Icon style={styles.icon} name={item.iconTitle} size={25} color="#FFF" />
                   <Text style={styles.text}>{item.title}</Text>
@@ -105,6 +109,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent', 
     justifyContent: 'flex-start',
     alignItems: 'center',
+  },
+  milesView: {
+    flexDirection: 'row',
+  },
+  milesViewTitle: {
+    fontFamily: 'Arial',
+    fontSize: 130,
+    color: '#fff',
+    top: -25
+  },
+  milesViewSubtitle: {
+    fontFamily: 'Arial',
+    fontSize: 20,
+    top: -125,
+    color: '#606060',
   },
   bottomView: {
     width: '100%', 
