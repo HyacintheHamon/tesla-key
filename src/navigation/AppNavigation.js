@@ -13,10 +13,14 @@ import Screen2 from '../screens/Screen2'
 import Screen3 from '../screens/Screen3'
 import VehicleState from '../screens/VehicleState'
 import MainScreen from '../screens/MainScreen'
+import MapScreen from '../screens/MapScreen'
+import ARScene from '../screens/ARScene'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const DrawerStack = createDrawerNavigator({
   MainScreen : { screen: MainScreen },
+  MapScreen: { screen: MapScreen },
+  ARScene: { screen: ARScene },
   screen1: { screen: Screen1 },
   screen2: { screen: Screen2 },
   screen3: { screen: Screen3 },

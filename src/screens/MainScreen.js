@@ -19,10 +19,27 @@ export default class MainScreen extends Component {
       { id: "8", iconTitle:"car", title: "panic" },
       { id: "9", iconTitle:"car", title: "trunk" },
       { id: "10", iconTitle:"door-closed", title: "vent" }
-    ]
+    ],
+    showConfirmation: false
+  };
+
+
+  handleSubmit = value => {
+    this.setState({ showConfirmation: true, value: value });
+  };
+
+  // Handler for when the user confirms their choice in the modal
+  handleConfirm = () => {
+    // …
+  };
+
+  // Handler for when the user cancels the confirmation dialog
+  handleCancel = () => {
+    this.setState({ showConfirmation: false });
   };
   render() {
     const columns = 5;
+    const { showConfirmation } = this.state;
     return (
       <View style={styles.container}>
         {/* <LinearGradient colors={['#111117', '#333']} style={styles.linearGradient}> */}
@@ -47,6 +64,7 @@ export default class MainScreen extends Component {
                 <Icon style={styles.infoIcon} name="battery-three-quarters" size={10} color="#fff" />
                 <Text style={styles.info}>Charging</Text>
               </TouchableOpacity>
+              {showConfirmation && <Dialog onCancel={this.handleCancel} onConfirm={this.handleConfirm} />}
             </View>
             <View style={styles.calloutView} >
               <View style={styles.calloutIconView}>
@@ -117,7 +135,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Arial',
     fontSize: 130,
     color: '#fff',
-    top: -25
+    top: -height/7
   },
   milesViewSubtitle: {
     fontFamily: 'Arial',

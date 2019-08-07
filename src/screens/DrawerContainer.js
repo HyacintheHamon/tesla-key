@@ -14,6 +14,16 @@ export default class DrawerContainer extends React.Component {
           Main control screen
         </Text>
         <Text
+          onPress={() => navigation.navigate('MapScreen')}
+          style={styles.DrawerItem}>
+          Map Screen
+        </Text>
+        <Text
+          onPress={() => navigation.navigate('ARScene')}
+          style={styles.DrawerItem}>
+          AR Screen
+        </Text>
+        <Text
           onPress={() => navigation.navigate('screen2')}
           style={styles.DrawerItem}>
           Screen 2
