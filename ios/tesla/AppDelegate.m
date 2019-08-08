@@ -16,7 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [GMSServices provideAPIKey:@"AIzaSyBFF9kSn0m1EcY-wKkB7ZVA_CaZOrVD5Lw"];
+  [GMSServices provideAPIKey:@"AIzaSyBI_lZSOEBQz7a1RwFS6qWTyhoIJkvOvyA"];
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"tesla"
