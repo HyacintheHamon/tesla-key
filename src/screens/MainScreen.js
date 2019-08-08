@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const { height, width } = Dimensions.get('window');
 // import LinearGradient from 'react-native-linear-gradient';
+import Modal from 'react-native-modal';
 
 export default class MainScreen extends Component {
   state = {
@@ -20,8 +21,25 @@ export default class MainScreen extends Component {
       { id: "8", iconTitle:"car", title: "panic" },
       { id: "9", iconTitle:"car", title: "trunk" },
       { id: "10", iconTitle:"door-closed", title: "vent" }
-    ]
+    ],
+    visibleModal: null,
   };
+
+
+  _renderButton = (text, onPress) => (
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.button}>
+        <Text>{text}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  _renderModalContent = () => (
+    <View style={styles.modalContent}>
+      <Text style={styles.ModalText}>Hello!</Text>
+      {this._renderButton('Close', () => this.setState({ visibleModal: null }))}
+    </View>
+  );
   render() {
     const columns = 5;
     return (
@@ -83,7 +101,8 @@ export default class MainScreen extends Component {
               return <View style={[styles.item, styles.itemEmpty]} />;
             }
             return (
-              <TouchableOpacity onPress={()=>alert("tapped")}>
+              <TouchableOpacity onPress={()=> this.setState({ visibleModal: true })}> 
+              {/* onPress={()=>alert("tapped")} */}
                 <View style={styles.item}>
                   <Icon style={styles.icon} name={item.iconTitle} size={25} color="#FFF" />
                   <Text style={styles.text}>{item.title}</Text>
@@ -94,6 +113,20 @@ export default class MainScreen extends Component {
         />
         </View>
         {/* </LinearGradient> */}
+        <Modal
+          style={{ margin: 0 }}
+          isVisible={this.state.visibleModal === true}
+          backdropColor={"#111117"}
+          backdropOpacity={1}
+          animationIn={'fadeIn'}
+          animationOut={'fadeOut'}
+          animationInTiming={300}
+          animationOutTiming={300}
+          backdropTransitionInTiming={300}
+          backdropTransitionOutTiming={300}
+        >
+          {this._renderModalContent()}
+        </Modal>
       </View>
     );
   }
@@ -235,5 +268,27 @@ const styles = StyleSheet.create({
     marginRight: 10,
     height: 40,
     borderWidth: 0.0 
+  },
+  button: {
+    backgroundColor: 'lightblue',
+    padding: 12,
+    margin: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  modalContent: {
+    flex: 1,
+    backgroundColor: '#111117',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  ModalText: {
+    color: '#fff'
+  },
+  bottomModal: {
+    justifyContent: 'flex-end',
+    margin: 0,
   }
 });
