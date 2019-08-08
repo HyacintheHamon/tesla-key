@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const { height, width } = Dimensions.get('window');
 // import LinearGradient from 'react-native-linear-gradient';
 import Modal from 'react-native-modal';
+import ModalScreen from './ModalScreen';
 
 export default class MainScreen extends Component {
   state = {
@@ -25,20 +26,8 @@ export default class MainScreen extends Component {
     visibleModal: null,
   };
 
-
-  _renderButton = (text, onPress) => (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.button}>
-        <Text>{text}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-
   _renderModalContent = () => (
-    <View style={styles.modalContent}>
-      <Text style={styles.ModalText}>Hello!</Text>
-      {this._renderButton('Close', () => this.setState({ visibleModal: null }))}
-    </View>
+    <ModalScreen />
   );
   render() {
     const columns = 5;
@@ -268,27 +257,5 @@ const styles = StyleSheet.create({
     marginRight: 10,
     height: 40,
     borderWidth: 0.0 
-  },
-  button: {
-    backgroundColor: 'lightblue',
-    padding: 12,
-    margin: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 4,
-    borderColor: 'rgba(0, 0, 0, 0.1)',
-  },
-  modalContent: {
-    flex: 1,
-    backgroundColor: '#111117',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  ModalText: {
-    color: '#fff'
-  },
-  bottomModal: {
-    justifyContent: 'flex-end',
-    margin: 0,
   }
 });

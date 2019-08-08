@@ -7,7 +7,7 @@ import SignupScreen from '../screens/SignupScreen'
 import ForgottenPasswordScreen from '../screens/ForgottenPasswordScreen'
 import SplashScreen from '../screens/SplashScreen'
 import Walkthrough from '../screens/Walkthrough'
-import DrawerContainer from '../screens/DrawerContainer'
+import DrawerContent from './DrawerContent'
 import Screen1 from '../screens/Screen1'
 import Screen2 from '../screens/Screen2'
 import Screen3 from '../screens/Screen3'
@@ -26,7 +26,7 @@ const DrawerStack = createDrawerNavigator({
   screen3: { screen: Screen3 },
 }, {
   gesturesEnabled: false,
-  contentComponent: DrawerContainer,
+  contentComponent: DrawerContent,
   headerMode: 'float',
   navigationOptions: ({navigation}) => ({
     headerStyle: {
