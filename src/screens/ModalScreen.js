@@ -11,8 +11,21 @@ export default class ModalScreen extends Component {
     super(props);
     
     this.state = {
-        visibleModal: null
+        visibleModal: null,
+        DescriptionText : 'Press and hold a direction button to start Summon'
     }
+  }
+
+  handlePressIn =()=> {
+    this.setState({
+      DescriptionText : 'Release the direction button  to stop your vehicle'
+    })
+  }
+
+  handlePressOut =()=> {
+    this.setState({
+      DescriptionText : 'Press and hold a direction button to start Summon'
+    })
   }
 
   render() {
@@ -27,11 +40,15 @@ export default class ModalScreen extends Component {
             <Image source={topView} style={{width: width/3, height: height/2 }}/>
 
             <View style={styles.bottomModal}>
-              <Text style={styles.descriptionText}>Press and hold a direction button to start Summon</Text>
-              <TouchableOpacity style={styles.button} onPress={()=>alert("tapped")}>
+              <Text style={styles.descriptionText}> {this.state.DescriptionText} </Text>
+              <TouchableOpacity style={styles.button} 
+                              onPressIn={this.handlePressIn} 
+                              onPressOut={this.handlePressOut}>
                 <Text style={styles.buttonText}>FORWARD</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.button} onPress={()=>alert("tapped")}>
+              <TouchableOpacity style={styles.button} 
+                              onPressIn={this.handlePressIn} 
+                              onPressOut={this.handlePressOut}>
                 <Text style={styles.buttonText}>REVERSE</Text>
               </TouchableOpacity>
             </View>
