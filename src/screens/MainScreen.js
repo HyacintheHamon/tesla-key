@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, Dimensions} from 'react-native';
 import YourCarPic from '../components/YourCarPic'
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 const { height, width } = Dimensions.get('window');
 // import LinearGradient from 'react-native-linear-gradient';
 
@@ -19,27 +20,10 @@ export default class MainScreen extends Component {
       { id: "8", iconTitle:"car", title: "panic" },
       { id: "9", iconTitle:"car", title: "trunk" },
       { id: "10", iconTitle:"door-closed", title: "vent" }
-    ],
-    showConfirmation: false
-  };
-
-
-  handleSubmit = value => {
-    this.setState({ showConfirmation: true, value: value });
-  };
-
-  // Handler for when the user confirms their choice in the modal
-  handleConfirm = () => {
-    // …
-  };
-
-  // Handler for when the user cancels the confirmation dialog
-  handleCancel = () => {
-    this.setState({ showConfirmation: false });
+    ]
   };
   render() {
     const columns = 5;
-    const { showConfirmation } = this.state;
     return (
       <View style={styles.container}>
         {/* <LinearGradient colors={['#111117', '#333']} style={styles.linearGradient}> */}
@@ -51,20 +35,37 @@ export default class MainScreen extends Component {
           <YourCarPic />
           </View>
           <View style={ styles.bottomView} >
-            <View style={ styles.infoView} >
-              <TouchableOpacity style={ styles.infoViewItem} onPress={()=>alert("tapped")}>
-                <Icon style={styles.infoIcon} name="thermometer-half" size={10} color="#fff" />
-                <Text style={styles.info}>Interior 68° F</Text>
+            <View style={styles.status}>
+              <Icon
+                name={'lock'}
+                type={'Entypo'}
+                color={'white'}
+                size={14}
+                style={{margin: 10}}
+              />
+              <TouchableOpacity onPress={()=>alert("temp")}>
+                <Text style={styles.label}>Interior 68°F</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={ styles.infoViewItem} onPress={()=>alert("tapped")}>
-                <Icon style={styles.infoIcon} name="parking" size={10} color="#fff" />
-                <Text style={styles.info}>Parked</Text>
+              <Icon 
+                style={styles.infoIcon}
+                name="parking"
+                size={14}
+                color="#fff"
+                style={{margin: 10}}
+              />
+              <TouchableOpacity onPress={()=>alert("temp")}>
+                <Text style={styles.label}>Parked</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={ styles.infoViewItem} onPress={()=>alert("tapped")}>
-                <Icon style={styles.infoIcon} name="battery-three-quarters" size={10} color="#fff" />
-                <Text style={styles.info}>Charging</Text>
+              <Ionicons
+                name={'md-battery-charging'}
+                style={styles.infoIcon}
+                color={'white'}
+                size={14}
+                style={{margin: 10}}
+              />
+              <TouchableOpacity onPress={()=>alert("temp")}>            
+                <Text style={styles.label}>Charging</Text>
               </TouchableOpacity>
-              {showConfirmation && <Dialog onCancel={this.handleCancel} onConfirm={this.handleConfirm} />}
             </View>
             <View style={styles.calloutView} >
               <View style={styles.calloutIconView}>
@@ -120,6 +121,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#111117',
+  },
+  status: {
+    flexDirection: 'row',
+    width: width*0.9,
+    flex: 0.075,
+    alignItems: 'center'
+  },
+  label: {
+    color: 'white'
   },
   topView: {
     flex: 1,
