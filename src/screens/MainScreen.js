@@ -8,6 +8,7 @@ const { height, width } = Dimensions.get('window');
 // import LinearGradient from 'react-native-linear-gradient';
 import Modal from 'react-native-modal';
 import SummonModalScreen from './SummonModalScreen';
+import MapModalScreen from './MapModalScreen';
 
 export default class MainScreen extends Component {
   state = {
@@ -24,12 +25,17 @@ export default class MainScreen extends Component {
       { id: "9", iconTitle:"car", title: "trunk" },
       { id: "10", iconTitle:"door-closed", title: "vent" }
     ],
-    visibleModal: null,
+    visibleSummonModal: null,
+    visibleMapModal: null,
   };
 
-  closeModal() {
-    this.setState({visibleModal: false});
+  closeSummonModal() {
+    this.setState({visibleSummonModal: false});
   }
+  closeMapModal() {
+    this.setState({visibleMapModal: false});
+  }
+
   render() {
     const columns = 5;
     return (
@@ -37,7 +43,7 @@ export default class MainScreen extends Component {
         {/* <LinearGradient colors={['#111117', '#333']} style={styles.linearGradient}> */}
           <HeaderComponent
             leftButtonOnPress={() => this.props.navigation.toggleDrawer()}
-            rightButtonOnPress={()=> this.setState({ visibleModal: true })}
+            rightButtonOnPress={()=> this.setState({ visibleSummonModal: true })}
             leftButtonImage={false}
             leftIconName={'menu'}
             leftIconType={'feather'}
@@ -86,7 +92,10 @@ export default class MainScreen extends Component {
               <View style={styles.calloutIconView}>
                 <Icon style={styles.calloutIcon} name="location-arrow" size={10} color="#333" />
               </View>
-              <TextInput style={styles.calloutSearch} placeholderTextColor = "#fff" placeholder={"Where to?"} />
+              
+              <TouchableOpacity style={styles.calloutSearch} onPress={()=> this.setState({ visibleMapModal: true })}>
+                <Text style={styles.label}>Where to?</Text>
+              </TouchableOpacity>
           </View>
           <FlatList
           data={createRows(this.state.data, columns)}
@@ -111,7 +120,7 @@ export default class MainScreen extends Component {
         {/* </LinearGradient> */}
         <Modal
           style={{ margin: 0 }}
-          isVisible={this.state.visibleModal === true}
+          isVisible={this.state.visibleSummonModal === true}
           backdropColor={"#111117"}
           backdropOpacity={1}
           animationIn={'fadeIn'}
@@ -121,7 +130,21 @@ export default class MainScreen extends Component {
           backdropTransitionInTiming={300}
           backdropTransitionOutTiming={300}
         >
-          <SummonModalScreen onClose={()=>this.closeModal()}/>
+          <SummonModalScreen onCloseSummonModal={()=>this.closeSummonModal()}/>
+        </Modal>
+        <Modal
+          style={{ margin: 0 }}
+          isVisible={this.state.visibleMapModal === true}
+          backdropColor={"#111117"}
+          backdropOpacity={1}
+          animationIn={'fadeIn'}
+          animationOut={'fadeOut'}
+          animationInTiming={300}
+          animationOutTiming={300}
+          backdropTransitionInTiming={300}
+          backdropTransitionOutTiming={300}
+        >
+          <MapModalScreen onCloseMapModal={()=>this.closeMapModal()}/>
         </Modal>
       </View>
     );
@@ -158,7 +181,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   label: {
-    color: 'white'
+    color: 'white',
+    margin: 10,
   },
   topView: {
     flex: 1,

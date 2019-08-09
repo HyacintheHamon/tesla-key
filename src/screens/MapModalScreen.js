@@ -6,12 +6,14 @@ import {
   StyleSheet,
   PixelRatio,
   TouchableHighlight,
+  TouchableOpacity,
   Button,
   Image,
   Dimensions,
   TextInput,
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, prototype } from 'react-native-maps';
 import mapStyle from '../json/mapStyle.json'
 import Geolocation from '@react-native-community/geolocation';
@@ -36,7 +38,7 @@ const exampleMarker = [{
 // Dummy id for example map markers
 var id = 0;
 
-export default class MapScreen extends React.Component {
+export default class MapModalScreen extends React.Component {
 
   constructor(){
     super();
@@ -104,6 +106,9 @@ export default class MapScreen extends React.Component {
         />
         ))}
         </MapView>
+        <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMapModal}>
+            <Icon name="times" size={30} color="#fff" />
+        </TouchableOpacity>
         <View style={styles.searchBarContainer}>
             <TextInput
               placeholder=" Search..."
@@ -116,6 +121,11 @@ export default class MapScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  closeButton: {
+    position: 'absolute',
+    left: 20,
+    top: 100,
+  },
   icon: {
     width: 26,
     height: 26,
@@ -162,4 +172,4 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('prototype', () => prototype);
-module.exports = MapScreen
+module.exports = MapModalScreen

@@ -11,7 +11,7 @@ export default class SummonModalScreen extends Component {
     super(props);
     
     this.state = {
-        visibleModal: null,
+        visibleSummonModal: null,
         DescriptionText : 'Press and hold a direction button to start Summon'
     }
   }
@@ -33,7 +33,7 @@ export default class SummonModalScreen extends Component {
         <SafeAreaView style={{flex:1}}>
           <View style={styles.modalContent}>
             <Text style={styles.header}>SUMMON</Text>
-            <TouchableOpacity style={styles.closeButton} onPress={this.props.onClose}>
+            <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseSummonModal}>
               <Icon name="times" size={24} color="#fff" />
             </TouchableOpacity>
 
