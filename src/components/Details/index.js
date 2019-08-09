@@ -2,19 +2,14 @@ import React, { Component } from 'react'
 
 import { Container, TypeTittle, TypeDescription, TypeImage, RequestButton, RequestButtonText } from './styles';
 
-import uberx from '../../img/uberx.png';
-
 export default class Details extends Component {
     render() {
         return (
             <Container>
-                <TypeTittle>Popular</TypeTittle>
-                <TypeDescription> Viagens baratas para o dia a dia </TypeDescription>
-
-                <TypeImage source={uberx} />
-                <TypeTittle>UberX</TypeTittle>
-                <TypeDescription>R$6,00</TypeDescription>
-                <RequestButton><RequestButtonText>SOLICITAR UBERX</RequestButtonText></RequestButton>
+                <TypeTittle>29mi</TypeTittle>
+                <TypeDescription>31min</TypeDescription>
+                <TypeDescription>10:12PM</TypeDescription>
+                <RequestButton><RequestButtonText>START TRIP</RequestButtonText></RequestButton>
             </Container>
         )
     }

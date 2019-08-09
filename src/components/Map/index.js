@@ -20,6 +20,7 @@ import mapStyle from '../../json/mapStyle.json'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Geolocation from '@react-native-community/geolocation'
 
+import teslaCarIcon from '../../img/carIcon.png'
 
 // Calculate map zoom
 const screen = Dimensions.get('window');
@@ -207,10 +208,11 @@ export default class Map extends Component {
                     title={marker.title}
                     description={marker.description}
                     key={id++}
+                    image={teslaCarIcon}
                     />
                     ))}
                 </MapView>
-
+                
                 { destination ? <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details/></Fragment> : <SearchInput onLocationSelected={this.handleLocationSelected} /> }
                 
             </View>
