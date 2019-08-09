@@ -27,9 +27,9 @@ export default class MainScreen extends Component {
     visibleModal: null,
   };
 
-  _renderModalContent = () => (
-    <ModalScreen />
-  );
+  closeModal() {
+    this.setState({visibleModal: false});
+  }
   render() {
     const columns = 5;
     return (
@@ -122,7 +122,7 @@ export default class MainScreen extends Component {
           backdropTransitionInTiming={300}
           backdropTransitionOutTiming={300}
         >
-          {this._renderModalContent()}
+          <ModalScreen onClose={()=>this.closeModal()}/>
         </Modal>
       </View>
     );

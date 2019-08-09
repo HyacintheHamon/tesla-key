@@ -33,7 +33,7 @@ export default class ModalScreen extends Component {
         <SafeAreaView style={{flex:1}}>
           <View style={styles.modalContent}>
           <Text style={styles.header}>SUMMON</Text>
-            <TouchableOpacity style={styles.closeButton} onPress={()=> this.setState({ visibleModal: null })}>
+            <TouchableOpacity style={styles.closeButton} onPress={this.props.onClose}>
               <Icon name="times" size={24} color="#fff" />
             </TouchableOpacity>
 
