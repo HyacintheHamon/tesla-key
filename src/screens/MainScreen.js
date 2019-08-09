@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const { height, width } = Dimensions.get('window');
 // import LinearGradient from 'react-native-linear-gradient';
 import Modal from 'react-native-modal';
-import ModalScreen from './ModalScreen';
+import SummonModalScreen from './SummonModalScreen';
 
 export default class MainScreen extends Component {
   state = {
@@ -121,7 +121,7 @@ export default class MainScreen extends Component {
           backdropTransitionInTiming={300}
           backdropTransitionOutTiming={300}
         >
-          <ModalScreen onClose={()=>this.closeModal()}/>
+          <SummonModalScreen onClose={()=>this.closeModal()}/>
         </Modal>
       </View>
     );

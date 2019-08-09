@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { SafeAreaView } from 'react-navigation';
 const { height, width } = Dimensions.get('window');
 const topView = require('../img/model-s-top-view.png');
-export default class ModalScreen extends Component {
+export default class SummonModalScreen extends Component {
 
   constructor(props) {
     super(props);
@@ -32,7 +32,7 @@ export default class ModalScreen extends Component {
     return (
         <SafeAreaView style={{flex:1}}>
           <View style={styles.modalContent}>
-          <Text style={styles.header}>SUMMON</Text>
+            <Text style={styles.header}>SUMMON</Text>
             <TouchableOpacity style={styles.closeButton} onPress={this.props.onClose}>
               <Icon name="times" size={24} color="#fff" />
             </TouchableOpacity>
