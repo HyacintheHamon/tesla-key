@@ -14,12 +14,12 @@ export default class Search extends Component {
         const { onLocationSelected } = this.props;
 
         return <GooglePlacesAutocomplete
-            placeholder="Para onde?"
+            placeholder="Where to?"
             placeholderTextColor="#333"
             onPress={onLocationSelected}
             query={{
-                key: 'AIzaSyBMR0UOofrP0PrX4frgdj47ecBMDhEw4TM',
-                language: 'pt'
+                key: 'AIzaSyBI_lZSOEBQz7a1RwFS6qWTyhoIJkvOvyA',
+                language: 'en'
             }}
             textInputProps={{
                 onFocus: () => { this.setState({ searchFocused: true }) },
@@ -34,7 +34,7 @@ export default class Search extends Component {
                 container: {
                     position: 'absolute',
                     top: Platform.select({ ios: 60, android: 60 }),
-                    width: "100%"
+                    width: "100%",
                 },
                 textInputContainer: {
                     flex: 1,

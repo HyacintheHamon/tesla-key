@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     shadowColor: 'gray',
     shadowOffset: { height: 0, width: 0},
-  },
+  }
 });
 
 AppRegistry.registerComponent('prototype', () => prototype);

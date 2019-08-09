@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import { View, Image } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
-import { getPixelSize } from '../../utils';
+import { View, Image, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
+import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, prototype, Marker } from 'react-native-maps';
+
+import { getPixelSize } from '../../../utils';
 
 import Geocoder from 'react-native-geocoding';
 
@@ -11,12 +12,53 @@ import Details from '../Details';
 
 import { Back, LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from './styles';
 
-Geocoder.init('AIzaSyBMR0UOofrP0PrX4frgdj47ecBMDhEw4TM');
+Geocoder.init('AIzaSyBI_lZSOEBQz7a1RwFS6qWTyhoIJkvOvyA');
 
-import markerImage from '../../assets/marker.png';
-import backImagem from '../../assets/back.png';
+import markerImage from '../../img/marker.png';
+import backImagem from '../../img/back.png';
+import mapStyle from '../../json/mapStyle.json'
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import Geolocation from '@react-native-community/geolocation'
+
+
+// Calculate map zoom
+const screen = Dimensions.get('window');
+const ASPECT_RATIO = screen.width / screen.height;
+// const LATITUDE_DELTA = 0.001;
+// const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+const LATITUDE_DELTA = 0.0922;
+const LONGITUDE_DELTA =  0.0421;
+
+
+// Dummy data
+const exampleMarker = [{
+    latlng: { latitude: 48.8983508, longitude: 2.3778904},
+    title: 'My Tesla car',
+    description: '427m',
+  },
+];
+
+// Dummy id for example map markers
+var id = 0;
 
 export default class Map extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+          markers: exampleMarker,
+          region: {
+            latitude: 48.8983508,
+            longitude: 2.3778904,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          },
+          currentPosition: {
+            latitude: 0.0,
+            longitude: 0.0,
+          }
+        }
+      }
 
     state = {
         region: null,
@@ -25,8 +67,9 @@ export default class Map extends Component {
         location: null,
     };
 
+    /* 
     async componentDidMount() {
-        navigator.geolocation.getCurrentPosition(
+        Geolocation.getCurrentPosition(
             async ({ coords: { latitude, longitude } }) => {
                 const response = await Geocoder.from({ latitude, longitude });
                 const address = response.results[0].formatted_address;
@@ -41,8 +84,8 @@ export default class Map extends Component {
                         longitudeDelta: 0.0134
                     }
                 });
-            },   //sucesso
-            () => { },   //erro
+            },   //sucess
+            () => { },   //error
             {
                 timeout: 2000,
                 enableHighAccuracy: true,
@@ -50,6 +93,24 @@ export default class Map extends Component {
             }
         );
     }
+    */
+    
+     
+    componentDidMount() {
+        Geolocation.getCurrentPosition(
+          (position) => {
+            this.setState({
+              currentPosition: {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+              }
+            });
+          },
+          (error) => this.setState({ error: error.message }),
+          { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+        );
+      }
+    
 
     handleLocationSelected = (data, { geometry }) => {
         const { location: { lat: latitude, lng: longitude } } = geometry;
@@ -74,13 +135,30 @@ export default class Map extends Component {
         return (
             
             <View style={{ flex: 1 }}>
-
+                <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMapModal}>
+                    <Icon name="times" size={30} color="#fff" />
+                </TouchableOpacity>
                 <MapView
-                    style={{ flex: 1 }}
-                    region={region}
-                    showsUserLocation
-                    loadingEnabled
-                    ref={el => this.mapView = el}
+                provider={ PROVIDER_GOOGLE }
+				style={ styles.container }
+				customMapStyle= {mapStyle}
+                region={{ latitude: this.state.currentPosition.latitude,
+                    longitude: this.state.currentPosition.longitude,
+                    latitudeDelta: LATITUDE_DELTA,
+                    longitudeDelta: LONGITUDE_DELTA,
+                }}
+                mapType="standard"
+                showsUserLocation={true}
+                userLocationAnnotationTitle="My position"
+                followsUserLocation={true}
+                showsMyLocationButton={true}
+                showsPointsOfInterest={true}
+                showsCompass={true}
+                showsIndoors={true}
+                zoomEnabled={true}
+                zoomControlEnabled={true}
+                loadingEnabled={true}
+                scrollEnabled={true}
                 >
                     {destination && (
                         <Fragment>
@@ -123,6 +201,14 @@ export default class Map extends Component {
                             </Marker>
                         </Fragment>
                     )}
+                    {this.state.markers.map(marker => (
+                    <MapView.Marker
+                    coordinate={marker.latlng}
+                    title={marker.title}
+                    description={marker.description}
+                    key={id++}
+                    />
+                    ))}
                 </MapView>
 
                 { destination ? <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details/></Fragment> : <SearchInput onLocationSelected={this.handleLocationSelected} /> }
@@ -131,3 +217,54 @@ export default class Map extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    closeButton: {
+      position: 'absolute',
+      left: 20,
+      top: 100,
+    },
+    icon: {
+      width: 26,
+      height: 26,
+    },
+    ar: {
+      flex: 1,
+    },
+    mainView: {
+      position: 'absolute',
+      height: '100%',
+      width: '100%',
+    },
+    container: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    },
+    searchBar: {
+      elevation: 1,
+      width: '99%',
+      marginTop: 'auto',
+      marginBottom: 'auto',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+    searchBarContainer: {
+      elevation: 1,
+      backgroundColor: 'white',
+      width: '90%',
+      height: '6%',
+      marginLeft: '5%',
+      top: 40,
+      borderRadius: 3,
+      shadowOpacity: 0.75,
+      shadowRadius: 1,
+      shadowColor: 'gray',
+      shadowOffset: { height: 0, width: 0},
+    }
+});

@@ -9,6 +9,7 @@ const { height, width } = Dimensions.get('window');
 import Modal from 'react-native-modal';
 import SummonModalScreen from './SummonModalScreen';
 import MapModalScreen from './MapModalScreen';
+import MapModal from '../components/Map';
 
 export default class MainScreen extends Component {
   state = {
@@ -144,7 +145,7 @@ export default class MainScreen extends Component {
           backdropTransitionInTiming={300}
           backdropTransitionOutTiming={300}
         >
-          <MapModalScreen onCloseMapModal={()=>this.closeMapModal()}/>
+          <MapModal onCloseMapModal={()=>this.closeMapModal()}/>
         </Modal>
       </View>
     );

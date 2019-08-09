@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { Container, TypeTittle, TypeDescription, TypeImage, RequestButton, RequestButtonText } from './styles';
 
-import uberx from '../../assets/uberx.png';
+import uberx from '../../img/uberx.png';
 
 export default class Details extends Component {
     render() {
