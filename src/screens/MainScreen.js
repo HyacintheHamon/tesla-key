@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, Dimensions} from 'react-native';
 import YourCarPic from '../components/YourCarPic'
+import HeaderComponent from '../components/HeaderComponent'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const { height, width } = Dimensions.get('window');
@@ -34,6 +35,13 @@ export default class MainScreen extends Component {
     return (
       <View style={styles.container}>
         {/* <LinearGradient colors={['#111117', '#333']} style={styles.linearGradient}> */}
+          <HeaderComponent
+            leftButtonOnPress={() => this.props.navigation.toggleDrawer()}
+            rightButtonOnPress={() => alert("light")}
+            leftButtonImage={false}
+            leftIconName={'menu'}
+            leftIconType={'feather'}
+          />
           <View style={ styles.topView} >
             <View style={ styles.milesView} >
               <Text style={styles.milesViewTitle}>254</Text>

@@ -17,6 +17,12 @@ import MapScreen from '../screens/MapScreen'
 import ARScene from '../screens/ARScene'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+const StackNavigatorOptions = {
+  header: null,
+  headerMode: 'none',
+  animationEnabled: false
+};
+
 const DrawerStack = createDrawerNavigator({
   MainScreen : { screen: MainScreen },
   MapScreen: { screen: MapScreen },
@@ -26,35 +32,18 @@ const DrawerStack = createDrawerNavigator({
   screen3: { screen: Screen3 },
 }, {
   gesturesEnabled: false,
-  contentComponent: DrawerContent,
-  headerMode: 'float',
-  navigationOptions: ({navigation}) => ({
-    headerStyle: {
-      backgroundColor: '#111117', 
-      shadowColor: 'transparent',
-      elevation: 0,
-      shadowOpacity: 0,
-      borderBottomWidth: 0,
-    },
-    gesturesEnabled: false,
-    headerLeft:  <Icon style={{color: '#fff', marginLeft: 20}} name="bars" size={20} onPress={() => navigation.toggleDrawer()} color="#FFF" />
-   // <Text style={{color: '#fff', marginLeft: 20}} onPress={() => navigation.toggleDrawer()}>Menu</Text>
-  })
+  contentComponent: DrawerContent
 })
 
-const DrawerNavigation = createStackNavigator({
-  DrawerStack: { screen: DrawerStack }
-})
 
 // login stack
 const LoginStack = createStackNavigator({
   loginScreen: { screen: LoginScreen },
   signupScreen: { screen: SignupScreen },
   forgottenPasswordScreen: { screen: ForgottenPasswordScreen, navigationOptions: { title: 'Forgot Password' } }
-}, {
-  headerMode: 'none'
-})
-
+}, 
+  StackNavigatorOptions
+)
 
 const noTransitionConfig = () => ({
   transitionSpec: {
@@ -70,12 +59,13 @@ const PrimaryNav = createStackNavigator({
   Walkthrough: { screen: Walkthrough },
   //LoginStack: { screen: LoginStack },
   LoginForm: { screen: LoginForm },
-  DrawerStack: { screen: DrawerNavigation }
+  DrawerStack: { screen: DrawerStack }
 }, {
-  // Default config for all screens
+  initialRouteName: 'SplashScreen',  
   headerMode: 'none',
-  title: 'Main',
-  initialRouteName: 'SplashScreen',
+  navigationOptions: {
+    headerVisible: false,
+  },
   transitionConfig: noTransitionConfig
 })
 
