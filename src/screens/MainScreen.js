@@ -37,7 +37,7 @@ export default class MainScreen extends Component {
         {/* <LinearGradient colors={['#111117', '#333']} style={styles.linearGradient}> */}
           <HeaderComponent
             leftButtonOnPress={() => this.props.navigation.toggleDrawer()}
-            rightButtonOnPress={() => alert("light")}
+            rightButtonOnPress={()=> this.setState({ visibleModal: true })}
             leftButtonImage={false}
             leftIconName={'menu'}
             leftIconType={'feather'}
@@ -98,8 +98,7 @@ export default class MainScreen extends Component {
               return <View style={[styles.item, styles.itemEmpty]} />;
             }
             return (
-              <TouchableOpacity onPress={()=> this.setState({ visibleModal: true })}> 
-              {/* onPress={()=>alert("tapped")} */}
+              <TouchableOpacity onPress={()=>alert("tapped")}> 
                 <View style={styles.item}>
                   <Icon style={styles.icon} name={item.iconTitle} size={25} color="#FFF" />
                   <Text style={styles.text}>{item.title}</Text>
