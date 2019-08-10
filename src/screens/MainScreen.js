@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   inlineLabel:{
-    color: 'white',
+    color: '#98989b',
     margin: 10,
     fontFamily: 'Montserrat-Medium',
   },
