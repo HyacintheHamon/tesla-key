@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Image } from 'react-native';
+import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet } from 'react-native';
+import SvgUri from 'react-native-svg-uri';
 
 export default class App extends Component {
   state = {
@@ -11,7 +12,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <Image style={styles.logo} source={require('../img/logo_grey.png')} />
+        <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} />
         <View style={styles.header}>
           <Text style={styles.description}>
             Please enter the username and password you use to login to the Tesla site:
@@ -141,7 +142,5 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     alignSelf: 'center',
     backgroundColor: 'transparent',
-    width: 200,
-    height: 70
 }
 });

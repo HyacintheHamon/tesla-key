@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, Text, Dimensions } from 'react-native';
+import { StyleSheet, View,  Text, Dimensions } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
+
+import SvgUri from 'react-native-svg-uri';
 
 export default class SplashScreen extends Component {
 
@@ -48,7 +50,7 @@ export default class SplashScreen extends Component {
   render() {
     return (
         <View style={styles.View}>
-          <Image style={styles.logo} source={require('../img/logo_grey.png')} />
+            <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} />
         </View>
     );
   }
@@ -67,8 +69,6 @@ const styles = StyleSheet.create({
     logo: {
         alignSelf: 'center',
         backgroundColor: 'transparent',
-        width: 250,
-        height: 100
     }
 
 });

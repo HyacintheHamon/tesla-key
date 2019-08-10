@@ -1,7 +1,8 @@
 import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import SvgUri from 'react-native-svg-uri';
 
 export default class DrawerContent extends React.Component {
 
@@ -118,7 +119,7 @@ export default class DrawerContent extends React.Component {
         </View>
 
         <View style={styles.logoView}>
-          <Image style={styles.logo} source={require('../img/logo_grey.png')} />
+        <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} />
           <Text style={styles.version}>v. 1.0.0</Text>
         </View>
 
@@ -203,14 +204,12 @@ const styles = StyleSheet.create({
   logo: {
     alignSelf: 'center',
     backgroundColor: 'transparent',
-    width: 200,
-    height: 100
   },
   version: { 
     fontFamily: 'Montserrat-Medium',
     fontSize: 10,
     fontWeight: 'bold',
-    color: '#A9A9A9',
-    marginTop: 0,
+    color: '#36393e',
+    marginTop: 10,
   }
 })

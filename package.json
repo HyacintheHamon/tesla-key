@@ -9,7 +9,7 @@
   },
   "rnpm": {
     "assets": [
-   "./src/fonts/"
+      "./src/fonts/"
     ]
   },
   "dependencies": {
@@ -29,6 +29,8 @@
     "react-native-modal": "^11.3.1",
     "react-native-pages": "^0.7.0",
     "react-native-reanimated": "^1.1.0",
+    "react-native-svg": "^9.6.2",
+    "react-native-svg-uri": "^1.2.3",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^3.11.1",
     "react-navigation-redux-helpers": "^3.0.2",

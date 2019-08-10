@@ -5,8 +5,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { SafeAreaView } from 'react-navigation';
 const { height, width } = Dimensions.get('window');
 const topView = require('../img/model-s-top-view.png');
-// import LottieView from 'lottie-react-native';
-// const carAnimation = require('../animations/car.json');
+import LottieView from 'lottie-react-native';
+const carAnimation = require('../animations/car.json');
 
 export default class SummonModalScreen extends Component {
 
@@ -24,14 +24,14 @@ export default class SummonModalScreen extends Component {
     this.setState({
       DescriptionText : 'Release the direction button  to stop your vehicle'
     })
-    // this.animation.play();
+    this.animation.play();
   }
 
   handlePressOut =()=> {
     this.setState({
       DescriptionText : 'Press and hold a direction button to start Summon'
     })
-    // this.animation.play();
+    this.animation.play();
   }
 
   render() {
@@ -43,16 +43,16 @@ export default class SummonModalScreen extends Component {
               <Icon name="times" size={24} color="#fff" />
             </TouchableOpacity>
 
-            <Image source={topView} style={{width: width/3, height: height/2 }}/> 
-            {/*<LottieView 
+           {/* <Image source={topView} style={{width: width/3, height: height/2 }}/> */}
+            <LottieView 
             ref={animation => {
               this.animation = animation;
             }}
             source={carAnimation} 
-            style={{position:'relative', width:150, alignContent:'center', justifyContent:'center',alignItems:'center'}}
+            style={{position:'relative', width:250, alignContent:'center', justifyContent:'center',alignItems:'center'}}
             //progress={this.state.progress}
             onAnimationFinish={()=>{ this.animation.reset(); }}
-            /> */}
+            /> 
 
             <View style={styles.bottomModal}>
               <Text style={styles.descriptionText}> {this.state.DescriptionText} </Text>

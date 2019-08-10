@@ -165,6 +165,8 @@ PODS:
     - React
   - RNReanimated (1.1.0):
     - React
+  - RNSVG (9.6.2):
+    - React
   - RNVectorIcons (6.6.0):
     - React
   - ViroKit_static_lib (1.0)
@@ -206,6 +208,7 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - ViroKit_static_lib (from `../node_modules/react-viro/ios/dist/ViroRenderer/static_lib`)
   - ViroReact (from `../node_modules/react-viro/ios/`)
@@ -281,6 +284,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   ViroKit_static_lib:
@@ -327,6 +332,7 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 2e2e3feb9bdadc752a026703d8c4065ca912e75a
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNReanimated: 7a52c90473b5e81c13408d40d797b98387eaddde
+  RNSVG: ff9b094e39dd4a437ebe17d1c7ceed286e75f426
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   ViroKit_static_lib: ae9c112ac4b128f8d4466fc581c7b07a0264754d
   ViroReact: 7ec32276dcd1883662b4587eaedfff67f7fc3625

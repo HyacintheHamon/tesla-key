@@ -5423,6 +5423,18 @@ react-native-safe-modules@^1.0.0:
   dependencies:
     debounce "^1.2.0"
 
+react-native-svg-uri@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-svg-uri/-/react-native-svg-uri-1.2.3.tgz#2f67f30564068a0fee68a751845332a5185a1aab"
+  integrity sha1-L2fzBWQGig/uaKdRhFMypRhaGqs=
+  dependencies:
+    xmldom "^0.1.22"
+
+react-native-svg@^9.6.2:
+  version "9.6.2"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.6.2.tgz#e29b626f115230e0f0f3693887f36e60b5b01408"
+  integrity sha512-TwTEkGTe2aRh1VBemFIuc6bCvPmlVUAd2kk4HmZLuxyBDAzEAbWYFsvDSkGd9mZ06ghx1gDg+c0hrH3y0q/eDA==
+
 react-native-tab-view@^1.2.0, react-native-tab-view@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-1.4.1.tgz#f113cd87485808f0c991abec937f70fa380478b9"
@@ -6894,7 +6906,7 @@ xmldoc@^1.1.2:
   dependencies:
     sax "^1.2.1"
 
-xmldom@0.1.x:
+xmldom@0.1.x, xmldom@^0.1.22:
   version "0.1.27"
   resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.1.27.tgz#d501f97b3bdb403af8ef9ecc20573187aadac0e9"
   integrity sha1-1QH5ezvbQDr4757MIFcxh6rawOk=
