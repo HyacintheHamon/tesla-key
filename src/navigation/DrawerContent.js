@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
   header:{
     color: "#fff",
     textTransform: 'uppercase',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 15,
     textAlign: 'center',
   },
@@ -152,6 +153,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   mileageText:{
+    fontFamily: 'Montserrat-Medium',
     fontSize: 14,
     color: '#fff',
     padding: 5,
@@ -161,10 +163,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   milesNumberText:{
+    fontFamily: 'Montserrat-Medium',
     fontSize: 35,
     color: '#fff',
   },
   miText: {
+    fontFamily: 'Montserrat-Medium',
     fontSize: 12,
     color: '#fff',
     marginLeft: 5,
@@ -182,6 +186,7 @@ const styles = StyleSheet.create({
     margin: 12
   },
   DrawerItemText: {
+    fontFamily: 'Montserrat-Medium',
     fontSize: 14,
     color: '#fff',
     padding: 12,
@@ -202,6 +207,7 @@ const styles = StyleSheet.create({
     height: 100
   },
   version: { 
+    fontFamily: 'Montserrat-Medium',
     fontSize: 10,
     fontWeight: 'bold',
     color: '#A9A9A9',

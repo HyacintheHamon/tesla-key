@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#111117',
   },
   welcome: {
+    fontFamily: 'Montserrat-Medium',
     fontSize: 20,
     textAlign: 'center',
     color: 'white',

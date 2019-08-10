@@ -7,6 +7,11 @@
     "test": "jest",
     "lint": "eslint ."
   },
+  "rnpm": {
+    "assets": [
+   "./src/fonts/"
+    ]
+  },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",
     "@react-native-community/geolocation": "^1.4.2",

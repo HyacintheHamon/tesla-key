@@ -34,6 +34,7 @@ let viewStyle = {
 let textStyle = {
   backgroundColor: 'transparent',
   textAlign: 'center',
+  fontFamily: 'Montserrat-Medium',
   fontSize: 15,
   marginTop: 20,
   padding: 10

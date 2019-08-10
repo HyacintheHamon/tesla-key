@@ -62,6 +62,7 @@ export default class Search extends Component {
                     shadowRadius: 15,
                     borderWidth: 1,
                     borderColor: '#DDD',
+                    fontFamily: 'Montserrat-Medium',
                     fontSize: 18
                 },
                 listView: {
@@ -77,6 +78,7 @@ export default class Search extends Component {
                     marginTop: 10
                 },
                 description: {
+                    fontFamily: 'Montserrat-Medium',
                     fontSize: 16
                 },
                 row: {

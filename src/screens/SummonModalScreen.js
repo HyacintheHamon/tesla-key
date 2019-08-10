@@ -85,10 +85,12 @@ const styles = StyleSheet.create({
         top: 20,
         color: "#fff",
         textTransform: 'uppercase',
+        fontFamily: 'Montserrat-Medium',
         fontSize: 15
     },
     descriptionText: {
         color: "#fff",
+        fontFamily: 'Montserrat-Medium',
         fontSize: 12,
         textAlign: "center",
         lineHeight: 15,
@@ -98,7 +100,10 @@ const styles = StyleSheet.create({
     buttonText: {
         color: '#fff',
         textTransform: 'uppercase',
-        fontSize: 15
+        fontFamily: 'Montserrat-Bold',
+        fontSize: 12,
+        fontWeight: '700',
+        letterSpacing: 1
     },
     button: {
         backgroundColor: 'transparent',

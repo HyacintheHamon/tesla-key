@@ -43,7 +43,7 @@ export default class ARScene extends Component {
 
 var styles = StyleSheet.create({
   helloWorldTextStyle: {
-    fontFamily: 'Arial',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 30,
     color: '#ffffff',
     textAlignVertical: 'center',

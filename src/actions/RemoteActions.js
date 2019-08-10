@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   welcome: {
+    fontFamily: 'Montserrat-Medium',
     fontSize: 20,
     textAlign: 'center',
     color: 'white',

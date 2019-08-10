@@ -66,7 +66,7 @@ export default class MainScreen extends Component {
                 style={{margin: 10}}
               />
               <TouchableOpacity onPress={()=>alert("temp")}>
-                <Text style={styles.label}>Interior 68°F</Text>
+                <Text style={styles.inlineLabel}>Interior 68°F</Text>
               </TouchableOpacity>
               <Icon 
                 style={styles.infoIcon}
@@ -76,7 +76,7 @@ export default class MainScreen extends Component {
                 style={{margin: 10}}
               />
               <TouchableOpacity onPress={()=>alert("temp")}>
-                <Text style={styles.label}>Parked</Text>
+                <Text style={styles.inlineLabel}>Parked</Text>
               </TouchableOpacity>
               <Ionicons
                 name={'md-battery-charging'}
@@ -86,7 +86,7 @@ export default class MainScreen extends Component {
                 style={{margin: 10}}
               />
               <TouchableOpacity onPress={()=>alert("temp")}>            
-                <Text style={styles.label}>Charging</Text>
+                <Text style={styles.inlineLabel}>Charging</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.calloutView} >
@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#111117',
+    fontFamily: 'Montserrat-Medium',
   },
   status: {
     flexDirection: 'row',
@@ -187,9 +188,15 @@ const styles = StyleSheet.create({
     flex: 0.075,
     alignItems: 'center'
   },
+  inlineLabel:{
+    color: 'white',
+    margin: 10,
+    fontFamily: 'Montserrat-Medium',
+  },
   label: {
     color: 'white',
     margin: 10,
+    fontFamily: 'Montserrat-Bold',
   },
   topView: {
     flex: 1,
@@ -202,13 +209,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   milesViewTitle: {
-    fontFamily: 'Arial',
-    fontSize: 130,
+    fontFamily: 'Montserrat-Light',
+    fontSize: 80,
     color: '#fff',
-    top: -height/7
+    top: -height/9.5
   },
   milesViewSubtitle: {
-    fontFamily: 'Arial',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 20,
     top: -125,
     color: '#606060',
@@ -222,6 +229,7 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   welcome: {
+    fontFamily: 'Montserrat-Medium',
     fontSize: 20,
     textAlign: 'center',
     color: "#fff",

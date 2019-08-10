@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'darkred',
   },
   description: {
+    fontFamily: 'Montserrat-Medium',
     fontSize: 15,
     color: 'white',
   },
@@ -119,12 +120,14 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: 'darkred',
     borderWidth: 2,
+    fontFamily: 'Montserrat-Medium',
     fontSize: 16,
     color: 'white',
   },
   legal: {
     margin: 10,
     color: 'white',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 12,
     textAlign: 'center',
     paddingBottom: 20,
