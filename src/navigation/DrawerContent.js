@@ -8,7 +8,7 @@ export default class DrawerContent extends React.Component {
   render() {
     const { navigation } = this.props
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: '#13181B'}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: '#15191E'}}>
       <View style={styles.container}>
         
         <View style={styles.headerView}>
@@ -131,7 +131,7 @@ export default class DrawerContent extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#13181B',
+    backgroundColor: '#15191E',
     paddingTop: 40,
     paddingHorizontal: 20,
   },

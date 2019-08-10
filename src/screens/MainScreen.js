@@ -91,12 +91,18 @@ export default class MainScreen extends Component {
             </View>
             <View style={styles.calloutView} >
               <View style={styles.calloutIconView}>
-                <Icon style={styles.calloutIcon} name="location-arrow" size={10} color="#333" />
+                <Icon style={styles.calloutIcon} name="location-arrow" size={15} color="#fff" />
               </View>
               
               <TouchableOpacity style={styles.calloutSearch} onPress={()=> this.setState({ visibleMapModal: true })}>
                 <Text style={styles.label}>Where to?</Text>
               </TouchableOpacity>
+
+              <View style={styles.calloutIconView}>
+                <TouchableOpacity style={styles.calloutIconEnd} onPress={() => this.props.navigation.navigate('ARScene')}>
+                 <Icon  name="dot-circle" size={20} color="#fff" />
+                </TouchableOpacity>
+              </View>
           </View>
           <FlatList
           data={createRows(this.state.data, columns)}
@@ -266,7 +272,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: '#13181B',
     borderRadius: 5,
-    width: "95%",
+    width: "90%",
     marginLeft: "30%",
     marginRight: "30%",
     marginTop: 10,
@@ -279,7 +285,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   calloutIcon: {
-    color: "#fff"
+    color: "#fff",
+    width:50,
+    marginLeft: 50,
+  },
+  calloutIconEnd: {
+    color: "#fff",
+    width:50,
+    marginRight: 0,
   },
   calloutSearch: {
     borderColor: "transparent",
