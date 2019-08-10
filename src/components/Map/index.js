@@ -22,6 +22,8 @@ import Geolocation from '@react-native-community/geolocation'
 
 import teslaCarIcon from '../../img/carIcon.png'
 
+import HeaderComponent from '../HeaderComponent'
+
 // Calculate map zoom
 const screen = Dimensions.get('window');
 const ASPECT_RATIO = screen.width / screen.height;
@@ -136,7 +138,14 @@ export default class Map extends Component {
         return (
             
             <View style={{ flex: 1 }}>
-                <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMapModal}>
+                <HeaderComponent
+                leftButtonOnPress={() => this.props.navigation.toggleDrawer()}
+                rightButtonOnPress={this.props.onCloseMapModal}
+                leftButtonImage={false}
+                leftIconName={'menu'}
+                leftIconType={'feather'}
+                />
+                <TouchableOpacity style={styles.closeButton} >
                     <Icon name="times" size={30} color="#fff" />
                 </TouchableOpacity>
                 <MapView
