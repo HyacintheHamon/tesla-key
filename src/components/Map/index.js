@@ -138,16 +138,6 @@ export default class Map extends Component {
         return (
             
             <View style={{ flex: 1 }}>
-                <HeaderComponent
-                leftButtonOnPress={() => this.props.navigation.toggleDrawer()}
-                rightButtonOnPress={this.props.onCloseMapModal}
-                leftButtonImage={false}
-                leftIconName={'menu'}
-                leftIconType={'feather'}
-                />
-                <TouchableOpacity style={styles.closeButton} >
-                    <Icon name="times" size={30} color="#fff" />
-                </TouchableOpacity>
                 <MapView
                 provider={ PROVIDER_GOOGLE }
 				style={ styles.container }
@@ -222,7 +212,7 @@ export default class Map extends Component {
                     ))}
                 </MapView>
                 
-                { destination ? <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details/></Fragment> : <SearchInput onLocationSelected={this.handleLocationSelected} /> }
+                { destination ? <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details/></Fragment> : <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/> }
                 
             </View>
         )
