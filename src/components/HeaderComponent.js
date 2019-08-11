@@ -11,8 +11,7 @@ import {
   Platform,
 } from "react-native";
 import { withNavigation } from "react-navigation";
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import SvgUri from 'react-native-svg-uri';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 var { width, height } = Dimensions.get('window');
@@ -71,12 +70,8 @@ class HeaderComponent extends Component {
           />
         </View>
         <View style={[styles.headerItem, { alignItems: "flex-end" }]}>
-          <TouchableOpacity style={{padding:8, marginTop:-8, paddingLeft:30}} onPress={rightButtonOnPress}>
-            <MaterialIcons
-              name={'highlight'}
-              color={'white'}
-              size={24}
-            />
+          <TouchableOpacity style={{padding:8, marginTop:-8, paddingLeft:30,  marginRight:5,}} onPress={rightButtonOnPress}>
+            <SvgUri fill="#fff" fillAll="true" tyle={styles.logo} width="35" height="35" source={require('../img/key_white.svg')} />
           </TouchableOpacity>
         </View>
       </View>

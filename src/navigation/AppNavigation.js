@@ -15,7 +15,6 @@ import VehicleState from '../screens/VehicleState'
 import MainScreen from '../screens/MainScreen'
 import MapModalScreen from '../screens/MapModalScreen'
 import ARScene from '../screens/ARScene'
-import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const StackNavigatorOptions = {
   header: null,
