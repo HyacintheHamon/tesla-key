@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     fontFamily: 'Montserrat-Medium',
-    fontSize: 15
+    fontSize: 13
   },
   label: {
     color: 'white',

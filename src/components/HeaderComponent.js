@@ -71,7 +71,7 @@ class HeaderComponent extends Component {
         </View>
         <View style={[styles.headerItem, { alignItems: "flex-end" }]}>
           <TouchableOpacity style={{padding:8, marginTop:-8, paddingLeft:30,  marginRight:5,}} onPress={rightButtonOnPress}>
-            <SvgUri fill="#fff" fillAll="true" tyle={styles.logo} width="35" height="35" source={require('../img/key_white.svg')} />
+            <SvgUri fill="#fff" fillAll="true" tyle={styles.logo} width="25" height="25" source={require('../img/key_white.svg')} />
           </TouchableOpacity>
         </View>
       </View>
