@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Linking } from 'react-native';
 import SvgUri from 'react-native-svg-uri';
 
 export default class App extends Component {
@@ -59,6 +59,12 @@ export default class App extends Component {
             </Text>
             <Text style={styles.legal} onPress={() => this.props.navigation.replace('DrawerStack')} >
               Go to Main Screen (for development)
+            </Text>
+            <Text style={styles.legal} onPress={ ()=>{ Linking.openURL('https://www.tesla.com/user/password?email=&redirect=no')}}>
+              Reset your password
+            </Text>
+            <Text style={styles.legal} onPress={ ()=>{ Linking.openURL('https://www.tesla.com/about/legal#privacy-statement?redirect=no')}}>
+              Privacy Policy
             </Text>
           </View>
         </KeyboardAvoidingView>
