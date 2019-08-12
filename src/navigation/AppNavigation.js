@@ -8,12 +8,10 @@ import ForgottenPasswordScreen from '../screens/ForgottenPasswordScreen'
 import SplashScreen from '../screens/SplashScreen'
 import Walkthrough from '../screens/Walkthrough'
 import DrawerContent from './DrawerContent'
-import Screen1 from '../screens/Screen1'
-import Screen2 from '../screens/Screen2'
-import Screen3 from '../screens/Screen3'
 import VehicleState from '../screens/VehicleState'
 import MainScreen from '../screens/MainScreen'
 import MapModalScreen from '../screens/MapModalScreen'
+import ClimateControlsModalScreen from '../screens/ClimateControlsModalScreen'
 import ARScene from '../screens/ARScene'
 
 const StackNavigatorOptions = {
@@ -26,9 +24,7 @@ const DrawerStack = createDrawerNavigator({
   MainScreen : { screen: MainScreen },
   MapModalScreen: { screen: MapModalScreen },
   ARScene: { screen: ARScene },
-  screen1: { screen: Screen1 },
-  screen2: { screen: Screen2 },
-  screen3: { screen: Screen3 },
+  ClimateControlsModalScreen: { screen: ClimateControlsModalScreen },
 }, {
   gesturesEnabled: false,
   contentComponent: DrawerContent

@@ -1,8 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Animated, Easing } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Animated, Easing, SafeAreaView  } from 'react-native'
 import YourCarPic from '../components/YourCarPic'
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { SafeAreaView } from 'react-navigation';
 const { height, width } = Dimensions.get('window');
 const topView = require('../img/model-s-top-view.png');
 // import LottieView from 'lottie-react-native';

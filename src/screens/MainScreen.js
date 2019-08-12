@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, Image, View, FlatList, TouchableOpacity, Dimensions} from 'react-native';
+import {StyleSheet, Text, Alert, Image, View, FlatList, TouchableOpacity, Dimensions} from 'react-native';
 // import LinearGradient from 'react-native-linear-gradient';
 import { create, PREDEF_RES } from 'react-native-pixel-perfect';
 import Modal from 'react-native-modal';
@@ -11,9 +11,9 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 const { height, width } = Dimensions.get('window');
 perfectSize = create(PREDEF_RES.iphoneX.px);
 import SummonModalScreen from './SummonModalScreen';
-import MapModalScreen from './MapModalScreen';
+// import MapModalScreen from './MapModalScreen';
 import MapModal from '../components/Map';
-
+import ClimateControlsModalScreen from './ClimateControlsModalScreen'
 const vent = require("../img/vent.png");
 const trunk = require("../img/trunk.png");
 const frunk = require("../img/frunk.png");
@@ -30,6 +30,17 @@ export default class MainScreen extends Component {
     secondItem: 72,
     visibleSummonModal: null,
     visibleMapModal: null,
+    visibleClimateControlsModal: null,
+  };
+
+  handlerfanButtonLongPress = () => {
+    //handler for Long Press on 
+    //Alert.alert(' Long press');
+    this.setState({ visibleClimateControlsModal: true });
+  };
+  handlerfanButtonPress = () => {
+    //handler for Press
+    Alert.alert(' Just press');
   };
 
   closeSummonModal() {
@@ -38,26 +49,26 @@ export default class MainScreen extends Component {
   closeMapModal() {
     this.setState({visibleMapModal: false});
   }
+  closeClimateControlsModal() {
+    this.setState({visibleClimateControlsModal: false});
+  }
   
   incrementFirstItem = () => {
     this.setState({
       firstItem: this.state.firstItem + 1
     });
   };
-  
-  decrementFirstItem = () => {
-    this.setState({
-      firstItem: this.state.firstItem - 1
-    });
-  };
-
-
   incrementSecondItem = () => {
     this.setState({
       secondItem: this.state.secondItem + 1
     });
   };
-  
+
+  decrementFirstItem = () => {
+    this.setState({
+      firstItem: this.state.firstItem - 1
+    });
+  };
   decrementSecondItem = () => {
     this.setState({
       secondItem: this.state.secondItem - 1
@@ -153,7 +164,10 @@ export default class MainScreen extends Component {
               </TouchableOpacity>
             </View>
             <View style={styles.item}>
-              <TouchableOpacity style={styles.fanButton} onPress={()=>alert('button')}>
+              <TouchableOpacity style={styles.fanButton} 
+              onLongPress={this.handlerfanButtonLongPress}
+              onPress={this.handlerfanButtonPress}
+              >
                 <Image style={styles.buttonIcon} source={fan} />
                 <Text style={styles.text}>MANUAL</Text>
               </TouchableOpacity>
@@ -244,6 +258,21 @@ export default class MainScreen extends Component {
           backdropTransitionOutTiming={300}
         >
           <MapModal onCloseMapModal={()=>this.closeMapModal()}/>
+        </Modal>
+        <Modal
+          style={{ margin: 0 }}
+          isVisible={this.state.visibleClimateControlsModal === true}
+          backdropColor={"#111117"}
+          backdropOpacity={1}
+          animationIn={'fadeIn'}
+          animationOut={'fadeOut'}
+          animationInTiming={300}
+          animationOutTiming={300}
+          backdropTransitionInTiming={300}
+          backdropTransitionOutTiming={300}
+          onBackdropPress={() => this.setState({ visibleClimateControlsModal: false })}
+        >
+          <ClimateControlsModalScreen onCloseClimateControlsModal={()=>this.closeClimateControlsModal()}/>
         </Modal>
       </View>
     );
