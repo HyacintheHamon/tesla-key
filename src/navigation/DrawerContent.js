@@ -26,12 +26,10 @@ export default class DrawerContent extends React.Component {
             <Text style={styles.milesNumberText}>32,986</Text>
             <Text style={styles.miText}>mi</Text>
           </View>
-
         </View>
 
-        <View style={styles.DrawerItem}>
-          <Icon name={'concierge-bell'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon}/>
-          <TouchableOpacity onPress={()=>alert("temp")}>
+          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+            <Icon name={'concierge-bell'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon}/>
             <Text
               //onPress={() => navigation.navigate('MainScreen')}
               onPress={()=>alert("tapped")}
@@ -39,10 +37,9 @@ export default class DrawerContent extends React.Component {
               Valet Mode
             </Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.DrawerItem}>
-          <Icon name={'gift'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
-          <TouchableOpacity onPress={()=>alert("temp")}>
+
+          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+            <Icon name={'gift'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('MainScreen')}
               onPress={()=>alert("tapped")}
@@ -50,10 +47,9 @@ export default class DrawerContent extends React.Component {
               Loot box
               </Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.DrawerItem}>
-          <Icon name={'bell'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
-          <TouchableOpacity onPress={()=>alert("temp")}>
+
+          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+            <Icon name={'bell'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -61,10 +57,9 @@ export default class DrawerContent extends React.Component {
               Notifications
             </Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.DrawerItem}>
+
+          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
           <Icon name={'battery-three-quarters'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
-          <TouchableOpacity onPress={()=>alert("temp")}>
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -72,10 +67,9 @@ export default class DrawerContent extends React.Component {
               Battery
             </Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.DrawerItem}>
-          <Icon name={'shield-alt'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
-          <TouchableOpacity onPress={()=>alert("temp")}>
+
+          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+            <Icon name={'shield-alt'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -83,10 +77,9 @@ export default class DrawerContent extends React.Component {
               Authentication
             </Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.DrawerItem}>
-          <Icon name={'calendar'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
-          <TouchableOpacity onPress={()=>alert("temp")}>
+
+          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+            <Icon name={'calendar'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -94,10 +87,9 @@ export default class DrawerContent extends React.Component {
               Calendar
             </Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.DrawerItem}>
-          <Icon name={'question-circle'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
-          <TouchableOpacity onPress={()=>alert("temp")}>
+
+          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+            <Icon name={'question-circle'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -105,10 +97,9 @@ export default class DrawerContent extends React.Component {
               Help
             </Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.DrawerItem}>
-          <Icon name={'sign-out-alt'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
-          <TouchableOpacity onPress={()=>alert("temp")}>
+          
+          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+            <Icon name={'sign-out-alt'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -116,14 +107,14 @@ export default class DrawerContent extends React.Component {
               Sign Out
             </Text>
           </TouchableOpacity>
-        </View>
 
         <View style={styles.logoView}>
-        <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} />
+          <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} />
           <Text style={styles.version}>v. 1.0.0</Text>
         </View>
 
-      </View>
+    
+    </View>
       </SafeAreaView>
     )
   }
@@ -182,9 +173,10 @@ const styles = StyleSheet.create({
   },
   DrawerItem: {
     flexDirection: "row",
+    alignItems: "center"
   },
   DrawerItemIcon: {
-    margin: 12
+    margin: 12,
   },
   DrawerItemText: {
     fontFamily: 'Montserrat-Medium',

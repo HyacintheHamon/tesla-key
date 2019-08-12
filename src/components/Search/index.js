@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Platform, View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 export default class Search extends Component {
 
@@ -28,7 +28,7 @@ export default class Search extends Component {
                 }}>
                     <View>
                         <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMap}>
-                            <Icon name="times" size={34} color="#fff" />
+                            <Icon name="times" size={30} color="#fff" />
                         </TouchableOpacity>                        
                     </View>
                     <View style={{
@@ -63,7 +63,7 @@ export default class Search extends Component {
                                 textInput: {
                                     backgroundColor: 'rgb(32,32,38)',
                                     height: 42,
-                                    fontSize: 21,
+                                    fontSize: 15,
                                     color: 'white'
                                 },
                                 textInputContainer: {
@@ -93,19 +93,18 @@ export default class Search extends Component {
                                     borderWidth: 1,
                                     borderColor: '#DDD',
                                     fontFamily: 'Montserrat-Medium',
-                                    fontSize: 18
+                                    fontSize: 15
                                 },
                                 listView: {
-                                    borderWidth: 1,
-                                    borderColor: '#DDD',
-                                    backgroundColor: '#FFF',
+                                    borderWidth: 0,
+                                    backgroundColor: 'rgb(32,32,38)',
                                     marginHorizontal: 20,
                                     elevation: 5,
-                                    shadowColor: '#000',
                                     shadowOpacity: 0.1,
                                     shadowOffset: { x: 0, y: 0 },
                                     shadowRadius: 15,
-                                    marginTop: 10
+                                    marginTop: 50,
+                                    color: "#FFF"
                                 },
                                 description: {
                                     fontFamily: 'Montserrat-Medium',
@@ -119,8 +118,8 @@ export default class Search extends Component {
                         />                        
                     </View>
                     <View>
-                        <TouchableOpacity style={styles.rightButton} onPress={this.props.onCloseMap}>
-                            <MaterialIcons name="filter-center-focus" size={39} color="#fff" />
+                        <TouchableOpacity style={styles.rightButton} onPress={() => this.props.navigation.navigate('ARScene')}>
+                            <MaterialIcon name="filter-center-focus" size={30} color="#fff" />
                         </TouchableOpacity>                        
                     </View>
                 </View>;
@@ -137,6 +136,6 @@ const styles = StyleSheet.create({
     rightButton: {
         position: 'absolute',
         right: 7,
-        top: 2
+        top: 4
     }
 })

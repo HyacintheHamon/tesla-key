@@ -1,33 +1,46 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, Dimensions} from 'react-native';
+import {StyleSheet, Text, Alert, Image, View, FlatList, TouchableOpacity, Dimensions} from 'react-native';
+// import LinearGradient from 'react-native-linear-gradient';
+import { create, PREDEF_RES } from 'react-native-pixel-perfect';
+import Modal from 'react-native-modal';
 import YourCarPic from '../components/YourCarPic'
 import HeaderComponent from '../components/HeaderComponent'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 const { height, width } = Dimensions.get('window');
-// import LinearGradient from 'react-native-linear-gradient';
-import Modal from 'react-native-modal';
+perfectSize = create(PREDEF_RES.iphoneX.px);
 import SummonModalScreen from './SummonModalScreen';
-import MapModalScreen from './MapModalScreen';
+// import MapModalScreen from './MapModalScreen';
 import MapModal from '../components/Map';
+import ClimateControlsModalScreen from './ClimateControlsModalScreen'
+const vent = require("../img/vent.png");
+const trunk = require("../img/trunk.png");
+const frunk = require("../img/frunk.png");
+const fan = require("../img/fan.png");
+const panic = require("../img/panic.png");
+const port = require("../img/port.png");
+const seat1 = require("../img/seat1.png");
+const seat2 = require("../img/seat2.png");
 
 export default class MainScreen extends Component {
   state = {
-    data: [
-      { id: "1", iconTitle:"chair", title: "" },
-      { id: "2", iconTitle:"angle-up", title: "" },
-      { id: "3", iconTitle:"thermometer-full", title: "MANUAL" },
-      { id: "4", iconTitle:"angle-up", title: "" },
-      { id: "5", iconTitle:"chair", title: "" },
-
-      { id: "6", iconTitle:"bolt", title: "port" },
-      { id: "7", iconTitle:"car", title: "frunk" },
-      { id: "8", iconTitle:"car", title: "panic" },
-      { id: "9", iconTitle:"car", title: "trunk" },
-      { id: "10", iconTitle:"door-closed", title: "vent" }
-    ],
+    selectedItem: "",
+    firstItem: 72,
+    secondItem: 72,
     visibleSummonModal: null,
     visibleMapModal: null,
+    visibleClimateControlsModal: null,
+  };
+
+  handlerfanButtonLongPress = () => {
+    //handler for Long Press on 
+    //Alert.alert(' Long press');
+    this.setState({ visibleClimateControlsModal: true });
+  };
+  handlerfanButtonPress = () => {
+    //handler for Press
+    Alert.alert(' Just press');
   };
 
   closeSummonModal() {
@@ -36,9 +49,35 @@ export default class MainScreen extends Component {
   closeMapModal() {
     this.setState({visibleMapModal: false});
   }
+  closeClimateControlsModal() {
+    this.setState({visibleClimateControlsModal: false});
+  }
+  
+  incrementFirstItem = () => {
+    this.setState({
+      firstItem: this.state.firstItem + 1
+    });
+  };
+  incrementSecondItem = () => {
+    this.setState({
+      secondItem: this.state.secondItem + 1
+    });
+  };
+
+  decrementFirstItem = () => {
+    this.setState({
+      firstItem: this.state.firstItem - 1
+    });
+  };
+  decrementSecondItem = () => {
+    this.setState({
+      secondItem: this.state.secondItem - 1
+    });
+  };
 
   render() {
-    const columns = 5;
+    const {firstItem} = this.state;
+    const {secondItem} = this.state;
     return (
       <View style={styles.container}>
         {/* <LinearGradient colors={['#111117', '#333']} style={styles.linearGradient}> */}
@@ -63,31 +102,25 @@ export default class MainScreen extends Component {
                 type={'Entypo'}
                 color={'white'}
                 size={14}
-                style={{margin: 10}}
+                //style={{margin: 7}}
               />
-              <TouchableOpacity onPress={()=>alert("temp")}>
                 <Text style={styles.inlineLabel}>Interior 68°F</Text>
-              </TouchableOpacity>
               <Icon 
                 style={styles.infoIcon}
                 name="parking"
                 size={14}
                 color="#fff"
-                style={{margin: 10}}
+                //style={{margin: 7}}
               />
-              <TouchableOpacity onPress={()=>alert("temp")}>
                 <Text style={styles.inlineLabel}>Parked</Text>
-              </TouchableOpacity>
               <Ionicons
                 name={'md-battery-charging'}
                 style={styles.infoIcon}
                 color={'white'}
-                size={14}
-                style={{margin: 10}}
-              />
-              <TouchableOpacity onPress={()=>alert("temp")}>            
+                size={16}
+                //style={{margin: 7}}
+              />        
                 <Text style={styles.inlineLabel}>Charging</Text>
-              </TouchableOpacity>
             </View>
             <View style={styles.calloutView} >
               <View style={styles.calloutIconView}>
@@ -100,29 +133,102 @@ export default class MainScreen extends Component {
 
               <View style={styles.calloutIconView}>
                 <TouchableOpacity style={styles.calloutIconEnd} onPress={() => this.props.navigation.navigate('ARScene')}>
-                 <Icon  name="dot-circle" size={20} color="#fff" />
+                 <MaterialIcon name="filter-center-focus" size={30} color="#fff" />
                 </TouchableOpacity>
               </View>
           </View>
-          <FlatList
-          data={createRows(this.state.data, columns)}
-          scrollEnabled={false} 
-          keyExtractor={item => item.id}
-          numColumns={columns}
-          renderItem={({ item }) => {
-            if (item.empty) {
-              return <View style={[styles.item, styles.itemEmpty]} />;
-            }
-            return (
-              <TouchableOpacity onPress={()=>alert("tapped")}> 
-                <View style={styles.item}>
-                  <Icon style={styles.icon} name={item.iconTitle} size={25} color="#FFF" />
-                  <Text style={styles.text}>{item.title}</Text>
-                </View>
+          
+          <View style={styles.buttonGroup}>
+          <View style={styles.buttonRow}>
+            <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                <Image style={styles.seatIcon} source={seat1} />
               </TouchableOpacity>
-            );
-          }}
-        />
+
+            <View style={styles.ctrlTem}>
+              <TouchableOpacity style={styles.button} onPress={this.incrementFirstItem}>
+                <Icon
+                  name={'chevron-up'}
+                  type={'entypo'}
+                  color={'white'}
+                  size={24}
+                />
+              </TouchableOpacity>
+              <Text style={styles.temText}>{`  ${firstItem}°`}</Text>
+              <TouchableOpacity style={styles.button} onPress={this.decrementFirstItem}>
+                <Icon
+                  name={'chevron-down'}
+                  type={'entypo'}
+                  color={'white'}
+                  size={24}
+                />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.item}>
+              <TouchableOpacity style={styles.fanButton} 
+              onLongPress={this.handlerfanButtonLongPress}
+              onPress={this.handlerfanButtonPress}
+              >
+                <Image style={styles.buttonIcon} source={fan} />
+                <Text style={styles.text}>MANUAL</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.ctrlTem}>
+              <TouchableOpacity style={styles.button} onPress={this.incrementSecondItem}>
+                <Icon
+                  name={'chevron-up'}
+                  type={'entypo'}
+                  color={'white'}
+                  size={24}
+                />
+              </TouchableOpacity>
+              <Text style={styles.temText}>{` ${secondItem}°`}</Text>
+              <TouchableOpacity style={styles.button} onPress={this.decrementSecondItem}>
+                <Icon
+                  name={'chevron-down'}
+                  type={'entypo'}
+                  color={'white'}
+                  size={24}
+                />
+              </TouchableOpacity>
+            </View>
+            <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+              <Image style={styles.seatIcon} source={seat2} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.buttonRow}>
+            <View style={styles.item}>
+              <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                <Image style={styles.buttonIcon} source={port} />
+                <Text style={styles.text}>PORT</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.item}>
+              <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                <Image style={styles.buttonIcon} source={frunk} />
+                <Text style={styles.text}>FRUNK</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.item}>
+              <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                <Image style={styles.buttonIcon} source={panic} />              
+                <Text style={styles.text}>PANIC</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.item}>
+              <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                <Image style={styles.buttonIcon} source={trunk} />
+                <Text style={styles.text}>TRUNK</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.item}>
+              <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                <Image style={styles.buttonIcon} source={vent} />
+                <Text style={styles.text}>VENT</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+
         </View>
         {/* </LinearGradient> */}
         <Modal
@@ -153,25 +259,24 @@ export default class MainScreen extends Component {
         >
           <MapModal onCloseMapModal={()=>this.closeMapModal()}/>
         </Modal>
+        <Modal
+          style={{ margin: 0 }}
+          isVisible={this.state.visibleClimateControlsModal === true}
+          backdropColor={"#111117"}
+          backdropOpacity={1}
+          animationIn={'fadeIn'}
+          animationOut={'fadeOut'}
+          animationInTiming={300}
+          animationOutTiming={300}
+          backdropTransitionInTiming={300}
+          backdropTransitionOutTiming={300}
+          onBackdropPress={() => this.setState({ visibleClimateControlsModal: false })}
+        >
+          <ClimateControlsModalScreen onCloseClimateControlsModal={()=>this.closeClimateControlsModal()}/>
+        </Modal>
       </View>
     );
   }
-}
-
-function createRows(data, columns) {
-  const rows = Math.floor(data.length / columns);
-  let lastRowElements = data.length - rows * columns;
-
-  while (lastRowElements !== columns) {
-    data.push({
-      id: `empty-${lastRowElements}`,
-      title: `empty-${lastRowElements}`,
-      empty: true
-    });
-    lastRowElements += 1;
-  }
-
-  return data;
 }
 
 const styles = StyleSheet.create({
@@ -186,12 +291,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: width*0.9,
     flex: 0.075,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 10
   },
   inlineLabel:{
     color: '#98989b',
-    margin: 10,
+    marginLeft: 10,
+    marginRight: 10,
     fontFamily: 'Montserrat-Medium',
+    fontSize: 13
   },
   label: {
     color: 'white',
@@ -256,17 +364,11 @@ const styles = StyleSheet.create({
   item: {
     justifyContent: 'center',
     alignItems: "center",
-    backgroundColor: "#111117",
-    // flexBasis: 0,
-    flexGrow: 1,
-    margin: 7,
-    width: 60,
-    height: 60,
-    maxWidth: 60,
-    maxHeight: 60
-  },
-  itemEmpty: {
-    backgroundColor: "transparent"
+    width: 50,
+    height: 50,
+    maxWidth: 50,
+    maxHeight: 50,
+    margin:  5
   },
   icon: {
     paddingBottom: 10
@@ -274,11 +376,12 @@ const styles = StyleSheet.create({
   text: {
     color: "#fff",
     textTransform: 'uppercase',
-    fontSize: 10
+    fontSize: 10,
+    marginTop: 5
   },
   calloutView: {
     flexDirection: "row",
-    backgroundColor: '#13181B',
+    backgroundColor: '#202026',
     borderRadius: 5,
     width: "90%",
     marginLeft: "30%",
@@ -310,5 +413,46 @@ const styles = StyleSheet.create({
     marginRight: 10,
     height: 40,
     borderWidth: 0.0 
+  },
+  buttonGroup: {
+    flex: 1, 
+    flexDirection: 'column',
+    width: "90%",
+    marginBottom:  30
+  },
+  buttonRow: {
+    height: 80,
+    flexDirection: 'row',
+    flexWrap: "wrap",
+    justifyContent: "space-evenly",
+    alignContent: "center"
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  fanButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 30
+  },
+  buttonIcon: {
+    width: perfectSize(80),
+    height: perfectSize(80)
+  },
+  seatIcon: {
+    width: perfectSize(80),
+    height: perfectSize(150)
+  },
+  temText: {
+    color: 'white',
+    width: '100%',
+    justifyContent: 'center',
+    fontSize: 24
+  },
+  ctrlTem: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    margin: 5
   }
 });

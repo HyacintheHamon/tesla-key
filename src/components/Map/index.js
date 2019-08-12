@@ -212,8 +212,8 @@ export default class Map extends Component {
                     ))}
                 </MapView>
                 
-                { destination ? <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details/></Fragment> : <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/> }
-                
+                {/* destination ? <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details/></Fragment> : <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/> */}
+                <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/>
             </View>
         )
     }
