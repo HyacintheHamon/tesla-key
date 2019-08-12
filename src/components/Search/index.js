@@ -55,16 +55,21 @@ export default class Search extends Component {
                             textInputContainer
                             styles={{
                                 container: {
-                                    width: "100%"
+                                    position: 'absolute',
+                                    top: Platform.select({ ios: -50, android: -50 }),
+                                    left: "-5%",
+                                    width: "110%",
                                 },
                                 textInput: {
                                     backgroundColor: 'rgb(32,32,38)',
                                     height: 42,
-                                    fontSize: 21
+                                    fontSize: 21,
+                                    color: 'white'
                                 },
                                 textInputContainer: {
                                     flex: 1,
                                     backgroundColor: 'transparent',
+                                    height: 54,
                                     marginHorizontal: 20,
                                     borderTopWidth: 0,
                                     borderBottomWidth: 0
@@ -107,7 +112,7 @@ export default class Search extends Component {
                                     fontSize: 16
                                 },
                                 row: {
-                                    padding: 0,
+                                    padding: 20,
                                     height: 58
                                 }
                             }}
