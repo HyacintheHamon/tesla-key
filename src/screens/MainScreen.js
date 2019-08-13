@@ -317,8 +317,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   milesViewTitle: {
-    fontFamily: 'Montserrat-Light',
-    fontSize: 80,
+    fontFamily: 'OpenSans-Light',
+    fontWeight: '300',
+    fontSize: 75,
     color: '#fff',
     top: -height/9.5
   },
