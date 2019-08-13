@@ -24,8 +24,17 @@ export default class RemoteActions extends Component {
   }
 
   async remoteUnlock() {
-    // https://owner-api.teslamotors.com/api/1/vehicles/${this.props.vehicleId}/command/remote_start_drive?password={password}
-    Alert.alert('Not enabled as password is not stored')
+    try {
+      await fetch(`https://owner-api.teslamotors.com/api/1/vehicles/${this.props.vehicleId}/command/remote_start_drive?password={password}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${this.props.bearerToken}`
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    }
+    Alert.alert('Car unlocked')
   }
 
   async climateControlOn() {
