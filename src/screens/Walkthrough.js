@@ -47,14 +47,13 @@ export default class Walkthrough extends Component {
   }
 
     render() {
-      console.log('render walkthrough')
       return (
         <View style={{ flex: 1, backgroundColor: '#111117' }}>
           <Pages>
             <Page 
               color="#FFF" 
-              title="Title 1" 
-              text="Some subtile that goes with page 1"  
+              title="Welcome to Tesla key" 
+              text="A Tesla companion app, by Tesla lovers, for Tesla lovers"  
               source={require('../img/walkthrough-1.png')}
             />
             <Page 

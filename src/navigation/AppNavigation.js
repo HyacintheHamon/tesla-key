@@ -7,6 +7,7 @@ import SignupScreen from '../screens/SignupScreen'
 import ForgottenPasswordScreen from '../screens/ForgottenPasswordScreen'
 import SplashScreen from '../screens/SplashScreen'
 import Walkthrough from '../screens/Walkthrough'
+import VideoWalkthrough from '../screens/VideoWalkthrough'
 import DrawerContent from './DrawerContent'
 import VehicleState from '../screens/VehicleState'
 import MainScreen from '../screens/MainScreen'
@@ -52,6 +53,7 @@ const noTransitionConfig = () => ({
 const PrimaryNav = createStackNavigator({
   SplashScreen: { screen: SplashScreen },
   Walkthrough: { screen: Walkthrough },
+  VideoWalkthrough: { screen: VideoWalkthrough },
   //LoginStack: { screen: LoginStack },
   LoginForm: { screen: LoginForm },
   DrawerStack: { screen: DrawerStack }
