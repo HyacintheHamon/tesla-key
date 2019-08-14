@@ -41,7 +41,7 @@ export default class SplashScreen extends Component {
           // App was already launched
           console.log('App was already launched');
           // this.userLoggedIn();
-          this.props.navigation.replace('LoginForm');
+          this.props.navigation.replace('LoginScreen');
         }
     });
   }

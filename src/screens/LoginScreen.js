@@ -52,7 +52,7 @@ export default class LoginScreen extends React.Component {
                 secureTextEntry/>
             </View>
 
-            <TouchableOpacity style={styles.buttonContainer} onPress={this.handleSubmit}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.replace('DrawerStack')}>
               <Text  style={styles.buttonText}>LOGIN</Text>
             </TouchableOpacity> 
 
