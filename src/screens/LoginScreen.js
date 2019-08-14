@@ -20,10 +20,6 @@ export default class LoginScreen extends React.Component {
           <StatusBar barStyle="light-content" />
           <View style={styles.loginContainer}>
             <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} />
-
-
-
-
             <Text style={styles.description}>
               Please enter the username and password you use to login to the Tesla site
             </Text>
@@ -33,26 +29,41 @@ export default class LoginScreen extends React.Component {
             <View style={styles.inputContainer}>
               <SvgUri style={styles.inputIcon} width="20" height="20" source={require('../img/user.svg')} />
               <TextInput style = {styles.input} 
+                value={this.state.email}
+                onChangeText={email => this.setState({email})}
+                ref={ref => {this._emailInput = ref}}
                 autoCapitalize="none" 
                 onSubmitEditing={() => this.passwordInput.focus()} 
                 autoCorrect={false} 
+                autoCapitalize="none"
                 keyboardType='email-address' 
                 returnKeyType="next" 
                 placeholder='Email' 
+                onSubmitEditing={this.handleSubmit}
+                blurOnSubmit={true}
                 placeholderTextColor='rgba(225,225,225,0.7)'/>
             </View>
 
             <View style={styles.inputContainer}>
               <SvgUri style={styles.inputIcon} width="20" height="20" source={require('../img/lock.svg')} />
               <TextInput style = {styles.input}   
+                ref={ref => {this._passwordInput = ref}}
+                value={this.state.password}
+                onChangeText={password => this.setState({password})}
+                keyboardType="ascii-capable"
                 returnKeyType="go" 
+                autoCorrect={false}
+                autoCapitalize="none"
                 ref={(input)=> this.passwordInput = input} 
                 placeholder='Password' 
                 placeholderTextColor='rgba(225,225,225,0.7)' 
+                onSubmitEditing={this.handleSubmit}
+                blurOnSubmit={true}
                 secureTextEntry/>
             </View>
 
             <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.replace('DrawerStack')}>
+            {/* onPress={this.handleSubmit} */}
               <Text  style={styles.buttonText}>LOGIN</Text>
             </TouchableOpacity> 
 
@@ -70,38 +81,41 @@ export default class LoginScreen extends React.Component {
     </View>
     )
   }
+
+  handleSubmit = () => {
+    async function getBearerToken(email, password, fn) {
+      try {
+        let response = await fetch('https://owner-api.teslamotors.com/oauth/token', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            grant_type: 'password',
+            client_id: '81527cff06843c8634fdc09e8ac0abefb46ac849f38fe1e431c2ef2106796384',
+            client_secret: 'c7257eb71a564034f9419ee651c7d0e5f7aa6bfbd18bafb5c5c033b093bb2fa3',
+            email: email,
+            password: password
+          }),
+        });
+        let responseJson = await response.json();      
+        if (responseJson.access_token !== undefined) {
+          alert('Successfully authenticated!')
+          fn(responseJson.access_token)
+        } else {
+          alert('Could not authenticate, please try again')
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getBearerToken(this.state.email, this.state.password, this.props.setEstablishedConnection);
+  };
+  
 }
 
-handleSubmit = () => {
-  async function getBearerToken(email, password, fn) {
-    try {
-      let response = await fetch('https://owner-api.teslamotors.com/oauth/token', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          grant_type: 'password',
-          client_id: '81527cff06843c8634fdc09e8ac0abefb46ac849f38fe1e431c2ef2106796384',
-          client_secret: 'c7257eb71a564034f9419ee651c7d0e5f7aa6bfbd18bafb5c5c033b093bb2fa3',
-          email: email,
-          password: password
-        }),
-      });
-      let responseJson = await response.json();      
-      if (responseJson.access_token !== undefined) {
-        alert('Successfully authenticated!')
-        fn(responseJson.access_token)
-      } else {
-        alert('Could not authenticate, please try again')
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  getBearerToken(this.state.email, this.state.password, this.props.setEstablishedConnection);
-};
+
 
 const styles = StyleSheet.create({
   container: {
