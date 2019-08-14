@@ -91,9 +91,9 @@ export default class MainScreen extends Component {
           <View style={ styles.topView} >
             <View style={ styles.milesView} >
               <Text style={styles.milesViewTitle}>254</Text>
-              <Text style={styles.milesViewSubTitle}>mi</Text>
+              <Text style={styles.milesViewSubtitle}>mi</Text>
             </View>
-          <YourCarPic />
+            <YourCarPic />
           </View>
           <View style={ styles.bottomView} >
             <View style={styles.status}>
@@ -324,10 +324,12 @@ const styles = StyleSheet.create({
     top: -height/9.5
   },
   milesViewSubtitle: {
-    fontFamily: 'Montserrat-Medium',
-    fontSize: 20,
-    top: -125,
-    color: '#606060',
+    fontFamily: 'OpenSans-Light',
+    fontWeight: '300',
+    fontSize: 30,
+    color: '#fff',
+    top: -height/22,
+    marginLeft: 5
   },
   bottomView: {
     width: '100%', 
