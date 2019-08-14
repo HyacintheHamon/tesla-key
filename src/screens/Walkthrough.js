@@ -64,7 +64,7 @@ export default class Walkthrough extends Component {
             />
           </Pages>
           <View style={{alignSelf: 'center',backgroundColor:'transparent', alignItems:'center', justifyContent:'center', position: 'absolute', bottom:50}}>
-            <TouchableOpacity style={{backgroundColor:'transparent'}}  onPress={() => this.props.navigation.replace('LoginForm')}>
+            <TouchableOpacity style={{backgroundColor:'transparent'}}  onPress={() => this.props.navigation.replace('LoginScreen')}>
               <Text style={{color:'#FFF'}}>Get Started</Text>
             </TouchableOpacity>
           </View>

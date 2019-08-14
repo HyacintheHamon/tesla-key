@@ -55,7 +55,8 @@ const PrimaryNav = createStackNavigator({
   Walkthrough: { screen: Walkthrough },
   VideoWalkthrough: { screen: VideoWalkthrough },
   //LoginStack: { screen: LoginStack },
-  LoginForm: { screen: LoginForm },
+  //LoginForm: { screen: LoginForm },
+  LoginScreen: { screen: LoginScreen },
   DrawerStack: { screen: DrawerStack }
 }, {
   initialRouteName: 'SplashScreen',  
