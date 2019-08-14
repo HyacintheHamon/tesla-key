@@ -9,6 +9,7 @@ import Geocoder from 'react-native-geocoding';
 import SearchInput from '../Search';
 import Directions from '../Directions';
 import Details from '../Details';
+import {setNavigationRequest} from '../../actions/api';
 
 import { Back, LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from './styles';
 
@@ -31,6 +32,7 @@ const ASPECT_RATIO = screen.width / screen.height;
 // const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA =  0.0421;
+const GOOGLE_MAPS_APIKEY = 'AIzaSyBMR0UOofrP0PrX4frgdj47ecBMDhEw4TM';
 
 
 // Dummy data
@@ -61,14 +63,8 @@ export default class Map extends Component {
             longitude: 0.0,
           }
         }
+        this.mapView = null;
       }
-
-    state = {
-        region: null,
-        destination: null,
-        duration: null,
-        location: null,
-    };
 
     /* 
     async componentDidMount() {
@@ -114,7 +110,6 @@ export default class Map extends Component {
         );
       }
     
-
     handleLocationSelected = (data, { geometry }) => {
         const { location: { lat: latitude, lng: longitude } } = geometry;
 
@@ -132,15 +127,20 @@ export default class Map extends Component {
         this.setState({destination: null});
     };
 
+    startTrip() {
+        
+    }
+
     render() {
 
-        const { region, destination, duration, location } = this.state;
+        const { region, destination, duration, location, currentPosition, distance } = this.state;
         return (
             
             <View style={{ flex: 1 }}>
                 <MapView
                 provider={ PROVIDER_GOOGLE }
-				style={ styles.container }
+                style={ styles.container }
+                ref={c => this.mapView = c}
 				customMapStyle= {mapStyle}
                 region={{ latitude: this.state.currentPosition.latitude,
                     longitude: this.state.currentPosition.longitude,
@@ -163,10 +163,13 @@ export default class Map extends Component {
                     {destination && (
                         <Fragment>
                             <Directions
-                                origin={region}
+                                origin={currentPosition}
                                 destination={destination}
                                 onReady={result => {
-                                    this.setState({ duration: Math.floor(result.duration)});
+                                    this.setState({
+                                         duration: Math.floor(result.duration),
+                                         distance: Math.floor(result.distance)
+                                        });
 
                                     this.mapView.fitToCoordinates(result.coordinates, {
                                         edgePadding: {
@@ -211,9 +214,7 @@ export default class Map extends Component {
                     />
                     ))}
                 </MapView>
-                
-                {/* destination ? <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details/></Fragment> : <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/> */}
-                <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/>
+                {destination ? <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details distance={distance} duration={duration} startTrip={()=>this.startTrip()}/></Fragment> : <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/>}
             </View>
         )
     }

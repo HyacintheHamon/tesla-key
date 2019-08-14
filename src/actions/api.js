@@ -252,14 +252,14 @@ export function mediaTogglePlayback()  {
 }
 
 // Skips to the next track in the current playlist.
-export function mediaNextTrack()  {
-    return axios.post(`https://owner-api.teslamotors.com/api/1/vehicles/${this.props.vehicleId}/command/media_next_track`, { headers: { Authorization: `Bearer ${this.props.bearerToken}`} });
-}
+// export function mediaNextTrack()  {
+//     return axios.post(`https://owner-api.teslamotors.com/api/1/vehicles/${this.props.vehicleId}/command/media_next_track`, { headers: { Authorization: `Bearer ${this.props.bearerToken}`} });
+// }
 
 // Skips to the previous track in the current playlist. Does nothing for streaming from Stitcher.
-export function mediaPrevTrack()  {
-    return axios.post(`https://owner-api.teslamotors.com/api/1/vehicles/${this.props.vehicleId}/command/media_prev_track`, { headers: { Authorization: `Bearer ${this.props.bearerToken}`} });
-}
+// export function mediaPrevTrack()  {
+//     return axios.post(`https://owner-api.teslamotors.com/api/1/vehicles/${this.props.vehicleId}/command/media_prev_track`, { headers: { Authorization: `Bearer ${this.props.bearerToken}`} });
+// }
 
 // Skips to the next saved favorite in the media system.
 export function mediaNextTrack()  {
@@ -304,8 +304,8 @@ export function setmediaVolumeDown()  {
 // en-US (The locale for the navigation request.)
 // 1539465730 (The current UNIX timestamp.)
 // 123 Main St, City, ST 12345 (The address to set as the navigation destination.)
-export function setNavigationRequest()  {
-    return axios.post(`https://owner-api.teslamotors.com/api/1/vehicles/${this.props.vehicleId}/command/navigation_request`, { headers: { Authorization: `Bearer ${this.props.bearerToken}`} });
+export function setNavigationRequest(vehicleId)  {
+    return axios.post(`https://owner-api.teslamotors.com/api/1/vehicles/${vehicleId}/command/navigation_request`, { headers: { Authorization: `Bearer ${this.props.bearerToken}`} });
 }
 
 // Schedules a software update to be installed, if one is available.
