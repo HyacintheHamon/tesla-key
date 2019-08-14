@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   input:{
+    flex: 1,
     height:45,
     backgroundColor: '#202026',
     padding: 10,
