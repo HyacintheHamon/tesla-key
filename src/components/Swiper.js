@@ -253,7 +253,7 @@ export default class OnboardingScreens extends Component {
           // Show this button on the last screen
           // TODO: Add a handler that would send a user to your app after onboarding is complete
 
-          <TouchableOpacity onPress={() => this.props.navigation.replace('LoginForm')}>
+          <TouchableOpacity onPress={() => this.props.navigation.replace('LoginScreen')}>
             <View style={styles.button}>
               <Text style={styles.text}>Start Now</Text>
             </View>
