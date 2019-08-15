@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Platform, View, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { Platform, View, TouchableOpacity, StyleSheet, Text, Dimensions } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-
+const screen = Dimensions.get('window');
 export default class Search extends Component {
 
     state = {
@@ -86,29 +86,33 @@ export default class Search extends Component {
                                     marginLeft: 0,
                                     marginRight: 0,
                                     elevation: 5,
-                                    shadowColor: '#000',
+                                    shadowColor: '#fff',
                                     shadowOpacity: 0.1,
                                     shadowOffset: { x: 0, y: 0 },
                                     shadowRadius: 15,
                                     borderWidth: 1,
                                     borderColor: '#DDD',
                                     fontFamily: 'Montserrat-Medium',
-                                    fontSize: 15
+                                    fontSize: 15,
+                                    color: '#EEE'
                                 },
                                 listView: {
                                     borderWidth: 0,
                                     backgroundColor: 'rgb(32,32,38)',
-                                    marginHorizontal: 20,
+                                    marginHorizontal: -12,
                                     elevation: 5,
                                     shadowOpacity: 0.1,
                                     shadowOffset: { x: 0, y: 0 },
                                     shadowRadius: 15,
-                                    marginTop: 50,
-                                    color: "#FFF"
+                                    marginTop: 10,
+                                    color: "#FFF",
+                                    width: screen.width,
+                                    height: screen.height
                                 },
                                 description: {
                                     fontFamily: 'Montserrat-Medium',
-                                    fontSize: 16
+                                    fontSize: 16,
+                                    color: 'white'
                                 },
                                 row: {
                                     padding: 20,

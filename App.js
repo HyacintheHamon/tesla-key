@@ -21,7 +21,7 @@ import AppNavigation from './src/navigation/AppNavigation';
 // create our store
 const store = createStore()
 
-
+console.disableYellowBox = true;
 export default class App extends React.Component {
   render() {
     return (

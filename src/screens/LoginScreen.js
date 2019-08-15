@@ -2,14 +2,26 @@ import React from 'react'
 import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Linking, Dimensions } from 'react-native';
 import SvgUri from 'react-native-svg-uri';
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { requestSignIn } from "../actions";
+
 const { height, width } = Dimensions.get('window');
 
-export default class LoginScreen extends React.Component {
+class LoginScreen extends React.Component {
 
   state = {
     email: '',
     password: '',
   };
+
+  componentWillReceiveProps(nextProps) {
+    this.props.navigation.replace('DrawerStack');
+		const { userData } = nextProps.auth;
+		if (userData!==this.props.auth.userData) {
+      this.props.navigation.replace('DrawerStack');
+		}
+  }
 
   render() {
 
@@ -62,7 +74,7 @@ export default class LoginScreen extends React.Component {
                 secureTextEntry/>
             </View>
 
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.replace('DrawerStack')}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={this.signIn}>
             {/* onPress={this.handleSubmit} */}
               <Text  style={styles.buttonText}>LOGIN</Text>
             </TouchableOpacity> 
@@ -80,6 +92,11 @@ export default class LoginScreen extends React.Component {
   
     </View>
     )
+  }
+
+  signIn = () => {
+    let authData = {email: this.state.email, password: this.state.password};
+    this.props.requestSignIn(authData);
   }
 
   handleSubmit = () => {
@@ -195,3 +212,20 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
 });
+
+
+
+function mapStateToProps(state) {
+    const { auth } = state;
+    return {
+      auth
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+      requestSignIn: bindActionCreators(requestSignIn, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

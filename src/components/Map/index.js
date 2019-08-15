@@ -170,8 +170,9 @@ export default class Map extends Component {
                                          duration: Math.floor(result.duration),
                                          distance: Math.floor(result.distance)
                                         });
-
-                                    this.mapView.fitToCoordinates(result.coordinates, {
+                                    let des = [];
+                                    des.push(destination);
+                                    this.mapView.fitToCoordinates(des, {
                                         edgePadding: {
                                             right: getPixelSize(50),
                                             left: getPixelSize(50),
@@ -214,7 +215,8 @@ export default class Map extends Component {
                     />
                     ))}
                 </MapView>
-                {destination ? <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details distance={distance} duration={duration} startTrip={()=>this.startTrip()}/></Fragment> : <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/>}
+                {destination&& <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details distance={distance} duration={duration} startTrip={()=>this.startTrip()}/></Fragment>}
+                <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/>
             </View>
         )
     }
