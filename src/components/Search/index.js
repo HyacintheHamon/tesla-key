@@ -44,8 +44,13 @@ export default class Search extends Component {
                                 language: 'en'
                             }}
                             textInputProps={{
-                                onFocus: () => { this.setState({ searchFocused: true }) },
-                                onBlur: () => { this.setState({ searchFocused: false }) },
+                                onFocus: () => {
+                                    this.setState({ searchFocused: true });
+                                    this.props.searchFocused()
+                                },
+                                onBlur: () => { 
+                                    this.setState({ searchFocused: false });
+                                },
                                 autoCapitalize: "none",
                                 autoCorrect: false
                             }}

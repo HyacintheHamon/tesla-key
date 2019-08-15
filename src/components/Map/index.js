@@ -61,7 +61,8 @@ export default class Map extends Component {
           currentPosition: {
             latitude: 0.0,
             longitude: 0.0,
-          }
+          },
+          searchFocused: false
         }
         this.mapView = null;
       }
@@ -98,11 +99,18 @@ export default class Map extends Component {
     componentDidMount() {
         Geolocation.getCurrentPosition(
           (position) => {
+            const carMarker = [{
+                latlng: { latitude: position.coords.latitude+0.004, longitude: position.coords.longitude+0.004},
+                title: 'My Tesla car',
+                description: '427m',
+              },
+            ];
             this.setState({
-              currentPosition: {
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude,
-              }
+                markers: carMarker,
+                currentPosition: {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                }
             });
           },
           (error) => this.setState({ error: error.message }),
@@ -114,6 +122,7 @@ export default class Map extends Component {
         const { location: { lat: latitude, lng: longitude } } = geometry;
 
         this.setState({
+            searchFocused: false,
             destination: {
                 latitude,
                 longitude,
@@ -133,7 +142,7 @@ export default class Map extends Component {
 
     render() {
 
-        const { region, destination, duration, location, currentPosition, distance } = this.state;
+        const { region, destination, duration, location, currentPosition, distance, searchFocused } = this.state;
         return (
             
             <View style={{ flex: 1 }}>
@@ -215,8 +224,8 @@ export default class Map extends Component {
                     />
                     ))}
                 </MapView>
-                {destination&& <Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details distance={distance} duration={duration} startTrip={()=>this.startTrip()}/></Fragment>}
-                <SearchInput onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/>
+                {destination&&!searchFocused&&<Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details distance={distance} duration={duration} startTrip={()=>this.startTrip()}/></Fragment>}
+                <SearchInput searchFocused={()=>this.setState({searchFocused: true})} onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/>
             </View>
         )
     }
