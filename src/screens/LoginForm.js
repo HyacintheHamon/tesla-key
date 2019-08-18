@@ -29,6 +29,7 @@ export default class App extends Component {
             autoCapitalize="none"
             autoCorrect={false}
             keyboardType="email-address"
+            keyboardAppearance="dark"
             returnKeyType="send"
             onSubmitEditing={this.handleSubmit}
             blurOnSubmit={true}
@@ -43,6 +44,7 @@ export default class App extends Component {
             autoCapitalize="none"
             autoCorrect={false}
             keyboardType="ascii-capable"
+            keyboardAppearance="dark"
             returnKeyType="send"
             onSubmitEditing={this.handleSubmit}
             blurOnSubmit={true}

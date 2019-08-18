@@ -112,6 +112,7 @@ export default class MapModalScreen extends React.Component {
         <View style={styles.searchBarContainer}>
             <TextInput
               placeholder=" Search..."
+              keyboardAppearance="dark"
               style={styles.searchBar}
             />
         </View>

@@ -49,6 +49,7 @@ class LoginScreen extends React.Component {
                 autoCorrect={false} 
                 autoCapitalize="none"
                 keyboardType='email-address' 
+                keyboardAppearance="dark"
                 returnKeyType="next" 
                 placeholder='Email' 
                 onSubmitEditing={this.handleSubmit}
@@ -63,6 +64,7 @@ class LoginScreen extends React.Component {
                 value={this.state.password}
                 onChangeText={password => this.setState({password})}
                 keyboardType="ascii-capable"
+                keyboardAppearance="dark"
                 returnKeyType="go" 
                 autoCorrect={false}
                 autoCapitalize="none"

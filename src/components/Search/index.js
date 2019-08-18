@@ -109,7 +109,7 @@ export default class Search extends Component {
                                     shadowOpacity: 0.1,
                                     shadowOffset: { x: 0, y: 0 },
                                     shadowRadius: 15,
-                                    marginTop: 10,
+                                    marginTop: 0,
                                     color: "#FFF",
                                     width: screen.width,
                                     height: screen.height
