@@ -43,6 +43,7 @@ class HeaderComponent extends Component {
       
       leftIconName,
       leftIconType,
+      centerButtonOnPress
     } = this.props;
     return (
       <View style={[styles.headerContainer, headerContainerStyle]}>
@@ -55,20 +56,22 @@ class HeaderComponent extends Component {
             />
           </TouchableOpacity>
         </View>
-        <View style={[styles.headerItem]}>
-          <Entypo
-            name={'lock'}
-            type={'Entypo'}
-            color={'gray'}
-            size={24}
-          />
-          <Entypo
-            name={'chevron-thin-down'}
-            type={'entypo'}
-            color={'gray'}
-            size={24}
-          />
-        </View>
+        <TouchableOpacity onPress={centerButtonOnPress}>
+          <View style={[styles.headerItem]}>
+            <Entypo
+              name={'lock'}
+              type={'Entypo'}
+              color={'gray'}
+              size={24}
+            />
+            <Entypo
+              name={'chevron-thin-down'}
+              type={'entypo'}
+              color={'gray'}
+              size={24}
+            />
+          </View>
+        </TouchableOpacity>
         <View style={[styles.headerItem, { alignItems: "flex-end" }]}>
           <TouchableOpacity style={{padding:8, marginTop:-8, paddingLeft:30,  marginRight:5,}} onPress={rightButtonOnPress}>
             <SvgUri fill="#fff" fillAll="true" tyle={styles.logo} width="25" height="25" source={require('../img/key_white.svg')} />

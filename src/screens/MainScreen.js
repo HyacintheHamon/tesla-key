@@ -8,11 +8,14 @@ import HeaderComponent from '../components/HeaderComponent'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import * as Animatable from 'react-native-animatable';
+
 const { height, width } = Dimensions.get('window');
 perfectSize = create(PREDEF_RES.iphoneX.px);
 import SummonModalScreen from './SummonModalScreen';
 // import MapModalScreen from './MapModalScreen';
 import MapModal from '../components/Map';
+import Lock from '../components/Lock';
 import ClimateControlsModalScreen from './ClimateControlsModalScreen'
 const vent = require("../img/vent.png");
 const trunk = require("../img/trunk.png");
@@ -31,7 +34,16 @@ export default class MainScreen extends Component {
     visibleSummonModal: null,
     visibleMapModal: null,
     visibleClimateControlsModal: null,
+    visibleLockModal: null,
   };
+
+  openLockModal = () => {
+    this.setState({visibleLockModal: true});
+  }
+
+  closeLockModal(){
+    this.setState({visibleLockModal: false});
+  }
 
   handlerfanButtonLongPress = () => {
     //handler for Long Press on 
@@ -84,6 +96,7 @@ export default class MainScreen extends Component {
           <HeaderComponent
             leftButtonOnPress={() => this.props.navigation.toggleDrawer()}
             rightButtonOnPress={()=> this.setState({ visibleSummonModal: true })}
+            centerButtonOnPress={()=> this.setState({ visibleLockModal: true })}
             leftButtonImage={false}
             leftIconName={'menu'}
             leftIconType={'feather'}
@@ -273,6 +286,21 @@ export default class MainScreen extends Component {
           onBackdropPress={() => this.setState({ visibleClimateControlsModal: false })}
         >
           <ClimateControlsModalScreen onCloseClimateControlsModal={()=>this.closeClimateControlsModal()}/>
+        </Modal>
+
+        <Modal
+          style={{ margin: 0 }}
+          isVisible={this.state.visibleLockModal === true}
+          backdropColor={'rgba(0,0,0,0.7)'}
+          backdropOpacity={1}
+          animationIn={'fadeIn'}
+          animationOut={'fadeOut'}
+          animationInTiming={300}
+          animationOutTiming={300}
+          backdropTransitionInTiming={300}
+          backdropTransitionOutTiming={300}
+        >
+          <Lock onCloseLockModal={()=>this.closeLockModal()}/>
         </Modal>
       </View>
     );

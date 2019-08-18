@@ -11,7 +11,6 @@
 		02A65B5924504372B462B35C /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAE923C5D14E4CDF8CA1BCD9 /* Montserrat-Light.ttf */; };
 		0941E2CC22FB1B9A00A55C89 /* AirGoogleMaps in Resources */ = {isa = PBXBuildFile; fileRef = 0941E2CB22FB1B9A00A55C89 /* AirGoogleMaps */; };
 		09E12FB5CEB24460AECC7AEC /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DAC94CC45CD4C7A98BDCAC0 /* Octicons.ttf */; };
-		0B4E16DD98836C5F1B426326 /* libPods-tesla-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F14E6377F9A65B533707D32 /* libPods-tesla-tvOS.a */; };
 		0EC17D8031264AEAAEA92ED1 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3205C785C7094C5F9913AE8D /* Montserrat-ExtraBoldItalic.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
@@ -26,15 +25,14 @@
 		2DCD954D1E0B4F2C00145EB5 /* teslaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* teslaTests.m */; };
 		2FB3ADE51ADA4CE69FB2B803 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972D71468AE045A6BE60C979 /* OpenSans-ExtraBoldItalic.ttf */; };
 		3665375080CD45018B8A5119 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 746A3267BADD475DAC034686 /* Montserrat-ExtraLight.ttf */; };
-		4460ACAE5DC140981BE89D22 /* libPods-tesla-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5494CE0324F73F9C1250E5CF /* libPods-tesla-tvOSTests.a */; };
 		48EB70022976439A945C52E7 /* OpenSans-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CD211A4309843FC8E7244D3 /* OpenSans-RegularItalic.ttf */; };
 		4AC8FBEF0FFC4F84982C9B04 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8D09688C72D4FEBA8206F7E /* Zocial.ttf */; };
 		4CFCE3107DA9470EBB4CD2E7 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20057D227ED14597A5C9B97E /* OpenSans-Light.ttf */; };
 		4E2688952C144AE0A3B67D1D /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E191B37E4F4D4B51875E2083 /* OpenSans-Regular.ttf */; };
 		4FA2FD0EB3FA48389933AF3B /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7DCCA354FFF0446F8490385F /* Ionicons.ttf */; };
 		59DA08D277E4418B8F539E61 /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B0B5D5E88E54CDCB7234948 /* Montserrat-ThinItalic.ttf */; };
+		64B2FA5C05FA853D1351CE1E /* libPods-tesla-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C10597D06A33BFB5C229BE /* libPods-tesla-tvOS.a */; };
 		6692CB936FC5464B990EFECD /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 232534D3491F4B0B867EDA02 /* Montserrat-ExtraBold.ttf */; };
-		6A25482D84427CD976EF2F84 /* libPods-teslaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D292DECAB6983065C2F8551 /* libPods-teslaTests.a */; };
 		6DA487D535E1487F82EC09FD /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84825999EE4B441C94CB8C04 /* Montserrat-Thin.ttf */; };
 		6EF08C967437466AB947083E /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF6C4D2B49D94204862BC796 /* OpenSans-LightItalic.ttf */; };
 		71553EA8083E487AAE8D38E8 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95506E3AB0104080B69BB25E /* OpenSans-Bold.ttf */; };
@@ -47,6 +45,7 @@
 		87494A67C6154D5D9FBD92D6 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B69EFB4C0224EFAA6BA16CF /* FontAwesome5_Regular.ttf */; };
 		9638252D07C046569CB248E6 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EEA2C6437894953BC3E5DAC /* OpenSans-BoldItalic.ttf */; };
 		97EFBF4F5E614BBF80EB448A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27A8A85DDBD14649A172F6C2 /* FontAwesome.ttf */; };
+		9933C976F83A292B68A03D2D /* libPods-tesla-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA25B80EE08558A077C0D7A4 /* libPods-tesla-tvOSTests.a */; };
 		99E69C2E9A714CDFA6E967D1 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00572C3709284EB9AC3DE4F0 /* Montserrat-Black.ttf */; };
 		9A6294B0A7B04C1885719D33 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EADB248EB1424550BC9B8861 /* FontAwesome5_Brands.ttf */; };
 		A207FDAA278C4D62B13454B6 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11B8B422C99B405480B441EE /* SimpleLineIcons.ttf */; };
@@ -57,7 +56,7 @@
 		B249346105294A6CA7E140E6 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F311CC64B6D4536917A3A10 /* OpenSans-ExtraBold.ttf */; };
 		CF5C803210854772904EA054 /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2D1C7550DB4581ACD30144 /* Montserrat-SemiBoldItalic.ttf */; };
 		DCA0EC20C9A44DB3B85970D4 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9FCA4D95B37A4BA0BD4672A8 /* AntDesign.ttf */; };
-		E366BACD9F50AF56E03C19A7 /* libPods-tesla.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B4AC39EDE0612BCD46C52A /* libPods-tesla.a */; };
+		DED46A42D8AAF7B69F7D0F0F /* libPods-teslaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48587DC3ADA1D57D635073E6 /* libPods-teslaTests.a */; };
 		E48B0E4CC10144C5A9507C34 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D496DB495B06470EABB0495A /* MaterialCommunityIcons.ttf */; };
 		E59F0B889B5840D3A7F1E431 /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61D9F637119D4339956F1B4A /* Montserrat-BoldItalic.ttf */; };
 		F0178B16175F4F63A9F09E9A /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60D94CBFE4E1401995C8CB30 /* Entypo.ttf */; };
@@ -65,6 +64,7 @@
 		F3CEECB164FE49D98F542755 /* Montserrat-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66C27913617A44C88D4ECECA /* Montserrat-RegularItalic.ttf */; };
 		F4E1D1E22598464DBBAA3DFE /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08966241C6634CDB9AABCDC9 /* Montserrat-ExtraLightItalic.ttf */; };
 		F5505CF947674EFCBAFF619B /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5366CAFD1C30474681B84FE1 /* Montserrat-Regular.ttf */; };
+		F661516B9D1CF40506DAA4EA /* libPods-tesla.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE24820AD12C0A12BDC8326 /* libPods-tesla.a */; };
 		F7FCCDCAD91A48AA96DF6D0F /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7032D090EFC4425F9C2190D6 /* Montserrat-LightItalic.ttf */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +91,6 @@
 		00E356EE1AD99517003FC87E /* teslaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teslaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* teslaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = teslaTests.m; sourceTree = "<group>"; };
-		05621DAA7555F27301935640 /* Pods-teslaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teslaTests.release.xcconfig"; path = "Target Support Files/Pods-teslaTests/Pods-teslaTests.release.xcconfig"; sourceTree = "<group>"; };
 		08966241C6634CDB9AABCDC9 /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLightItalic.ttf"; path = "../src/fonts/Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		0941E2CB22FB1B9A00A55C89 /* AirGoogleMaps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AirGoogleMaps; path = "../node_modules/react-native-maps/lib/ios/AirGoogleMaps"; sourceTree = "<group>"; };
 		0CD211A4309843FC8E7244D3 /* OpenSans-RegularItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-RegularItalic.ttf"; path = "../src/fonts/OpenSans-RegularItalic.ttf"; sourceTree = "<group>"; };
@@ -104,12 +103,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = tesla/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = tesla/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = tesla/main.m; sourceTree = "<group>"; };
-		1D292DECAB6983065C2F8551 /* libPods-teslaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-teslaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C10597D06A33BFB5C229BE /* libPods-tesla-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tesla-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20057D227ED14597A5C9B97E /* OpenSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Light.ttf"; path = "../src/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		232534D3491F4B0B867EDA02 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBold.ttf"; path = "../src/fonts/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
 		25E0C357E481477B9C3A0651 /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-BlackItalic.ttf"; path = "../src/fonts/Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		26281E88432E40A6A04885BD /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		27A8A85DDBD14649A172F6C2 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		2AE24820AD12C0A12BDC8326 /* libPods-tesla.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tesla.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* tesla-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tesla-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* tesla-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tesla-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE463DF484740798CCA23E9 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../src/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -117,45 +117,45 @@
 		3205C785C7094C5F9913AE8D /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraBoldItalic.ttf"; path = "../src/fonts/Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		356C78F8FA204BB780B5A298 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		37C3DC4B7228405586E27322 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		387D62FF7695AFB74874E708 /* Pods-tesla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla.release.xcconfig"; path = "Target Support Files/Pods-tesla/Pods-tesla.release.xcconfig"; sourceTree = "<group>"; };
-		3C8E76ECE1DCE6DA0F0B2450 /* Pods-tesla-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-tesla-tvOSTests/Pods-tesla-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E0C75042801484484ECF356 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
-		3F14E6377F9A65B533707D32 /* libPods-tesla-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tesla-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F4543CE459D299B3B87E846 /* Pods-tesla-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla-tvOS.release.xcconfig"; path = "Target Support Files/Pods-tesla-tvOS/Pods-tesla-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		421BD8DE513D404E979A17B9 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		48587DC3ADA1D57D635073E6 /* libPods-teslaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-teslaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F47AE4F4E8F42978D8B27C8 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-MediumItalic.ttf"; path = "../src/fonts/Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5366CAFD1C30474681B84FE1 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		53FED3B6CA30F67CA0C5A101 /* Pods-tesla-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-tesla-tvOSTests/Pods-tesla-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5494CE0324F73F9C1250E5CF /* libPods-tesla-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tesla-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0B5D5E88E54CDCB7234948 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ThinItalic.ttf"; path = "../src/fonts/Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
 		60D94CBFE4E1401995C8CB30 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		61D9F637119D4339956F1B4A /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-BoldItalic.ttf"; path = "../src/fonts/Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
 		66C27913617A44C88D4ECECA /* Montserrat-RegularItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-RegularItalic.ttf"; path = "../src/fonts/Montserrat-RegularItalic.ttf"; sourceTree = "<group>"; };
+		6E535CE2F19DCF638D3B1D3B /* Pods-tesla-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-tesla-tvOSTests/Pods-tesla-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		6FB66E0BCA284E7F9BBDEE71 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		7032D090EFC4425F9C2190D6 /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-LightItalic.ttf"; path = "../src/fonts/Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
 		746A3267BADD475DAC034686 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLight.ttf"; path = "../src/fonts/Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
-		794F64E9B9085AD35BDEF446 /* Pods-tesla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla.debug.xcconfig"; path = "Target Support Files/Pods-tesla/Pods-tesla.debug.xcconfig"; sourceTree = "<group>"; };
 		7B395DA622FEFAC50047C2E7 /* tesla-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tesla-Bridging-Header.h"; sourceTree = "<group>"; };
 		7B395DA722FEFAC60047C2E7 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		7C81641F1C464DD1AA730ED2 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		7DCCA354FFF0446F8490385F /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		84825999EE4B441C94CB8C04 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../src/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
-		89B4AC39EDE0612BCD46C52A /* libPods-tesla.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tesla.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C8DC2915B35E5FB21DBE7F2 /* Pods-teslaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teslaTests.debug.xcconfig"; path = "Target Support Files/Pods-teslaTests/Pods-teslaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E1BB880E88480509B5E44E7 /* Pods-tesla-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-tesla-tvOSTests/Pods-tesla-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EEA2C6437894953BC3E5DAC /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-BoldItalic.ttf"; path = "../src/fonts/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		93F2C538EC47BD71FAE2A8C2 /* Pods-teslaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teslaTests.release.xcconfig"; path = "Target Support Files/Pods-teslaTests/Pods-teslaTests.release.xcconfig"; sourceTree = "<group>"; };
 		95506E3AB0104080B69BB25E /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../src/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		972D71468AE045A6BE60C979 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../src/fonts/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		9B69EFB4C0224EFAA6BA16CF /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		9DAC94CC45CD4C7A98BDCAC0 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		9FCA4D95B37A4BA0BD4672A8 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		A4090A71F1356F3A5AB0EACC /* Pods-tesla-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-tesla-tvOS/Pods-tesla-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		AA25B80EE08558A077C0D7A4 /* libPods-tesla-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tesla-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A3595CB606412AAE2DD902 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBoldItalic.ttf"; path = "../src/fonts/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		B8BCF18066607FAEEAFF9886 /* Pods-tesla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla.release.xcconfig"; path = "Target Support Files/Pods-tesla/Pods-tesla.release.xcconfig"; sourceTree = "<group>"; };
 		B8D09688C72D4FEBA8206F7E /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		BF6C4D2B49D94204862BC796 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-LightItalic.ttf"; path = "../src/fonts/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
-		D1C3344117E56C5D61172F75 /* Pods-tesla-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-tesla-tvOS/Pods-tesla-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D496DB495B06470EABB0495A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		DEB2FB2ABC3F49B2B95AF73B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Medium.ttf"; path = "../src/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		E0524840DFDC45F2B92C8BD9 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		E0741820B4260A00B6C884CF /* Pods-tesla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla.debug.xcconfig"; path = "Target Support Files/Pods-tesla/Pods-tesla.debug.xcconfig"; sourceTree = "<group>"; };
 		E191B37E4F4D4B51875E2083 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../src/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		E478DDFF95C178D568784299 /* Pods-teslaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teslaTests.debug.xcconfig"; path = "Target Support Files/Pods-teslaTests/Pods-teslaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E5F6D2CD04D8DD53B002CDDE /* Pods-tesla-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tesla-tvOS.release.xcconfig"; path = "Target Support Files/Pods-tesla-tvOS/Pods-tesla-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		EADB248EB1424550BC9B8861 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -167,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A25482D84427CD976EF2F84 /* libPods-teslaTests.a in Frameworks */,
+				DED46A42D8AAF7B69F7D0F0F /* libPods-teslaTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E366BACD9F50AF56E03C19A7 /* libPods-tesla.a in Frameworks */,
+				F661516B9D1CF40506DAA4EA /* libPods-tesla.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B4E16DD98836C5F1B426326 /* libPods-tesla-tvOS.a in Frameworks */,
+				64B2FA5C05FA853D1351CE1E /* libPods-tesla-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4460ACAE5DC140981BE89D22 /* libPods-tesla-tvOSTests.a in Frameworks */,
+				9933C976F83A292B68A03D2D /* libPods-tesla-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,10 +287,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				89B4AC39EDE0612BCD46C52A /* libPods-tesla.a */,
-				3F14E6377F9A65B533707D32 /* libPods-tesla-tvOS.a */,
-				5494CE0324F73F9C1250E5CF /* libPods-tesla-tvOSTests.a */,
-				1D292DECAB6983065C2F8551 /* libPods-teslaTests.a */,
+				2AE24820AD12C0A12BDC8326 /* libPods-tesla.a */,
+				19C10597D06A33BFB5C229BE /* libPods-tesla-tvOS.a */,
+				AA25B80EE08558A077C0D7A4 /* libPods-tesla-tvOSTests.a */,
+				48587DC3ADA1D57D635073E6 /* libPods-teslaTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -333,14 +333,14 @@
 		C2AD61B808E9E75AB2FBE603 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				794F64E9B9085AD35BDEF446 /* Pods-tesla.debug.xcconfig */,
-				387D62FF7695AFB74874E708 /* Pods-tesla.release.xcconfig */,
-				D1C3344117E56C5D61172F75 /* Pods-tesla-tvOS.debug.xcconfig */,
-				3F4543CE459D299B3B87E846 /* Pods-tesla-tvOS.release.xcconfig */,
-				53FED3B6CA30F67CA0C5A101 /* Pods-tesla-tvOSTests.debug.xcconfig */,
-				3C8E76ECE1DCE6DA0F0B2450 /* Pods-tesla-tvOSTests.release.xcconfig */,
-				E478DDFF95C178D568784299 /* Pods-teslaTests.debug.xcconfig */,
-				05621DAA7555F27301935640 /* Pods-teslaTests.release.xcconfig */,
+				E0741820B4260A00B6C884CF /* Pods-tesla.debug.xcconfig */,
+				B8BCF18066607FAEEAFF9886 /* Pods-tesla.release.xcconfig */,
+				A4090A71F1356F3A5AB0EACC /* Pods-tesla-tvOS.debug.xcconfig */,
+				E5F6D2CD04D8DD53B002CDDE /* Pods-tesla-tvOS.release.xcconfig */,
+				8E1BB880E88480509B5E44E7 /* Pods-tesla-tvOSTests.debug.xcconfig */,
+				6E535CE2F19DCF638D3B1D3B /* Pods-tesla-tvOSTests.release.xcconfig */,
+				8C8DC2915B35E5FB21DBE7F2 /* Pods-teslaTests.debug.xcconfig */,
+				93F2C538EC47BD71FAE2A8C2 /* Pods-teslaTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "teslaTests" */;
 			buildPhases = (
-				ABFA46F524ED4137A46849D5 /* [CP] Check Pods Manifest.lock */,
+				87FAC50B361C7B55264C68CA /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -371,14 +371,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "tesla" */;
 			buildPhases = (
-				6B0633FCF108D092A61EEBD1 /* [CP] Check Pods Manifest.lock */,
+				F7C33E18E02A85F067694110 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				B429FF1F21B60A7813E86499 /* [CP] Copy Pods Resources */,
-				BA2C4CBCE23032DE42426324 /* [CP] Embed Pods Frameworks */,
+				AF557E5213328E7E23BC5776 /* [CP] Embed Pods Frameworks */,
+				48D33DBE80581C8D9D7265A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -393,7 +393,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "tesla-tvOS" */;
 			buildPhases = (
-				1B0B1EE9502666942F72DDE3 /* [CP] Check Pods Manifest.lock */,
+				5E5F6A8A297AF2A7638FD17E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -413,7 +413,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "tesla-tvOSTests" */;
 			buildPhases = (
-				CAC90CFA748D7292A56CD7F2 /* [CP] Check Pods Manifest.lock */,
+				E1E7ACB7378258E81FBC28C3 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -573,28 +573,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		1B0B1EE9502666942F72DDE3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tesla-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,51 +587,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		6B0633FCF108D092A61EEBD1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tesla-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ABFA46F524ED4137A46849D5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-teslaTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B429FF1F21B60A7813E86499 /* [CP] Copy Pods Resources */ = {
+		48D33DBE80581C8D9D7265A5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -703,7 +637,51 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tesla/Pods-tesla-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA2C4CBCE23032DE42426324 /* [CP] Embed Pods Frameworks */ = {
+		5E5F6A8A297AF2A7638FD17E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tesla-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87FAC50B361C7B55264C68CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-teslaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF557E5213328E7E23BC5776 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -721,7 +699,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tesla/Pods-tesla-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CAC90CFA748D7292A56CD7F2 /* [CP] Check Pods Manifest.lock */ = {
+		E1E7ACB7378258E81FBC28C3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -737,6 +715,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-tesla-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7C33E18E02A85F067694110 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tesla-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -849,7 +849,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E478DDFF95C178D568784299 /* Pods-teslaTests.debug.xcconfig */;
+			baseConfigurationReference = 8C8DC2915B35E5FB21DBE7F2 /* Pods-teslaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -874,7 +874,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05621DAA7555F27301935640 /* Pods-teslaTests.release.xcconfig */;
+			baseConfigurationReference = 93F2C538EC47BD71FAE2A8C2 /* Pods-teslaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -896,7 +896,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 794F64E9B9085AD35BDEF446 /* Pods-tesla.debug.xcconfig */;
+			baseConfigurationReference = E0741820B4260A00B6C884CF /* Pods-tesla.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -924,7 +924,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 387D62FF7695AFB74874E708 /* Pods-tesla.release.xcconfig */;
+			baseConfigurationReference = B8BCF18066607FAEEAFF9886 /* Pods-tesla.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -950,7 +950,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1C3344117E56C5D61172F75 /* Pods-tesla-tvOS.debug.xcconfig */;
+			baseConfigurationReference = A4090A71F1356F3A5AB0EACC /* Pods-tesla-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -978,7 +978,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F4543CE459D299B3B87E846 /* Pods-tesla-tvOS.release.xcconfig */;
+			baseConfigurationReference = E5F6D2CD04D8DD53B002CDDE /* Pods-tesla-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1006,7 +1006,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53FED3B6CA30F67CA0C5A101 /* Pods-tesla-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 8E1BB880E88480509B5E44E7 /* Pods-tesla-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1033,7 +1033,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C8E76ECE1DCE6DA0F0B2450 /* Pods-tesla-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 6E535CE2F19DCF638D3B1D3B /* Pods-tesla-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
