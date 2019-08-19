@@ -37,7 +37,8 @@ export default class Lock extends Component {
     constructor(props) {
 		super(props)
 		this.state = {
-            lockState: LockState.lock
+            lockState: LockState.lock,
+            animatedShow: "fadeInDown"
         };
         this.lockState = LockState.lock;
         this.numberOfGesture = 0;
@@ -47,6 +48,7 @@ export default class Lock extends Component {
         this.lockAnimated = new Animated.Value(0);
         this.trunkAnimated = new Animated.Value(0);
         this.scaleAnimated = new Animated.Value(0);
+        this.animatedCircle = new Animated.Value(perfectSize(210));
     }
 
     componentDidMount() {
@@ -58,7 +60,29 @@ export default class Lock extends Component {
         this.unLock();
     }
 
+    circleShape = () => {
+        Animated.sequence([
+            Animated.timing(this.animatedCircle, {
+                toValue: perfectSize(270),
+                duration: 100
+            }),
+            Animated.timing(this.animatedCircle, {
+                toValue: perfectSize(300),
+                duration: 100
+            }),
+            Animated.timing(this.animatedCircle, {
+                toValue: perfectSize(270),
+                duration: 100
+            }),
+            Animated.timing(this.animatedCircle, {
+                toValue: perfectSize(210),
+                duration: 100
+            })
+        ]).start();
+    }
+
     unLockTrunk = () => {
+        this.circleShape();
         Animated.timing(this.animated, {
             toValue: width-15-perfectSize(210),
             duration: 400
@@ -83,6 +107,7 @@ export default class Lock extends Component {
     }
 
     unLock = () => {
+        this.circleShape();        
         Animated.timing(this.animated, {
             toValue: width/2-perfectSize(210/2),
             duration: 400
@@ -107,6 +132,7 @@ export default class Lock extends Component {
     }
 
     unLockFrunk = () => {
+        this.circleShape();        
         Animated.timing(this.animated, {
             toValue: 7,
             duration: 400
@@ -131,7 +157,10 @@ export default class Lock extends Component {
     }
 
     flingUP = () => {
-        this.props.onCloseLockModal();
+        this.setState({animatedShow: "fadeOutUp"});
+        setTimeout(() => {
+            this.props.onCloseLockModal();
+        }, 200);
     }
 
     flingRight = () => {
@@ -194,7 +223,7 @@ export default class Lock extends Component {
                         numberOfPointers={1}
                         onHandlerStateChange={this.flingLeft}>
                         <View style={{flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
-                            <Animatable.View  style={styles.topContainer}  activeOpacity={1} animation="fadeInDown" iterationCount={1} iterationDelay={150} direction="alternate">
+                            <Animatable.View  style={styles.topContainer}  activeOpacity={1} animation={this.state.animatedShow} iterationCount={1} iterationDelay={150} direction="alternate">
                                 <View style={styles.button}>
                                     <Image style={styles.buttonIcon} source={frunk} />              
                                     <Animatable.Text style={{...styles.text, opacity: this.funkAnimated}}>Frunk</Animatable.Text>
@@ -227,6 +256,10 @@ export default class Lock extends Component {
                                         <Animated.Image source={mask} 
                                             style={
                                                 [styles.mask,
+                                                {
+                                                    width: this.animatedCircle, 
+                                                    resizeMode: 'stretch'                                                
+                                                },
                                                 {transform}]
                                             }
                                         />
