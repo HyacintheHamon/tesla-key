@@ -3,8 +3,6 @@ import { Text, Animated, Easing } from 'react-native'
 import { createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation'
 import LoginScreen from '../screens/LoginScreen'
 import LoginForm from '../screens/LoginForm'
-import SignupScreen from '../screens/SignupScreen'
-import ForgottenPasswordScreen from '../screens/ForgottenPasswordScreen'
 import SplashScreen from '../screens/SplashScreen'
 import Walkthrough from '../screens/Walkthrough'
 import VideoWalkthrough from '../screens/VideoWalkthrough'
@@ -35,8 +33,6 @@ const DrawerStack = createDrawerNavigator({
 // login stack
 const LoginStack = createStackNavigator({
   loginScreen: { screen: LoginScreen },
-  signupScreen: { screen: SignupScreen },
-  forgottenPasswordScreen: { screen: ForgottenPasswordScreen, navigationOptions: { title: 'Forgot Password' } }
 }, 
   StackNavigatorOptions
 )

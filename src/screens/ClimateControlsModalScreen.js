@@ -2,6 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, Image, View, TouchableOpacity,SafeAreaView  } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { create, PREDEF_RES } from 'react-native-pixel-perfect';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
+
 perfectSize = create(PREDEF_RES.iphoneX.px);
 const vent = require("../img/vent.png");
 const trunk = require("../img/trunk.png");
@@ -13,6 +15,14 @@ const seat1 = require("../img/seat1.png");
 const seat2 = require("../img/seat2.png");
 
 export default class ClimateControlsModalScreen extends React.Component {
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
+  }
 
   render() {
     return (

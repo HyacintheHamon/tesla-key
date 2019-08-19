@@ -11,6 +11,7 @@ import {
 } from 'react-viro';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { View } from 'react-native-animatable';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 export default class ARScene extends Component {
 
@@ -24,6 +25,14 @@ export default class ARScene extends Component {
 
     // bind 'this' to functions
     this._onInitialized = this._onInitialized.bind(this);
+  }
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
   }
 
   render() {

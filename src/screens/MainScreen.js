@@ -14,7 +14,7 @@ import {
   Directions,
   State,
 } from 'react-native-gesture-handler';
-
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 const { height, width } = Dimensions.get('window');
 perfectSize = create(PREDEF_RES.iphoneX.px);
 import SummonModalScreen from './SummonModalScreen';
@@ -91,6 +91,14 @@ export default class MainScreen extends Component {
       secondItem: this.state.secondItem - 1
     });
   };
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
+  }
 
   render() {
     const {firstItem} = this.state;

@@ -9,11 +9,21 @@ import {
 
 import Video from "react-native-video";
 import Swiper from "../components/Swiper";
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 const { height } = Dimensions.get("window");
 
 
 export default class VideoWalkthrough extends Component {
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
+  }
+
   render() {
     return (
       <Swiper navigation={this.props.navigation}>

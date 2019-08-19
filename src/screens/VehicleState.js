@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import YourCarPic from '../components/YourCarPic'
 import WarnRemoteActionsButton from '../components/WarnRemoteActionsButton'
 import RemoteActions from '../actions/RemoteActions'
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 export default class VehicleState extends Component {
 
@@ -52,6 +53,15 @@ export default class VehicleState extends Component {
   }
 
 */
+
+setNavigationColor = (color) => {
+  changeNavigationBarColor(color);
+};
+
+componentDidMount() {
+  this.setNavigationColor('#111117');
+}
+
 
   render() {
     return (

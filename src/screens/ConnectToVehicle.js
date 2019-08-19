@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 import LoginForm from './LoginForm'
 import VehicleState from './VehicleState'
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 export default class ConnectToVehicle extends Component {
   constructor(props) {
@@ -41,6 +42,14 @@ export default class ConnectToVehicle extends Component {
       allData,
       dataLoaded: true
     })
+  }
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
   }
   
   render() {

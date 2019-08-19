@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity, Dimensions } from 'react-native';
 import { Pages } from 'react-native-pages';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -44,6 +45,14 @@ export default class Walkthrough extends Component {
 
   constructor(props) {
     super(props);
+  }
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
   }
 
     render() {

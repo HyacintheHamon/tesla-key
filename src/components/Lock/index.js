@@ -20,6 +20,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import * as Animatable from 'react-native-animatable';
 import MaskedView from '@react-native-community/masked-view';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 perfectSize = create(PREDEF_RES.iphoneX.px);
 let { height, width } = Dimensions.get("window");
@@ -51,7 +52,13 @@ export default class Lock extends Component {
         this.animatedCircle = new Animated.Value(perfectSize(210));
     }
 
+    setNavigationColor = (color) => {
+        changeNavigationBarColor(color);
+    };
+
     componentDidMount() {
+        this.setNavigationColor('#111117');
+
         Animated.timing(this.scaleAnimated, {
             toValue: 1,
             duration: 300,
@@ -235,7 +242,7 @@ export default class Lock extends Component {
                                         color={'white'}
                                         size={perfectSize(110)}
                                     />
-                                    <Animatable.Text style={{...styles.text,  opacity: this.lockAnimated}}>Unock</Animatable.Text>
+                                    <Animatable.Text style={{...styles.text,  opacity: this.lockAnimated}}>Unlock</Animatable.Text>
                                 </View>
                                 <View>
                                     <Image style={styles.buttonIcon} source={trunk} />              

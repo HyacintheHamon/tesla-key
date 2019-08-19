@@ -17,6 +17,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, prototype } from 'react-native-maps';
 import mapStyle from '../json/mapStyle.json'
 import Geolocation from '@react-native-community/geolocation';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 // Calculate map zoom
 const screen = Dimensions.get('window');
@@ -57,7 +58,14 @@ export default class MapModalScreen extends React.Component {
     }
   }
 
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
   componentDidMount() {
+
+    this.setNavigationColor('#111117');
+
     Geolocation.getCurrentPosition(
       (position) => {
         this.setState({
