@@ -9,6 +9,11 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import * as Animatable from 'react-native-animatable';
+import {
+  FlingGestureHandler,
+  Directions,
+  State,
+} from 'react-native-gesture-handler';
 
 const { height, width } = Dimensions.get('window');
 perfectSize = create(PREDEF_RES.iphoneX.px);
@@ -91,6 +96,10 @@ export default class MainScreen extends Component {
     const {firstItem} = this.state;
     const {secondItem} = this.state;
     return (
+      <FlingGestureHandler
+        direction={Directions.DOWN}
+        numberOfPointers={1}
+        onHandlerStateChange={this.openLockModal}>
       <View style={styles.container}>
         {/* <LinearGradient colors={['#111117', '#333']} style={styles.linearGradient}> */}
           <HeaderComponent
@@ -303,6 +312,7 @@ export default class MainScreen extends Component {
           <Lock onCloseLockModal={()=>this.closeLockModal()}/>
         </Modal>
       </View>
+    </FlingGestureHandler>
     );
   }
 }
