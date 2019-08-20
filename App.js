@@ -17,12 +17,22 @@ import createStore from './src/redux'
 // We're going to use navigation with redux
 import ReduxNavigation from './src/navigation/ReduxNavigation';
 import AppNavigation from './src/navigation/AppNavigation';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 // create our store
 const store = createStore()
 
 console.disableYellowBox = true;
 export default class App extends React.Component {
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
+  }
+
   render() {
     return (
       <Provider store={store}>

@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { ViroSceneNavigator, ViroARSceneNavigator } from 'react-viro';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 const { height, width } = Dimensions.get('window');
 var InitialARScene = require('./InitialScene');
@@ -23,6 +24,14 @@ class ARScene extends React.Component {
         apiKey: "48F904D3-E6A6-4D2F-B66A-FFBEC0CA4B69"
       }
     }
+  }
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
   }
 
   render() {

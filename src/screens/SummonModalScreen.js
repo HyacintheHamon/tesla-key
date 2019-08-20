@@ -4,6 +4,8 @@ import YourCarPic from '../components/YourCarPic'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 const { height, width } = Dimensions.get('window');
 const topView = require('../img/model-s-top-view.png');
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
+
 // import LottieView from 'lottie-react-native';
 // const carAnimation = require('../animations/car.json');
 
@@ -31,6 +33,14 @@ export default class SummonModalScreen extends Component {
       DescriptionText : 'Press and hold a direction button to start Summon'
     })
     // this.animation.play();
+  }
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
   }
 
   render() {

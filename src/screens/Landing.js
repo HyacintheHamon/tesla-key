@@ -3,6 +3,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import MainPic from './src/components/MainPic'
 import GetStartedButton from './src/components/GetStartedButton'
 import ConnectToVehicle from './src/screens/ConnectToVehicle';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 const instructions = Platform.select({
   ios: 'A simple app using React Native \n and the Unofficial Tesla API \n',
@@ -24,6 +25,14 @@ export default class App extends Component {
     this.setState({
       getStarted: true
     })
+  }
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
   }
 
   render() {

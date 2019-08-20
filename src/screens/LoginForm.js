@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Linking } from 'react-native';
 import SvgUri from 'react-native-svg-uri';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 export default class App extends Component {
   state = {
@@ -8,6 +9,14 @@ export default class App extends Component {
     password: '',
   };
 
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
+  }
+  
   render() {
     return (
       <View style={styles.container}>

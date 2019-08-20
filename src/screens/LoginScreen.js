@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Linking, Dimensions } from 'react-native';
 import SvgUri from 'react-native-svg-uri';
-
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { requestSignIn } from "../actions";
@@ -21,6 +21,14 @@ class LoginScreen extends React.Component {
 		if (userData!==this.props.auth.userData) {
       this.props.navigation.replace('DrawerStack');
 		}
+  }
+
+  setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
+
+  componentDidMount() {
+    this.setNavigationColor('#111117');
   }
 
   render() {

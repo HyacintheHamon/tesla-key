@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, prototype, Marker } from 'react-native-maps';
-
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import { getPixelSize } from '../../../utils';
 
 import Geocoder from 'react-native-geocoding';
@@ -94,9 +94,15 @@ export default class Map extends Component {
         );
     }
     */
-    
+
+    setNavigationColor = (color) => {
+       changeNavigationBarColor(color);
+    };
+
      
     componentDidMount() {
+        this.setNavigationColor('#111117');
+
         Geolocation.getCurrentPosition(
           (position) => {
             const carMarker = [{
