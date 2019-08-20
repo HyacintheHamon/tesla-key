@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { requestVehicleInfo } from "../actions";
+
 import {StyleSheet, Text, Alert, Image, View, FlatList, TouchableOpacity, Dimensions} from 'react-native';
 // import LinearGradient from 'react-native-linear-gradient';
 import { create, PREDEF_RES } from 'react-native-pixel-perfect';
@@ -31,7 +36,7 @@ const port = require("../img/port.png");
 const seat1 = require("../img/seat1.png");
 const seat2 = require("../img/seat2.png");
 
-export default class MainScreen extends Component {
+class MainScreen extends Component {
   state = {
     selectedItem: "",
     firstItem: 72,
@@ -40,14 +45,23 @@ export default class MainScreen extends Component {
     visibleMapModal: null,
     visibleClimateControlsModal: null,
     visibleLockModal: null,
+    lockState: false
   };
+
+  componentWillReceiveProps(nextProps) {
+		const { vehicleInfo } = nextProps.vehicle.vehicleInfo;
+		if (vehicleInfo!==this.props.vehicle.vehicleInfo) {
+      this.setState({lockState: vehicleInfo.lockState});
+		}
+  }
 
   openLockModal = () => {
     this.setState({visibleLockModal: true});
   }
 
-  closeLockModal(){
+  closeLockModal(lock_state){
     this.setState({visibleLockModal: false});
+    this.props.requestVehicleInfo({lockState: lock_state});
   }
 
   handlerfanButtonLongPress = () => {
@@ -124,7 +138,6 @@ export default class MainScreen extends Component {
                 type={'Entypo'}
                 color={'white'}
                 size={14}
-                //style={{margin: 7}}
               />
                 <Text style={styles.inlineLabel}>Interior 68°F</Text>
               <Icon 
@@ -132,7 +145,6 @@ export default class MainScreen extends Component {
                 name="parking"
                 size={14}
                 color="#fff"
-                //style={{margin: 7}}
               />
                 <Text style={styles.inlineLabel}>Parked</Text>
               <Ionicons
@@ -140,7 +152,6 @@ export default class MainScreen extends Component {
                 style={styles.infoIcon}
                 color={'white'}
                 size={16}
-                //style={{margin: 7}}
               />        
                 <Text style={styles.inlineLabel}>Charging</Text>
             </View>
@@ -309,7 +320,7 @@ export default class MainScreen extends Component {
           backdropTransitionInTiming={300}
           backdropTransitionOutTiming={300}
         >
-          <Lock onCloseLockModal={()=>this.closeLockModal()}/>
+          <Lock onCloseLockModal={(lock_state)=>this.closeLockModal(lock_state)} lockState={this.state.lockState}/>
         </Modal>
       </View>
     </FlingGestureHandler>
@@ -497,3 +508,19 @@ const styles = StyleSheet.create({
     margin: 5
   }
 });
+
+
+function mapStateToProps(state) {
+  const { vehicle } = state;
+  return {
+    vehicle
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    requestVehicleInfo: bindActionCreators(requestVehicleInfo, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);

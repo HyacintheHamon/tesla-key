@@ -3,7 +3,9 @@ import {
 } from '../../actions';
 
 const initialState = {
-	vehicleInfo: 0
+	vehicleInfo: {
+		lockState: 2
+	}
 };
 
 export const vehicle = (state = initialState, action) => {
@@ -21,6 +23,6 @@ function applyReceivedVehicleInfo(state, action) {
 	const  { vehicleInfo }  = action;
 	return {
 		...state,
-		vehicleInfo: vehicleInfo,
+		vehicleInfo,
 	};
 }

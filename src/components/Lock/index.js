@@ -7,13 +7,13 @@ import {
     TouchableHighlight,
     TouchableOpacity,
     Animated,
-    Image,
-    PanResponder
+    Image
 } from 'react-native';
 import {
     FlingGestureHandler,
     Directions,
     State,
+    PanGestureHandler
   } from 'react-native-gesture-handler';
 import { create, PREDEF_RES } from 'react-native-pixel-perfect';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -43,13 +43,48 @@ export default class Lock extends Component {
         this.lockState = LockState.lock;
         this.numberOfGesture = 0;
 
+        this.deltaX = 0;
+
         this.animated = new Animated.Value(width/2-perfectSize(210/2));
         this.funkAnimated = new Animated.Value(0);
         this.lockAnimated = new Animated.Value(0);
         this.trunkAnimated = new Animated.Value(0);
         this.scaleAnimated = new Animated.Value(0);
         this.animatedCircle = new Animated.Value(perfectSize(210));
+
+        this._translateX = new Animated.Value(0);
+        this._translateY = new Animated.Value(0);
+        this._lastOffset = { x: 0, y: 0 };
+
     }
+
+    _onGestureEvent = (event) => {
+        let deltaX = event.nativeEvent.translationX;
+        let deltaY = event.nativeEvent.translationY;
+
+        if (Math.abs(deltaX-this.deltaX)>width/10) {
+            this.deltaX = deltaX;            
+            if (deltaX>0) {
+                this.flingRight();
+            } else {
+                this.flingLeft();
+            }
+        }
+    }
+
+    _onHandlerStateChange = event => {
+        if (event.nativeEvent.oldState === State.ACTIVE) {
+            this._lastOffset.x += event.nativeEvent.translationX;
+            this._lastOffset.y += event.nativeEvent.translationY;
+            this._translateX.setOffset(this._lastOffset.x);
+            this._translateX.setValue(0);
+            this._translateY.setOffset(this._lastOffset.y);
+            this._translateY.setValue(0);
+            this.deltaX = 0;
+            console.log("lock_state", this.lockState);
+            this.props.onCloseLockModal(this.lockState);
+        }
+    };
 
     componentDidMount() {
         Animated.timing(this.scaleAnimated, {
@@ -57,7 +92,22 @@ export default class Lock extends Component {
             duration: 300,
             delay: 550
         }).start();
-        this.unLock();
+        switch (this.props.lockState) {
+            case LockState.trunk:
+                this.unLockTrunk();
+                break;
+        
+            case LockState.frunk:
+                this.unLockFrunk();
+                break;
+
+            case LockState.lock:
+                this.unLock();
+                break;
+        
+            default:
+                break;
+        }
     }
 
     circleShape = () => {
@@ -164,8 +214,8 @@ export default class Lock extends Component {
     }
 
     flingRight = () => {
-        this.numberOfGesture++;
-        if (this.numberOfGesture==2) {
+        // this.numberOfGesture++;
+        // if (this.numberOfGesture==2) {
             this.numberOfGesture = 0;
             switch (this.lockState) {
                 case LockState.frunk:
@@ -177,13 +227,13 @@ export default class Lock extends Component {
                 default:
                     break;
             }
-        }        
+        // }        
     }
 
     flingLeft = () => {
-        this.numberOfGesture++;
-        if (this.numberOfGesture==2) {
-            this.numberOfGesture = 0;
+        // this.numberOfGesture++;
+        // if (this.numberOfGesture==2) {
+            // this.numberOfGesture = 0;
             switch (this.lockState) {
                 case LockState.lock:
                     this.unLockFrunk();
@@ -194,7 +244,7 @@ export default class Lock extends Component {
                 default:
                     break;
             }
-        }
+        // }
     
     }
 
@@ -210,84 +260,74 @@ export default class Lock extends Component {
 		});
         const transform = [{scale}];
         return (
-            <FlingGestureHandler
-                direction={Directions.UP}
-                numberOfPointers={1}
-                onHandlerStateChange={this.flingUP}>
-                <FlingGestureHandler
-                    direction={Directions.RIGHT}
-                    numberOfPointers={1}
-                    onHandlerStateChange={this.flingRight}>
-                    <FlingGestureHandler
-                        direction={Directions.LEFT}
-                        numberOfPointers={1}
-                        onHandlerStateChange={this.flingLeft}>
-                        <View style={{flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
-                            <Animatable.View  style={styles.topContainer}  activeOpacity={1} animation={this.state.animatedShow} iterationCount={1} iterationDelay={150} direction="alternate">
-                                <View style={styles.button}>
-                                    <Image style={styles.buttonIcon} source={frunk} />              
-                                    <Animatable.Text style={{...styles.text, opacity: this.funkAnimated}}>Frunk</Animatable.Text>
-                                </View>
-                                <View>
-                                    <Entypo
-                                        name={'lock'}
-                                        type={'Entypo'}
-                                        color={'white'}
-                                        size={perfectSize(110)}
-                                    />
-                                    <Animatable.Text style={{...styles.text,  opacity: this.lockAnimated}}>Unock</Animatable.Text>
-                                </View>
-                                <View>
-                                    <Image style={styles.buttonIcon} source={trunk} />              
-                                    <Animatable.Text style={{...styles.text,  opacity: this.trunkAnimated}}>Trunk</Animatable.Text>
-                                </View>
-                            </Animatable.View>
-                            <MaskedView style={{...styles.maskView, backgroundColor: 'black'}}
-                                maskElement={
-                                    <Animated.View
-                                        style={{
-                                            backgroundColor: 'transparent',
-                                            flex: 1,
-                                            position: 'absolute',
-                                            top: 57,
-                                            left: this.animated,
-                                        }}
-                                    >
-                                        <Animated.Image source={mask} 
-                                            style={
-                                                [styles.mask,
-                                                {
-                                                    width: this.animatedCircle, 
-                                                    resizeMode: 'stretch'                                                
-                                                },
-                                                {transform}]
-                                            }
-                                        />
-                                    </Animated.View>
-                                }>
-                                <View style={{...styles.topContainer, backgroundColor: 'white'}}>
-                                    <TouchableOpacity style={{...styles.button}} onPress={this.unLockFrunk}>
-                                        <Image style={styles.buttonIcon} source={frunk_black} />              
-                                        <Text style={styles.text}>Frunk</Text>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity onPress={this.unLock}>
-                                        <Entypo
-                                            name={'lock-open'}
-                                            type={'Entypo'}
-                                            color={'black'}
-                                            size={perfectSize(110)}
-                                        />
-                                    </TouchableOpacity>
-                                    <TouchableOpacity onPress={this.unLockTrunk}>
-                                        <Image style={styles.buttonIcon} source={trunk_black} />              
-                                        <Text style={styles.text}>Trunk</Text>
-                                    </TouchableOpacity>
-                                </View>
-                            </MaskedView>      
+            <PanGestureHandler
+                {...this.props}
+                onGestureEvent={this._onGestureEvent}
+                onHandlerStateChange={this._onHandlerStateChange}>
+                <View style={{flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
+                    <Animatable.View  style={styles.topContainer}  activeOpacity={1} animation={this.state.animatedShow} iterationCount={1} iterationDelay={150} direction="alternate">
+                        <View style={styles.button}>
+                            <Image style={styles.buttonIcon} source={frunk} />              
+                            <Animatable.Text style={{...styles.text, opacity: this.funkAnimated}}>Frunk</Animatable.Text>
                         </View>
-                    </FlingGestureHandler>
-                </FlingGestureHandler>
-            </FlingGestureHandler>
+                        <View>
+                            <Entypo
+                                name={'lock'}
+                                type={'Entypo'}
+                                color={'white'}
+                                size={perfectSize(110)}
+                            />
+                            <Animatable.Text style={{...styles.text,  opacity: this.lockAnimated}}>Unock</Animatable.Text>
+                        </View>
+                        <View>
+                            <Image style={styles.buttonIcon} source={trunk} />              
+                            <Animatable.Text style={{...styles.text,  opacity: this.trunkAnimated}}>Trunk</Animatable.Text>
+                        </View>
+                    </Animatable.View>
+                    <MaskedView style={{...styles.maskView, backgroundColor: 'black'}}
+                        maskElement={
+                            <Animated.View
+                                style={{
+                                    backgroundColor: 'transparent',
+                                    flex: 1,
+                                    position: 'absolute',
+                                    top: 57,
+                                    left: this.animated,
+                                }}
+                            >
+                                <Animated.Image source={mask} 
+                                    style={
+                                        [styles.mask,
+                                        {
+                                            width: this.animatedCircle, 
+                                            resizeMode: 'stretch'                                                
+                                        },
+                                        {transform}]
+                                    }
+                                />
+                            </Animated.View>
+                        }>
+                        <View style={{...styles.topContainer, backgroundColor: 'white'}}>
+                            <TouchableOpacity style={{...styles.button}} onPress={this.unLockFrunk}>
+                                <Image style={styles.buttonIcon} source={frunk_black} />              
+                                <Text style={styles.text}>Frunk</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={this.unLock}>
+                                <Entypo
+                                    name={'lock-open'}
+                                    type={'Entypo'}
+                                    color={'black'}
+                                    size={perfectSize(110)}
+                                />
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={this.unLockTrunk}>
+                                <Image style={styles.buttonIcon} source={trunk_black} />              
+                                <Text style={styles.text}>Trunk</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </MaskedView>      
+                </View>
+            </PanGestureHandler>
         )
     }
 }

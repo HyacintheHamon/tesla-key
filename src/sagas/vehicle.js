@@ -8,15 +8,17 @@ import {
 
 import API from '../Utils/api';
 
-export const handleGetVehicleInfo = function* handleGetVehicleInfo(vehicleId) {
+export const handleGetVehicleInfo = function* handleGetVehicleInfo(vehicleInfo) {
 
     try {
-        const resultVehicleInfo = yield call(API.getVehicleData, vehicleInfo);
-        if (!resultVehicleInfo) {
-            throw REQUEST_ERROR;
-        } else {
-            yield put(receivedVehicleInfo({vehicleInfo: resultVehicleInfo, }));
-        }
+        yield put(receivedVehicleInfo(vehicleInfo));
+        
+        // const resultVehicleInfo = yield call(API.getVehicleData, vehicleInfo);
+        // if (!resultVehicleInfo) {
+        //     throw REQUEST_ERROR;
+        // } else {
+        //     yield put(receivedVehicleInfo({vehicleInfo: resultVehicleInfo, }));
+        // }
     } catch (error) {
         yield put(receivedError(error));
     }
