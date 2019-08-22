@@ -150,7 +150,26 @@ componentWillMount(){
 
  }
 
- componentDidMoun() {
+ componentDidMount() {
+  /*
+  fetch('https://owner-api.teslamotors.com/api/1/vehicles/'+id+'/nearby_charging_sites', { 
+    method: 'get', 
+    headers: new Headers({
+        'Authorization': 'Bearer ' + token, 
+        'Content-Type': 'application/json'
+    })
+    .then(response => response.json())
+    .then((responseJson)=> {
+      this.setState({
+        loading: false,
+        dataSource: responseJson
+      })
+    })
+    .catch(error=>console.log(error)) 
+
+    console.log('latitude', StoreGlobal.currentLatitude);
+    console.log('longitude', StoreGlobal.currentLongitude);
+  */
   console.log('data source : ',  this.state.dataSource);
   console.log('data source superchargers : ',  this.state.dataSource[0].response.superchargers[0].location.lat);
  }
