@@ -89,6 +89,15 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+            <Icon name={'bolt'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
+            <Text
+              onPress={() => navigation.navigate('SuperchargersMap')}
+              style={styles.DrawerItemText}>
+              Superchargers Map
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
             <Icon name={'question-circle'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}

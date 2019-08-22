@@ -10,6 +10,7 @@ import DrawerContent from './DrawerContent'
 import VehicleState from '../screens/VehicleState'
 import MainScreen from '../screens/MainScreen'
 import MapModalScreen from '../screens/MapModalScreen'
+import SuperchargersMap from '../screens/SuperchargersMap'
 import ClimateControlsModalScreen from '../screens/ClimateControlsModalScreen'
 import ARScene from '../screens/ARScene'
 
@@ -24,6 +25,7 @@ const DrawerStack = createDrawerNavigator({
   MapModalScreen: { screen: MapModalScreen },
   ARScene: { screen: ARScene },
   ClimateControlsModalScreen: { screen: ClimateControlsModalScreen },
+  SuperchargersMap: { screen: SuperchargersMap },
 }, {
   gesturesEnabled: false,
   contentComponent: DrawerContent
