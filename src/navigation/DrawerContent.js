@@ -118,7 +118,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
         <View style={styles.logoView}>
-          <GreyLogo />
+          <GreyLogo width="100px" height="50px" />
           <Text style={styles.version}>v. 1.0.0</Text>
         </View>
 

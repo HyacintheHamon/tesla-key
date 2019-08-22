@@ -234,7 +234,7 @@ return(
             style={styles.scooterImg}
             />
             */}
-            <SuperchargerMarker/>
+            <SuperchargerMarker width="24" height="24"/>
          {/* <Text style={styles.batteryText}>{marker.battery}%</Text> */}
         </MapView.Marker>
       );

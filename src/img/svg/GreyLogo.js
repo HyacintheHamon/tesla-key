@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 const SvgComponent = props => (
   <View>
-    <Svg width="100px" height="50px" viewBox="0 0 1759 1752" xmlns="http://www.w3.org/2000/svg">
+    <Svg width="1759px" height="1752px" viewBox="0 0 1759 1752" xmlns="http://www.w3.org/2000/svg" {...props}>
       <G id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <G id="Artboard" transform="translate(-12.000000, 0.000000)" fill="#36393E" fill-rule="nonzero">
           <G id="tesla_grey" transform="translate(12.000000, 0.000000)">

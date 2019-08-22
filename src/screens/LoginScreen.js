@@ -41,7 +41,7 @@ class LoginScreen extends React.Component {
         <KeyboardAvoidingView behavior="padding" style={styles.KeyboardAvoidingView}>
           <StatusBar barStyle="light-content" />
           <View style={styles.loginContainer}>
-            <GreyLogo />
+            <GreyLogo width="100px" height="50px" />
             <Text style={styles.description}>
               Please enter the username and password you use to login to the Tesla site
             </Text>
@@ -49,7 +49,7 @@ class LoginScreen extends React.Component {
           <View style={styles.formContainer}>
             
             <View style={styles.inputContainer}>
-              <User/>
+              <User width="20" height="20"/>
               <TextInput style = {styles.input} 
                 value={this.state.email}
                 onChangeText={email => this.setState({email})}
@@ -68,7 +68,7 @@ class LoginScreen extends React.Component {
             </View>
 
             <View style={styles.inputContainer}>
-              <Lock/>
+              <Lock width="20" height="20"/>
               <TextInput style = {styles.input}   
                 ref={ref => {this._passwordInput = ref}}
                 value={this.state.password}

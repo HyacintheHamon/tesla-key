@@ -57,9 +57,8 @@ const PrimaryNav = createStackNavigator({
   IntroScreen: { screen: IntroScreen },
   LoginScreen: { screen: LoginScreen },
   DrawerStack: { screen: DrawerStack },
-  SuperchargersMap: { screen: SuperchargersMap },
 }, {
-  initialRouteName: 'SuperchargersMap',  
+  initialRouteName: 'SplashScreen',  
   headerMode: 'none',
   navigationOptions: {
     headerVisible: false,

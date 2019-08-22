@@ -21,7 +21,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <GreyLogo />
+        <GreyLogo width="100px" height="50px" />
         <View style={styles.header}>
           <Text style={styles.description}>
             Please enter the username and password you use to login to the Tesla site:

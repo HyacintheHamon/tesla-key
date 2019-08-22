@@ -74,7 +74,7 @@ class HeaderComponent extends Component {
         </TouchableOpacity>
         <View style={[styles.headerItem, { alignItems: "flex-end" }]}>
           <TouchableOpacity style={{padding:8, marginTop:-8, paddingLeft:30,  marginRight:5,}} onPress={rightButtonOnPress}>
-            <WhiteKey />
+            <WhiteKey width="30px" height="30px"/>
           </TouchableOpacity>
         </View>
       </View>
