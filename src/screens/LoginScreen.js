@@ -5,6 +5,7 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { requestSignIn } from "../actions";
+import { Loading } from '../components/Common/Loading';
 
 const { height, width } = Dimensions.get('window');
 
@@ -13,6 +14,7 @@ class LoginScreen extends React.Component {
   state = {
     email: '',
     password: '',
+    loading: false,
   };
 
   componentWillReceiveProps(nextProps) {
@@ -83,11 +85,13 @@ class LoginScreen extends React.Component {
                 blurOnSubmit={true}
                 secureTextEntry/>
             </View>
-
+           {!this.state.loading ?
             <TouchableOpacity style={styles.buttonContainer} onPress={this.signIn}>
-            {/* onPress={this.handleSubmit} */}
               <Text  style={styles.buttonText}>LOGIN</Text>
             </TouchableOpacity> 
+            :
+              <Loading size={'small'} />
+            }
 
             <TouchableOpacity style={{...styles.buttonContainer, marginTop: 10}} onPress={()=>this.props.navigation.navigate('IntroScreen')}>
               <Text  style={styles.buttonText}>Intro</Text>
@@ -109,6 +113,9 @@ class LoginScreen extends React.Component {
   }
 
   signIn = () => {
+    this.setState({
+      loading: true
+    });
     let authData = {email: this.state.email, password: this.state.password};
     this.props.requestSignIn(authData);
   }
