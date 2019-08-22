@@ -168,11 +168,11 @@ PODS:
     - React
   - RNCMaskedView (0.1.1):
     - React
-  - RNGestureHandler (1.3.0):
+  - RNGestureHandler (1.4.0):
     - React
   - RNReanimated (1.2.0):
     - React
-  - RNSVG (9.6.2):
+  - RNSVG (9.6.4):
     - React
   - RNVectorIcons (6.6.0):
     - React
@@ -345,9 +345,9 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
   RNCAsyncStorage: 2e2e3feb9bdadc752a026703d8c4065ca912e75a
   RNCMaskedView: b79e193409a90bf6b5170d421684f437ff4e2278
-  RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
+  RNGestureHandler: 71871d4792db2a73f70204483d30350ec9384cbd
   RNReanimated: 1b52415c4302f198cb581282a0166690bad62c43
-  RNSVG: ff9b094e39dd4a437ebe17d1c7ceed286e75f426
+  RNSVG: a53a5de0d90ec96a6502cc3a4534dfcc0c130622
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   ViroKit_static_lib: ae9c112ac4b128f8d4466fc581c7b07a0264754d
   ViroReact: 7ec32276dcd1883662b4587eaedfff67f7fc3625
@@ -355,4 +355,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ca7a8b68828c900921cf9287f85f4df92d1527f4
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.7.1

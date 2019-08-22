@@ -11,7 +11,7 @@ import {
   Platform,
 } from "react-native";
 import { withNavigation } from "react-navigation";
-import SvgUri from 'react-native-svg-uri';
+import { WhiteKey} from '../img/svg';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 var { width, height } = Dimensions.get('window');
@@ -74,7 +74,7 @@ class HeaderComponent extends Component {
         </TouchableOpacity>
         <View style={[styles.headerItem, { alignItems: "flex-end" }]}>
           <TouchableOpacity style={{padding:8, marginTop:-8, paddingLeft:30,  marginRight:5,}} onPress={rightButtonOnPress}>
-            <SvgUri fill="#fff" fillAll="true" tyle={styles.logo} width="30" height="30" source={require('../img/key_white.svg')} />
+            <WhiteKey />
           </TouchableOpacity>
         </View>
       </View>

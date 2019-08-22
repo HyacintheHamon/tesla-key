@@ -3,7 +3,7 @@ import {StyleSheet, View, Image, PermissionsAndroid, Platform, Dimensions} from 
 import MapView , { PROVIDER_GOOGLE } from "react-native-maps";
 import Geolocation from '@react-native-community/geolocation';
 import mapStyle from '../json/mapStyle.json'
-import SvgUri from 'react-native-svg-uri';
+import { SuperchargerMarker } from '../img/svg';
 
 const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = height / 4;
@@ -234,7 +234,7 @@ return(
             style={styles.scooterImg}
             />
             */}
-            <SvgUri width="30" height="37" source={require('../img/supercharger-marker.svg')} />
+            <SuperchargerMarker/>
          {/* <Text style={styles.batteryText}>{marker.battery}%</Text> */}
         </MapView.Marker>
       );

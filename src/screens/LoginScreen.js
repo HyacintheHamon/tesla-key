@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Linking, Dimensions } from 'react-native';
-import SvgUri from 'react-native-svg-uri';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { requestSignIn } from "../actions";
 import { Loading } from '../components/Common/Loading';
+import { User, Lock, GreyLogo } from '../img/svg';
 
 const { height, width } = Dimensions.get('window');
 
@@ -41,7 +41,7 @@ class LoginScreen extends React.Component {
         <KeyboardAvoidingView behavior="padding" style={styles.KeyboardAvoidingView}>
           <StatusBar barStyle="light-content" />
           <View style={styles.loginContainer}>
-            <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} />
+            <GreyLogo />
             <Text style={styles.description}>
               Please enter the username and password you use to login to the Tesla site
             </Text>
@@ -49,7 +49,7 @@ class LoginScreen extends React.Component {
           <View style={styles.formContainer}>
             
             <View style={styles.inputContainer}>
-              <SvgUri style={styles.inputIcon} width="20" height="20" source={require('../img/user.svg')} />
+              <User/>
               <TextInput style = {styles.input} 
                 value={this.state.email}
                 onChangeText={email => this.setState({email})}
@@ -68,7 +68,7 @@ class LoginScreen extends React.Component {
             </View>
 
             <View style={styles.inputContainer}>
-              <SvgUri style={styles.inputIcon} width="20" height="20" source={require('../img/lock.svg')} />
+              <Lock/>
               <TextInput style = {styles.input}   
                 ref={ref => {this._passwordInput = ref}}
                 value={this.state.password}
@@ -194,10 +194,6 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: 'row',
     alignItems:'center'
-  },
-  inputIcon:{
-    marginLeft:15,
-    justifyContent: 'center'
   },
   input:{
     flex: 1,

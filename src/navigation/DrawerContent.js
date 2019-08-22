@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import SvgUri from 'react-native-svg-uri';
+import { GreyLogo } from '../img/svg';
 
 export default class DrawerContent extends React.Component {
 
@@ -118,7 +118,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
         <View style={styles.logoView}>
-          <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} />
+          <GreyLogo />
           <Text style={styles.version}>v. 1.0.0</Text>
         </View>
 

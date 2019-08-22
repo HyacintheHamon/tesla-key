@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Linking } from 'react-native';
-import SvgUri from 'react-native-svg-uri';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import { GreyLogo } from '../img/svg';
 
 export default class App extends Component {
   state = {
@@ -21,7 +21,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} />
+        <GreyLogo />
         <View style={styles.header}>
           <Text style={styles.description}>
             Please enter the username and password you use to login to the Tesla site:

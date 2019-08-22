@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View,  Text, Dimensions } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import LottieView from 'lottie-react-native';
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
-
-import SvgUri from 'react-native-svg-uri';
-
-import LottieView from 'lottie-react-native';
 const splashScreenAnimation = require('../animations/splashscreen_animation.json');
 
 export default class SplashScreen extends Component {
@@ -55,7 +52,6 @@ export default class SplashScreen extends Component {
   render() {
     return (
         <View style={styles.View}>
-          {/*  <SvgUri style={styles.logo} width="100" height="50" source={require('../img/logo_grey.svg')} /> */}
         <LottieView 
             ref={animation => {
               this.animation = animation;
