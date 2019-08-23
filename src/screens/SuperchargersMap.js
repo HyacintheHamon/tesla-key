@@ -1,13 +1,17 @@
 import React from "react";
-import {StyleSheet, View, Image, PermissionsAndroid, Platform, Dimensions} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, PermissionsAndroid, Platform, Dimensions} from 'react-native';
 import MapView , { PROVIDER_GOOGLE } from "react-native-maps";
 import Geolocation from '@react-native-community/geolocation';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import mapStyle from '../json/mapStyle.json'
 import { SuperchargerMarker } from '../img/svg';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = height / 4;
 const CARD_WIDTH = CARD_HEIGHT - 50;
+const LATITUDE_DELTA = 0.0922;
+const LONGITUDE_DELTA =  0.0421;
 
 export default class SuperchargersMap extends React.Component {
 
@@ -15,12 +19,14 @@ export default class SuperchargersMap extends React.Component {
     super(props);
     this.state = {
       region: {
-        //latitude: StoreGlobal.currentLatitude,
-        //longitude: StoreGlobal.currentLongitude,
-        latitude: 33.894227,
-        longitude: -118.367407,
-        latitudeDelta: 0.5,
-        longitudeDelta: 0.5,
+        latitude: 48.8983508,
+        longitude: 2.3778904,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      },
+      currentPosition: {
+        latitude: 0.0,
+        longitude: 0.0,
       },
       dataSource: [{
         "response":{
@@ -118,39 +124,27 @@ export default class SuperchargersMap extends React.Component {
       }]
      };
    }
+
+   setNavigationColor = (color) => {
+    changeNavigationBarColor(color);
+  };
    
-componentWillMount(){
-  
-  var that =this;
-  //Checking for the permission just after component loaded
-  if(Platform.OS === 'ios'){
-    this.callLocation(that);
-  }else{
-    async function requestLocationPermission() {
-      try {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,{
-            'title': 'Location Access Required',
-            'message': 'This App needs to Access your location'
-          }
-        )
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          //Check if Permission is granted
-          that.callLocation(that);
-        } else {
-          alert("Permission was denied");
-        }
-      } catch (err) {
-        alert("err",err);
-        console.warn(err)
-      }
-    }
-    requestLocationPermission();
-  }    
-
- }
-
  componentDidMount() {
+
+    this.setNavigationColor('#111117');
+
+    Geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({
+          currentPosition: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          }
+        });
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
   /*
   fetch('https://owner-api.teslamotors.com/api/1/vehicles/'+id+'/nearby_charging_sites', { 
     method: 'get', 
@@ -173,33 +167,7 @@ componentWillMount(){
   console.log('data source : ',  this.state.dataSource);
   console.log('data source superchargers : ',  this.state.dataSource[0].response.superchargers[0].location.lat);
  }
- callLocation(that){
 
-  Geolocation.getCurrentPosition(
-      //Get the current location
-       (position) => {
-          const currentLongitude = JSON.stringify(position.coords.longitude);
-          const currentLatitude = JSON.stringify(position.coords.latitude);
-
-          that.setState({ currentLongitude:currentLongitude });
-          that.setState({ currentLatitude:currentLatitude });
-       },
-       (error) => alert(error.message),
-       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-    );
-    that.watchID = Geolocation.watchPosition((position) => {
-
-      const currentLongitude = JSON.stringify(position.coords.longitude);
-      const currentLatitude = JSON.stringify(position.coords.latitude);
-
-      that.setState({ currentLongitude:currentLongitude });
-      that.setState({ currentLatitude:currentLatitude });
-      
-      // Global state
-      // StoreGlobal.currentLongitude = Number(currentLongitude);
-      // StoreGlobal.currentLatitude = Number(currentLatitude);
-    });
-   }
 
   componentWillUnmount = () => {
     this.index = 0;
@@ -211,13 +179,29 @@ componentWillMount(){
 render(){
 return(
   <View style={styles.container}>
-  <MapView
-    provider={ PROVIDER_GOOGLE }
-    customMapStyle= {mapStyle}
-    ref={map => this.map = map}
-    initialRegion={this.state.region}
-    style={styles.container}
-  >
+    <MapView
+      provider={ PROVIDER_GOOGLE }
+      customMapStyle= {mapStyle}
+      ref={map => this.map = map}
+      region={{ latitude: this.state.currentPosition.latitude,
+        longitude: this.state.currentPosition.longitude,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      }}
+      style={styles.container}
+      mapType="standard"
+      showsUserLocation={true}
+      userLocationAnnotationTitle="My position"
+      followsUserLocation={true}
+      showsMyLocationButton={true}
+      showsPointsOfInterest={true}
+      showsCompass={true}
+      showsIndoors={true}
+      zoomEnabled={true}
+      zoomControlEnabled={true}
+      loadingEnabled={true}
+      scrollEnabled={true}
+    >
     {this.state.dataSource[0].response.superchargers.map((marker, index) => {
 
       console.log('item lattitude', marker.location.lat);
@@ -228,24 +212,33 @@ return(
           latitude:  marker.location.lat,
           longitude: marker.location.long,
         }}>
-            {/*
-            <Image
-            source={scooterImg}
-            style={styles.scooterImg}
-            />
-            */}
-            <SuperchargerMarker width="24" height="24"/>
-         {/* <Text style={styles.batteryText}>{marker.battery}%</Text> */}
+          <SuperchargerMarker width="24" height="24"/>
+          {/* <Text style={styles.batteryText}>{marker.battery}%</Text> */}
         </MapView.Marker>
       );
     })}
   </MapView>
+  <TouchableOpacity style={styles.closeButton} onPress={this.props.navigation.goBack()}>
+      <Icon name="arrow-left" size={30} color="#fff" />
+  </TouchableOpacity>
 </View>
 )}
 }
 const styles = StyleSheet.create({
+  closeButton: {
+    position: 'absolute',
+    left: 30,
+    top: 50,
+  },
   container: {
-    flex: 1,
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+  },
+  mainView: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
   },
   scrollView: {
     position: "absolute",
