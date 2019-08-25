@@ -6,7 +6,27 @@ import { bindActionCreators } from "redux";
 import { requestVehicleInfo } from "../actions";
 
 import {StyleSheet, Text, Alert, Image, View, FlatList, TouchableOpacity, Dimensions, Animated} from 'react-native';
-// import LinearGradient from 'react-native-linear-gradient';
+import Svg,{
+  Circle,
+  Ellipse,
+  G,
+  TSpan,
+  TextPath,
+  Path,
+  Polygon,
+  Polyline,
+  Line,
+  Rect,
+  Use,
+  Symbol,
+  Defs,
+  LinearGradient,
+  RadialGradient,
+  Stop,
+  ClipPath,
+  Pattern,
+  Mask,
+} from 'react-native-svg';
 import { create, PREDEF_RES } from 'react-native-pixel-perfect';
 import Modal from 'react-native-modal';
 import YourCarPic from '../components/YourCarPic'
@@ -39,32 +59,65 @@ const seat2 = require("../img/seat2.png");
 
 const mask = require("../img/mask.png");
 
+let AnimatedCircle = Animated.createAnimatedComponent(Circle);
+
 class IntroScreen extends Component {
 
   constructor(props) {
 		super(props)
       this.state = {
         description: 'Step1 description!',
-        introStep: 1
+        introStep: 1,
+        circleRadius: new Animated.Value(0),
+        circleX: new Animated.Value(0),
+        circleY: new Animated.Value(0)
       };
       this.animated = new Animated.Value(0);
+
+      this.state.circleX.addListener( (circleRadius) => {
+        this._myCircle.setNativeProps({ cx: circleRadius.value.toString() });
+      });
+
+      this.state.circleY.addListener( (circleRadius) => {
+        this._myCircle.setNativeProps({ cy: circleRadius.value.toString() });
+      });
+  }
+
+  componentDidMount() {
+    Animated.timing(this.state.circleX, {
+      toValue: 50,
+      duration: 500
+    }).start();
+    Animated.timing(this.state.circleY, {
+      toValue: 50,
+      duration: 500
+    }).start();
   }
 
   next = () => {
+    
     this.state.introStep++;    
     switch (this.state.introStep) {
       case 2:
-        Animated.timing(this.animated, {
-          toValue: height/3,
+        Animated.timing(this.state.circleX, {
+          toValue: 70,
+          duration: 500
+        }).start();
+        Animated.timing(this.state.circleY, {
+          toValue: height/2,
           duration: 500
         }).start();
         this.setState({description: "Step2 description!"});   
         break;
       case 3:
-        Animated.timing(this.animated, {
+        Animated.timing(this.state.circleX, {
+          toValue: 200,
+          duration: 500
+        }).start();
+        Animated.timing(this.state.circleY, {
           toValue: 2*height/3,
           duration: 500
-        }).start()
+        }).start();
         this.setState({description: "Step3 description!"});           
         break;
       default:
@@ -228,36 +281,29 @@ class IntroScreen extends Component {
     return (
       <View style={{flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
           {this.renderIntroContent()}      
-          <View style={styles.overlay}/>
           <View style={styles.intro}>
             <Text style={{color: 'white', fontSize: 27, marginBottom: 20}}>{description}</Text>            
             <TouchableOpacity style={styles.nextButton} onPress={this.next}>
               <Text style={{color: 'white', fontSize: 27}}>Next</Text>
             </TouchableOpacity>
           </View>
-          <MaskedView style={{...styles.maskView, backgroundColor: 'black'}}
-           maskElement={
-               <Animated.View
-                   style={{
-                       backgroundColor: 'transparent',
-                       flex: 1,
-                       position: 'absolute',
-                       top: this.animated,
-                       left: -20
-                   }}
-               >
-                  <Entypo
-                    name={'controller-record'}
-                    type={'Entypo'}
-                    color={'white'}
-                    size={perfectSize(410)}
-                />
-               </Animated.View>
-           }> 
-            {this.renderIntroContent()}
-           </MaskedView>        
+          <View style={{
+            height: height,
+            position: 'absolute',
+            width: width,
+            aspectRatio: 1
+          }}>
+            <Svg height={height} width="100%">
+                <Defs>
+                    <Mask id="mask" x="0" y="0" height={height} width="100%">
+                        <Rect height="100%" width="100%" fill="#fff" />
+                        <AnimatedCircle ref={ ref => this._myCircle = ref } cx="-50" cy="-50" r="50" fill="black" />
+                    </Mask>
+                </Defs>
+                <Rect height="100%" width="100%" fill="rgba(107, 107, 23, 0.5)" mask="url(#mask)" fill-opacity="0" />
+            </Svg>              
+          </View>
       </View>
-
     );
   }
 }
