@@ -177,6 +177,22 @@ export default class SuperchargersMap extends React.Component {
    
 
 render(){
+  /*
+  let batteryIcon = <BatteryAlmost/>;
+
+  if (batteryLevel == 100) {
+    batteryIcon = <BatteryFull/>;
+  }
+  else if (batteryLevel > 70) {
+    batteryIcon = <BatteryFull/>;
+  }
+  else if (batteryLevel < 70 && batteryLevel > 40) {
+    batteryIcon = <BatteryMedium/>;
+  }
+  else {
+    batteryIcon = <BatteryLow/>;
+  }
+*/
 return(
   <View style={styles.container}>
     <MapView
@@ -211,7 +227,10 @@ return(
         <MapView.Marker key={index} coordinate={{
           latitude:  marker.location.lat,
           longitude: marker.location.long,
-        }}>
+        }}
+        title={marker.name}
+        description={"Distance: " + marker.distance_miles + " mi"}
+        >
           <SuperchargerMarker width="24" height="24"/>
           {/* <Text style={styles.batteryText}>{marker.battery}%</Text> */}
         </MapView.Marker>
