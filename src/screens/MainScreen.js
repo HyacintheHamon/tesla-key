@@ -193,6 +193,22 @@ class MainScreen extends Component {
   render() {
     const {firstItem, secondItem, description, endIntro} = this.state;
 
+    /*
+    let batteryIcon = <BatteryAlmost/>;
+    if (batteryLevel == 100) {
+      batteryIcon = <BatteryFull/>;
+    }
+    else if (batteryLevel > 70) {
+      batteryIcon = <BatteryFull/>;
+    }
+    else if (batteryLevel < 70 && batteryLevel > 40) {
+      batteryIcon = <BatteryMedium/>;
+    }
+    else {
+      batteryIcon = <BatteryLow/>;
+    }
+    */
+
     return (
       // <FlingGestureHandler
       //   direction={Directions.DOWN}
@@ -358,6 +374,7 @@ class MainScreen extends Component {
             animationOutTiming={300}
             backdropTransitionInTiming={300}
             backdropTransitionOutTiming={300}
+            coverScreen={true}
           >
             <SummonModalScreen onCloseSummonModal={()=>this.closeSummonModal()}/>
           </Modal>
@@ -372,6 +389,7 @@ class MainScreen extends Component {
             animationOutTiming={300}
             backdropTransitionInTiming={300}
             backdropTransitionOutTiming={300}
+            coverScreen={true}
           >
             <MapModal onCloseMapModal={()=>this.closeMapModal()}/>
           </Modal>
@@ -386,6 +404,7 @@ class MainScreen extends Component {
             animationOutTiming={300}
             backdropTransitionInTiming={300}
             backdropTransitionOutTiming={300}
+            coverScreen={true}
             onBackdropPress={() => this.setState({ visibleClimateControlsModal: false })}
           >
             <ClimateControlsModalScreen onCloseClimateControlsModal={()=>this.closeClimateControlsModal()}/>
@@ -402,6 +421,7 @@ class MainScreen extends Component {
             animationOutTiming={300}
             backdropTransitionInTiming={300}
             backdropTransitionOutTiming={300}
+            coverScreen={true}
           >
             <Lock onCloseLockModal={(lock_state)=>this.closeLockModal(lock_state)} lockState={this.state.lockState}/>
           </Modal>

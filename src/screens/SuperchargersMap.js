@@ -177,22 +177,6 @@ export default class SuperchargersMap extends React.Component {
    
 
 render(){
-  /*
-  let batteryIcon = <BatteryAlmost/>;
-
-  if (batteryLevel == 100) {
-    batteryIcon = <BatteryFull/>;
-  }
-  else if (batteryLevel > 70) {
-    batteryIcon = <BatteryFull/>;
-  }
-  else if (batteryLevel < 70 && batteryLevel > 40) {
-    batteryIcon = <BatteryMedium/>;
-  }
-  else {
-    batteryIcon = <BatteryLow/>;
-  }
-*/
 return(
   <View style={styles.container}>
     <MapView
