@@ -283,7 +283,7 @@ class MainScreen extends Component {
                   <Icon
                     name={'chevron-up'}
                     type={'entypo'}
-                    color={'white'}
+                    color={'#525252'}
                     size={24}
                   />
                 </TouchableOpacity>
@@ -292,7 +292,7 @@ class MainScreen extends Component {
                   <Icon
                     name={'chevron-down'}
                     type={'entypo'}
-                    color={'white'}
+                    color={'#525252'}
                     size={24}
                   />
                 </TouchableOpacity>
@@ -311,7 +311,7 @@ class MainScreen extends Component {
                   <Icon
                     name={'chevron-up'}
                     type={'entypo'}
-                    color={'white'}
+                    color={'#525252'}
                     size={24}
                   />
                 </TouchableOpacity>
@@ -320,7 +320,7 @@ class MainScreen extends Component {
                   <Icon
                     name={'chevron-down'}
                     type={'entypo'}
-                    color={'white'}
+                    color={'#525252'}
                     size={24}
                   />
                 </TouchableOpacity>

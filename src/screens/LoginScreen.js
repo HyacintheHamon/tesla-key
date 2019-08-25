@@ -93,10 +93,6 @@ class LoginScreen extends React.Component {
               <Loading size={'small'} />
             }
 
-            <TouchableOpacity style={{...styles.buttonContainer, marginTop: 10}} onPress={()=>this.props.navigation.navigate('IntroScreen')}>
-              <Text  style={styles.buttonText}>Intro</Text>
-            </TouchableOpacity> 
-
         </View>
       </KeyboardAvoidingView>
       <View style={styles.legalView}>
