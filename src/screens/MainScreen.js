@@ -51,7 +51,8 @@ import MapModal from '../components/Map';
 import Lock from '../components/Lock';
 import ClimateControlsModalScreen from './ClimateControlsModalScreen'
 import helper from '../Utils/helper';
-const vent = require("../img/vent.png");
+import { Window } from '../img/svg';
+
 const trunk = require("../img/trunk.png");
 const frunk = require("../img/frunk.png");
 const fan = require("../img/fan.png");
@@ -356,7 +357,7 @@ class MainScreen extends Component {
               </View>
               <View style={styles.item}>
                 <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                  <Image style={styles.buttonIcon} source={vent} />
+                  <Window style={styles.buttonIcon}/>
                   <Text style={styles.text}>VENT</Text>
                 </TouchableOpacity>
               </View>
