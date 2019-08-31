@@ -55,7 +55,9 @@ import {
   SeatLeft,
   SeatRight
 } from '../img/svg';
-
+const frunk = require("../img/frunk.png");
+const trunk = require("../img/trunk.png");
+const mask = require("../img/mask.png");
 let AnimatedCircle = Animated.createAnimatedComponent(Circle);
 let INTRO_POSITION = [
   {x: 50, y: 50, description: "description1"},
@@ -261,7 +263,7 @@ class MainScreen extends Component {
             description,
             endIntro,
             flingLeft,
-            flingRight
+            flingRight,
           } = this.state;
 
     return (
@@ -750,7 +752,7 @@ export class Lock extends Component {
                           color={'white'}
                           size={perfectSize(110)}
                         />
-                        <Animatable.Text style={{...styles.lockText,  opacity: this.lockAnimated}}>Unock</Animatable.Text>
+                        <Animatable.Text style={{...styles.lockText,  opacity: this.lockAnimated}}>Unlock</Animatable.Text>
                       </View>
                       <View>
                         <Image style={styles.lockButtonIcon} source={trunk} />              
