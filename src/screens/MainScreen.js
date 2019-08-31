@@ -739,7 +739,7 @@ export class Lock extends Component {
         });
         const transform = [{scale}];
         return (
-                <Animatable.View style={{flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
+                <Animatable.View style={{flex: 1, backgroundColor: '#111117'}}>
                     <Animatable.View  style={styles.topContainer}  activeOpacity={1} animation={this.state.animatedShow} iterationCount={1} iterationDelay={150} direction="alternate">
                       <View style={styles.button}>
                         <Image style={styles.lockButtonIcon} source={frunk} />              
