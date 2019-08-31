@@ -11,7 +11,7 @@ import {
   Platform,
 } from "react-native";
 import { withNavigation } from "react-navigation";
-import { WhiteKey} from '../img/svg';
+import { WhiteKey, LockArrow,  Menu} from '../img/svg';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 var { width, height } = Dimensions.get('window');
@@ -48,28 +48,13 @@ class HeaderComponent extends Component {
     return (
       <View style={[styles.headerContainer, headerContainerStyle]}>
         <View style={styles.headerItem}>
-          <TouchableOpacity style={{padding:8,marginTop:-8, paddingRight:30, minHeight:38}} onPress={leftButtonOnPress}>
-            <Entypo
-              name="menu"
-              color={'white'}
-              size={24}
-            />
+          <TouchableOpacity style={{padding:8,marginTop:-8, paddingLeft:20, minHeight:38}} onPress={leftButtonOnPress}>
+            <Menu />
           </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={centerButtonOnPress}>
           <View style={[styles.headerItem]}>
-            <Entypo
-              name={'lock'}
-              type={'Entypo'}
-              color={'gray'}
-              size={24}
-            />
-            <Entypo
-              name={'chevron-thin-down'}
-              type={'entypo'}
-              color={'gray'}
-              size={24}
-            />
+            <LockArrow />
           </View>
         </TouchableOpacity>
         <View style={[styles.headerItem, { alignItems: "flex-end" }]}>

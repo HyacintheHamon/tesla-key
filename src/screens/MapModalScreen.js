@@ -18,6 +18,7 @@ import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, prototype } from 'react-nat
 import mapStyle from '../json/mapStyle.json'
 import Geolocation from '@react-native-community/geolocation';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import  { Close } from '../img/svg'
 
 // Calculate map zoom
 const screen = Dimensions.get('window');
@@ -115,7 +116,7 @@ export default class MapModalScreen extends React.Component {
         ))}
         </MapView>
         <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMapModal}>
-            <Icon name="times" size={30} color="#fff" />
+            <Close />
         </TouchableOpacity>
         <View style={styles.searchBarContainer}>
             <TextInput

@@ -2,7 +2,19 @@ import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { GreyLogo } from '../img/svg';
+import { 
+  GreyLogo, 
+  SignOut, 
+  Help, 
+  Calendar, 
+  Port, 
+  Authentication,
+  Battery,
+  Valet,
+  LootBox,
+  Notifications,
+  Close,
+ } from '../img/svg';
 
 export default class DrawerContent extends React.Component {
 
@@ -17,7 +29,7 @@ export default class DrawerContent extends React.Component {
         </View>
         
         <TouchableOpacity style={styles.closeButton} onPress={()=>this.props.navigation.toggleDrawer()}>
-          <Icon name="times" size={24} color="#fff" />
+          <Close/>
         </TouchableOpacity>
 
         <View style={styles.mileageView}>
@@ -29,7 +41,7 @@ export default class DrawerContent extends React.Component {
         </View>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Icon name={'concierge-bell'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon}/>
+            <Valet style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('MainScreen')}
               onPress={()=>alert("tapped")}
@@ -39,7 +51,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Icon name={'gift'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
+            <LootBox style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('MainScreen')}
               onPress={()=>alert("tapped")}
@@ -49,7 +61,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Icon name={'bell'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
+            <Notifications style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -59,7 +71,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-          <Icon name={'battery-three-quarters'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
+            <Battery style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -69,7 +81,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Icon name={'shield-alt'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
+            <Authentication style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -79,7 +91,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Icon name={'calendar'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
+            <Calendar style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -89,7 +101,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Icon name={'bolt'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
+            <Port width="15" style={styles.DrawerItemIcon} />
             <Text
               onPress={() => navigation.navigate('SuperchargersMap')}
               style={styles.DrawerItemText}>
@@ -98,7 +110,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Icon name={'question-circle'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
+            <Help style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -108,7 +120,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
           
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Icon name={'sign-out-alt'} type={'Entypo'} color={'white'} size={14} style={styles.DrawerItemIcon} />
+            <SignOut style={styles.DrawerItemIcon} />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}

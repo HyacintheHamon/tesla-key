@@ -10,13 +10,12 @@ import SearchInput from '../Search';
 import Directions from '../Directions';
 import Details from '../Details';
 import {setNavigationRequest} from '../../actions/api';
-
-import { Back, LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from './styles';
+import { Back } from '../../img/svg';
+import { LocationBox, LocationText, LocationTimeBox, LocationTimeText, LocationTimeTextSmall } from './styles';
 
 Geocoder.init('AIzaSyBI_lZSOEBQz7a1RwFS6qWTyhoIJkvOvyA');
 
 import markerImage from '../../img/marker.png';
-import backImagem from '../../img/back.png';
 import mapStyle from '../../json/mapStyle.json'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Geolocation from '@react-native-community/geolocation'
@@ -24,6 +23,7 @@ import Geolocation from '@react-native-community/geolocation'
 import teslaCarIcon from '../../img/carIcon.png'
 
 import HeaderComponent from '../HeaderComponent'
+import { from } from 'rxjs';
 
 // Calculate map zoom
 const screen = Dimensions.get('window');
@@ -230,7 +230,7 @@ export default class Map extends Component {
                     />
                     ))}
                 </MapView>
-                {destination&&!searchFocused&&<Fragment><Back onPress={this.handleBack}><Image source={backImagem}/></Back><Details distance={distance} duration={duration} startTrip={()=>this.startTrip()}/></Fragment>}
+                {destination&&!searchFocused&&<Fragment><Back onPress={this.handleBack}/><Details distance={distance} duration={duration} startTrip={()=>this.startTrip()}/></Fragment>}
                 <SearchInput searchFocused={()=>this.setState({searchFocused: true})} onLocationSelected={this.handleLocationSelected} onCloseMap={this.props.onCloseMapModal}/>
             </View>
         )

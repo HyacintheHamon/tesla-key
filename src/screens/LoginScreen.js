@@ -167,7 +167,8 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#9d9d9d',
     textAlign: 'center',
-    width: width/1.3
+    width: width/1.3,
+    marginTop:50
   },
   loginContainer:{
     flexGrow: 1,

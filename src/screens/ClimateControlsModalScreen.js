@@ -3,6 +3,7 @@ import { StyleSheet, Text, Image, View, TouchableOpacity,SafeAreaView  } from 'r
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { create, PREDEF_RES } from 'react-native-pixel-perfect';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import  { Close } from '../img/svg'
 
 perfectSize = create(PREDEF_RES.iphoneX.px);
 const vent = require("../img/vent.png");
@@ -30,7 +31,7 @@ export default class ClimateControlsModalScreen extends React.Component {
       <View style={styles.modalContent}>
         <Text style={styles.header}>CLIMATE CONTROLS</Text>
         <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseClimateControlsModal}>
-          <Icon name="times" size={24} color="#fff" />
+          <Close />
         </TouchableOpacity>
 
         <Image source={fan} style={{width: 80, height: 80}}/> 

@@ -4,7 +4,7 @@ import MapView , { PROVIDER_GOOGLE } from "react-native-maps";
 import Geolocation from '@react-native-community/geolocation';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import mapStyle from '../json/mapStyle.json'
-import { SuperchargerMarker } from '../img/svg';
+import { SuperchargerMarker, Back } from '../img/svg';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const { width, height } = Dimensions.get("window");
@@ -222,7 +222,7 @@ return(
     })}
   </MapView>
   <TouchableOpacity style={styles.closeButton} onPress={this.props.navigation.goBack()}>
-      <Icon name="arrow-left" size={30} color="#fff" />
+      <Back />
   </TouchableOpacity>
 </View>
 )}

@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const { height, width } = Dimensions.get('window');
 const topView = require('../img/model-s-top-view.png');
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import  { Close } from '../img/svg'
 
 // import LottieView from 'lottie-react-native';
 // const carAnimation = require('../animations/car.json');
@@ -49,7 +50,7 @@ export default class SummonModalScreen extends Component {
           <View style={styles.modalContent}>
             <Text style={styles.header}>SUMMON</Text>
             <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseSummonModal}>
-              <Icon name="times" size={24} color="#fff" />
+              <Close />
             </TouchableOpacity>
 
             <Image source={topView} style={{width: width/3, height: height/2 , marginBottom: 100}}/> 

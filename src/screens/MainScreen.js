@@ -51,15 +51,21 @@ import MapModal from '../components/Map';
 import Lock from '../components/Lock';
 import ClimateControlsModalScreen from './ClimateControlsModalScreen'
 import helper from '../Utils/helper';
-import { Window } from '../img/svg';
-
-const trunk = require("../img/trunk.png");
-const frunk = require("../img/frunk.png");
-const fan = require("../img/fan.png");
-const panic = require("../img/panic.png");
-const port = require("../img/port.png");
-const seat1 = require("../img/seat1.png");
-const seat2 = require("../img/seat2.png");
+import { 
+  Window, 
+  Parked, 
+  Port, 
+  Panic, 
+  Trunk, 
+  Frunk, 
+  Fan, 
+  Temperature, 
+  Target,
+  LocationArrow,
+  Battery,
+  SeatLeft,
+  SeatRight
+} from '../img/svg';
 
 let AnimatedCircle = Animated.createAnimatedComponent(Circle);
 let INTRO_POSITION = [
@@ -195,18 +201,29 @@ class MainScreen extends Component {
     const {firstItem, secondItem, description, endIntro} = this.state;
 
     /*
-    let batteryIcon = <BatteryAlmost/>;
+    let batteryIcon = <BatteryHigh/>;
     if (batteryLevel == 100) {
-      batteryIcon = <BatteryFull/>;
+      batteryIcon = <BatteryHigh/>;
     }
     else if (batteryLevel > 70) {
-      batteryIcon = <BatteryFull/>;
+      batteryIcon = <BatteryHigh/>;
     }
     else if (batteryLevel < 70 && batteryLevel > 40) {
       batteryIcon = <BatteryMedium/>;
     }
     else {
       batteryIcon = <BatteryLow/>;
+    }
+
+    let temperatureIcon = <TemperatureMedium/>;
+    else if (temperatureLevelFahrenheit > 80) {
+      temperatureIcon = <TemperatureHigh/>;
+    }
+    else if (temperatureLevelFahrenheit < 80 && temperatureLevelFahrenheit > 60) {
+      temperatureIcon = <TemperatureyMedium/>;
+    }
+    else {
+      temperatureIcon = <TemperatureLow/>;
     }
     */
 
@@ -235,31 +252,16 @@ class MainScreen extends Component {
             </View>
             <View style={ styles.bottomView} >
               <View style={styles.status}>
-                <Icon
-                  name={'lock'}
-                  type={'Entypo'}
-                  color={'white'}
-                  size={14}
-                />
-                  <Text style={styles.inlineLabel}>Interior 68°F</Text>
-                <Icon 
-                  style={styles.infoIcon}
-                  name="parking"
-                  size={14}
-                  color="#fff"
-                />
-                  <Text style={styles.inlineLabel}>Parked</Text>
-                <Ionicons
-                  name={'md-battery-charging'}
-                  style={styles.infoIcon}
-                  color={'white'}
-                  size={16}
-                />        
-                  <Text style={styles.inlineLabel}>Charging</Text>
+                <Temperature style={styles.buttonIcon}/>
+                <Text style={styles.inlineLabel}>Interior 68°F</Text>
+                <Parked style={styles.buttonIcon}/>
+                <Text style={styles.inlineLabel}>Parked</Text>
+                <Battery style={styles.buttonIcon}/>
+                <Text style={styles.inlineLabel}>Charging</Text>
               </View>
               <View style={styles.calloutView} >
                 <View style={styles.calloutIconView}>
-                  <Icon style={styles.calloutIcon} name="location-arrow" size={15} color="#fff" />
+                  <LocationArrow style={styles.calloutIcon} />
                 </View>
                 
                 <TouchableOpacity style={styles.calloutSearch} onPress={()=> this.setState({ visibleMapModal: true })}>
@@ -268,7 +270,7 @@ class MainScreen extends Component {
 
                 <View style={styles.calloutIconView}>
                   <TouchableOpacity style={styles.calloutIconEnd} onPress={() => this.props.navigation.navigate('ARScene')}>
-                  <MaterialIcon name="filter-center-focus" size={30} color="#fff" />
+                  <Target/>
                   </TouchableOpacity>
                 </View>
             </View>
@@ -276,7 +278,7 @@ class MainScreen extends Component {
             <View style={styles.buttonGroup}>
             <View style={styles.buttonRow}>
               <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                  <Image style={styles.seatIcon} source={seat1} />
+                  <SeatLeft style={styles.seatIcon} />
                 </TouchableOpacity>
 
               <View style={styles.ctrlTem}>
@@ -303,7 +305,7 @@ class MainScreen extends Component {
                 onLongPress={this.handlerfanButtonLongPress}
                 onPress={this.handlerfanButtonPress}
                 >
-                  <Image style={styles.buttonIcon} source={fan} />
+                  <Fan style={styles.buttonIcon}/>
                   <Text style={styles.text}>MANUAL</Text>
                 </TouchableOpacity>
               </View>
@@ -327,31 +329,31 @@ class MainScreen extends Component {
                 </TouchableOpacity>
               </View>
               <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                <Image style={styles.seatIcon} source={seat2} />
+                <SeatRight style={styles.seatIcon}/>
               </TouchableOpacity>
             </View>
             <View style={styles.buttonRow}>
               <View style={styles.item}>
                 <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                  <Image style={styles.buttonIcon} source={port} />
+                  <Port style={styles.buttonIcon}/>
                   <Text style={styles.text}>PORT</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.item}>
                 <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                  <Image style={styles.buttonIcon} source={frunk} />
+                  <Frunk style={styles.buttonIcon}/> 
                   <Text style={styles.text}>FRUNK</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.item}>
                 <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                  <Image style={styles.buttonIcon} source={panic} />              
+                  <Panic style={styles.buttonIcon}/>               
                   <Text style={styles.text}>PANIC</Text>
                 </TouchableOpacity>
               </View>
               <View style={styles.item}>
                 <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                  <Image style={styles.buttonIcon} source={trunk} />
+                  <Trunk style={styles.buttonIcon}/>  
                   <Text style={styles.text}>TRUNK</Text>
                 </TouchableOpacity>
               </View>
@@ -583,7 +585,7 @@ const styles = StyleSheet.create({
   calloutIcon: {
     color: "#fff",
     width:50,
-    marginLeft: 50,
+    marginLeft: 60,
   },
   calloutIconEnd: {
     color: "#fff",

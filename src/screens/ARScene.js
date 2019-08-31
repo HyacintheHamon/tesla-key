@@ -10,6 +10,8 @@ import {
 import { ViroSceneNavigator, ViroARSceneNavigator } from 'react-viro';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import  { Close } from '../img/svg'
+
 
 const { height, width } = Dimensions.get('window');
 var InitialARScene = require('./InitialScene');
@@ -41,7 +43,7 @@ class ARScene extends React.Component {
         initialScene={{scene: InitialARScene}} />
       <View style={styles.bottomView}>
         <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMap}>
-            <Icon name="times" size={60} color="#fff" />
+            <Close/>
         </TouchableOpacity>   
       </View>
     </View>

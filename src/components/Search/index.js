@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Platform, View, TouchableOpacity, StyleSheet, Text, Dimensions } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { Target, Close } from '../../img/svg/';
 const screen = Dimensions.get('window');
 export default class Search extends Component {
 
@@ -28,7 +28,7 @@ export default class Search extends Component {
                 }}>
                     <View>
                         <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMap}>
-                            <Icon name="times" size={30} color="#fff" />
+                            <Close/>
                         </TouchableOpacity>                        
                     </View>
                     <View style={{
@@ -128,7 +128,7 @@ export default class Search extends Component {
                     </View>
                     <View>
                         <TouchableOpacity style={styles.rightButton} onPress={() => this.props.navigation.navigate('ARScene')}>
-                            <MaterialIcon name="filter-center-focus" size={30} color="#fff" />
+                            <Target/>
                         </TouchableOpacity>                        
                     </View>
                 </View>;
