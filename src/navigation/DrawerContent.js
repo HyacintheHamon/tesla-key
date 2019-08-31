@@ -41,7 +41,7 @@ export default class DrawerContent extends React.Component {
         </View>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Valet style={styles.DrawerItemIcon} />
+            <Valet />
             <Text
               //onPress={() => navigation.navigate('MainScreen')}
               onPress={()=>alert("tapped")}
@@ -51,7 +51,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <LootBox style={styles.DrawerItemIcon} />
+            <LootBox />
             <Text
               //onPress={() => navigation.navigate('MainScreen')}
               onPress={()=>alert("tapped")}
@@ -61,7 +61,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Notifications style={styles.DrawerItemIcon} />
+            <Notifications />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -71,7 +71,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Battery style={styles.DrawerItemIcon} />
+            <Battery />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -81,7 +81,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Authentication style={styles.DrawerItemIcon} />
+            <Authentication />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -91,7 +91,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Calendar style={styles.DrawerItemIcon} />
+            <Calendar />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -101,7 +101,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Port width="15" style={styles.DrawerItemIcon} />
+            <Port width="15" />
             <Text
               onPress={() => navigation.navigate('SuperchargersMap')}
               style={styles.DrawerItemText}>
@@ -110,7 +110,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <Help style={styles.DrawerItemIcon} />
+            <Help />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -120,7 +120,7 @@ export default class DrawerContent extends React.Component {
           </TouchableOpacity>
           
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
-            <SignOut style={styles.DrawerItemIcon} />
+            <SignOut />
             <Text
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
@@ -195,9 +195,6 @@ const styles = StyleSheet.create({
   DrawerItem: {
     flexDirection: "row",
     alignItems: "center"
-  },
-  DrawerItemIcon: {
-    margin: 12,
   },
   DrawerItemText: {
     fontFamily: 'Montserrat-Medium',
