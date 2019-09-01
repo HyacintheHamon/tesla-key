@@ -12,6 +12,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { View } from 'react-native-animatable';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import { TeslaMarker } from '../img/svg';
 
 export default class ARScene extends Component {
 
@@ -49,7 +50,7 @@ export default class ARScene extends Component {
           width={0.2}
           scale={[.5, .5, .5]} 
           position={[0, 0, -1]} 
-          source={require("../img/tesla-ar-marker.png")}
+          source={TeslaMarker}
           // animation={{ name: "animateImage", run: this.state.runAnimateImage }}
         />
       </ViroARScene>     

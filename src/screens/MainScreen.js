@@ -53,7 +53,9 @@ import {
   LocationArrow,
   Battery,
   SeatLeft,
-  SeatRight
+  SeatRight,
+  ArrowUp,
+  ArrowDown
 } from '../img/svg';
 const frunk = require("../img/frunk.png");
 const trunk = require("../img/trunk.png");
@@ -327,21 +329,11 @@ class MainScreen extends Component {
 
                   <View style={styles.ctrlTem}>
                     <TouchableOpacity style={styles.button} onPress={this.incrementFirstItem}>
-                      <Icon
-                        name={'chevron-up'}
-                        type={'entypo'}
-                        color={'#525252'}
-                        size={24}
-                      />
+                      <ArrowUp/>
                     </TouchableOpacity>
                     <Text style={styles.temText}>{`  ${firstItem}°`}</Text>
                     <TouchableOpacity style={styles.button} onPress={this.decrementFirstItem}>
-                      <Icon
-                        name={'chevron-down'}
-                        type={'entypo'}
-                        color={'#525252'}
-                        size={24}
-                      />
+                      <ArrowDown/>
                     </TouchableOpacity>
                   </View>
                   <View style={styles.item}>
@@ -355,21 +347,11 @@ class MainScreen extends Component {
                   </View>
                   <View style={styles.ctrlTem}>
                     <TouchableOpacity style={styles.button} onPress={this.incrementSecondItem}>
-                      <Icon
-                        name={'chevron-up'}
-                        type={'entypo'}
-                        color={'#525252'}
-                        size={24}
-                      />
+                      <ArrowUp/>
                     </TouchableOpacity>
                     <Text style={styles.temText}>{` ${secondItem}°`}</Text>
                     <TouchableOpacity style={styles.button} onPress={this.decrementSecondItem}>
-                      <Icon
-                        name={'chevron-down'}
-                        type={'entypo'}
-                        color={'#525252'}
-                        size={24}
-                      />
+                      <ArrowDown/>
                     </TouchableOpacity>
                   </View>
                   <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
@@ -414,7 +396,7 @@ class MainScreen extends Component {
        
         {!endIntro&&
           <View style={styles.intro}>
-            <Text style={{color: 'white', fontSize: 27, marginBottom: 20}}>{description}</Text>            
+            <Text style={{color: 'white', fontSize: 27,ginBottom: 20}}>{description}</Text>            
             <TouchableOpacity style={styles.nextButton} onPress={this.next}>
               <Text style={{color: 'white', fontSize: 27}}>Next</Text>
             </TouchableOpacity>
@@ -989,7 +971,9 @@ const styles = StyleSheet.create({
     color: 'white',
     width: '100%',
     justifyContent: 'center',
-    fontSize: 24
+    fontSize: 24,
+    paddingTop:10,
+    paddingBottom:10
   },
   ctrlTem: {
     flexDirection: 'column',
@@ -1015,9 +999,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-
-
-    topContainer:{
+  topContainer:{
         flex:1,
         position: 'absolute',
         top: 50,

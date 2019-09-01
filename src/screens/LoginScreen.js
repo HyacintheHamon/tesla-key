@@ -49,7 +49,7 @@ class LoginScreen extends React.Component {
           <View style={styles.formContainer}>
             
             <View style={styles.inputContainer}>
-              <User width="20" height="20"/>
+              <User />
               <TextInput style = {styles.input} 
                 value={this.state.email}
                 onChangeText={email => this.setState({email})}
@@ -68,7 +68,7 @@ class LoginScreen extends React.Component {
             </View>
 
             <View style={styles.inputContainer}>
-              <Lock width="20" height="20"/>
+              <Lock />
               <TextInput style = {styles.input}   
                 ref={ref => {this._passwordInput = ref}}
                 value={this.state.password}

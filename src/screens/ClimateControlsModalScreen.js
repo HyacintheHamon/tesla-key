@@ -4,7 +4,21 @@ import { create, PREDEF_RES } from 'react-native-pixel-perfect';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 perfectSize = create(PREDEF_RES.iphoneX.px);
-const fan = require("../img/fan.png");
+import {
+  Fan, 
+  Power,
+  Plus, 
+  Minus, 
+  Auto,
+  AC,
+  Loop,
+  ClimateSeatUp,
+  ClimateSeatFront,
+  ClimateSeatDown,
+  ClimateSeatBack,
+} from "../img/svg/";
+
+const seat1  = require("../img/seat1.png");
 
 export default class ClimateControlsModalScreen extends React.Component {
 
@@ -49,56 +63,51 @@ export default class ClimateControlsModalScreen extends React.Component {
             <Text style={styles.header}>CLIMATE CONTROLS</Text>
           </View>
           <View style={{flex: 0.3, justifyContent: 'center'}}>
-            <Image source={fan} style={{width: 80, height: 80}}/> 
+            <Fan width="80" height="80" /> 
           </View>
           <View style={{flex: 0.65}}>
             <View style={styles.buttonGroup}>
               <View style={styles.buttonRow}>
                 <View style={styles.buttonCol}>
                   <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                    <Image style={styles.seatIcon} source={seat1} />
+                    <ClimateSeatUp style={styles.buttonIcon}  />
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                    <Image style={styles.seatIcon} source={seat1} />
+                    <ClimateSeatFront style={styles.buttonIcon}  />
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                    <Image style={styles.seatIcon} source={seat1} />
+                    <ClimateSeatDown style={styles.buttonIcon} />
                   </TouchableOpacity>
                 </View>
                 <View style={styles.buttonCol}>
                   <TouchableOpacity style={auto?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, auto: !auto}})}>
-                    <Text style={{fontSize: 20, color: 'white'}}>AUTO</Text>                  
+                    <Auto />                  
                   </TouchableOpacity>
                   <View style={styles.longButton}>
                     <TouchableOpacity style={styles.volButton} onPress={this.increaseVelocity}>
-                      <Text style={styles.buttonText}>+</Text>
+                      <Plus/>
                     </TouchableOpacity>
                     <Text style={{color: 'white', fontSize: 27}}>{velocity}</Text>
                     <TouchableOpacity style={styles.volButton} onPress={this.decreaseVelocity}>
-                      <Text style={styles.buttonText}>-</Text>
+                      <Minus/>
                     </TouchableOpacity>
                   </View>
                 </View>
                 <View style={styles.buttonCol}>
                   <TouchableOpacity style={ac?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, ac: !ac}})}>
-                    <Text style={{fontSize: 20, color: 'white'}}>A/C</Text>
+                    <AC/>
                   </TouchableOpacity>
                   <TouchableOpacity style={turnFace?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, turnFace: !turnFace}})}>
-                    <Image style={styles.seatIcon} source={seat1} />
+                    <Loop />
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                    <Image style={styles.seatIcon} source={seat1} />
+                    <ClimateSeatBack style={styles.buttonIcon} />
                   </TouchableOpacity>
                 </View>
               </View>
               <View style={styles.buttonRow}>
                 <TouchableOpacity style={powerOn?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, powerOn: !powerOn}})}>
-                  <Ionicons
-                    name={'md-power'}
-                    style={styles.buttonText}
-                    color={'white'}
-                    size={24}
-                  />   
+                  <Power />   
                 </TouchableOpacity>
               </View>
             </View>
@@ -158,8 +167,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 70,
     width: 70,
-    borderColor: 'white',
-    borderWidth: 2,
+    borderColor: '#525252',
+    borderWidth: 1,
     borderRadius: 35,
     marginTop: 17
   },
@@ -168,8 +177,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 70,
     width: 70,
-    borderColor: 'white',
-    borderWidth: 2,
+    borderColor: '#525252',
+    borderWidth: 1,
     borderRadius: 35,
     marginTop: 17,
     backgroundColor: 'rgba(10, 120, 233, 0.9)'
@@ -189,13 +198,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     height: 160,
     width: 70,
-    borderColor: 'white',
-    borderWidth: 2,
+    borderColor: '#525252',
+    borderWidth: 1,
     borderRadius: 35,
     marginTop: 17,
     flexDirection: 'column'
   },
-  seatIcon: {
+  buttonIcon: {
     width: perfectSize(80),
     height: perfectSize(150)
   }
