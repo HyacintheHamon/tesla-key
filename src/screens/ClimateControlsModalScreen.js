@@ -2,8 +2,6 @@ import React from 'react'
 import { StyleSheet, Text, Image, View, TouchableOpacity,SafeAreaView  } from 'react-native'
 import { create, PREDEF_RES } from 'react-native-pixel-perfect';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-perfectSize = create(PREDEF_RES.iphoneX.px);
 import {
   Fan, 
   Power,
@@ -18,7 +16,7 @@ import {
   ClimateSeatBack,
 } from "../img/svg/";
 
-const seat1  = require("../img/seat1.png");
+perfectSize = create(PREDEF_RES.iphoneX.px);
 
 export default class ClimateControlsModalScreen extends React.Component {
 

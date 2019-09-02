@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet } from 'react-native';
 import {
   ViroARScene,
   ViroText,
@@ -9,8 +9,6 @@ import {
   ViroBox,
   ViroMaterials,
 } from 'react-viro';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import { View } from 'react-native-animatable';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import { TeslaMarker } from '../img/svg';
 

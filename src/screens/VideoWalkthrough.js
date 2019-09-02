@@ -6,7 +6,6 @@ import {
   Image,
   Dimensions
 } from "react-native";
-
 import Video from "react-native-video";
 import Swiper from "../components/Swiper";
 import changeNavigationBarColor from 'react-native-navigation-bar-color';

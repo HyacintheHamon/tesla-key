@@ -13,7 +13,6 @@ import {
   TextInput,
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, prototype } from 'react-native-maps';
 import mapStyle from '../json/mapStyle.json'
 import Geolocation from '@react-native-community/geolocation';

@@ -17,7 +17,7 @@ perfectSize = create(PREDEF_RES.iphoneX.px);
 const { height, width } = Dimensions.get('window');
 var InitialARScene = require('./InitialScene');
 
-class ARScene extends React.Component {
+class ARScene extends Component {
   
   constructor () {
     super();
