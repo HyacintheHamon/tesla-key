@@ -8,3 +8,5 @@ project(':arcore_client').projectDir = new File('../node_modules/react-viro/andr
 project(':gvr_common').projectDir = new File('../node_modules/react-viro/android/gvr_common')
 project(':viro_renderer').projectDir = new File('../node_modules/react-viro/android/viro_renderer')
 project(':react_viro').projectDir = new File('../node_modules/react-viro/android/react_viro')
+include ':react-native-onesignal'
+project(':react-native-onesignal').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-onesignal/android')
