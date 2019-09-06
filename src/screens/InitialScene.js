@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import {StyleSheet } from 'react-native';
+import Geolocation from '@react-native-community/geolocation'
 import {
   ViroARScene,
   ViroText,
@@ -10,7 +11,10 @@ import {
   ViroMaterials,
 } from 'react-viro';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-import { TeslaMarker } from '../img/svg';
+import merc from 'mercator-projection';
+//import { TeslaMarker } from '../img/svg';
+
+const TeslaMarker = require("../img/tesla-ar-marker.png");
 
 export default class ARScene extends Component {
 
@@ -19,7 +23,11 @@ export default class ARScene extends Component {
 
     // Set initial state here
     this.state = {
-      text : "Initializing AR..."
+      text : "Initializing AR...",
+      currentPosition: {
+        latitude: 0.0,
+        longitude: 0.0,
+      },
     };
 
     // bind 'this' to functions
@@ -31,7 +39,39 @@ export default class ARScene extends Component {
   };
 
   componentDidMount() {
+
     this.setNavigationColor('#111117');
+
+    Geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({
+            currentPosition: {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+            }
+        });
+
+        // translate car position to xy 
+        var imagePos = merc.fromLatLngToPoint({lat: 48.8983508, lng: 2.3778904});
+        console.log("image Position", imagePos);
+
+        var currentDeviceLat = this.state.currentPosition.latitude;
+        var currentDeviceLong  = this.state.currentPosition.longitude;
+
+        console.log("currentDeviceLat ", currentDeviceLat );
+        console.log("currentDeviceLong ", currentDeviceLong );
+        // translate current device position to a lat/lng 
+        var currentDevicePos = merc.fromLatLngToPoint({lat: currentDeviceLat, lng: currentDeviceLong});
+
+        var imageFinalPosX = imagePos.x - currentDevicePos.x;
+        var imageFinalPosY = imagePos.y - currentDevicePos.y;
+
+        console.log("image final position X: ", imageFinalPosX);
+        console.log("image final position Y: ", imageFinalPosY);
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
   }
 
   render() {
@@ -44,7 +84,7 @@ export default class ARScene extends Component {
          <ViroARScene onTrackingUpdated={this._onInitialized} >
         {/* <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} /> */}
         <ViroImage
-          height={0.2}
+          height={0.23}
           width={0.2}
           scale={[.5, .5, .5]} 
           position={[0, 0, -1]} 

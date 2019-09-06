@@ -4269,6 +4269,11 @@ memoize-one@^5.0.0:
   resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.1.1.tgz#047b6e3199b508eaec03504de71229b8eb1d75c0"
   integrity sha512-HKeeBpWvqiVJD57ZUAsJNm71eHTykffzcLZVYWiVfQeI1rJtuEaS7hQiEpWfVVk18donPwJEcFKIkCmPJNOhHA==
 
+mercator-projection@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/mercator-projection/-/mercator-projection-0.0.2.tgz#6195ec2d6e154d066020eef9626d7d79d5db0d3d"
+  integrity sha1-YZXsLW4VTQZgIO75Ym19edXbDT0=
+
 merge-anything@^2.2.4:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/merge-anything/-/merge-anything-2.4.1.tgz#e9bccaec1e49ec6cb5f77ca78c5770d1a35315e6"
