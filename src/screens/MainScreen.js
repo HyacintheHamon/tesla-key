@@ -38,7 +38,14 @@ import ClimateControlsModalScreen from './ClimateControlsModalScreen'
 import helper from '../Utils/helper';
 
 const fanAnimation = require('../animations/fan_animation.json');
-const seatLeftFirstAnimation = require('../animations/seat_left_3.json');
+
+const seatLeftFirstAnimation = require('../animations/seat_left_1.json');
+const seatLeftSecondAnimation = require('../animations/seat_left_2.json');
+const seatLeftThirdAnimation = require('../animations/seat_left_3.json');
+
+const seatRightFirstAnimation = require('../animations/seat_right_1.json');
+const seatRightSecondAnimation = require('../animations/seat_right_2.json');
+const seatRightThirdAnimation = require('../animations/seat_right_3.json');
 
 import { 
   Window, 
@@ -52,8 +59,6 @@ import {
   Target,
   LocationArrow,
   Battery,
-  SeatLeft,
-  SeatRight,
   ArrowUp,
   ArrowDown
 } from '../img/svg';
@@ -88,7 +93,11 @@ class MainScreen extends Component {
         circleX: new Animated.Value(0),
         circleY: new Animated.Value(0),
         flingLeft: false,
-        flingRight: false
+        flingRight: false,
+        animationsIndexSeatLeft:0,
+        animationsListSeatLeft: [seatLeftFirstAnimation, seatLeftSecondAnimation, seatLeftThirdAnimation],
+        animationsIndexSeatRight:0,
+        animationsListSeatRight: [seatRightFirstAnimation, seatRightSecondAnimation, seatRightThirdAnimation]
       };
 
     this.deltaX = 0;
@@ -106,6 +115,33 @@ class MainScreen extends Component {
     this.state.circleY.addListener( (circleRadius) => {
       this._myCircle.setNativeProps({ cy: circleRadius.value.toString() });
     });
+
+    this.onAnimationClickForwardSeatLeft = this.onAnimationClickForwardSeatLeft.bind(this);
+    this.onAnimationClickForwardSeatRight = this.onAnimationClickForwardSeatRight.bind(this);
+  }
+
+  onAnimationClickForwardSeatLeft() {
+    if (this.state.animationsIndexSeatLeft +1 === this.state.animationsListSeatLeft.length) {
+      this.setState({
+        animationsIndexSeatLeft: 0
+      });
+    } else {
+      this.setState({
+        animationsIndexSeatLeft: this.state.animationsIndexSeatLeft + 1
+      });
+    }
+  }
+
+  onAnimationClickForwardSeatRight() {
+    if (this.state.animationsIndexSeatRight +1 === this.state.animationsListSeatRight.length) {
+      this.setState({
+        animationsIndexSeatRight: 0
+      });
+    } else {
+      this.setState({
+        animationsIndexSeatRight: this.state.animationsIndexSeatRight + 1
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -325,14 +361,14 @@ class MainScreen extends Component {
             </View>
               <View style={styles.buttonGroup}>
                 <View style={styles.buttonRow}>
-                  <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                  <TouchableOpacity style={styles.button} onPress={this.onAnimationClickForwardSeatLeft}>
                     <LottieView 
                       ref={animation => {
                       this.animation = animation;
                       }}
                       autoPlay = {true}
                       loop = {true}
-                      source={seatLeftFirstAnimation} 
+                      source={this.state.animationsListSeatLeft[this.state.animationsIndexSeatLeft]} 
                       style={{width:40}}
                     />  
                   </TouchableOpacity>
@@ -372,14 +408,14 @@ class MainScreen extends Component {
                       <ArrowDown/>
                     </TouchableOpacity>
                   </View>
-                  <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                  <TouchableOpacity style={styles.button} nPress={this.onAnimationClickForwardSeatRight}>
                     <LottieView 
                       ref={animation => {
                       this.animation = animation;
                       }}
                       autoPlay = {true}
                       loop = {true}
-                      source={seatLeftFirstAnimation} 
+                      source={this.state.animationsListSeatRight[this.state.animationsIndexSeatRight]} 
                       style={{width:40}}
                     />  
                   </TouchableOpacity>
