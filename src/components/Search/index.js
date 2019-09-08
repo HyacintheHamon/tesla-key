@@ -8,32 +8,35 @@ export default class Search extends Component {
 
     state = {
         searchFocused: false,
+        placeContent: ''
     }
 
     render() {
 
-        const { searchFocused } = this.state;
+        const { searchFocused, placeContent } = this.state;
         const { onLocationSelected } = this.props;
 
          
         return <View  style={{
                 position: 'absolute',
                 top: Platform.select({ ios: 0, android: 0 }),
-                height: 100,
+                height: placeContent.length>0&&searchFocused ?screen.height: 90,
                 backgroundColor: '#15191E',
                 width: "100%",
                 flexDirection: 'row',
                 alignItems: "center",
-                justifyContent: "space-between"               
+                justifyContent: "space-between"
                 }}>
-                    <View>
-                        <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMap}>
+                    <View style={styles.closeButton}>
+                        <TouchableOpacity onPress={this.props.onCloseMap}>
                             <Close/>
                         </TouchableOpacity>                        
                     </View>
                     <View style={{
-                                    top: Platform.select({ ios: 42, android: 42 }),
-                                    width: "85%"
+                                    position: 'absolute',
+                                    top: Platform.select({ ios: 100, android: 80 }),
+                                    width: "85%",
+                                    left: 24
                                 }}>
                         <GooglePlacesAutocomplete
                             placeholder="Where to?"
@@ -52,7 +55,8 @@ export default class Search extends Component {
                                     this.setState({ searchFocused: false });
                                 },
                                 autoCapitalize: "none",
-                                autoCorrect: false
+                                autoCorrect: false,
+                                onChangeText: (text) => { this.setState({placeContent: text}) }
                             }}
                             listViewDisplayed={searchFocused}
                             fetchDetails
@@ -126,8 +130,8 @@ export default class Search extends Component {
                             }}
                         />                        
                     </View>
-                    <View>
-                        <TouchableOpacity style={styles.rightButton} onPress={() => this.props.navigation.navigate('ARScene')}>
+                    <View style={styles.rightButton}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('ARScene')}>
                             <Target/>
                         </TouchableOpacity>                        
                     </View>
@@ -140,11 +144,11 @@ const styles = StyleSheet.create({
     closeButton: {
         position: 'absolute',
         left: 9,
-        top: 4
+        top: 50
     },
     rightButton: {
         position: 'absolute',
         right: 7,
-        top: 4
+        top: 47
     }
 })
