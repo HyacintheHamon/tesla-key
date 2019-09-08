@@ -11,12 +11,13 @@ import { ViroSceneNavigator, ViroARSceneNavigator } from 'react-viro';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import  { Close } from '../img/svg'
-
+import { create, PREDEF_RES } from 'react-native-pixel-perfect';
+perfectSize = create(PREDEF_RES.iphoneX.px);
 
 const { height, width } = Dimensions.get('window');
 var InitialARScene = require('./InitialScene');
 
-class ARScene extends React.Component {
+class ARScene extends Component {
   
   constructor () {
     super();
@@ -43,7 +44,7 @@ class ARScene extends React.Component {
         initialScene={{scene: InitialARScene}} />
       <View style={styles.bottomView}>
         <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMap}>
-            <Close/>
+            <Close width="50" height="50" />
         </TouchableOpacity>   
       </View>
     </View>
@@ -71,15 +72,14 @@ var styles = StyleSheet.create({
     justifyContent: "center",
     bottom: 0
   },  
-  closeButton : {
-    position: "relative",
+  closeButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 70,
+    width: 70,
+    borderColor: '#525252',
     borderWidth: 1,
-    borderColor: "gray",
-    borderRadius:100,
-    width:60,
-    width:60,
-    alignItems: "center",
-    justifyContent: "center",
+    borderRadius: 35,
   },
 });
 

@@ -1,19 +1,15 @@
 import React, {Component} from 'react';
-
+import LottieView from 'lottie-react-native';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { requestVehicleInfo } from "../actions";
-
 import {StyleSheet, Text, Alert, Image, View, Animated, TouchableOpacity, Dimensions} from 'react-native';
 // import LinearGradient from 'react-native-linear-gradient';
+import Entypo from 'react-native-vector-icons/Entypo';
 import { create, PREDEF_RES } from 'react-native-pixel-perfect';
 import Modal from 'react-native-modal';
 import YourCarPic from '../components/YourCarPic'
 import HeaderComponent from '../components/HeaderComponent'
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Entypo from 'react-native-vector-icons/Entypo';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import * as Animatable from 'react-native-animatable';
 import {
   FlingGestureHandler,
@@ -40,6 +36,17 @@ import MapModal from '../components/Map';
 // import Lock from '../components/Lock';
 import ClimateControlsModalScreen from './ClimateControlsModalScreen'
 import helper from '../Utils/helper';
+
+const fanAnimation = require('../animations/fan_animation.json');
+
+const seatLeftFirstAnimation = require('../animations/seat_left_1.json');
+const seatLeftSecondAnimation = require('../animations/seat_left_2.json');
+const seatLeftThirdAnimation = require('../animations/seat_left_3.json');
+
+const seatRightFirstAnimation = require('../animations/seat_right_1.json');
+const seatRightSecondAnimation = require('../animations/seat_right_2.json');
+const seatRightThirdAnimation = require('../animations/seat_right_3.json');
+
 import { 
   Window, 
   Parked, 
@@ -52,8 +59,8 @@ import {
   Target,
   LocationArrow,
   Battery,
-  SeatLeft,
-  SeatRight
+  ArrowUp,
+  ArrowDown
 } from '../img/svg';
 const frunk = require("../img/frunk.png");
 const trunk = require("../img/trunk.png");
@@ -86,7 +93,11 @@ class MainScreen extends Component {
         circleX: new Animated.Value(0),
         circleY: new Animated.Value(0),
         flingLeft: false,
-        flingRight: false
+        flingRight: false,
+        animationsIndexSeatLeft:0,
+        animationsListSeatLeft: [seatLeftFirstAnimation, seatLeftSecondAnimation, seatLeftThirdAnimation],
+        animationsIndexSeatRight:0,
+        animationsListSeatRight: [seatRightFirstAnimation, seatRightSecondAnimation, seatRightThirdAnimation]
       };
 
     this.deltaX = 0;
@@ -104,6 +115,33 @@ class MainScreen extends Component {
     this.state.circleY.addListener( (circleRadius) => {
       this._myCircle.setNativeProps({ cy: circleRadius.value.toString() });
     });
+
+    this.onAnimationClickForwardSeatLeft = this.onAnimationClickForwardSeatLeft.bind(this);
+    this.onAnimationClickForwardSeatRight = this.onAnimationClickForwardSeatRight.bind(this);
+  }
+
+  onAnimationClickForwardSeatLeft() {
+    if (this.state.animationsIndexSeatLeft +1 === this.state.animationsListSeatLeft.length) {
+      this.setState({
+        animationsIndexSeatLeft: 0
+      });
+    } else {
+      this.setState({
+        animationsIndexSeatLeft: this.state.animationsIndexSeatLeft + 1
+      });
+    }
+  }
+
+  onAnimationClickForwardSeatRight() {
+    if (this.state.animationsIndexSeatRight +1 === this.state.animationsListSeatRight.length) {
+      this.setState({
+        animationsIndexSeatRight: 0
+      });
+    } else {
+      this.setState({
+        animationsIndexSeatRight: this.state.animationsIndexSeatRight + 1
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -114,7 +152,9 @@ class MainScreen extends Component {
   }
 
   componentDidMount = async() => {
+
     this.setNavigationColor('#111117');
+    this.animation.play();
 
     const result = await helper.getCache('endedIntro');
     if (result=="true") {
@@ -321,27 +361,25 @@ class MainScreen extends Component {
             </View>
               <View style={styles.buttonGroup}>
                 <View style={styles.buttonRow}>
-                  <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                    <SeatLeft style={styles.seatIcon} />
+                  <TouchableOpacity style={styles.button} onPress={this.onAnimationClickForwardSeatLeft}>
+                    <LottieView 
+                      ref={animation => {
+                      this.animation = animation;
+                      }}
+                      autoPlay = {true}
+                      loop = {true}
+                      source={this.state.animationsListSeatLeft[this.state.animationsIndexSeatLeft]} 
+                      style={{width:40}}
+                    />  
                   </TouchableOpacity>
 
                   <View style={styles.ctrlTem}>
                     <TouchableOpacity style={styles.button} onPress={this.incrementFirstItem}>
-                      <Icon
-                        name={'chevron-up'}
-                        type={'entypo'}
-                        color={'#525252'}
-                        size={24}
-                      />
+                      <ArrowUp/>
                     </TouchableOpacity>
                     <Text style={styles.temText}>{`  ${firstItem}°`}</Text>
                     <TouchableOpacity style={styles.button} onPress={this.decrementFirstItem}>
-                      <Icon
-                        name={'chevron-down'}
-                        type={'entypo'}
-                        color={'#525252'}
-                        size={24}
-                      />
+                      <ArrowDown/>
                     </TouchableOpacity>
                   </View>
                   <View style={styles.item}>
@@ -349,31 +387,37 @@ class MainScreen extends Component {
                     onLongPress={this.handlerfanButtonLongPress}
                     onPress={this.handlerfanButtonPress}
                     >
-                      <Fan style={styles.buttonIcon}/>
+                     <LottieView 
+                      ref={animation => {
+                      this.animation = animation;
+                      }}
+                      autoPlay = {true}
+                      loop = {true}
+                      source={fanAnimation} 
+                      style={{width:40}}
+                      />  
                       <Text style={styles.text}>MANUAL</Text>
                     </TouchableOpacity>
                   </View>
                   <View style={styles.ctrlTem}>
                     <TouchableOpacity style={styles.button} onPress={this.incrementSecondItem}>
-                      <Icon
-                        name={'chevron-up'}
-                        type={'entypo'}
-                        color={'#525252'}
-                        size={24}
-                      />
+                      <ArrowUp/>
                     </TouchableOpacity>
                     <Text style={styles.temText}>{` ${secondItem}°`}</Text>
                     <TouchableOpacity style={styles.button} onPress={this.decrementSecondItem}>
-                      <Icon
-                        name={'chevron-down'}
-                        type={'entypo'}
-                        color={'#525252'}
-                        size={24}
-                      />
+                      <ArrowDown/>
                     </TouchableOpacity>
                   </View>
-                  <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
-                    <SeatRight style={styles.seatIcon}/>
+                  <TouchableOpacity style={styles.button} nPress={this.onAnimationClickForwardSeatRight}>
+                    <LottieView 
+                      ref={animation => {
+                      this.animation = animation;
+                      }}
+                      autoPlay = {true}
+                      loop = {true}
+                      source={this.state.animationsListSeatRight[this.state.animationsIndexSeatRight]} 
+                      style={{width:40}}
+                    />  
                   </TouchableOpacity>
                 </View>
                 <View style={styles.buttonRow}>
@@ -414,7 +458,7 @@ class MainScreen extends Component {
        
         {!endIntro&&
           <View style={styles.intro}>
-            <Text style={{color: 'white', fontSize: 27, marginBottom: 20}}>{description}</Text>            
+            <Text style={{color: 'white', fontSize: 27,ginBottom: 20}}>{description}</Text>            
             <TouchableOpacity style={styles.nextButton} onPress={this.next}>
               <Text style={{color: 'white', fontSize: 27}}>Next</Text>
             </TouchableOpacity>
@@ -915,7 +959,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10
   },
   text: {
-    color: "#fff",
+    color: '#98989b',
     textTransform: 'uppercase',
     fontSize: 10,
     marginTop: 5
@@ -939,7 +983,7 @@ const styles = StyleSheet.create({
   calloutIcon: {
     color: "#fff",
     width:50,
-    marginLeft: 60,
+    marginLeft: 20,
   },
   calloutIconEnd: {
     color: "#fff",
@@ -989,7 +1033,9 @@ const styles = StyleSheet.create({
     color: 'white',
     width: '100%',
     justifyContent: 'center',
-    fontSize: 24
+    fontSize: 24,
+    paddingTop:10,
+    paddingBottom:10
   },
   ctrlTem: {
     flexDirection: 'column',
@@ -1015,9 +1061,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-
-
-    topContainer:{
+  topContainer:{
         flex:1,
         position: 'absolute',
         top: 50,

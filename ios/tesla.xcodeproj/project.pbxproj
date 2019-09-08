@@ -132,6 +132,7 @@
 		746A3267BADD475DAC034686 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ExtraLight.ttf"; path = "../src/fonts/Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		7B395DA622FEFAC50047C2E7 /* tesla-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tesla-Bridging-Header.h"; sourceTree = "<group>"; };
 		7B395DA722FEFAC60047C2E7 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		7BDB13592322FAEA00E8D583 /* tesla.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = tesla.entitlements; path = tesla/tesla.entitlements; sourceTree = "<group>"; };
 		7C81641F1C464DD1AA730ED2 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		7DCCA354FFF0446F8490385F /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		84825999EE4B441C94CB8C04 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Thin.ttf"; path = "../src/fonts/Montserrat-Thin.ttf"; sourceTree = "<group>"; };
@@ -218,6 +219,7 @@
 		13B07FAE1A68108700A75B9A /* tesla */ = {
 			isa = PBXGroup;
 			children = (
+				7BDB13592322FAEA00E8D583 /* tesla.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -445,6 +447,11 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 22LRVN9V58;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -901,6 +908,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = tesla/tesla.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 22LRVN9V58;
@@ -913,7 +921,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tesla.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tesla.key.app;
 				PRODUCT_NAME = tesla;
 				SWIFT_OBJC_BRIDGING_HEADER = "tesla-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -929,6 +937,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = tesla/tesla.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 22LRVN9V58;
 				ENABLE_BITCODE = NO;
@@ -940,7 +949,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tesla.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tesla.key.app;
 				PRODUCT_NAME = tesla;
 				SWIFT_OBJC_BRIDGING_HEADER = "tesla-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

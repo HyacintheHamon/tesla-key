@@ -1,4 +1,22 @@
 PODS:
+  - appcenter (2.3.0):
+    - AppCenterReactNativeShared
+    - React
+  - appcenter-analytics (2.3.0):
+    - AppCenter/Analytics
+    - AppCenterReactNativeShared
+    - React
+  - appcenter-crashes (2.3.0):
+    - AppCenter/Crashes (= 2.3.0)
+    - AppCenterReactNativeShared
+    - React
+  - AppCenter/Analytics (2.3.0):
+    - AppCenter/Core
+  - AppCenter/Core (2.3.0)
+  - AppCenter/Crashes (2.3.0):
+    - AppCenter/Core
+  - AppCenterReactNativeShared (2.3.0):
+    - AppCenter/Core (= 2.3.0)
   - boost-for-react-native (1.63.0)
   - BVLinearGradient (2.5.6):
     - React
@@ -81,6 +99,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - OneSignal (2.10.1)
   - React (0.60.4):
     - React-Core (= 0.60.4)
     - React-DevSupport (= 0.60.4)
@@ -135,6 +154,9 @@ PODS:
     - React
   - react-native-maps (0.25.0):
     - React
+  - react-native-onesignal (3.3.2):
+    - OneSignal (= 2.10.1)
+    - React (< 1.0.0, >= 0.13.0)
   - react-native-video (5.0.0):
     - React
     - react-native-video/Video (= 5.0.0)
@@ -181,6 +203,9 @@ PODS:
   - yoga (0.60.4.React)
 
 DEPENDENCIES:
+  - appcenter (from `../node_modules/appcenter`)
+  - appcenter-analytics (from `../node_modules/appcenter-analytics`)
+  - appcenter-crashes (from `../node_modules/appcenter-crashes`)
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
@@ -202,6 +227,7 @@ DEPENDENCIES:
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-google-maps (from `../node_modules/react-native-maps`)
   - react-native-maps (from `../node_modules/react-native-maps`)
+  - react-native-onesignal (from `../node_modules/react-native-onesignal`)
   - react-native-video (from `../node_modules/react-native-video`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -225,14 +251,23 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AppCenter
+    - AppCenterReactNativeShared
     - boost-for-react-native
     - Google-Maps-iOS-Utils
     - GoogleAppMeasurement
     - GoogleMaps
     - GoogleUtilities
     - nanopb
+    - OneSignal
 
 EXTERNAL SOURCES:
+  appcenter:
+    :path: "../node_modules/appcenter"
+  appcenter-analytics:
+    :path: "../node_modules/appcenter-analytics"
+  appcenter-crashes:
+    :path: "../node_modules/appcenter-crashes"
   BVLinearGradient:
     :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
@@ -267,6 +302,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
+  react-native-onesignal:
+    :path: "../node_modules/react-native-onesignal"
   react-native-video:
     :path: "../node_modules/react-native-video"
   React-RCTActionSheet:
@@ -309,6 +346,11 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  AppCenter: 9784d2fc998c9bd0b8fbaf4fb9ed69526d12ce1a
+  appcenter: e55cb133b100379be61158f511082196b8022424
+  appcenter-analytics: 9db55feacae3ca037c310d31620760ae054d50c6
+  appcenter-crashes: 47c9257ce4c9a7625face00f77908e69fa459394
+  AppCenterReactNativeShared: 7ac481cba7f926848a7be76dca4dcb2692df3b06
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
@@ -321,6 +363,7 @@ SPEC CHECKSUMS:
   lottie-ios: 6037add6441183d4ffd100d2ac78724aa8d919d4
   lottie-react-native: 86aeee2caa9250e4c8027ac75711a59c6679e532
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  OneSignal: 8fb749fa07f88006403c9b659a570fb7fb74519a
   React: ff7ee2ae5ee1c1d9ae2183b4111045b25294bb01
   React-Core: 8e0ea421cae5609d2562850f98421b15030476fa
   React-cxxreact: 326880209990151a7182a813311054e9772ba510
@@ -332,6 +375,7 @@ SPEC CHECKSUMS:
   react-native-geolocation: a7b94614afbd5fd8350e0233a2025c8228fc8041
   react-native-google-maps: 88d750ad441b19c24885f20d43a55ecac25939b5
   react-native-maps: 190c02ca533fddac5bb49cf17bdece3644612107
+  react-native-onesignal: 8958311abbd9125f26e600914e48833b57321cbf
   react-native-video: 6555881252c8ca039760e1cd6df28ac28ffb2baf
   React-RCTActionSheet: 9f71d7ae3e8fb10e08d162cbf14c621349dbfab3
   React-RCTAnimation: 981d8c95b0e30918a9832ccac32af83562a27fae

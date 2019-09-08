@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
-import LoginForm from './LoginForm'
 import VehicleState from './VehicleState'
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 

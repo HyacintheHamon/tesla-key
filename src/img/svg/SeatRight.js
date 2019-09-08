@@ -4,7 +4,7 @@ import { View } from 'react-native';
 
 const SvgComponent = props => (
   <View>
-    <Svg width="18px" height="38px" viewBox="0 0 18 38" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <Svg width="18px" height="38px" viewBox="0 0 18 38" version="1.1" xmlns="http://www.w3.org/2000/svg" {...props}>
       <Defs>
         <Polygon points="0.852822121 0.127226408 4.7251739 0.127226408 4.7251739 4 0.852822121 4" />
         <Polygon points="0.369193638 0.975836579 7.007 0.975836579 7.007 20.3912004 0.369193638 20.3912004" />

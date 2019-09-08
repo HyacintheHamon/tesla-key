@@ -1,14 +1,12 @@
 import React, { PropTypes, Component } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Animated, Easing, SafeAreaView  } from 'react-native'
-import YourCarPic from '../components/YourCarPic'
-import Icon from 'react-native-vector-icons/FontAwesome5';
 const { height, width } = Dimensions.get('window');
 const topView = require('../img/model-s-top-view.png');
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import  { Close } from '../img/svg'
 
-// import LottieView from 'lottie-react-native';
-// const carAnimation = require('../animations/car.json');
+import LottieView from 'lottie-react-native';
+const carAnimation = require('../animations/car.json');
 
 export default class SummonModalScreen extends Component {
 
@@ -26,14 +24,14 @@ export default class SummonModalScreen extends Component {
     this.setState({
       DescriptionText : 'Release the direction button  to stop your vehicle'
     })
-    // this.animation.play();
+    this.animation.play();
   }
 
   handlePressOut =()=> {
     this.setState({
       DescriptionText : 'Press and hold a direction button to start Summon'
     })
-    // this.animation.play();
+    this.animation.reset();
   }
 
   setNavigationColor = (color) => {
@@ -53,16 +51,16 @@ export default class SummonModalScreen extends Component {
               <Close />
             </TouchableOpacity>
 
-            <Image source={topView} style={{width: width/3, height: height/2 , marginBottom: 100}}/> 
-          {/* <LottieView 
+          <LottieView 
             ref={animation => {
               this.animation = animation;
             }}
             source={carAnimation} 
-            style={{position:'relative', width:250, alignContent:'center', justifyContent:'center',alignItems:'center'}}
-            //progress={this.state.progress}
-            onAnimationFinish={()=>{ this.animation.reset(); }}
-            />  */}
+            // style={{position:'relative', width:250, alignContent:'center', justifyContent:'center',alignItems:'center'}}
+            style={{width: width, height: height/1.8 , marginBottom: 100}}
+            // progress={this.state.progress}
+            // onAnimationFinish={()=>{ this.animation.reset(); }}
+            />  
 
             <View style={styles.bottomModal}>
               <Text style={styles.descriptionText}> {this.state.DescriptionText} </Text>

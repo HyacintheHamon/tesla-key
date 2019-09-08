@@ -34,6 +34,20 @@ import SeatRight from "./SeatRight";
 import Notifications from "./Notifications";
 import Menu from "./Menu";
 import Back from "./Back";
+import ArrowUp from "./ArrowUp";
+import ArrowDown from "./ArrowDown";
+import TeslaMarker from "./TeslaMarker";
+import MapMarker from "./MapMarker";
+import Plus from "./Plus";
+import Minus from "./Minus";
+import Auto from "./climateControls/Auto";
+import AC from "./climateControls/AC";
+import Power from "./Power";
+import ClimateSeatUp from "./climateControls/ClimateSeatUp";
+import ClimateSeatFront from "./climateControls/ClimateSeatFront";
+import ClimateSeatDown from "./climateControls/ClimateSeatDown";
+import ClimateSeatBack from "./climateControls/ClimateSeatBack";
+import Loop from "./climateControls/Loop";
 
 export { 
     User, 
@@ -71,5 +85,19 @@ export {
     Back,
     BatteryLow,
     BatteryMedium,
-    BatteryHigh
+    BatteryHigh,
+    ArrowUp,
+    ArrowDown,
+    MapMarker,
+    TeslaMarker,
+    Plus,
+    Minus,
+    Auto,
+    AC,
+    Loop,
+    ClimateSeatUp,
+    ClimateSeatFront,
+    ClimateSeatDown,
+    ClimateSeatBack,
+    Power
 };

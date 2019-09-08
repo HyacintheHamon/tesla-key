@@ -12,7 +12,6 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.viromedia.bridge.ReactViroPackage;
-
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
