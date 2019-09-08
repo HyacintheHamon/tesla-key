@@ -24,6 +24,10 @@ export default class ClimateControlsModalScreen extends React.Component {
 		super(props)
       this.state = {
         climate: {
+          seatUp: false,
+          seatFront: false,
+          seatDown: false,
+          seatBack: false,
           auto: false,
           ac: false,
           powerOn: false,
@@ -53,7 +57,7 @@ export default class ClimateControlsModalScreen extends React.Component {
 
   render() {
     const {climate} = this.state;
-    const {auto, ac, turnFace, powerOn, velocity} = climate;
+    const {seatUp, seatFront, seatDown, seatBack, auto, ac, turnFace, powerOn, velocity} = climate;
     return (
       <SafeAreaView style={{flex:1}}>
         <TouchableOpacity  onPress={this.props.onCloseClimateControlsModal} style={{...styles.modalContent}}>
@@ -67,13 +71,13 @@ export default class ClimateControlsModalScreen extends React.Component {
             <View style={styles.buttonGroup}>
               <View style={styles.buttonRow}>
                 <View style={styles.buttonCol}>
-                  <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                  <TouchableOpacity style={seatUp?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, seatUp: !seatUp}})}>
                     <ClimateSeatUp style={styles.buttonIcon}  />
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                  <TouchableOpacity style={seatFront?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, seatFront: !seatFront}})}>
                     <ClimateSeatFront style={styles.buttonIcon}  />
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                  <TouchableOpacity style={seatDown?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, seatDown: !seatDown}})}>
                     <ClimateSeatDown style={styles.buttonIcon} />
                   </TouchableOpacity>
                 </View>
@@ -98,7 +102,7 @@ export default class ClimateControlsModalScreen extends React.Component {
                   <TouchableOpacity style={turnFace?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, turnFace: !turnFace}})}>
                     <Loop />
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
+                  <TouchableOpacity style={seatBack?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, seatBack: !seatBack}})}>
                     <ClimateSeatBack style={styles.buttonIcon} />
                   </TouchableOpacity>
                 </View>
