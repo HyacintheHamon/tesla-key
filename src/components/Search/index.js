@@ -34,7 +34,7 @@ export default class Search extends Component {
                     </View>
                     <View style={{
                                     position: 'absolute',
-                                    top: Platform.select({ ios: 100, android: 80 }),
+                                    top: Platform.select({ ios: 80, android: 80 }),
                                     width: "85%",
                                     left: 24
                                 }}>
