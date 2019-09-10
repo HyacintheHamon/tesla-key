@@ -94,6 +94,7 @@ class MainScreen extends Component {
         circleY: new Animated.Value(0),
         flingLeft: false,
         flingRight: false,
+        fanIsToggled: false,
         animationsIndexSeatLeft:0,
         animationsListSeatLeft: [seatLeftFirstAnimation, seatLeftSecondAnimation, seatLeftThirdAnimation],
         animationsIndexSeatRight:0,
@@ -115,9 +116,22 @@ class MainScreen extends Component {
     this.state.circleY.addListener( (circleRadius) => {
       this._myCircle.setNativeProps({ cy: circleRadius.value.toString() });
     });
-
+    this.togglefanAnimation = this.togglefanAnimation.bind(this);
     this.onAnimationClickForwardSeatLeft = this.onAnimationClickForwardSeatLeft.bind(this);
     this.onAnimationClickForwardSeatRight = this.onAnimationClickForwardSeatRight.bind(this);
+  }
+
+  togglefanAnimation() {
+    const newState = !this.state.fanIsToggled;
+    this.setState({
+      fanIsToggled:newState
+    });
+    console.log("fan toggle: ", this.state.fanIsToggled);
+    if(this.state.fanIsToggled) {
+      this.fanAnimation.play();
+    } else {
+      this.fanAnimation.reset();
+    }
   }
 
   onAnimationClickForwardSeatLeft() {
@@ -152,9 +166,8 @@ class MainScreen extends Component {
   }
 
   componentDidMount = async() => {
-
+ 
     this.setNavigationColor('#111117');
-    this.animation.play();
 
     const result = await helper.getCache('endedIntro');
     if (result=="true") {
@@ -366,8 +379,6 @@ class MainScreen extends Component {
                       ref={animation => {
                       this.animation = animation;
                       }}
-                      autoPlay = {true}
-                      loop = {true}
                       source={this.state.animationsListSeatLeft[this.state.animationsIndexSeatLeft]} 
                       style={{width:40}}
                     />  
@@ -385,13 +396,12 @@ class MainScreen extends Component {
                   <View style={styles.item}>
                     <TouchableOpacity style={styles.fanButton} 
                     onLongPress={this.handlerfanButtonLongPress}
-                    onPress={this.handlerfanButtonPress}
+                    onPress={this.togglefanAnimation}
                     >
                      <LottieView 
-                      ref={animation => {
-                      this.animation = animation;
+                      ref={fanAnimation => {
+                      this.fanAnimation = fanAnimation;
                       }}
-                      autoPlay = {true}
                       loop = {true}
                       source={fanAnimation} 
                       style={{width:40}}
@@ -413,8 +423,6 @@ class MainScreen extends Component {
                       ref={animation => {
                       this.animation = animation;
                       }}
-                      autoPlay = {true}
-                      loop = {true}
                       source={this.state.animationsListSeatRight[this.state.animationsIndexSeatRight]} 
                       style={{width:40}}
                     />  
