@@ -20,6 +20,10 @@ import AppNavigation from './src/navigation/AppNavigation';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import OneSignal from 'react-native-onesignal'; 
 
+// Apollo
+import { ApolloProvider } from 'react-apollo'
+import client from './src/graphql/client'
+
 // create our store
 const store = createStore()
 
@@ -67,11 +71,13 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <View style={styles.container}>
-          <AppNavigation />
-        </View>
-      </Provider>
+      <ApolloProvider client={client}>
+        <Provider store={store}>
+          <View style={styles.container}>
+            <AppNavigation />
+          </View>
+        </Provider>
+      </ApolloProvider>
     )
   }
 }

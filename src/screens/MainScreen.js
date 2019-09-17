@@ -19,6 +19,10 @@ import {
 } from 'react-native-gesture-handler';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
+// Apollo
+import * as requests from '../graphql/requests'
+import { Query } from 'react-apollo'
+
 import Svg,{
   Circle,
   Rect,
@@ -296,6 +300,37 @@ class MainScreen extends Component {
       temperatureIcon = <TemperatureLow/>;
     }
     */
+
+    return (
+      <View style={{
+        backgroundColor: '#f8f8f8',
+        paddingTop: 50,
+        flex: 1,
+      }}>
+        <Query
+          query={requests.CLIMATE_STATE}
+          variables={{ vehicle: '123' }}
+        >
+          {({ data, loading, error }) => {
+            if (loading) {
+              return (
+                <Text>LOADING ...</Text>
+              )
+            }
+            if (error) {
+              return (
+                <Text>{JSON.stringify(error)} ...</Text>
+              )
+            }
+            if (data) {
+              return (
+                <Text>{JSON.stringify(data, null, 4)}</Text>
+              )
+            }
+          }}
+        </Query>
+      </View>
+    )
 
     const {
             firstItem,
