@@ -21,7 +21,7 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 // Apollo
 import * as requests from '../graphql/requests'
-import { Query, withApollo } from 'react-apollo'
+import { Query } from 'react-apollo'
 
 import Svg,{
   Circle,
@@ -307,8 +307,10 @@ class MainScreen extends Component {
         paddingTop: 50,
         flex: 1,
       }}>
+        <Text>HELLO</Text>
         <Query
           query={requests.VEHICLE_STATE}
+          // variables={{ vehicle: '123' }}
         >
           {({ data, loading, error }) => {
             if (loading) {
@@ -323,17 +325,7 @@ class MainScreen extends Component {
             }
             if (data) {
               return (
-                <View>
-                  <Text>{JSON.stringify(data, null, 4)}</Text>
-                  <TouchableOpacity onPress={async () => {
-                    await this.props.client.mutate({
-                      variables: { input: { temperature: 101 } },
-                      mutation: requests.SET_TEMPERATURE,
-                    });
-                  }}>
-                    <Text>Increase temperature</Text>
-                  </TouchableOpacity>
-                </View>
+                <Text>{JSON.stringify(data, null, 4)}</Text>
               )
             }
             return <Text>NOTHING</Text>
@@ -1176,4 +1168,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withApollo(connect(mapStateToProps, mapDispatchToProps)(MainScreen))
+export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);

@@ -1,4 +1,5 @@
 PODS:
+  - AppAuth (0.94.0)
   - appcenter (2.3.0):
     - AppCenterReactNativeShared
     - React
@@ -186,6 +187,9 @@ PODS:
   - React-RCTWebSocket (0.60.4):
     - React-Core (= 0.60.4)
     - React-fishhook (= 0.60.4)
+  - RNAppAuth (1.0.0):
+    - AppAuth (= 0.94.0)
+    - React
   - RNCAsyncStorage (1.6.1):
     - React
   - RNCMaskedView (0.1.1):
@@ -239,6 +243,7 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
+  - RNAppAuth (from `../node_modules/react-native-app-auth/ios`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -251,6 +256,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AppAuth
     - AppCenter
     - AppCenterReactNativeShared
     - boost-for-react-native
@@ -326,6 +332,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   React-RCTWebSocket:
     :path: "../node_modules/react-native/Libraries/WebSocket"
+  RNAppAuth:
+    :path: "../node_modules/react-native-app-auth/ios"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
   RNCMaskedView:
@@ -346,6 +354,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  AppAuth: 0f099c2286a1a9754e5bd27211c43d307dc4f778
   AppCenter: 9784d2fc998c9bd0b8fbaf4fb9ed69526d12ce1a
   appcenter: e55cb133b100379be61158f511082196b8022424
   appcenter-analytics: 9db55feacae3ca037c310d31620760ae054d50c6
@@ -387,6 +396,7 @@ SPEC CHECKSUMS:
   React-RCTText: e0f224898b13af9aa036ea7cb3d438daa68c1044
   React-RCTVibration: 0bea40cd51bd089bd591a8f74c86e91fdf2666c5
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
+  RNAppAuth: eac16a338ed1117d8b7729b36de3b1a58b5e96f2
   RNCAsyncStorage: 2e2e3feb9bdadc752a026703d8c4065ca912e75a
   RNCMaskedView: b79e193409a90bf6b5170d421684f437ff4e2278
   RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa

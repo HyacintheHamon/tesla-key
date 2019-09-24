@@ -1,7 +1,12 @@
 // Resolvers
+import VehicleResolvers from './vehicle'
 
 
 export default {
-    Mutation: { /* ... */ },
-    Query: { /* ... */ },
+    Mutation: {
+        ...VehicleResolvers.Mutation,
+    },
+    Query: {
+        ...VehicleResolvers.Query,
+    },
 }

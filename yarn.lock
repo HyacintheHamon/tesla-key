@@ -1137,6 +1137,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.5.tgz#e19436e7f8e9b4601005d73673b6dc4784ffcc2f"
   integrity sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
 
+"@types/qs@^6.5.3":
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.5.3.tgz#1c3b71b091eaeaf5924538006b7f70603ce63d38"
+  integrity sha512-Jugo5V/1bS0fRhy2z8+cUAHEyWOATaz4rbyLVvcFs7+dXp5HfwpEwzF1Q11bB10ApUqHf+yTauxI0UXQDwGrbA==
+
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
@@ -5641,6 +5646,11 @@ qs@^5.2.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-5.2.1.tgz#801fee030e0b9450d6385adc48a4cc55b44aedfc"
   integrity sha1-gB/uAw4LlFDWOFrcSKTMVbRK7fw=
 
+qs@^6.9.0:
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.0.tgz#d1297e2a049c53119cb49cca366adbbacc80b409"
+  integrity sha512-27RP4UotQORTpmNQDX8BHPukOnBP3p1uUJY5UnDhaJB+rMt9iMsok724XL+UHU23bEFOHRMQ2ZhI99qOWUMGFA==
+
 qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
@@ -5705,6 +5715,11 @@ react-native-animatable@^1.3.1, react-native-animatable@^1.3.2:
   integrity sha512-rmah3KQ63ft8DxkzFUwJSuZeq+oSYwldoGF4DTOR5WM2WR5wiWLgBAtrAHlI3Di3by323uOR21s+MlqPcHz2Kw==
   dependencies:
     prop-types "^15.5.10"
+
+react-native-app-auth@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-app-auth/-/react-native-app-auth-4.4.0.tgz#fb8ea89095b49e8bd9205d78dbfb7c71cc40f5b3"
+  integrity sha512-rNGjhyK2oR4/dLGyauCJT3UOZn29BG14QfrZwlVBf/Bh941UZOe/0QH9KrtjEfMK6GQg6Tg2pslH6guVpvpW5A==
 
 react-native-geocoding@^0.3.0:
   version "0.3.0"
