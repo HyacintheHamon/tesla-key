@@ -6,7 +6,7 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import  { Close } from '../img/svg'
 
 import LottieView from 'lottie-react-native';
-const carAnimation = require('../animations/car.json');
+const carAnimation = require('../animations/car_loop.json');
 
 export default class SummonModalScreen extends Component {
 

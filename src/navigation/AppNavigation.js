@@ -1,6 +1,8 @@
 import React from 'react'
 import { Text, Animated, Easing } from 'react-native'
-import { createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
+import { createDrawerNavigator } from 'react-navigation-drawer'
+import { createAppContainer } from 'react-navigation'
 import LoginScreen from '../screens/LoginScreen'
 import LoginForm from '../screens/LoginForm'
 import SplashScreen from '../screens/SplashScreen'
@@ -52,6 +54,7 @@ const PrimaryNav = createStackNavigator({
   SplashScreen: { screen: SplashScreen },
   Walkthrough: { screen: Walkthrough },
   VideoWalkthrough: { screen: VideoWalkthrough },
+  MainScreen : { screen: MainScreen },
   //LoginStack: { screen: LoginStack },
   LoginScreen: { screen: LoginScreen },
   DrawerStack: { screen: DrawerStack },
