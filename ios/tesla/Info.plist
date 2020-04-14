@@ -39,8 +39,14 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Used for AR</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Used for AR and to give directions</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Used for AR and to give directions</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Used for AR and to give directions</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Used for AR</string>
+	<string>Used for AR and to give directions</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Black.ttf</string>
@@ -71,6 +77,11 @@
 		<string>OpenSans-RegularItalic.ttf</string>
 		<string>OpenSans-SemiBold.ttf</string>
 		<string>OpenSans-SemiBoldItalic.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

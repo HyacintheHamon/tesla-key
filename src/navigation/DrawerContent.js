@@ -100,7 +100,7 @@ export default class DrawerContent extends React.Component {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+          <TouchableOpacity style={styles.DrawerItem}>
             <Port width="15" />
             <Text
               onPress={() => navigation.navigate('SuperchargersMap')}
@@ -109,11 +109,10 @@ export default class DrawerContent extends React.Component {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+          <TouchableOpacity style={styles.DrawerItem}>
             <Help />
             <Text
-              //onPress={() => navigation.navigate('Screen')}
-              onPress={()=>alert("tapped")}
+              onPress={() => navigation.navigate('HelpScreen')}
               style={styles.DrawerItemText}>
               Help
             </Text>

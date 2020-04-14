@@ -622,12 +622,14 @@ export class Lock extends Component {
 
         Animated.timing(this.state.circleX, {
           toValue: width/2-perfectSize(210/2),
+          useNativeDriver: true,
           duration: 500
         }).start();
 
         Animated.timing(this.scaleAnimated, {
           toValue: 1,
           duration: 300,
+          useNativeDriver: true,
           delay: 550
         }).start();
         switch (this.props.lockState) {
@@ -652,18 +654,22 @@ export class Lock extends Component {
       Animated.sequence([
           Animated.timing(this.animatedCircle, {
               toValue: perfectSize(270),
+              useNativeDriver: true,
               duration: 100
           }),
           Animated.timing(this.animatedCircle, {
               toValue: perfectSize(300),
+              useNativeDriver: true,
               duration: 100
           }),
           Animated.timing(this.animatedCircle, {
               toValue: perfectSize(270),
+              useNativeDriver: true,
               duration: 100
           }),
           Animated.timing(this.animatedCircle, {
               toValue: perfectSize(210),
+              useNativeDriver: true,
               duration: 100
           })
       ]).start();
@@ -673,21 +679,25 @@ export class Lock extends Component {
         this.circleShape();
         Animated.timing(this.animated, {
             toValue: width-15-perfectSize(210),
+            useNativeDriver: true,
             duration: 400
         }).start();
         Animated.timing(this.funkAnimated, {
             toValue: 0,
             duration: 400,
+            useNativeDriver: true,
             delay: 100
         }).start();
         Animated.timing(this.lockAnimated, {
             toValue: 0,
             duration: 400,
+            useNativeDriver: true,
             delay: 100            
         }).start();
         Animated.timing(this.trunkAnimated, {
             toValue: 1,
             duration: 400,
+            useNativeDriver: true,
             delay: 100            
         }).start();
         this.lockState = LockState.trunk;
@@ -698,21 +708,25 @@ export class Lock extends Component {
         this.circleShape();        
         Animated.timing(this.animated, {
             toValue: width/2-perfectSize(210/2),
+            useNativeDriver: true,
             duration: 400
         }).start();
         Animated.timing(this.funkAnimated, {
             toValue: 0,
             duration: 400,
+            useNativeDriver: true,
             delay: 100            
         }).start();
         Animated.timing(this.lockAnimated, {
             toValue: 1,
             duration: 400,
+            useNativeDriver: true,
             delay: 100            
         }).start();
         Animated.timing(this.trunkAnimated, {
             toValue: 0,
             duration: 400,
+            useNativeDriver: true,
             delay: 100            
         }).start();
         this.lockState = LockState.lock;
@@ -723,21 +737,25 @@ export class Lock extends Component {
         this.circleShape();        
         Animated.timing(this.animated, {
             toValue: 7,
+            useNativeDriver: true,
             duration: 400
         }).start();
         Animated.timing(this.funkAnimated, {
             toValue: 1,
             duration: 400,
+            useNativeDriver: true,
             delay: 100            
         }).start();
         Animated.timing(this.lockAnimated, {
             toValue: 0,
             duration: 400,
+            useNativeDriver: true,
             delay: 100            
         }).start();
         Animated.timing(this.trunkAnimated, {
             toValue: 0,
             duration: 400,
+            useNativeDriver: true,
             delay: 100            
         }).start();
         this.lockState = LockState.frunk;

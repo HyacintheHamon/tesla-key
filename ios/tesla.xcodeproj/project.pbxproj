@@ -18,6 +18,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* teslaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* teslaTests.m */; };
 		6300AC45CB26A00C12729358 /* libPods-tesla-teslaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A16915724E1DD081930570 /* libPods-tesla-teslaTests.a */; };
 		64B2FA5C05FA853D1351CE1E /* libPods-tesla-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C10597D06A33BFB5C229BE /* libPods-tesla-tvOS.a */; };
+		6710FDCD244481FD009812E4 /* entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6710FDCC244481FD009812E4 /* entypo.ttf */; };
 		677241CC2443FC5300F46EED /* teslaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677241CB2443FC5300F46EED /* teslaTests.swift */; };
 		679E735524441056003D4F55 /* OpenSans-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 679E735024441056003D4F55 /* OpenSans-RegularItalic.ttf */; };
 		679E735624441056003D4F55 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 679E735124441056003D4F55 /* OpenSans-LightItalic.ttf */; };
@@ -86,6 +87,7 @@
 		2AE24820AD12C0A12BDC8326 /* libPods-tesla.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tesla.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* tesla-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tesla-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* tesla-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tesla-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6710FDCC244481FD009812E4 /* entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = entypo.ttf; path = ../../src/fonts/entypo.ttf; sourceTree = "<group>"; };
 		677241C92443FC5300F46EED /* teslaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = teslaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		677241CB2443FC5300F46EED /* teslaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teslaTests.swift; sourceTree = "<group>"; };
 		677241CD2443FC5300F46EED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		679E734F24440FCA003D4F55 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				6710FDCC244481FD009812E4 /* entypo.ttf */,
 				679E736A2444106A003D4F55 /* Montserrat-Black.ttf */,
 				679E73672444106A003D4F55 /* Montserrat-BlackItalic.ttf */,
 				679E736024441069003D4F55 /* Montserrat-Bold.ttf */,
@@ -468,6 +471,7 @@
 				679E737D2444106B003D4F55 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				679E73742444106B003D4F55 /* Montserrat-Light.ttf in Resources */,
 				679E737F2444106B003D4F55 /* OpenSans-ExtraBold.ttf in Resources */,
+				6710FDCD244481FD009812E4 /* entypo.ttf in Resources */,
 				679E737E2444106B003D4F55 /* Montserrat-BlackItalic.ttf in Resources */,
 				679E735924441056003D4F55 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				679E73792444106B003D4F55 /* Montserrat-Regular.ttf in Resources */,
