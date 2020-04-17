@@ -3,6 +3,7 @@ import { Platform, View, TouchableOpacity, StyleSheet, Text, Dimensions } from '
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Target, Close } from '../../img/svg/';
+import VectorIcon from "../VectorIcons/VectorIcon";
 const screen = Dimensions.get('window');
 export default class Search extends Component {
 
@@ -16,7 +17,7 @@ export default class Search extends Component {
         const { searchFocused, placeContent } = this.state;
         const { onLocationSelected } = this.props;
 
-         
+
         return <View  style={{
                 position: 'absolute',
                 top: Platform.select({ ios: 0, android: 0 }),
@@ -29,8 +30,8 @@ export default class Search extends Component {
                 }}>
                     <View style={styles.closeButton}>
                         <TouchableOpacity onPress={this.props.onCloseMap}>
-                            <Close/>
-                        </TouchableOpacity>                        
+                            <VectorIcon.MaterialVectorIcon color={'white'} size={30} name={'close'}/>
+                        </TouchableOpacity>
                     </View>
                     <View style={{
                                     position: 'absolute',
@@ -51,7 +52,7 @@ export default class Search extends Component {
                                     this.setState({ searchFocused: true });
                                     this.props.searchFocused()
                                 },
-                                onBlur: () => { 
+                                onBlur: () => {
                                     this.setState({ searchFocused: false });
                                 },
                                 autoCapitalize: "none",
@@ -128,12 +129,12 @@ export default class Search extends Component {
                                     height: 58
                                 }
                             }}
-                        />                        
+                        />
                     </View>
                     <View style={styles.rightButton}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('ARScene')}>
                             <Target/>
-                        </TouchableOpacity>                        
+                        </TouchableOpacity>
                     </View>
                 </View>;
     }

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Text, Animated, Easing } from 'react-native'
-import { createStackNavigator } from 'react-navigation-stack'
-import { createDrawerNavigator } from 'react-navigation-drawer'
-import { createAppContainer } from 'react-navigation'
+import {Text, Animated, Easing} from 'react-native'
+import {createStackNavigator} from 'react-navigation-stack'
+import {createDrawerNavigator} from 'react-navigation-drawer'
+import {createAppContainer} from 'react-navigation'
 import LoginScreen from '../screens/LoginScreen'
 import LoginForm from '../screens/LoginForm'
 import SplashScreen from '../screens/SplashScreen'
@@ -17,54 +17,55 @@ import ClimateControlsModalScreen from '../screens/ClimateControlsModalScreen'
 import ARScene from '../screens/ARScene'
 
 const StackNavigatorOptions = {
-  header: null,
-  headerMode: 'none',
-  animationEnabled: false
+    header: null,
+    headerMode: 'none',
+    animationEnabled: false
 };
 
 const DrawerStack = createDrawerNavigator({
-  MainScreen : { screen: MainScreen },
-  MapModalScreen: { screen: MapModalScreen },
-  ARScene: { screen: ARScene },
-  ClimateControlsModalScreen: { screen: ClimateControlsModalScreen },
-  SuperchargersMap: { screen: SuperchargersMap },
+    MainScreen: {screen: MainScreen},
+    MapModalScreen: {screen: MapModalScreen},
+    ARScene: {screen: ARScene},
+    ClimateControlsModalScreen: {screen: ClimateControlsModalScreen},
+    SuperchargersMap: {screen: SuperchargersMap},
 }, {
-  gesturesEnabled: false,
-  contentComponent: DrawerContent
+    initialRouteName: 'ARScene',
+    gesturesEnabled: false,
+    contentComponent: DrawerContent
 })
 
 
 // login stack
 const LoginStack = createStackNavigator({
-  loginScreen: { screen: LoginScreen },
-}, 
-  StackNavigatorOptions
+        loginScreen: {screen: LoginScreen},
+    },
+    StackNavigatorOptions
 )
 
 const noTransitionConfig = () => ({
-  transitionSpec: {
-    duration: 0,
-    timing: Animated.timing,
-    easing: Easing.step0
-  }
+    transitionSpec: {
+        duration: 0,
+        timing: Animated.timing,
+        easing: Easing.step0
+    }
 })
 
 // Manifest of possible screens
 const PrimaryNav = createStackNavigator({
-  SplashScreen: { screen: SplashScreen },
-  Walkthrough: { screen: Walkthrough },
-  VideoWalkthrough: { screen: VideoWalkthrough },
-  MainScreen : { screen: MainScreen },
-  //LoginStack: { screen: LoginStack },
-  LoginScreen: { screen: LoginScreen },
-  DrawerStack: { screen: DrawerStack },
+    SplashScreen: {screen: SplashScreen},
+    Walkthrough: {screen: Walkthrough},
+    VideoWalkthrough: {screen: VideoWalkthrough},
+    MainScreen: {screen: MainScreen},
+    //LoginStack: { screen: LoginStack },
+    LoginScreen: {screen: LoginScreen},
+    DrawerStack: {screen: DrawerStack},
 }, {
-  initialRouteName: 'SplashScreen',  
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
-  },
-  transitionConfig: noTransitionConfig
+    initialRouteName: 'DrawerStack',
+    headerMode: 'none',
+    navigationOptions: {
+        headerVisible: false,
+    },
+    transitionConfig: noTransitionConfig
 })
 
 const AppNavigation = createAppContainer(PrimaryNav);

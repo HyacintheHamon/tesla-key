@@ -2,12 +2,12 @@ import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { 
-  GreyLogo, 
-  SignOut, 
-  Help, 
-  Calendar, 
-  Port, 
+import {
+  GreyLogo,
+  SignOut,
+  Help,
+  Calendar,
+  Port,
   Authentication,
   Battery,
   Valet,
@@ -15,6 +15,7 @@ import {
   Notifications,
   Close,
  } from '../img/svg';
+import VectorIcon from "../components/VectorIcons/VectorIcon";
 
 export default class DrawerContent extends React.Component {
 
@@ -23,13 +24,13 @@ export default class DrawerContent extends React.Component {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: '#15191E'}}>
       <View style={styles.container}>
-        
+
         <View style={styles.headerView}>
            <Text style={styles.header}>MATTHEW</Text>
         </View>
-        
+
         <TouchableOpacity style={styles.closeButton} onPress={()=>this.props.navigation.toggleDrawer()}>
-          <Close/>
+          <VectorIcon.MaterialVectorIcon color={'white'} size={30} name={'close'}/>
         </TouchableOpacity>
 
         <View style={styles.mileageView}>
@@ -118,7 +119,7 @@ export default class DrawerContent extends React.Component {
               Help
             </Text>
           </TouchableOpacity>
-          
+
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
             <SignOut />
             <Text
@@ -134,7 +135,7 @@ export default class DrawerContent extends React.Component {
           <Text style={styles.version}>v. 1.0.0</Text>
         </View>
 
-    
+
     </View>
       </SafeAreaView>
     )
@@ -204,9 +205,9 @@ const styles = StyleSheet.create({
     textAlign: 'left'
   },
   logoView: {
-    width: '100%', 
-    backgroundColor: 'transparent', 
-    justifyContent: 'center', 
+    width: '100%',
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     bottom: 0
@@ -215,7 +216,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'transparent',
   },
-  version: { 
+  version: {
     fontFamily: 'Montserrat-Medium',
     fontSize: 10,
     fontWeight: 'bold',

@@ -41,6 +41,8 @@
 	<string>Used for AR</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Used for AR</string>
+	<key>NSMotionUsageDescription</key>
+	<string>NSMotionUsageDescription</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

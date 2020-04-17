@@ -6,13 +6,14 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import  { Close } from '../img/svg'
 
 import LottieView from 'lottie-react-native';
+import VectorIcon from "../components/VectorIcons/VectorIcon";
 const carAnimation = require('../animations/car_loop.json');
 
 export default class SummonModalScreen extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
         visibleSummonModal: null,
         DescriptionText : 'Press and hold a direction button to start Summon',
@@ -48,29 +49,29 @@ export default class SummonModalScreen extends Component {
           <View style={styles.modalContent}>
             <Text style={styles.header}>SUMMON</Text>
             <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseSummonModal}>
-              <Close />
+                <VectorIcon.MaterialVectorIcon color={'white'} size={30} name={'close'}/>
             </TouchableOpacity>
 
-          <LottieView 
+          <LottieView
             ref={animation => {
               this.animation = animation;
             }}
-            source={carAnimation} 
+            source={carAnimation}
             // style={{position:'relative', width:250, alignContent:'center', justifyContent:'center',alignItems:'center'}}
             style={{width: width, height: height/1.8 , marginBottom: 100}}
             // progress={this.state.progress}
             // onAnimationFinish={()=>{ this.animation.reset(); }}
-            />  
+            />
 
             <View style={styles.bottomModal}>
               <Text style={styles.descriptionText}> {this.state.DescriptionText} </Text>
-              <TouchableOpacity style={styles.button} 
-                              onPressIn={this.handlePressIn} 
+              <TouchableOpacity style={styles.button}
+                              onPressIn={this.handlePressIn}
                               onPressOut={this.handlePressOut}>
                 <Text style={styles.buttonText}>FORWARD</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.button} 
-                              onPressIn={this.handlePressIn} 
+              <TouchableOpacity style={styles.button}
+                              onPressIn={this.handlePressIn}
                               onPressOut={this.handlePressOut}>
                 <Text style={styles.buttonText}>REVERSE</Text>
               </TouchableOpacity>
@@ -131,9 +132,9 @@ const styles = StyleSheet.create({
         top: 15,
     },
     bottomModal: {
-        width: '100%', 
-        backgroundColor: 'transparent', 
-        justifyContent: 'center', 
+        width: '100%',
+        backgroundColor: 'transparent',
+        justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
         bottom: 0
