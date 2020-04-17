@@ -348,7 +348,7 @@ PODS:
     - react-native-video/Video (= 5.0.2)
   - react-native-video/Video (5.0.2):
     - React
-  - react-native-webview (8.0.0):
+  - react-native-webview (9.2.1):
     - React
   - React-RCTActionSheet (0.62.2):
     - React-Core/RCTActionSheetHeaders (= 0.62.2)
@@ -423,6 +423,8 @@ PODS:
     - React
   - RNVectorIcons (6.6.0):
     - React
+  - TouchID (4.4.1):
+    - React
   - ViroKit_static_lib (1.0)
   - ViroReact (1.0)
   - Yoga (1.14.0)
@@ -486,6 +488,7 @@ DEPENDENCIES:
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+  - TouchID (from `../node_modules/react-native-touch-id`)
   - ViroKit_static_lib (from `../node_modules/react-viro/ios/dist/ViroRenderer/static_lib`)
   - ViroReact (from `../node_modules/react-viro/ios/`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -604,6 +607,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
+  TouchID:
+    :path: "../node_modules/react-native-touch-id"
   ViroKit_static_lib:
     :path: "../node_modules/react-viro/ios/dist/ViroRenderer/static_lib"
   ViroReact:
@@ -659,7 +664,7 @@ SPEC CHECKSUMS:
   react-native-onesignal: e8895a69983c8ffe953e1b0fc0f2ca75afc6af68
   react-native-safe-area-context: e200d4433aba6b7e60b52da5f37af11f7a0b0392
   react-native-video: d01ed7ff1e38fa7dcc6c15c94cf505e661b7bfd0
-  react-native-webview: a75bffe77bc4efaab83d7b3af12007ad40cced09
+  react-native-webview: 9fb615251c147d1b94157b31fa0ea9c68b234c04
   React-RCTActionSheet: f41ea8a811aac770e0cc6e0ad6b270c644ea8b7c
   React-RCTAnimation: 49ab98b1c1ff4445148b72a3d61554138565bad0
   React-RCTBlob: a332773f0ebc413a0ce85942a55b064471587a71
@@ -677,6 +682,7 @@ SPEC CHECKSUMS:
   RNScreens: ac02d0e4529f08ced69f5580d416f968a6ec3a1d
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
+  TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   ViroKit_static_lib: ae9c112ac4b128f8d4466fc581c7b07a0264754d
   ViroReact: 7ec32276dcd1883662b4587eaedfff67f7fc3625
   Yoga: 3ebccbdd559724312790e7742142d062476b698e

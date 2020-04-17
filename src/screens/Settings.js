@@ -1,11 +1,27 @@
 import React, { Component, useState } from 'react';
-import { StyleSheet, ScrollView, View, Text, TouchableOpacity, SafeAreaView } from "react-native";
+import {   Alert,   TouchableHighlight, StyleSheet, ScrollView, View, Text, TouchableOpacity, SafeAreaView } from "react-native";
+import TouchID from "react-native-touch-id";
+
 import Back from '../img/svg/Back';
 import Divider from "../components/Divider";
 import Block from "../components/Block";
 import Switch from "../components/Switch";
 
 export default class Settings extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      biometryType: null
+    };
+  }
+
+  componentDidMount() {
+    TouchID.isSupported()
+    .then(biometryType => {
+      this.setState({ biometryType });
+    })
+  }
 
   render() {
 
@@ -38,13 +54,14 @@ export default class Settings extends Component {
         style={{ marginBottom: 16 * 2 }}
       >
         <View style={{flex: 1, flexDirection: 'row', flexWrap: 'wrap'}}>
-        <Text style={{fontSize:18, color:"#FFFFFF", marginBottom: 10, fontWeight:"bold"}}>Fingerprint Authentication</Text>
-        <Text style={{fontSize:14, color:"#9DA3B4"}}>Allow fingerprint authentication</Text>
+        <Text style={{fontSize:18, color:"#FFFFFF", marginBottom: 10, fontWeight:"bold"}}>{`${this.state.biometryType} Authentication`}</Text>
+        <Text style={{fontSize:14, color:"#9DA3B4"}}>{`Allow ${this.state.biometryType} authentication`}</Text>
         </View>
         <Switch
           accessibilityRole={'button'}
           value={fingerprint}
           onValueChange={value => setFingerprint(value)}
+          // onValueChange={this.clickHandler}
         />
       </Block>
       );
@@ -110,11 +127,35 @@ export default class Settings extends Component {
 
           <Text style={{ fontSize: 12, marginBottom: 5, color:"#C5CCD6", textAlign:"center" }}>VIN: 5YJ3E1EBOLF589216</Text>
           <Text style={{ fontSize: 12, color:"#C5CCD6", textAlign:"center" }}>Version: 2020.4.1 4a4ad401858f</Text>
+
+          <TouchableHighlight
+          style={{marginTop: 10, justifyContent:"center", alignContent:"center"}}
+          onPress={this.clickHandler}
+          underlayColor="#0380BE"
+          activeOpacity={1}
+        >
+          <Text style={{
+            color: '#fff',
+            fontWeight: '600'
+          }}>
+            {`Authenticate with ${this.state.biometryType}`}
+          </Text>
+        </TouchableHighlight>
+
         </ScrollView>
       </Block>
       </SafeAreaView>
     );
   }
+
+  clickHandler() {
+    TouchID.isSupported()
+      .then(authenticate)
+      .catch(error => {
+        Alert.alert('TouchID not supported');
+      });
+  }
+
 }
 
 const styles = StyleSheet.create({
@@ -135,3 +176,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16 * 2
   }
 });
+
+function authenticate() {
+  return TouchID.authenticate()
+    .then(success => {
+      Alert.alert('Authenticated Successfully');
+    })
+    .catch(error => {
+      console.log(error)
+      Alert.alert(error.message);
+    });
+}
