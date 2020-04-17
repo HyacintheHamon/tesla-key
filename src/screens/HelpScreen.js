@@ -17,7 +17,6 @@ import StatusHeaderBar from '../components/StatusHeaderBar';
 import  { Close } from '../img/svg'
 
 var ANIMATED_LOADER_SQUARE= require('../animations/loader_square.json');
-var IMAGE_PERSON_ICON   = require('../img/personicon_white.png');
 var SOURCE = ANIMATED_LOADER_SQUARE;
 const {width, height} = Dimensions.get('window');
 
