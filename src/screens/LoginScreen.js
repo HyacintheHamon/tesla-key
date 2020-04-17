@@ -17,7 +17,7 @@ class LoginScreen extends React.Component {
     loading: false,
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.props.navigation.replace('DrawerStack');
 		const { userData } = nextProps.auth;
 		if (userData!==this.props.auth.userData) {

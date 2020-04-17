@@ -221,7 +221,7 @@ return(
       );
     })}
   </MapView>
-  <TouchableOpacity style={styles.closeButton} onPress={this.props.navigation.goBack()}>
+  <TouchableOpacity style={styles.closeButton} onPress={() => this.props.navigation.goBack()}>
       <Back />
   </TouchableOpacity>
 </View>

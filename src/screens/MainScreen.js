@@ -158,7 +158,7 @@ class MainScreen extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
 		const { vehicleInfo } = nextProps.vehicle.vehicleInfo;
 		if (vehicleInfo!==this.props.vehicle.vehicleInfo) {
       this.setState({lockState: vehicleInfo.lockState});
@@ -610,7 +610,7 @@ export class Lock extends Component {
         }
     };
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
       if (nextProps.onFlingLeft) {
         this.flingLeft();
       } else if (nextProps.onFlingRight) {

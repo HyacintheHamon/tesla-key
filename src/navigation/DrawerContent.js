@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import { NavigationActions } from 'react-navigation'
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { 
   GreyLogo, 
   SignOut, 
@@ -115,6 +115,15 @@ export default class DrawerContent extends React.Component {
               onPress={() => navigation.navigate('HelpScreen')}
               style={styles.DrawerItemText}>
               Help
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.DrawerItem}>
+            <Icon name="ios-settings" size={20} color="#FFFFFF" />
+            <Text
+              onPress={() => navigation.navigate('Settings')}
+              style={styles.DrawerItemText}>
+              Settings
             </Text>
           </TouchableOpacity>
           
