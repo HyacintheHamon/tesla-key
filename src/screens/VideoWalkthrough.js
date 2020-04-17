@@ -32,10 +32,6 @@ export default class VideoWalkthrough extends Component {
         </View>
         {/* Second screen */}
         <View style={styles.slide}>
-        <Video source={require("../videos/background2.mp4")} style={styles.backgroundVideo} muted={true} repeat={true} resizeMode={"cover"} rate={1.0} ignoreSilentSwitch={"obey"} />
-        </View>
-        {/* Third screen */}
-        <View style={styles.slide}>
         <Image source={require('../img/background.gif')}  style={{flex: 1 }} />
         </View>
       </Swiper>
