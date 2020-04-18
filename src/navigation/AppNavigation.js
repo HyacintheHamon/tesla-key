@@ -17,6 +17,7 @@ import ClimateControlsModalScreen from '../screens/ClimateControlsModalScreen'
 import ARScene from '../screens/ARScene'
 import HelpScreen from '../screens/HelpScreen'
 import Settings from '../screens/Settings'
+import MediaScreen from '../screens/MediaScreen'
 
 const StackNavigatorOptions = {
   header: null,
@@ -32,6 +33,7 @@ const DrawerStack = createDrawerNavigator({
   SuperchargersMap: { screen: SuperchargersMap },
   HelpScreen: { screen: HelpScreen },
   Settings: { screen: Settings },
+  MediaScreen: { screen: MediaScreen },
 }, {
   gesturesEnabled: false,
   contentComponent: DrawerContent

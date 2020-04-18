@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-native'
 import { NavigationActions } from 'react-navigation'
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { 
   GreyLogo, 
@@ -77,6 +78,15 @@ export default class DrawerContent extends React.Component {
               onPress={()=>alert("tapped")}
               style={styles.DrawerItemText}>
               Battery
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.DrawerItem}>
+            <FontAwesome5 name="music" size={15} color="#FFFFFF"></FontAwesome5>
+            <Text
+              onPress={() => navigation.navigate('MediaScreen')}
+              style={styles.DrawerItemText}>
+              Media
             </Text>
           </TouchableOpacity>
 
