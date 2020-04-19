@@ -54,8 +54,7 @@ export default class DrawerContent extends React.Component {
           <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
             <LootBox />
             <Text
-              //onPress={() => navigation.navigate('MainScreen')}
-              onPress={()=>alert("tapped")}
+              onPress={() => navigation.navigate('LootScreen')}
               style={styles.DrawerItemText}>
               Loot box
               </Text>

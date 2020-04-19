@@ -18,6 +18,7 @@ import ARScene from '../screens/ARScene'
 import HelpScreen from '../screens/HelpScreen'
 import Settings from '../screens/Settings'
 import MediaScreen from '../screens/MediaScreen'
+import LootScreen from '../screens/LootScreen'
 
 const StackNavigatorOptions = {
   header: null,
@@ -34,6 +35,7 @@ const DrawerStack = createDrawerNavigator({
   HelpScreen: { screen: HelpScreen },
   Settings: { screen: Settings },
   MediaScreen: { screen: MediaScreen },
+  LootScreen: { screen: LootScreen },
 }, {
   gesturesEnabled: false,
   contentComponent: DrawerContent

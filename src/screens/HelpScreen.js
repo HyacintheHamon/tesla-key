@@ -31,10 +31,6 @@ export default class HelpScreen extends Component {
          this.animation.play();
     }
 
-    handleLeftTitleBarPress(){
-        this.props.navigation.goBack();
-    }
-
     handleFinishedLoading(){
         if(this.animation){
             this.animation.reset();
@@ -50,7 +46,7 @@ export default class HelpScreen extends Component {
             <View style={{flex:1}}>
 
                      <StatusHeaderBar>
-                        <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseHelpModal}>
+                        <TouchableOpacity style={styles.closeButton} onPress={() => this.props.navigation.goBack()}>
                            <Close />
                         </TouchableOpacity>
                         <View style={{alignItems:'center', justifyContent:'center', flex:1}}>
