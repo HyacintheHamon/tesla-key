@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import {   Alert,   TouchableHighlight, StyleSheet, ScrollView, View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import TouchID from "react-native-touch-id";
-
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Back from '../img/svg/Back';
 import Divider from "../components/Divider";
 import Block from "../components/Block";
@@ -89,6 +89,58 @@ export default class Settings extends Component {
       );
     };
 
+    const ValetBlock = () => {
+      const [valet, setValet]  = useState(false);
+      return (
+        <Block
+        row
+        center
+        space="between"
+        style={{ marginBottom: 16 * 2 }}
+      >
+        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>Valet Mode</Text>
+        <Switch
+          accessibilityRole={'button'}
+          value={valet}
+          onValueChange={value => setValet(value)}
+        />
+      </Block>
+      );
+    };
+
+
+    const SpeedLimitBlock = () => {
+      const [speedLimit, setSpeedLimit]  = useState(false);
+      return (
+        <View>
+        <Block
+        row
+        center
+        space="between"
+        style={{ marginBottom: 10 }}
+      >
+        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>Speed Limit Mode</Text>
+        <Switch
+          accessibilityRole={'button'}
+          value={speedLimit}
+          onValueChange={value => setSpeedLimit(value)}
+        />
+      </Block>
+      <View style={styles.speedLimitControlsContainer}>
+        <TouchableOpacity style={styles.minusContainer}>
+          <FontAwesome5 name="minus" size={16} color="#93A8B3"/>
+        </TouchableOpacity>
+        <View style={styles.speedLimitContainer}>
+          <Text style={{color:"#FFF", fontSize:16 }}>90 MPH</Text>
+        </View>
+        <TouchableOpacity style={styles.plusContainer}>
+          <FontAwesome5 name="plus" size={16} color="#93A8B3"/>
+        </TouchableOpacity>
+      </View>
+      </View>
+      );
+    };
+
     return (
 
       <SafeAreaView style={{flex:1, backgroundColor:"#111117"}}>
@@ -121,6 +173,8 @@ export default class Settings extends Component {
             <NotificationsBlock/>
             <FingerprintBlock/>
             <CalendarBlock/>
+            <ValetBlock/>
+            <SpeedLimitBlock/>
           </Block>
 
           <Divider />
@@ -128,6 +182,8 @@ export default class Settings extends Component {
           <Text style={{ fontSize: 12, marginBottom: 5, color:"#C5CCD6", textAlign:"center" }}>VIN: 5YJ3E1EBOLF589216</Text>
           <Text style={{ fontSize: 12, color:"#C5CCD6", textAlign:"center" }}>Version: 2020.4.1 4a4ad401858f</Text>
 
+          {/* TEST FACE ID 
+          {/*
           <TouchableHighlight
           style={{marginTop: 10, justifyContent:"center", alignContent:"center"}}
           onPress={this.clickHandler}
@@ -141,7 +197,7 @@ export default class Settings extends Component {
             {`Authenticate with ${this.state.biometryType}`}
           </Text>
         </TouchableHighlight>
-
+         */}
         </ScrollView>
       </Block>
       </SafeAreaView>
@@ -174,6 +230,32 @@ const styles = StyleSheet.create({
   },
   toggles: {
     paddingHorizontal: 16 * 2
+  },
+  speedLimitControlsContainer: {
+    flexDirection: "row", 
+    justifyContent: "center", 
+    alignSelf: "center",
+    alignContent: "center",
+    width: 250,
+    height: 50,
+    marginTop: 35,
+    borderWidth: 1,
+    borderColor: "#FFF",
+    borderRadius: 64,
+  },
+  speedLimitContainer: {
+    width: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 32,
+  },
+  minusContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  plusContainer: {
+    alignItems: "center",
+    justifyContent: "center",
   }
 });
 
