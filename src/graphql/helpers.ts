@@ -1,20 +1,15 @@
 // Utils
-import { AsyncStorage } from 'react-native'
+import * as OAuth from '../Utils/oauth'
 
 
 // Auth middleware
 export const authorization = () => (
     new Promise<object>((resolve, reject) => {
-        AsyncStorage
-            .getItem('accessToken')
-            .then(token =>
-                resolve(token ? {
-                    headers: {
-                        authorization: `Bearer ${token}`
-                    }
-                } : null)
-            ).catch(reason =>
-                resolve(null)
-            )
+        OAuth.getAuthorization()
+            .then(authorization => {
+                if (!authorization) return null;
+                return { headers: { authorization } };
+            })
+            .catch(reason => resolve(null));
     })
 )

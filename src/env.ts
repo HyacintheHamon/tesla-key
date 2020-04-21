@@ -10,11 +10,13 @@ const environments = {
     local: {
         GRAPHQL_WS_URI: 'http://localhost:3000/graphql',
         GRAPHQL_URI: 'http://localhost:3000/graphql',
+        OAUTH_URI: 'http://localhost:3000',
         API_URI: 'http://localhost:3000',
     },
     prod: {
         GRAPHQL_WS_URI: 'http://localhost:3000/graphql',
         GRAPHQL_URI: 'http://localhost:3000/graphql',
+        OAUTH_URI: 'http://localhost:3000',
         API_URI: 'http://localhost:3000',
     },
 }

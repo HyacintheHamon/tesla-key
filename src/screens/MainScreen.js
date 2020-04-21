@@ -36,6 +36,7 @@ import MapModal from '../components/Map';
 // import Lock from '../components/Lock';
 import ClimateControlsModalScreen from './ClimateControlsModalScreen'
 import helper from '../Utils/helper';
+import { Query, withApollo } from 'react-apollo'
 
 const fanAnimation = require('../animations/fan_animation.json');
 
@@ -320,11 +321,78 @@ class MainScreen extends Component {
           } = this.state;
 
     return (
+      
+      // Added a local query to update temperature
+      /*
+      <View style={{
+        backgroundColor: '#f8f8f8',
+        paddingTop: 50,
+        flex: 1,
+      }}>
+        <Query
+          query={requests.VEHICLE_STATE}
+        >
+          {({ data, loading, error }) => {
+            if (loading) {
+              return (
+                <Text>LOADING ...</Text>
+              )
+            }
+            if (error) {
+              return (
+                <Text>{JSON.stringify(error)} ...</Text>
+              )
+            }
+            if (data) {
+              return (
+                <View>
+                  <Text>{JSON.stringify(data, null, 4)}</Text>
+                  <TouchableOpacity onPress={async () => {
+                    await this.props.client.mutate({
+                      variables: { input: { temperature: 101 } },
+                      mutation: requests.SET_TEMPERATURE,
+                    });
+                  }}>
+                    <Text>Increase temperature</Text>
+                  </TouchableOpacity>
+                </View>
+              )
+            }
+            return <Text>NOTHING</Text>
+          }}
+        </Query>
+       {/* 
+        <Query
+          query={requests.CLIMATE_STATE}
+          variables={{ vehicle: '123' }}
+        >
+          {({ data, loading, error }) => {
+            if (loading) {
+              return (
+                <Text>LOADING ...</Text>
+              )
+            }
+            if (error) {
+              return (
+                <Text>{JSON.stringify(error)} ...</Text>
+              )
+            }
+            if (data) {
+              return (
+                <Text>{JSON.stringify(data, null, 4)}</Text>
+              )
+            }
+          }}
+        </Query> 
+        /*}
+      </View>
+     */
+
       // <FlingGestureHandler
       //   direction={Directions.DOWN}
       //   numberOfPointers={1}
-        // onHandlerStateChange={this.openLockModal}
-        // >
+      // onHandlerStateChange={this.openLockModal}
+      // >
 
     <PanGestureHandler
       minDist={30}

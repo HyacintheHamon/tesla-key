@@ -33,7 +33,6 @@ const cache = new InMemoryCache({ /*fragmentMatcher*/ });
 const httpLink = new HttpLink({ uri: env.GRAPHQL_URI });
 
 const restLink = new RestLink({ uri: env.API_URI });
-// const restLink = new RestLink({ uri: 'https://swapi.co/api' });
 
 const useWS = !!env.GRAPHQL_WS_URI;
 
@@ -68,7 +67,7 @@ const auth = setContext(
 
 const client = new ApolloClient({
     cache,
-    resolvers,
+    resolvers: resolvers,
     link: !useWS ? (
         ApolloLink.from([auth, restLink, httpLink])
     ) : (

@@ -9,6 +9,9 @@ import { User, Lock, GreyLogo } from '../img/svg';
 
 const { height, width } = Dimensions.get('window');
 
+import * as OAuth from '../Utils/oauth'
+import env from '../env'
+
 class LoginScreen extends React.Component {
 
   state = {
@@ -17,7 +20,7 @@ class LoginScreen extends React.Component {
     loading: false,
   };
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     this.props.navigation.replace('DrawerStack');
 		const { userData } = nextProps.auth;
 		if (userData!==this.props.auth.userData) {
@@ -108,44 +111,60 @@ class LoginScreen extends React.Component {
     )
   }
 
-  signIn = () => {
-    this.setState({
-      loading: true
-    });
-    let authData = {email: this.state.email, password: this.state.password};
-    this.props.requestSignIn(authData);
+  signIn = async () => {
+    this.setState({ loading: true });
+    // let authData = {email: this.state.email, password: this.state.password};
+    // this.props.requestSignIn(authData);
+    const { email: username, password } = this.state;
+    
+    try {
+      const authState = await OAuth.authorize({
+        clientId: '81527cff06843c8634fdc09e8ac0abefb46ac849f38fe1e431c2ef2106796384',
+        issuer: env.OAUTH_URI,
+        password,
+        username,
+      });
+
+      this.props.navigation.replace('DrawerStack');
+
+    } catch (e) {
+      alert(JSON.stringify(e));
+    }
+
+    // await this.getBearerToken(this.state.email, this.state.password, this.props.setEstablishedConnection);
+    this.setState({ loading: false });
   }
 
   handleSubmit = () => {
-    async function getBearerToken(email, password, fn) {
-      try {
-        let response = await fetch('https://owner-api.teslamotors.com/oauth/token', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            grant_type: 'password',
-            client_id: '81527cff06843c8634fdc09e8ac0abefb46ac849f38fe1e431c2ef2106796384',
-            client_secret: 'c7257eb71a564034f9419ee651c7d0e5f7aa6bfbd18bafb5c5c033b093bb2fa3',
-            email: email,
-            password: password
-          }),
-        });
-        let responseJson = await response.json();      
-        if (responseJson.access_token !== undefined) {
-          alert('Successfully authenticated!')
-          fn(responseJson.access_token)
-        } else {
-          alert('Could not authenticate, please try again')
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getBearerToken(this.state.email, this.state.password, this.props.setEstablishedConnection);
+    this.getBearerToken(this.state.email, this.state.password, this.props.setEstablishedConnection);
   };
+
+  getBearerToken = async (email, password, fn) => {
+    try {
+      let response = await fetch('http://localhost:3000/oauth/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json',
+        },
+        body: qs.stringify({
+          client_id: '81527cff06843c8634fdc09e8ac0abefb46ac849f38fe1e431c2ef2106796384',
+          grant_type: 'password',
+          password: password,
+          username: email,
+        }),
+      });
+      let responseJson = await response.json();      
+      if (responseJson.access_token !== undefined) {
+        alert('Successfully authenticated!')
+        fn(responseJson.access_token)
+      } else {
+        alert('Could not authenticate, please try again')
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
   
 }
 
