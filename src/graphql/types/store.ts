@@ -1,0 +1,4 @@
+// Types
+
+
+export type Store = {}
