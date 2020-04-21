@@ -18,6 +18,7 @@ import mapStyle from '../json/mapStyle.json'
 import Geolocation from '@react-native-community/geolocation';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import  { Close } from '../img/svg'
+import VectorIcon from "../components/VectorIcons/VectorIcon";
 
 // Calculate map zoom
 const screen = Dimensions.get('window');
@@ -79,7 +80,7 @@ export default class MapModalScreen extends React.Component {
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
     );
   }
-  
+
   render() {
     return (
       <View style={styles.mainView}>
@@ -115,7 +116,7 @@ export default class MapModalScreen extends React.Component {
         ))}
         </MapView>
         <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMapModal}>
-            <Close />
+          <VectorIcon.MaterialVectorIcon color={'white'} size={30} name={'close'}/>
         </TouchableOpacity>
         <View style={styles.searchBarContainer}>
             <TextInput

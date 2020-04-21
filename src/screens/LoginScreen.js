@@ -20,7 +20,7 @@ class LoginScreen extends React.Component {
     loading: false,
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     this.props.navigation.replace('DrawerStack');
 		const { userData } = nextProps.auth;
 		if (userData!==this.props.auth.userData) {
@@ -50,21 +50,21 @@ class LoginScreen extends React.Component {
             </Text>
           </View>
           <View style={styles.formContainer}>
-            
+
             <View style={styles.inputContainer}>
               <User />
-              <TextInput style = {styles.input} 
+              <TextInput style = {styles.input}
                 value={this.state.email}
                 onChangeText={email => this.setState({email})}
                 ref={ref => {this._emailInput = ref}}
-                autoCapitalize="none" 
-                onSubmitEditing={() => this.passwordInput.focus()} 
-                autoCorrect={false} 
                 autoCapitalize="none"
-                keyboardType='email-address' 
+                onSubmitEditing={() => this.passwordInput.focus()}
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType='email-address'
                 keyboardAppearance="dark"
-                returnKeyType="next" 
-                placeholder='Email' 
+                returnKeyType="next"
+                placeholder='Email'
                 onSubmitEditing={this.handleSubmit}
                 blurOnSubmit={true}
                 placeholderTextColor='rgba(225,225,225,0.7)'/>
@@ -72,18 +72,18 @@ class LoginScreen extends React.Component {
 
             <View style={styles.inputContainer}>
               <Lock />
-              <TextInput style = {styles.input}   
+              <TextInput style = {styles.input}
                 ref={ref => {this._passwordInput = ref}}
                 value={this.state.password}
                 onChangeText={password => this.setState({password})}
                 keyboardType="ascii-capable"
                 keyboardAppearance="dark"
-                returnKeyType="go" 
+                returnKeyType="go"
                 autoCorrect={false}
                 autoCapitalize="none"
-                ref={(input)=> this.passwordInput = input} 
-                placeholder='Password' 
-                placeholderTextColor='rgba(225,225,225,0.7)' 
+                ref={(input)=> this.passwordInput = input}
+                placeholder='Password'
+                placeholderTextColor='rgba(225,225,225,0.7)'
                 onSubmitEditing={this.handleSubmit}
                 blurOnSubmit={true}
                 secureTextEntry/>
@@ -91,7 +91,7 @@ class LoginScreen extends React.Component {
            {!this.state.loading ?
             <TouchableOpacity style={styles.buttonContainer} onPress={this.signIn}>
               <Text  style={styles.buttonText}>LOGIN</Text>
-            </TouchableOpacity> 
+            </TouchableOpacity>
             :
               <Loading size={'small'} />
             }
@@ -104,9 +104,9 @@ class LoginScreen extends React.Component {
         </Text>
         <Text style={styles.legal} onPress={ ()=>{ Linking.openURL('https://www.tesla.com/about/legal#privacy-statement?redirect=no')}}>
           Privacy Policy
-        </Text>  
+        </Text>
       </View>
-  
+
     </View>
     )
   }
@@ -115,8 +115,8 @@ class LoginScreen extends React.Component {
     this.setState({ loading: true });
     // let authData = {email: this.state.email, password: this.state.password};
     // this.props.requestSignIn(authData);
-    const { email: username, password } = this.state;
-    
+    const { email: username, password } = this.state;
+
     try {
       const authState = await OAuth.authorize({
         clientId: '81527cff06843c8634fdc09e8ac0abefb46ac849f38fe1e431c2ef2106796384',
@@ -154,7 +154,7 @@ class LoginScreen extends React.Component {
           username: email,
         }),
       });
-      let responseJson = await response.json();      
+      let responseJson = await response.json();
       if (responseJson.access_token !== undefined) {
         alert('Successfully authenticated!')
         fn(responseJson.access_token)
@@ -165,7 +165,7 @@ class LoginScreen extends React.Component {
       console.error(error);
     }
   }
-  
+
 }
 
 
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   container: {
       flex: 1,
       backgroundColor: '#111117',
-      
+
   },
   KeyboardAvoidingView: {
     flex: 1,
@@ -230,9 +230,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Medium',
   },
   legalView: {
-    width: '100%', 
-    backgroundColor: 'transparent', 
-    justifyContent: 'center', 
+    width: '100%',
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     bottom: 40,

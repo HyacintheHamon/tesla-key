@@ -48,7 +48,9 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Used for AR and to give directions</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Used for unlockinng the app</string>
+	<string>Used for unlocking the app</string>
+    <key>NSMotionUsageDescription</key>
+	<string>Used for AR and to give directions</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

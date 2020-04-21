@@ -1,5 +1,6 @@
-platform :ios, '9.3'
+platform :ios, '10.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+require_relative '../node_modules/react-native-unimodules/cocoapods.rb'
 
 def add_flipper_pods!
   version = '~> 0.33.1'
@@ -69,8 +70,10 @@ target 'tesla' do
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   use_native_modules!
-
+  use_unimodules!
+  
   target 'teslaTests' do
+    
     #inherit! :complete
     # Pods for testing
   end

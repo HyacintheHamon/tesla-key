@@ -27,6 +27,7 @@ import BatteryLow from "./battery/BatteryLow";
 import BatteryMedium from "./battery/BatteryMedium";
 import BatteryHigh from "./battery/BatteryHigh";
 import Close from "./Close";
+import CompassLine from "./CompassLine";
 import Valet from "./Valet";
 import LootBox from "./LootBox";
 import SeatLeft from "./SeatLeft";
@@ -81,6 +82,7 @@ export {
     SeatLeft,
     Notifications,
     Close,
+    CompassLine,
     Menu,
     Back,
     BatteryLow,
