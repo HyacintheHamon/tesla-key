@@ -16,6 +16,7 @@ import com.facebook.soloader.SoLoader;
 import com.viromedia.bridge.ReactViroPackage;
 import java.util.List;
 
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -26,9 +27,15 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
+
+
       @SuppressWarnings("UnnecessaryLocalVariable")
       List<ReactPackage> packages = new PackageList(this).getPackages();
-      packages.add(new ReactViroPackage(ReactViroPackage.ViroPlatform.OVR_MOBILE));
+
+      if (!com.tesla.Application.IsRunningOnEmulator()) {
+        packages.add(new ReactViroPackage(ReactViroPackage.ViroPlatform.OVR_MOBILE));
+      }
+      
       // Packages that cannot be autolinked yet can be added manually here, for example:
       // packages.add(new MyReactNativePackage());
       return packages;
