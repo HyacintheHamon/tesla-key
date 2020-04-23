@@ -4,7 +4,7 @@ const { height, width } = Dimensions.get('window');
 const topView = require('../img/model-s-top-view.png');
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import  { Close } from '../img/svg'
-
+import I18n from "../Utils/i18n";
 import LottieView from 'lottie-react-native';
 import VectorIcon from "../components/VectorIcons/VectorIcon";
 const carAnimation = require('../animations/car.json');
@@ -23,7 +23,7 @@ export default class SummonModalScreen extends Component {
 
   handlePressIn =()=> {
     this.setState({
-      DescriptionText : 'Release the direction button  to stop your vehicle'
+      DescriptionText : 'Release the direction button to stop your vehicle'
     })
     this.animation.play();
   }
@@ -47,7 +47,7 @@ export default class SummonModalScreen extends Component {
     return (
         <SafeAreaView style={{flex:1}}>
           <View style={styles.modalContent}>
-            <Text style={styles.header}>SUMMON</Text>
+            <Text style={styles.header}>{I18n.t("summon")}</Text>
             <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseSummonModal}>
                 <VectorIcon.MaterialVectorIcon color={'white'} size={30} name={'close'}/>
             </TouchableOpacity>
@@ -68,12 +68,12 @@ export default class SummonModalScreen extends Component {
               <TouchableOpacity style={styles.button}
                               onPressIn={this.handlePressIn}
                               onPressOut={this.handlePressOut}>
-                <Text style={styles.buttonText}>FORWARD</Text>
+                <Text style={styles.buttonText}>{I18n.t("forward")}</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.button}
                               onPressIn={this.handlePressIn}
                               onPressOut={this.handlePressOut}>
-                <Text style={styles.buttonText}>REVERSE</Text>
+                <Text style={styles.buttonText}>{I18n.t("reverse")}</Text>
               </TouchableOpacity>
             </View>
           </View>

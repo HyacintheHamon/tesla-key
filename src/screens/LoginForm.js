@@ -24,7 +24,7 @@ export default class App extends Component {
         <GreyLogo width="100px" height="50px" />
         <View style={styles.header}>
           <Text style={styles.description}>
-            Please enter the username and password you use to login to the Tesla site:
+            Please enter the username and password you use to login to the Tesla site
           </Text>
         </View>
         <KeyboardAvoidingView behavior="padding" style={styles.form}>

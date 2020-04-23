@@ -20,6 +20,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import * as Animatable from 'react-native-animatable';
 import MaskedView from '@react-native-community/masked-view';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import I18n from "../../Utils/i18n";
 
 perfectSize = create(PREDEF_RES.iphoneX.px);
 let { height, width } = Dimensions.get("window");
@@ -268,7 +269,7 @@ export default class Lock extends Component {
                     <Animatable.View  style={styles.topContainer}  activeOpacity={1} animation={this.state.animatedShow} iterationCount={1} iterationDelay={150} direction="alternate">
                         <View style={styles.button}>
                             <Image style={styles.buttonIcon} source={frunk} />              
-                            <Animatable.Text style={{...styles.text, opacity: this.funkAnimated}}>Frunk</Animatable.Text>
+                            <Animatable.Text style={{...styles.text, opacity: this.funkAnimated}}>{I18n.t("frunk")}</Animatable.Text>
                         </View>
                         <View>
                             <Entypo
@@ -277,11 +278,11 @@ export default class Lock extends Component {
                                 color={'white'}
                                 size={perfectSize(110)}
                             />
-                            <Animatable.Text style={{...styles.text,  opacity: this.lockAnimated}}>Unock</Animatable.Text>
+                            <Animatable.Text style={{...styles.text,  opacity: this.lockAnimated}}>{I18n.t("unlock")}</Animatable.Text>
                         </View>
                         <View>
                             <Image style={styles.buttonIcon} source={trunk} />              
-                            <Animatable.Text style={{...styles.text,  opacity: this.trunkAnimated}}>Trunk</Animatable.Text>
+                            <Animatable.Text style={{...styles.text,  opacity: this.trunkAnimated}}>{I18n.t("trunk")}</Animatable.Text>
                         </View>
                     </Animatable.View>
                     <MaskedView style={{...styles.maskView, backgroundColor: 'black'}}

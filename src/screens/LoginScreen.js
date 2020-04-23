@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import { requestSignIn } from "../actions";
 import { Loading } from '../components/Common/Loading';
 import { User, Lock, GreyLogo } from '../img/svg';
+import I18n from "../Utils/i18n";
 
 const { height, width } = Dimensions.get('window');
 
@@ -46,7 +47,7 @@ class LoginScreen extends React.Component {
           <View style={styles.loginContainer}>
             <GreyLogo width="100px" height="50px" />
             <Text style={styles.description}>
-              Please enter the username and password you use to login to the Tesla site
+            {I18n.t("login_description")}
             </Text>
           </View>
           <View style={styles.formContainer}>
@@ -64,7 +65,7 @@ class LoginScreen extends React.Component {
                 keyboardType='email-address'
                 keyboardAppearance="dark"
                 returnKeyType="next"
-                placeholder='Email'
+                placeholder={I18n.t("email")}
                 onSubmitEditing={this.handleSubmit}
                 blurOnSubmit={true}
                 placeholderTextColor='rgba(225,225,225,0.7)'/>
@@ -82,7 +83,7 @@ class LoginScreen extends React.Component {
                 autoCorrect={false}
                 autoCapitalize="none"
                 ref={(input)=> this.passwordInput = input}
-                placeholder='Password'
+                placeholder={I18n.t("password")}
                 placeholderTextColor='rgba(225,225,225,0.7)'
                 onSubmitEditing={this.handleSubmit}
                 blurOnSubmit={true}
@@ -90,7 +91,7 @@ class LoginScreen extends React.Component {
             </View>
            {!this.state.loading ?
             <TouchableOpacity style={styles.buttonContainer} onPress={this.signIn}>
-              <Text  style={styles.buttonText}>LOGIN</Text>
+              <Text  style={styles.buttonText}>{I18n.t("login")}</Text>
             </TouchableOpacity>
             :
               <Loading size={'small'} />
@@ -100,10 +101,10 @@ class LoginScreen extends React.Component {
       </KeyboardAvoidingView>
       <View style={styles.legalView}>
         <Text style={styles.legal} onPress={ ()=>{ Linking.openURL('https://www.tesla.com/user/password?email=&redirect=no')}}>
-          Reset your password
+          {I18n.t("reset_password")}
         </Text>
         <Text style={styles.legal} onPress={ ()=>{ Linking.openURL('https://www.tesla.com/about/legal#privacy-statement?redirect=no')}}>
-          Privacy Policy
+          {I18n.t("privacy_policy")}
         </Text>
       </View>
 

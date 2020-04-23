@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from 'react-na
 import { NavigationActions } from 'react-navigation'
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Icon from 'react-native-vector-icons/Ionicons';
+import I18n from "../Utils/i18n";
 import { 
   GreyLogo, 
   SignOut, 
@@ -16,6 +17,7 @@ import {
   Notifications,
   Close,
  } from '../img/svg';
+
 
 export default class DrawerContent extends React.Component {
 
@@ -34,7 +36,7 @@ export default class DrawerContent extends React.Component {
         </TouchableOpacity>
 
         <View style={styles.mileageView}>
-          <Text style={styles.mileageText}>MILEAGE</Text>
+          <Text style={styles.mileageText}>{I18n.t("mileage")}</Text>
           <View style={styles.milesView}>
             <Text style={styles.milesNumberText}>32,986</Text>
             <Text style={styles.miText}>mi</Text>
@@ -47,7 +49,7 @@ export default class DrawerContent extends React.Component {
               //onPress={() => navigation.navigate('MainScreen')}
               onPress={()=>alert("tapped")}
               style={styles.DrawerItemText}>
-              Valet Mode
+              {I18n.t("valet_mode")}
             </Text>
           </TouchableOpacity>
 
@@ -56,7 +58,7 @@ export default class DrawerContent extends React.Component {
             <Text
               onPress={() => navigation.navigate('LootScreen')}
               style={styles.DrawerItemText}>
-              Loot box
+              {I18n.t("loot_box")}
               </Text>
           </TouchableOpacity>
 
@@ -66,7 +68,7 @@ export default class DrawerContent extends React.Component {
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
               style={styles.DrawerItemText}>
-              Notifications
+              {I18n.t("notifications")}
             </Text>
           </TouchableOpacity>
 
@@ -76,7 +78,7 @@ export default class DrawerContent extends React.Component {
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
               style={styles.DrawerItemText}>
-              Battery
+              {I18n.t("battery")}
             </Text>
           </TouchableOpacity>
 
@@ -85,7 +87,7 @@ export default class DrawerContent extends React.Component {
             <Text
               onPress={() => navigation.navigate('MediaScreen')}
               style={styles.DrawerItemText}>
-              Media
+              {I18n.t("media")}
             </Text>
           </TouchableOpacity>
 
@@ -95,7 +97,7 @@ export default class DrawerContent extends React.Component {
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
               style={styles.DrawerItemText}>
-              Authentication
+              {I18n.t("authentication")}
             </Text>
           </TouchableOpacity>
 
@@ -105,7 +107,7 @@ export default class DrawerContent extends React.Component {
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
               style={styles.DrawerItemText}>
-              Calendar
+              {I18n.t("calendar")}
             </Text>
           </TouchableOpacity>
 
@@ -114,7 +116,7 @@ export default class DrawerContent extends React.Component {
             <Text
               onPress={() => navigation.navigate('SuperchargersMap')}
               style={styles.DrawerItemText}>
-              Superchargers Map
+              {I18n.t("superchargers_map")}
             </Text>
           </TouchableOpacity>
 
@@ -123,7 +125,7 @@ export default class DrawerContent extends React.Component {
             <Text
               onPress={() => navigation.navigate('HelpScreen')}
               style={styles.DrawerItemText}>
-              Help
+              {I18n.t("help")}
             </Text>
           </TouchableOpacity>
 
@@ -132,7 +134,7 @@ export default class DrawerContent extends React.Component {
             <Text
               onPress={() => navigation.navigate('Settings')}
               style={styles.DrawerItemText}>
-              Settings
+              {I18n.t("settings")}
             </Text>
           </TouchableOpacity>
           
@@ -142,7 +144,7 @@ export default class DrawerContent extends React.Component {
               //onPress={() => navigation.navigate('Screen')}
               onPress={()=>alert("tapped")}
               style={styles.DrawerItemText}>
-              Sign Out
+              {I18n.t("sign_out")}
             </Text>
           </TouchableOpacity>
 

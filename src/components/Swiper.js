@@ -15,6 +15,7 @@ import {
   TouchableOpacity,
   Text
 } from "react-native";
+import I18n from "../Utils/i18n";
 
 // Detect screen width and height
 const { width, height } = Dimensions.get("window");
@@ -255,14 +256,14 @@ export default class OnboardingScreens extends Component {
 
           <TouchableOpacity onPress={() => this.props.navigation.replace('LoginScreen')}>
             <View style={styles.button}>
-              <Text style={styles.text}>Start Now</Text>
+              <Text style={styles.text}>{I18n.t("start_now")}</Text>
             </View>
           </TouchableOpacity>
         ) : (
           // Or this one otherwise
           <TouchableOpacity onPress={() => this.swipe()}>
           <View style={styles.button}>
-            <Text style={styles.text}>Continue</Text>
+            <Text style={styles.text}>{I18n.t("continue")}</Text>
           </View>
         </TouchableOpacity>
         )}

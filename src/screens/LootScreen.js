@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, ScrollView, SafeAreaView, TouchableOpacity, Dimensions } from "react-native";
 import Back from '../img/svg/Back';
+import I18n from "../Utils/i18n";
 
 var { width } = Dimensions.get('window');
 
@@ -13,7 +14,7 @@ export default class LootScreen extends Component {
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                         <Back style={styles.backButton} />
                     </TouchableOpacity>
-                    <Text style={styles.header}>Loot Box</Text>
+                    <Text style={styles.header}>{I18n.t("loot_box")}</Text>
                 </View>
                 <ScrollView style={styles.bodyContainer} >
                     <Text style={styles.greyText}>Free Supercharger Miles Remaining</Text>

@@ -6,6 +6,7 @@ import Back from '../img/svg/Back';
 import Divider from "../components/Divider";
 import Block from "../components/Block";
 import Switch from "../components/Switch";
+import I18n from "../Utils/i18n";
 
 export default class Settings extends Component {
 
@@ -66,7 +67,7 @@ export default class Settings extends Component {
         space="between"
         style={{ marginBottom: 16 * 2 }}
       >
-        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>Notifications</Text>
+        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>{I18n.t("notifications")}</Text>
         <Switch
           accessibilityRole={'button'}
           value={notifications}
@@ -86,8 +87,8 @@ export default class Settings extends Component {
         style={{ marginBottom: 16 * 2 }}
       >
         <View style={{flex: 1, flexDirection: 'row', flexWrap: 'wrap'}}>
-        <Text style={{fontSize:18, color:"#FFFFFF", marginBottom: 10, fontWeight:"bold"}}>{`${this.state.biometryType} Authentication`}</Text>
-        <Text style={{fontSize:14, color:"#9DA3B4"}}>{`Allow ${this.state.biometryType} authentication`}</Text>
+        <Text style={{fontSize:18, color:"#FFFFFF", marginBottom: 10, fontWeight:"bold"}}>{`${this.state.biometryType}`} {I18n.t("faceID_authentication")}</Text>
+        <Text style={{fontSize:14, color:"#9DA3B4"}}>{I18n.t("faceID_authentication_description")} {`${this.state.biometryType}`}</Text>
         </View>
         <Switch
           accessibilityRole={'button'}
@@ -109,8 +110,8 @@ export default class Settings extends Component {
         style={{ marginBottom: 16 * 2 }}
       >
         <View style={{flex: 1, flexDirection: 'row', flexWrap: 'wrap'}}>
-          <Text style={{fontSize:18, color:"#FFFFFF", marginBottom: 10, fontWeight:"bold"}}>Calendar Sync</Text>
-          <Text style={{fontSize:14, color:"#9DA3B4"}}>View calendar in your vehicle</Text>
+          <Text style={{fontSize:18, color:"#FFFFFF", marginBottom: 10, fontWeight:"bold"}}>{I18n.t("calendar_sync")}</Text>
+          <Text style={{fontSize:14, color:"#9DA3B4"}}>{I18n.t("calendar_sync_description")}</Text>
         </View>
         <Switch
           accessibilityRole={'button'}
@@ -130,7 +131,7 @@ export default class Settings extends Component {
         space="between"
         style={{ marginBottom: 16 * 2 }}
       >
-        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>Valet Mode</Text>
+        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>{I18n.t("valet_mode")}</Text>
         <Switch
           accessibilityRole={'button'}
           value={valet}
@@ -149,7 +150,7 @@ export default class Settings extends Component {
         space="between"
         style={{ marginBottom: 16 * 2 }}
       >
-        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>Sentry Mode</Text>
+        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>{I18n.t("sentry_mode")}</Text>
         <Switch
           accessibilityRole={'button'}
           value={sentry}
@@ -170,7 +171,7 @@ export default class Settings extends Component {
         space="between"
         style={{ marginBottom: 10 }}
       >
-        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>Speed Limit Mode</Text>
+        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>{I18n.t("speed_limit_mode")}</Text>
         <Switch
           accessibilityRole={'button'}
           value={showSpeedLimitControls}
@@ -202,7 +203,7 @@ export default class Settings extends Component {
         </TouchableOpacity>
         <Block flex={false} row center space="between" style={styles.header}>
           <Text style={{fontSize:32, fontWeight: "bold", color:"#FFFFFF"}}>
-            Settings
+            {I18n.t("settings")}
           </Text>
         </Block>
 

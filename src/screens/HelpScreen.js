@@ -15,6 +15,7 @@ import { Text, Button } from 'react-native-elements';
 import Animation from 'lottie-react-native';
 import StatusHeaderBar from '../components/StatusHeaderBar';
 import  { Close } from '../img/svg'
+import I18n from "../Utils/i18n";
 
 var ANIMATED_LOADER_SQUARE= require('../animations/loader_square.json');
 var SOURCE = ANIMATED_LOADER_SQUARE;
@@ -50,14 +51,14 @@ export default class HelpScreen extends Component {
                            <Close />
                         </TouchableOpacity>
                         <View style={{alignItems:'center', justifyContent:'center', flex:1}}>
-                            <Text style={{fontSize:20,color:'#fff', backgroundColor:'transparent', alignContent:'center', textAlign:'center'}}>Help Center</Text>
+                            <Text style={{fontSize:20,color:'#fff', backgroundColor:'transparent', alignContent:'center', textAlign:'center'}}>{I18n.t("help_center")}</Text>
                         </View>
                     </StatusHeaderBar>
                     <View style={{flex:1}}>
                         <WebView source={{uri: 'https://www.tesla.com/support/customer-support'}}
                             startInLoadingState={true}
                             renderLoading={()=>{return false;}}
-                             renderError={()=>{ return <View style={styles.error}><Text>Connection Error</Text><Text>Please try again later.</Text></View>}}
+                            renderError={()=>{ return <View style={styles.error}><Text>{I18n.t("connection_error")}</Text></View>}}
                             onLoadEnd={()=>{this.handleFinishedLoading()}} />
                             {this.state.loading?  <View style={{position:'absolute', top:y, left:x}}><Animation
                                   ref={animation => {

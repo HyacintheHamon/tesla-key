@@ -25,7 +25,6 @@ import Svg,{
   Defs,
   Mask,
 } from 'react-native-svg';
-
 import MaskedView from '@react-native-community/masked-view';
 
 const { height, width } = Dimensions.get('window');
@@ -419,7 +418,7 @@ class MainScreen extends Component {
             <View style={ styles.bottomView} >
               <View style={styles.status}>
                 <Temperature style={styles.buttonIcon}/>
-                <Text style={styles.inlineLabel}>Interior 68°F</Text>
+                <Text style={styles.inlineLabel}>{I18n.t("interior")} 68°F</Text>
                 <Parked style={styles.buttonIcon}/>
                 <Text style={styles.inlineLabel}>{I18n.t("parked")}</Text>
                 <Battery style={styles.buttonIcon}/>
@@ -431,7 +430,7 @@ class MainScreen extends Component {
                 </View>
                 
                 <TouchableOpacity style={styles.calloutSearch} onPress={()=> this.setState({ visibleMapModal: true })}>
-                  <Text style={styles.label}>Where to?</Text>
+                  <Text style={styles.label}>{I18n.t("where_to")}</Text>
                 </TouchableOpacity>
 
                 <View style={styles.calloutIconView}>
@@ -474,7 +473,7 @@ class MainScreen extends Component {
                       source={fanAnimation} 
                       style={{width:40}}
                       />  
-                      <Text style={styles.text}>MANUAL</Text>
+                      <Text style={styles.text}>{I18n.t("manual")}</Text>
                     </TouchableOpacity>
                   </View>
                   <View style={styles.ctrlTem}>
@@ -500,31 +499,31 @@ class MainScreen extends Component {
                   <View style={styles.item}>
                     <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
                       <Port style={styles.buttonIcon}/>
-                      <Text style={styles.text}>PORT</Text>
+                      <Text style={styles.text}>{I18n.t("port")}</Text>
                     </TouchableOpacity>
                   </View>
                   <View style={styles.item}>
                     <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
                       <Frunk style={styles.buttonIcon}/>
-                      <Text style={styles.text}>FRUNK</Text>
+                      <Text style={styles.text}>{I18n.t("frunk")}</Text>
                     </TouchableOpacity>
                   </View>
                   <View style={styles.item}>
                     <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
                       <Panic style={styles.buttonIcon}/>              
-                      <Text style={styles.text}>PANIC</Text>
+                      <Text style={styles.text}>{I18n.t("panic")}</Text>
                     </TouchableOpacity>
                   </View>
                   <View style={styles.item}>
                     <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
                       <Trunk style={styles.buttonIcon}/> 
-                      <Text style={styles.text}>TRUNK</Text>
+                      <Text style={styles.text}>{I18n.t("trunk")}</Text>
                     </TouchableOpacity>
                   </View>
                   <View style={styles.item}>
                     <TouchableOpacity style={styles.button} onPress={()=>alert('button')}>
                       <Window style={styles.buttonIcon}/> 
-                      <Text style={styles.text}>VENT</Text>
+                      <Text style={styles.text}>{I18n.t("vent")}</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -536,7 +535,7 @@ class MainScreen extends Component {
           <View style={styles.intro}>
             <Text style={{color: 'white', fontSize: 27,ginBottom: 20}}>{description}</Text>            
             <TouchableOpacity style={styles.nextButton} onPress={this.next}>
-              <Text style={{color: 'white', fontSize: 27}}>Next</Text>
+              <Text style={{color: 'white', fontSize: 27}}>{I18n.t("next")}</Text>
             </TouchableOpacity>
           </View>        
         }

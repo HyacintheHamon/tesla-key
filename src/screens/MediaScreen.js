@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from "react-native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Back from '../img/svg/Back';
+import I18n from "../Utils/i18n";
 
 export default class MediaScreen extends Component {
 
@@ -12,7 +13,7 @@ export default class MediaScreen extends Component {
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                         <Back style={styles.backButton} />
                     </TouchableOpacity>
-                    <Text style={styles.header}>Media</Text>
+                    <Text style={styles.header}>{I18n.t("media")}</Text>
                 </View>
                 <View style={styles.bodyContainer}>
                     <View style={styles.controlsContainer}>
