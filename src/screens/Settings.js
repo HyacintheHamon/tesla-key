@@ -13,7 +13,8 @@ export default class Settings extends Component {
 		super(props)
     this.state = {
       biometryType: null,
-      speed: 60
+      speed: 60,
+      showSpeedLimitControls: false
     };
   }
 
@@ -36,9 +37,13 @@ export default class Settings extends Component {
     }
   }
 
+  showSpeedLimit = (value) => {
+      this.setState({showSpeedLimitControls:  value});
+  }
+
   render() {
 
-    const {speed} = this.state;
+    const {speed, showSpeedLimitControls } = this.state;
 
     const NotificationsBlock = () => {
       const [notifications, setNotifications]  = useState(true);
@@ -144,7 +149,7 @@ export default class Settings extends Component {
 
 
     const SpeedLimitBlock = () => {
-      const [speedLimit, setSpeedLimit]  = useState(false);
+
       return (
         <View>
         <Block
@@ -156,10 +161,11 @@ export default class Settings extends Component {
         <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>Speed Limit Mode</Text>
         <Switch
           accessibilityRole={'button'}
-          value={speedLimit}
-          onValueChange={value => setSpeedLimit(value)}
+          value={showSpeedLimitControls}
+          onValueChange={value => this.showSpeedLimit(value)}
         />
       </Block>
+      { showSpeedLimitControls && 
       <View style={styles.speedLimitControlsContainer}>
         <TouchableOpacity style={styles.minusContainer} onPress={this.decreaseSpeed}>
           <FontAwesome5 name="minus" size={16} color="#93A8B3"/>
@@ -170,8 +176,8 @@ export default class Settings extends Component {
         <TouchableOpacity style={styles.plusContainer} onPress={this.increaseSpeed}>
           <FontAwesome5 name="plus" size={16} color="#93A8B3"/>
         </TouchableOpacity>
-      </View>
-      </View>
+      </View> }
+      </View> 
       );
     };
 
