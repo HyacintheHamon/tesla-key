@@ -14,7 +14,8 @@ export default class Settings extends Component {
     this.state = {
       biometryType: null,
       speed: 60,
-      showSpeedLimitControls: false
+      showSpeedLimitControls: false,
+      TouchID: false
     };
   }
 
@@ -41,9 +42,20 @@ export default class Settings extends Component {
       this.setState({showSpeedLimitControls:  value});
   }
 
+  fingerprintHandler = (value) => {
+    if (this.state.TouchID == false) {
+    TouchID.isSupported()
+      .then(authenticate)
+      .catch(error => {
+        Alert.alert('TouchID not supported');
+      });
+    }
+    this.setState({TouchID:  value});
+  }
+
   render() {
 
-    const {speed, showSpeedLimitControls } = this.state;
+    const {speed, showSpeedLimitControls, TouchID } = this.state;
 
     const NotificationsBlock = () => {
       const [notifications, setNotifications]  = useState(true);
@@ -79,9 +91,9 @@ export default class Settings extends Component {
         </View>
         <Switch
           accessibilityRole={'button'}
-          value={fingerprint}
-          onValueChange={value => setFingerprint(value)}
-          // onValueChange={this.clickHandler}
+          value={TouchID}
+          // onValueChange={value => setFingerprint(value)}
+          onValueChange={value => this.fingerprintHandler(value)}
         />
       </Block>
       );
@@ -243,14 +255,6 @@ export default class Settings extends Component {
       </Block>
       </SafeAreaView>
     );
-  }
-
-  clickHandler() {
-    TouchID.isSupported()
-      .then(authenticate)
-      .catch(error => {
-        Alert.alert('TouchID not supported');
-      });
   }
 
 }
