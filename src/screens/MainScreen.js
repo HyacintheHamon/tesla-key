@@ -18,7 +18,7 @@ import {
   PanGestureHandler
 } from 'react-native-gesture-handler';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-
+import I18n from "../Utils/i18n";
 import Svg,{
   Circle,
   Rect,
@@ -421,9 +421,9 @@ class MainScreen extends Component {
                 <Temperature style={styles.buttonIcon}/>
                 <Text style={styles.inlineLabel}>Interior 68°F</Text>
                 <Parked style={styles.buttonIcon}/>
-                <Text style={styles.inlineLabel}>Parked</Text>
+                <Text style={styles.inlineLabel}>{I18n.t("parked")}</Text>
                 <Battery style={styles.buttonIcon}/>
-                <Text style={styles.inlineLabel}>Charging</Text>
+                <Text style={styles.inlineLabel}>{I18n.t("charging")}</Text>
               </View>
               <View style={styles.calloutView} >
                 <View style={styles.calloutIconView}>
