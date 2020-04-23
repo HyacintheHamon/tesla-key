@@ -9,10 +9,11 @@ import Switch from "../components/Switch";
 
 export default class Settings extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+		super(props)
     this.state = {
-      biometryType: null
+      biometryType: null,
+      speed: 60
     };
   }
 
@@ -23,7 +24,21 @@ export default class Settings extends Component {
     })
   }
 
+  increaseSpeed = () => {
+    if (this.state.speed<90) {
+      this.setState({speed:  ++this.state.speed});
+    }
+  }
+
+  decreaseSpeed = () => {
+    if (this.state.speed>50) {
+      this.setState({speed:  --this.state.speed});
+    }
+  }
+
   render() {
+
+    const {speed} = this.state;
 
     const NotificationsBlock = () => {
       const [notifications, setNotifications]  = useState(true);
@@ -108,6 +123,25 @@ export default class Settings extends Component {
       );
     };
 
+    const SentryBlock = () => {
+      const [sentry, setSentry]  = useState(false);
+      return (
+        <Block
+        row
+        center
+        space="between"
+        style={{ marginBottom: 16 * 2 }}
+      >
+        <Text style={{fontSize:18, color:"#FFFFFF", fontWeight:"bold"}}>Sentry Mode</Text>
+        <Switch
+          accessibilityRole={'button'}
+          value={sentry}
+          onValueChange={value => setSentry(value)}
+        />
+      </Block>
+      );
+    };
+
 
     const SpeedLimitBlock = () => {
       const [speedLimit, setSpeedLimit]  = useState(false);
@@ -127,13 +161,13 @@ export default class Settings extends Component {
         />
       </Block>
       <View style={styles.speedLimitControlsContainer}>
-        <TouchableOpacity style={styles.minusContainer}>
+        <TouchableOpacity style={styles.minusContainer} onPress={this.decreaseSpeed}>
           <FontAwesome5 name="minus" size={16} color="#93A8B3"/>
         </TouchableOpacity>
         <View style={styles.speedLimitContainer}>
-          <Text style={{color:"#FFF", fontSize:16 }}>90 MPH</Text>
+          <Text style={{color:"#FFF", fontSize:16 }}>{speed} MPH</Text>
         </View>
-        <TouchableOpacity style={styles.plusContainer}>
+        <TouchableOpacity style={styles.plusContainer} onPress={this.increaseSpeed}>
           <FontAwesome5 name="plus" size={16} color="#93A8B3"/>
         </TouchableOpacity>
       </View>
@@ -174,6 +208,7 @@ export default class Settings extends Component {
             <FingerprintBlock/>
             <CalendarBlock/>
             <ValetBlock/>
+            <SentryBlock/>
             <SpeedLimitBlock/>
           </Block>
 
