@@ -91,6 +91,7 @@ project.ext.react = [
     enableHermes: false,  // clean and rebuild if changing
 ]
 
+apply from: '../../node_modules/react-native-unimodules/gradle.groovy'
 apply from: "../../node_modules/react-native/react.gradle"
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
@@ -142,6 +143,7 @@ android {
     defaultConfig {
         applicationId "com.tesla"
         minSdkVersion rootProject.ext.minSdkVersion
+        manifestPlaceholders = [appAuthRedirectScheme: '']
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -209,6 +211,7 @@ dependencies {
     implementation project(':react-native-navigation-bar-color')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    addUnimodulesDependencies()
     implementation project(':react-native-onesignal')
     implementation project(':gvr_common')
     implementation project(':arcore_client')
