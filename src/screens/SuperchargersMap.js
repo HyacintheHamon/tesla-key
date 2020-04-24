@@ -1,6 +1,7 @@
 import React from "react";
 import {StyleSheet, View, TouchableOpacity, PermissionsAndroid, Platform, Dimensions} from 'react-native';
-import MapView , { PROVIDER_GOOGLE } from "react-native-maps";
+import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView from 'react-native-map-clustering';
 import Geolocation from '@react-native-community/geolocation';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import mapStyle from '../json/mapStyle.json'
@@ -180,6 +181,11 @@ render(){
 return(
   <View style={styles.container}>
     <MapView
+      clustering = {true}
+      clusterColor = '#000'
+      clusterTextColor = '#fff'
+      clusterBorderColor = '#fff'
+      clusterBorderWidth = {4}
       provider={ PROVIDER_GOOGLE }
       customMapStyle= {mapStyle}
       ref={map => this.map = map}
@@ -202,22 +208,26 @@ return(
       loadingEnabled={true}
       scrollEnabled={true}
     >
+
     {this.state.dataSource[0].response.superchargers.map((marker, index) => {
 
       console.log('item lattitude', marker.location.lat);
       console.log('item longitude', marker.location.long);
 
       return (
-        <MapView.Marker key={index} coordinate={{
-          latitude:  marker.location.lat,
-          longitude: marker.location.long,
-        }}
-        title={marker.name}
-        description={"Distance: " + marker.distance_miles + " mi"}
+        <Marker 
+          cluster={true} 
+          key={index} 
+          coordinate={{
+            latitude:  marker.location.lat,
+            longitude: marker.location.long,
+          }}
+          title={marker.name}
+          description={"Distance: " + marker.distance_miles + " mi"}
         >
           <SuperchargerMarker width="24" height="24"/>
           {/* <Text style={styles.batteryText}>{marker.battery}%</Text> */}
-        </MapView.Marker>
+        </Marker>
       );
     })}
   </MapView>

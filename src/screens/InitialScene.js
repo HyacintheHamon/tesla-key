@@ -17,7 +17,7 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import merc from 'mercator-projection';
 //import { TeslaMarker } from '../img/svg';
 const haversine = require('haversine');
-// const TeslaMarker = require("../img/tesla-ar-marker.png");
+const TeslaMarker = require("../img/tesla-ar-marker.png");
 const TeslaObject = require("../img/tesla_logo.obj");
 const TeslaMTL = require('../img/tesla_logo.mtl')
 
