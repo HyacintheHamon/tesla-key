@@ -1,42 +1,44 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import { Provider } from 'react-redux'
-import createStore from './src/redux'
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Provider } from "react-redux";
+import createStore from "./src/redux";
 /*
-* Both of the following files work for react-navigation
-* Routes will always be added and supported by modifying
-* the AppNavigation file.  Special redux actions/reducers
-* will be handled in Redux Navigation
-*   // use this to use react-navigation no redux
-*   import AppNavigation from './src/Navigation/AppNavigation'
-*
-*   // use this to use react-navigation with redux
-*   import ReduxNavigation from './src/Navigation/ReduxNavigation'
-*/
+ * Both of the following files work for react-navigation
+ * Routes will always be added and supported by modifying
+ * the AppNavigation file.  Special redux actions/reducers
+ * will be handled in Redux Navigation
+ *   // use this to use react-navigation no redux
+ *   import AppNavigation from './src/Navigation/AppNavigation'
+ *
+ *   // use this to use react-navigation with redux
+ *   import ReduxNavigation from './src/Navigation/ReduxNavigation'
+ */
 
 // We're going to use navigation with redux
-import ReduxNavigation from './src/navigation/ReduxNavigation';
-import AppNavigation from './src/navigation/AppNavigation';
-import changeNavigationBarColor from 'react-native-navigation-bar-color';
-import OneSignal from 'react-native-onesignal'; 
+import ReduxNavigation from "./src/navigation/ReduxNavigation";
+import AppNavigation from "./src/navigation/AppNavigation";
+import changeNavigationBarColor from "react-native-navigation-bar-color";
+import OneSignal from "react-native-onesignal";
 
 // Apollo
-import { ApolloProvider } from 'react-apollo'
-import client from './src/graphql/client'
+import { ApolloProvider } from "react-apollo";
+import client from "./src/graphql/client";
+
+import codePush from "react-native-code-push";
 
 // create our store
-const store = createStore()
+const store = createStore();
 
 console.disableYellowBox = true;
-export default class App extends React.Component {
 
+class App extends React.Component {
   constructor(properties) {
     super(properties);
     OneSignal.init("eabb4a2f-2554-4282-961b-a66dc9208ce3");
 
-    OneSignal.addEventListener('received', this.onReceived);
-    OneSignal.addEventListener('opened', this.onOpened);
-    OneSignal.addEventListener('ids', this.onIds);
+    OneSignal.addEventListener("received", this.onReceived);
+    OneSignal.addEventListener("opened", this.onOpened);
+    OneSignal.addEventListener("ids", this.onIds);
     //OneSignal.configure(); 	// triggers the ids event
   }
 
@@ -45,13 +47,13 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    this.setNavigationColor('#111117');
+    this.setNavigationColor("#111117");
   }
 
   componentWillUnmount() {
-    OneSignal.removeEventListener('received', this.onReceived);
-    OneSignal.removeEventListener('opened', this.onOpened);
-    OneSignal.removeEventListener('ids', this.onIds);
+    OneSignal.removeEventListener("received", this.onReceived);
+    OneSignal.removeEventListener("opened", this.onOpened);
+    OneSignal.removeEventListener("ids", this.onIds);
   }
 
   onReceived(notification) {
@@ -59,14 +61,14 @@ export default class App extends React.Component {
   }
 
   onOpened(openResult) {
-    console.log('Message: ', openResult.notification.payload.body);
-    console.log('Data: ', openResult.notification.payload.additionalData);
-    console.log('isActive: ', openResult.notification.isAppInFocus);
-    console.log('openResult: ', openResult);
+    console.log("Message: ", openResult.notification.payload.body);
+    console.log("Data: ", openResult.notification.payload.additionalData);
+    console.log("isActive: ", openResult.notification.isAppInFocus);
+    console.log("openResult: ", openResult);
   }
 
   onIds(device) {
-    console.log('Device info: ', device);
+    console.log("Device info: ", device);
   }
 
   render() {
@@ -78,13 +80,17 @@ export default class App extends React.Component {
           </View>
         </Provider>
       </ApolloProvider>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: "#fff",
   },
-})
+});
+
+const codePushWrapper = codePush(App);
+
+export default codePushWrapper;
