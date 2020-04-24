@@ -8,6 +8,8 @@ import {
     ViroText,
     ViroImage,
     ViroBox,
+    Viro3DObject,
+    ViroARCamera,
     ViroMaterials,
 } from 'react-viro';
 import {getDistance, getPreciseDistance} from 'geolib';
@@ -15,7 +17,9 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import merc from 'mercator-projection';
 //import { TeslaMarker } from '../img/svg';
 const haversine = require('haversine');
-const TeslaMarker = require("../img/tesla-ar-marker.png");
+// const TeslaMarker = require("../img/tesla-ar-marker.png");
+const TeslaObject = require("../img/tesla_logo.obj");
+const TeslaMTL = require('../img/tesla_logo.mtl')
 
 export default class ARScene extends Component {
 
@@ -137,6 +141,16 @@ export default class ARScene extends Component {
                     source={TeslaMarker}
                     // animation={{ name: "animateImage", run: this.state.runAnimateImage }}
                 />
+                {/*             
+                <ViroARCamera>
+                  <Viro3DObject 
+                    source={TeslaObject}
+                    resources={[TeslaMTL]}
+                    position={[0.0, 0.0, -10]}
+                    scale={[0.02, 0.02, 0.0]}
+                    type="OBJ" />
+                </ViroARCamera>
+                */}
             </ViroARScene>
         );
     }

@@ -302,6 +302,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9F4C5452199C490E8261C510 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		C2AD61B808E9E75AB2FBE603 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,14 +325,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		9F4C5452199C490E8261C510 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -904,7 +903,7 @@
 				DEVELOPMENT_TEAM = 22LRVN9V58;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = tesla/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -932,7 +931,7 @@
 				DEVELOPMENT_TEAM = 22LRVN9V58;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = tesla/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
