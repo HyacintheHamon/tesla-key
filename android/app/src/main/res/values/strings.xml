@@ -2,4 +2,5 @@
     <string name="app_name">Tesla key</string>
     <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">ASK_JAVASCRIPT</string>
     <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+    <string name="CodePushDeploymentKey">63597b5d-3acb-47a5-b9b8-14ac81040669</string>
 </resources>

@@ -13,6 +13,7 @@ import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
+import com.microsoft.codepush.react.CodePush;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.thebylito.navigationbarcolor.NavigationBarColorPackage;
@@ -32,6 +33,11 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
+    }
+
+    @Override
+    protected String getJSBundleFile() {
+        return CodePush.getJSBundleFile();
     }
 
     @Override
