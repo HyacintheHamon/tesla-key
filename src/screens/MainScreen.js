@@ -39,10 +39,12 @@ import { Query, withApollo } from 'react-apollo'
 
 const fanAnimation = require('../animations/fan_animation.json');
 
+const seatLeftZeroAnimation = require('../animations/seat_left_0.json');
 const seatLeftFirstAnimation = require('../animations/seat_left_1.json');
 const seatLeftSecondAnimation = require('../animations/seat_left_2.json');
 const seatLeftThirdAnimation = require('../animations/seat_left_3.json');
 
+const seatRightZeroAnimation = require('../animations/seat_right_0.json');
 const seatRightFirstAnimation = require('../animations/seat_right_1.json');
 const seatRightSecondAnimation = require('../animations/seat_right_2.json');
 const seatRightThirdAnimation = require('../animations/seat_right_3.json');
@@ -96,9 +98,9 @@ class MainScreen extends Component {
         flingRight: false,
         fanIsToggled: false,
         animationsIndexSeatLeft:0,
-        animationsListSeatLeft: [seatLeftFirstAnimation, seatLeftSecondAnimation, seatLeftThirdAnimation],
+        animationsListSeatLeft: [seatLeftZeroAnimation, seatLeftFirstAnimation, seatLeftSecondAnimation, seatLeftThirdAnimation],
         animationsIndexSeatRight:0,
-        animationsListSeatRight: [seatRightFirstAnimation, seatRightSecondAnimation, seatRightThirdAnimation]
+        animationsListSeatRight: [seatRightZeroAnimation, seatRightFirstAnimation, seatRightSecondAnimation, seatRightThirdAnimation]
       };
 
     this.deltaX = 0;
