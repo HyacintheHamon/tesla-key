@@ -116,47 +116,42 @@ class MainScreen extends Component {
     this.state.circleY.addListener( (circleRadius) => {
       this._myCircle.setNativeProps({ cy: circleRadius.value.toString() });
     });
-    this.togglefanAnimation = this.togglefanAnimation.bind(this);
-    this.onAnimationClickForwardSeatLeft = this.onAnimationClickForwardSeatLeft.bind(this);
-    this.onAnimationClickForwardSeatRight = this.onAnimationClickForwardSeatRight.bind(this);
   }
 
-  togglefanAnimation() {
-    const newState = !this.state.fanIsToggled;
+  togglefanAnimation = () => {
+    const { fanIsToggled } = this.state;
+    this.setState(
+      {
+        fanIsToggled: !fanIsToggled,
+      },
+      () => {
+        console.log("fan toggle: ", this.state.fanIsToggled);
+        this.state.fanIsToggled
+          ? this.fanAnimation.play()
+          : this.fanAnimation.reset();
+      }
+    );
+  };
+
+  onAnimationClickForwardSeatLeft = () => {
+    const { animationsIndexSeatLeft, animationsListSeatLeft } = this.state;
     this.setState({
-      fanIsToggled:newState
+      animationsIndexSeatLeft:
+        animationsIndexSeatLeft + 1 === animationsListSeatLeft.length
+          ? 0
+          : animationsIndexSeatLeft + 1,
     });
-    console.log("fan toggle: ", this.state.fanIsToggled);
-    if(this.state.fanIsToggled) {
-      this.fanAnimation.play();
-    } else {
-      this.fanAnimation.reset();
-    }
-  }
+  };
 
-  onAnimationClickForwardSeatLeft() {
-    if (this.state.animationsIndexSeatLeft +1 === this.state.animationsListSeatLeft.length) {
-      this.setState({
-        animationsIndexSeatLeft: 0
-      });
-    } else {
-      this.setState({
-        animationsIndexSeatLeft: this.state.animationsIndexSeatLeft + 1
-      });
-    }
-  }
-
-  onAnimationClickForwardSeatRight() {
-    if (this.state.animationsIndexSeatRight +1 === this.state.animationsListSeatRight.length) {
-      this.setState({
-        animationsIndexSeatRight: 0
-      });
-    } else {
-      this.setState({
-        animationsIndexSeatRight: this.state.animationsIndexSeatRight + 1
-      });
-    }
-  }
+  onAnimationClickForwardSeatRight = () => {
+    const { animationsIndexSeatRight, animationsListSeatRight } = this.state;
+    this.setState({
+      animationsIndexSeatRight:
+        animationsIndexSeatRight + 1 === animationsListSeatRight.length
+          ? 0
+          : animationsIndexSeatRight + 1,
+    });
+  };
 
   UNSAFE_componentWillReceiveProps(nextProps) {
 		const { vehicleInfo } = nextProps.vehicle.vehicleInfo;
@@ -485,7 +480,7 @@ class MainScreen extends Component {
                       <ArrowDown/>
                     </TouchableOpacity>
                   </View>
-                  <TouchableOpacity style={styles.button} nPress={this.onAnimationClickForwardSeatRight}>
+                  <TouchableOpacity style={styles.button} onPress={this.onAnimationClickForwardSeatRight}>
                     <LottieView 
                       ref={animation => {
                       this.animation = animation;
