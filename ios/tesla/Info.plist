@@ -49,7 +49,7 @@
 	<string>Used for AR and to give directions</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Used for unlocking the app</string>
-    <key>NSMotionUsageDescription</key>
+	<key>NSMotionUsageDescription</key>
 	<string>Used for AR and to give directions</string>
 	<key>UIAppFonts</key>
 	<array>
@@ -96,6 +96,7 @@
 		<string>OpenSans-RegularItalic.ttf</string>
 		<string>OpenSans-SemiBold.ttf</string>
 		<string>OpenSans-SemiBoldItalic.ttf</string>
+		<string>Fontisto.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
