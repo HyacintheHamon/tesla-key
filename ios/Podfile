@@ -67,11 +67,12 @@ target 'tesla' do
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   use_native_modules!
   use_unimodules!
   
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'teslaTests' do
     
     #inherit! :complete
