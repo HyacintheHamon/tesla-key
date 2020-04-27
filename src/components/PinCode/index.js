@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  Alert,
   StyleSheet,
   View,
   FlatList,
@@ -8,6 +9,7 @@ import {
   Image,
 } from "react-native";
 import { fingerprintIcon, deleteIcon, closeIcon } from "./static";
+import TouchID from 'react-native-touch-id';
 
 const arrayOfNumbers = [
   { key: 1 },
@@ -36,12 +38,19 @@ const empties = [
 
 let counter = 0;
 
+
+
 export default class App extends Component {
-  state = {
-    code: "",
-    digitDisabled: false,
-    clearDisabled: false,
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      code: "",
+      digitDisabled: false,
+      clearDisabled: false,
+    };
+  }
+
 
   onEnterDigit = (num, index) => {
     const { code } = this.state;
@@ -81,6 +90,26 @@ export default class App extends Component {
     }
   };
 
+  onPressTouchId = () => {
+
+    function authenticate() {
+      return TouchID.authenticate()
+        .then((success) => {
+          Alert.alert("Authenticated Successfully");
+        })
+        .catch((error) => {
+          console.log(error);
+          Alert.alert(error.message);
+        });
+    }
+
+    TouchID.isSupported()
+      .then(authenticate)
+      .catch((error) => {
+        Alert.alert("TouchID not supported");
+      });
+  };
+
   renderItemCell = ({ item, index }) => {
     const { withTouchId = true } = this.props;
     if (index === 9) {
@@ -88,7 +117,7 @@ export default class App extends Component {
         return (
           <TouchableOpacity
             style={[styles.round, styles.centerAlignment]}
-            onPress={() => this.props.onPressTouchId()}
+            onPress={() => this.onPressTouchId()}
           >
             <Image source={fingerprintIcon.src} style={styles.icon} />
           </TouchableOpacity>
@@ -124,7 +153,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.close}
-          onPress={() => this.props.navigation.navigate("PinCodeScreen")}
+          onPress={() => this.props.navigation.goBack()}
         >
           <Image
             source={closeIcon.src}

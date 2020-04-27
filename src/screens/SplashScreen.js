@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View,  Text, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, Dimensions } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import LottieView from 'lottie-react-native';
 
@@ -9,7 +9,7 @@ const splashScreenAnimation = require('../animations/splashscreen_animation.json
 
 export default class SplashScreen extends Component {
 
-  performTimeConsumingTask = async() => {
+  performTimeConsumingTask = async () => {
     return new Promise((resolve) =>
       setTimeout(
         () => { resolve('result') },
@@ -26,61 +26,61 @@ export default class SplashScreen extends Component {
 
     this.animation.play();
 
-     if (data !== null) {
-      console.log('performTimeConsumingTask '+data)
-     }
+    if (data !== null) {
+      console.log('performTimeConsumingTask ' + data)
+    }
 
     AsyncStorage.getItem("alreadyLaunched").then(value => {
-      if(value == null) {
+      if (value == null) {
 
-        AsyncStorage.setItem('alreadyLaunched', 'true').then(()=> {
-         // App has never been launched
-         console.log('App has never been launched');
-         this.props.navigation.replace('VideoWalkthrough');
+        AsyncStorage.setItem('alreadyLaunched', 'true').then(() => {
+          // App has never been launched
+          console.log('App has never been launched');
+          this.props.navigation.navigate('VideoWalkthrough');
         });
 
       } else {
-          // App was already launched
-          console.log('App was already launched');
-          //this.userLoggedIn();
-          this.props.navigation.replace('LoginScreen');
-        }
+        // App was already launched
+        console.log('App was already launched');
+        //this.userLoggedIn();
+        this.props.navigation.navigate('LoginScreen');
+      }
     });
   }
-   
+
 
   render() {
     return (
-        <View style={styles.View}>
-        <LottieView 
-            ref={animation => {
-              this.animation = animation;
-            }}
-            autoPlay = {true}
-            loop = {false}
-            source={splashScreenAnimation} 
-            style={{position:'relative', width:250, alignContent:'center', justifyContent:'center',alignItems:'center'}}
-            //progress={this.state.progress}
-            //onAnimationFinish={()=>{ this.props.navigation.replace('LoginScreen'); }}
-            />  
-        </View>
+      <View style={styles.View}>
+        <LottieView
+          ref={animation => {
+            this.animation = animation;
+          }}
+          autoPlay={true}
+          loop={false}
+          source={splashScreenAnimation}
+          style={{ position: 'relative', width: 250, alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}
+        //progress={this.state.progress}
+        //onAnimationFinish={()=>{ this.props.navigation.navigate('LoginScreen'); }}
+        />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
 
-    View: {
-        flex: 1,
-        width: width,
-        height: height,
-        backgroundColor: '#111117',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    logo: {
-        alignSelf: 'center',
-        backgroundColor: 'transparent',
-    }
+  View: {
+    flex: 1,
+    width: width,
+    height: height,
+    backgroundColor: '#111117',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  logo: {
+    alignSelf: 'center',
+    backgroundColor: 'transparent',
+  }
 
 });

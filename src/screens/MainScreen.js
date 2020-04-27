@@ -58,10 +58,18 @@ import {
   Trunk,
   Frunk,
   Fan,
+  temperatureLevelFahrenheit,
   Temperature,
+  TemperatureLow,
+  TemperatureMedium,
+  TemperatureHigh,
   Target,
   LocationArrow,
+  batteryLevel,
   Battery,
+  BatteryLow,
+  BatteryMedium,
+  BatteryHigh,
   ArrowUp,
   ArrowDown
 } from '../img/svg';
@@ -104,9 +112,9 @@ class MainScreen extends Component {
       flingRight: false,
       fanIsToggled: false,
       animationsIndexSeatLeft: 0,
-      animationsListSeatLeft: [seatLeftZeroAnimation, seatLeftFirstAnimation, seatLeftSecondAnimation, seatLeftThirdAnimation],
+      animationsListSeatLeft: [seatLeftFirstAnimation, seatLeftSecondAnimation, seatLeftThirdAnimation],
       animationsIndexSeatRight: 0,
-      animationsListSeatRight: [seatRightZeroAnimation, seatRightFirstAnimation, seatRightSecondAnimation, seatRightThirdAnimation]
+      animationsListSeatRight: [seatRightFirstAnimation, seatRightSecondAnimation, seatRightThirdAnimation]
     };
 
     this.deltaX = 0;
@@ -288,32 +296,31 @@ class MainScreen extends Component {
 
   render() {
 
-    /*
-    let batteryIcon = <BatteryHigh/>;
+    let batteryIcon = <BatteryHigh />;
     if (batteryLevel == 100) {
-      batteryIcon = <BatteryHigh/>;
+      batteryIcon = <BatteryHigh />;
     }
     else if (batteryLevel > 70) {
-      batteryIcon = <BatteryHigh/>;
+      batteryIcon = <BatteryHigh />;
     }
     else if (batteryLevel < 70 && batteryLevel > 40) {
-      batteryIcon = <BatteryMedium/>;
+      batteryIcon = <BatteryMedium />;
     }
     else {
-      batteryIcon = <BatteryLow/>;
+      batteryIcon = <BatteryLow />;
     }
 
-    let temperatureIcon = <TemperatureMedium/>;
-    else if (temperatureLevelFahrenheit > 80) {
-      temperatureIcon = <TemperatureHigh/>;
+    let temperatureIcon = <TemperatureMedium />;
+
+    if (temperatureLevelFahrenheit > 80) {
+      temperatureIcon = <TemperatureHigh />;
     }
     else if (temperatureLevelFahrenheit < 80 && temperatureLevelFahrenheit > 60) {
-      temperatureIcon = <TemperatureyMedium/>;
+      temperatureIcon = <TemperatureyMedium />;
     }
     else {
-      temperatureIcon = <TemperatureLow/>;
+      temperatureIcon = <TemperatureLow />;
     }
-    */
 
     const {
       firstItem,
