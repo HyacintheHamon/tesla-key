@@ -16,7 +16,7 @@ export default class App extends Component {
   componentDidMount() {
     this.setNavigationColor('#111117');
   }
-  
+
   render() {
     return (
       <View style={styles.container}>
@@ -31,8 +31,8 @@ export default class App extends Component {
           <TextInput
             style={styles.input}
             value={this.state.email}
-            onChangeText={email => this.setState({email})}
-            ref={ref => {this._emailInput = ref}}
+            onChangeText={email => this.setState({ email })}
+            ref={ref => { this._emailInput = ref }}
             placeholder="email@example.com"
             placeholderTextColor="white"
             autoCapitalize="none"
@@ -43,11 +43,11 @@ export default class App extends Component {
             onSubmitEditing={this.handleSubmit}
             blurOnSubmit={true}
           />
-           <TextInput
+          <TextInput
             style={styles.input}
             value={this.state.password}
-            onChangeText={password => this.setState({password})}
-            ref={ref => {this._passwordInput = ref}}
+            onChangeText={password => this.setState({ password })}
+            ref={ref => { this._passwordInput = ref }}
             placeholder="password"
             placeholderTextColor="white"
             autoCapitalize="none"
@@ -60,21 +60,21 @@ export default class App extends Component {
             secureTextEntry={true}
           />
           <View>
-            <TouchableOpacity  onPress={this.handleSubmit}>
-               <Text style={styles.legal}>
+            <TouchableOpacity onPress={this.handleSubmit}>
+              <Text style={styles.legal}>
                 Submit
               </Text>
             </TouchableOpacity>
             <Text style={styles.legal}>
               Your login credentials are not saved!
             </Text>
-            <Text style={styles.legal} onPress={() => this.props.navigation.replace('DrawerStack')} >
+            <Text style={styles.legal} onPress={() => this.props.navigation.navigate('DrawerStack')} >
               Go to Main Screen (for development)
             </Text>
-            <Text style={styles.legal} onPress={ ()=>{ Linking.openURL('https://www.tesla.com/user/password?email=&redirect=no')}}>
+            <Text style={styles.legal} onPress={() => { Linking.openURL('https://www.tesla.com/user/password?email=&redirect=no') }}>
               Reset your password
             </Text>
-            <Text style={styles.legal} onPress={ ()=>{ Linking.openURL('https://www.tesla.com/about/legal#privacy-statement?redirect=no')}}>
+            <Text style={styles.legal} onPress={() => { Linking.openURL('https://www.tesla.com/about/legal#privacy-statement?redirect=no') }}>
               Privacy Policy
             </Text>
           </View>
@@ -82,7 +82,7 @@ export default class App extends Component {
       </View>
     );
   }
-  
+
   handleSubmit = () => {
     async function getBearerToken(email, password, fn) {
       try {
@@ -100,7 +100,7 @@ export default class App extends Component {
             password: password
           }),
         });
-        let responseJson = await response.json();      
+        let responseJson = await response.json();
         if (responseJson.access_token !== undefined) {
           alert('Successfully authenticated!')
           fn(responseJson.access_token)
@@ -159,5 +159,5 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     alignSelf: 'center',
     backgroundColor: 'transparent',
-}
+  }
 });

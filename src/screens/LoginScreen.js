@@ -22,11 +22,11 @@ class LoginScreen extends React.Component {
   };
 
   componentDidUpdate(nextProps) {
-    this.props.navigation.replace('DrawerStack');
-		const { userData } = nextProps.auth;
-		if (userData!==this.props.auth.userData) {
-      this.props.navigation.replace('DrawerStack');
-		}
+    this.props.navigation.navigate('DrawerStack');
+    const { userData } = nextProps.auth;
+    if (userData !== this.props.auth.userData) {
+      this.props.navigation.navigate('DrawerStack');
+    }
   }
 
   setNavigationColor = (color) => {
@@ -47,17 +47,17 @@ class LoginScreen extends React.Component {
           <View style={styles.loginContainer}>
             <GreyLogo width="100px" height="50px" />
             <Text style={styles.description}>
-            {I18n.t("login_description")}
+              {I18n.t("login_description")}
             </Text>
           </View>
           <View style={styles.formContainer}>
 
             <View style={styles.inputContainer}>
               <User />
-              <TextInput style = {styles.input}
+              <TextInput style={styles.input}
                 value={this.state.email}
-                onChangeText={email => this.setState({email})}
-                ref={ref => {this._emailInput = ref}}
+                onChangeText={email => this.setState({ email })}
+                ref={ref => { this._emailInput = ref }}
                 autoCapitalize="none"
                 onSubmitEditing={() => this.passwordInput.focus()}
                 autoCorrect={false}
@@ -68,47 +68,47 @@ class LoginScreen extends React.Component {
                 placeholder={I18n.t("email")}
                 onSubmitEditing={this.handleSubmit}
                 blurOnSubmit={true}
-                placeholderTextColor='rgba(225,225,225,0.7)'/>
+                placeholderTextColor='rgba(225,225,225,0.7)' />
             </View>
 
             <View style={styles.inputContainer}>
               <Lock />
-              <TextInput style = {styles.input}
-                ref={ref => {this._passwordInput = ref}}
+              <TextInput style={styles.input}
+                ref={ref => { this._passwordInput = ref }}
                 value={this.state.password}
-                onChangeText={password => this.setState({password})}
+                onChangeText={password => this.setState({ password })}
                 keyboardType="ascii-capable"
                 keyboardAppearance="dark"
                 returnKeyType="go"
                 autoCorrect={false}
                 autoCapitalize="none"
-                ref={(input)=> this.passwordInput = input}
+                ref={(input) => this.passwordInput = input}
                 placeholder={I18n.t("password")}
                 placeholderTextColor='rgba(225,225,225,0.7)'
                 onSubmitEditing={this.handleSubmit}
                 blurOnSubmit={true}
-                secureTextEntry/>
+                secureTextEntry />
             </View>
-           {!this.state.loading ?
-            <TouchableOpacity style={styles.buttonContainer} onPress={this.signIn}>
-              <Text  style={styles.buttonText}>{I18n.t("login")}</Text>
-            </TouchableOpacity>
-            :
+            {!this.state.loading ?
+              <TouchableOpacity style={styles.buttonContainer} onPress={this.signIn}>
+                <Text style={styles.buttonText}>{I18n.t("login")}</Text>
+              </TouchableOpacity>
+              :
               <Loading size={'small'} />
             }
 
+          </View>
+        </KeyboardAvoidingView>
+        <View style={styles.legalView}>
+          <Text style={styles.legal} onPress={() => { Linking.openURL('https://www.tesla.com/user/password?email=&redirect=no') }}>
+            {I18n.t("reset_password")}
+          </Text>
+          <Text style={styles.legal} onPress={() => { Linking.openURL('https://www.tesla.com/about/legal#privacy-statement?redirect=no') }}>
+            {I18n.t("privacy_policy")}
+          </Text>
         </View>
-      </KeyboardAvoidingView>
-      <View style={styles.legalView}>
-        <Text style={styles.legal} onPress={ ()=>{ Linking.openURL('https://www.tesla.com/user/password?email=&redirect=no')}}>
-          {I18n.t("reset_password")}
-        </Text>
-        <Text style={styles.legal} onPress={ ()=>{ Linking.openURL('https://www.tesla.com/about/legal#privacy-statement?redirect=no')}}>
-          {I18n.t("privacy_policy")}
-        </Text>
-      </View>
 
-    </View>
+      </View>
     )
   }
 
@@ -116,7 +116,7 @@ class LoginScreen extends React.Component {
     this.setState({ loading: true });
     // let authData = {email: this.state.email, password: this.state.password};
     // this.props.requestSignIn(authData);
-    const { email: username, password } = this.state;
+    const { email: username, password } = this.state;
 
     try {
       const authState = await OAuth.authorize({
@@ -126,7 +126,7 @@ class LoginScreen extends React.Component {
         username,
       });
 
-      this.props.navigation.replace('DrawerStack');
+      this.props.navigation.navigate('DrawerStack');
 
     } catch (e) {
       alert(JSON.stringify(e));
@@ -173,8 +173,8 @@ class LoginScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      backgroundColor: '#111117',
+    flex: 1,
+    backgroundColor: '#111117',
 
   },
   KeyboardAvoidingView: {
@@ -187,10 +187,10 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#9d9d9d',
     textAlign: 'center',
-    width: width/1.3,
-    marginTop:50
+    width: width / 1.3,
+    marginTop: 50
   },
-  loginContainer:{
+  loginContainer: {
     flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center'
@@ -206,25 +206,25 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     backgroundColor: '#202026',
-    height:45,
-    marginBottom:10,
+    height: 45,
+    marginBottom: 10,
     padding: 10,
     flexDirection: 'row',
-    alignItems:'center'
+    alignItems: 'center'
   },
-  input:{
+  input: {
     flex: 1,
-    height:45,
+    height: 45,
     backgroundColor: '#202026',
     padding: 10,
     color: '#fff',
     fontFamily: 'Montserrat-Medium',
   },
-  buttonContainer:{
+  buttonContainer: {
     backgroundColor: '#333333',
     paddingVertical: 15
   },
-  buttonText:{
+  buttonText: {
     color: '#cccccc',
     textAlign: 'center',
     fontWeight: '700',
@@ -250,16 +250,16 @@ const styles = StyleSheet.create({
 
 
 function mapStateToProps(state) {
-    const { auth } = state;
-    return {
-      auth
-    };
+  const { auth } = state;
+  return {
+    auth
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-      requestSignIn: bindActionCreators(requestSignIn, dispatch)
-    };
+  return {
+    requestSignIn: bindActionCreators(requestSignIn, dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

@@ -101,7 +101,7 @@ export default class OnboardingScreens extends Component {
       e.nativeEvent.contentOffset
         ? e.nativeEvent.contentOffset.x
         : // When scrolled with .scrollTo() on Android there is no contentOffset
-          e.nativeEvent.position * this.state.width
+        e.nativeEvent.position * this.state.width
     );
   };
 
@@ -227,9 +227,9 @@ export default class OnboardingScreens extends Component {
       dots.push(
         key === this.state.index
           ? // Active dot
-            React.cloneElement(ActiveDot, { key })
+          React.cloneElement(ActiveDot, { key })
           : // Other dots
-            React.cloneElement(Dot, { key })
+          React.cloneElement(Dot, { key })
       );
     }
 
@@ -254,19 +254,19 @@ export default class OnboardingScreens extends Component {
           // Show this button on the last screen
           // TODO: Add a handler that would send a user to your app after onboarding is complete
 
-          <TouchableOpacity onPress={() => this.props.navigation.replace('LoginScreen')}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('LoginScreen')}>
             <View style={styles.button}>
               <Text style={styles.text}>{I18n.t("start_now")}</Text>
             </View>
           </TouchableOpacity>
         ) : (
-          // Or this one otherwise
-          <TouchableOpacity onPress={() => this.swipe()}>
-          <View style={styles.button}>
-            <Text style={styles.text}>{I18n.t("continue")}</Text>
-          </View>
-        </TouchableOpacity>
-        )}
+            // Or this one otherwise
+            <TouchableOpacity onPress={() => this.swipe()}>
+              <View style={styles.button}>
+                <Text style={styles.text}>{I18n.t("continue")}</Text>
+              </View>
+            </TouchableOpacity>
+          )}
       </View>
     );
   };

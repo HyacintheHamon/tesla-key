@@ -62,10 +62,18 @@ import {
   Trunk,
   Frunk,
   Fan,
+  temperatureLevelFahrenheit,
   Temperature,
+  TemperatureLow,
+  TemperatureMedium,
+  TemperatureHigh,
   Target,
   LocationArrow,
+  batteryLevel,
   Battery,
+  BatteryLow,
+  BatteryMedium,
+  BatteryHigh,
   ArrowUp,
   ArrowDown,
 } from "../img/svg";
@@ -313,32 +321,29 @@ class MainScreen extends Component {
   };
 
   render() {
-    /*
-    let batteryIcon = <BatteryHigh/>;
+    let batteryIcon = <BatteryHigh />;
     if (batteryLevel == 100) {
-      batteryIcon = <BatteryHigh/>;
-    }
-    else if (batteryLevel > 70) {
-      batteryIcon = <BatteryHigh/>;
-    }
-    else if (batteryLevel < 70 && batteryLevel > 40) {
-      batteryIcon = <BatteryMedium/>;
-    }
-    else {
-      batteryIcon = <BatteryLow/>;
+      batteryIcon = <BatteryHigh />;
+    } else if (batteryLevel > 70) {
+      batteryIcon = <BatteryHigh />;
+    } else if (batteryLevel < 70 && batteryLevel > 40) {
+      batteryIcon = <BatteryMedium />;
+    } else {
+      batteryIcon = <BatteryLow />;
     }
 
-    let temperatureIcon = <TemperatureMedium/>;
-    else if (temperatureLevelFahrenheit > 80) {
-      temperatureIcon = <TemperatureHigh/>;
+    let temperatureIcon = <TemperatureMedium />;
+
+    if (temperatureLevelFahrenheit > 80) {
+      temperatureIcon = <TemperatureHigh />;
+    } else if (
+      temperatureLevelFahrenheit < 80 &&
+      temperatureLevelFahrenheit > 60
+    ) {
+      temperatureIcon = <TemperatureMedium />;
+    } else {
+      temperatureIcon = <TemperatureLow />;
     }
-    else if (temperatureLevelFahrenheit < 80 && temperatureLevelFahrenheit > 60) {
-      temperatureIcon = <TemperatureyMedium/>;
-    }
-    else {
-      temperatureIcon = <TemperatureLow/>;
-    }
-    */
 
     const {
       firstItem,

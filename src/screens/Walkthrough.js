@@ -10,7 +10,7 @@ let Page = ({ color, backgroundColor, text, title, source }) => {
   let style = { ...textStyle, color };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Image source={source} style={imageStyle} />
       <View style={[viewStyle, { backgroundColor }]}>
         <Text style={style}>{title}</Text>
@@ -22,7 +22,7 @@ let Page = ({ color, backgroundColor, text, title, source }) => {
 
 let imageStyle = {
   width: width,
-  height: (height/1.5),
+  height: (height / 1.5),
   marginTop: 0
 };
 
@@ -55,29 +55,29 @@ export default class Walkthrough extends Component {
     this.setNavigationColor('#111117');
   }
 
-    render() {
-      return (
-        <View style={{ flex: 1, backgroundColor: '#111117' }}>
-          <Pages>
-            <Page 
-              color="#FFF" 
-              title="Welcome to Tesla key" 
-              text="A Tesla companion app, by Tesla lovers, for Tesla lovers"  
-              source={require('../img/walkthrough-1.png')}
-            />
-            <Page 
-              color="#FFF" 
-              title="Title 2" 
-              text="Some subtile that goes with page 2" 
-              source={require('../img/walkthrough-2.png')}
-            />
-          </Pages>
-          <View style={{alignSelf: 'center',backgroundColor:'transparent', alignItems:'center', justifyContent:'center', position: 'absolute', bottom:50}}>
-            <TouchableOpacity style={{backgroundColor:'transparent'}}  onPress={() => this.props.navigation.replace('LoginScreen')}>
-              <Text style={{color:'#FFF'}}>Get Started</Text>
-            </TouchableOpacity>
-          </View>
+  render() {
+    return (
+      <View style={{ flex: 1, backgroundColor: '#111117' }}>
+        <Pages>
+          <Page
+            color="#FFF"
+            title="Welcome to Tesla key"
+            text="A Tesla companion app, by Tesla lovers, for Tesla lovers"
+            source={require('../img/walkthrough-1.png')}
+          />
+          <Page
+            color="#FFF"
+            title="Title 2"
+            text="Some subtile that goes with page 2"
+            source={require('../img/walkthrough-2.png')}
+          />
+        </Pages>
+        <View style={{ alignSelf: 'center', backgroundColor: 'transparent', alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: 50 }}>
+          <TouchableOpacity style={{ backgroundColor: 'transparent' }} onPress={() => this.props.navigation.navigate('LoginScreen')}>
+            <Text style={{ color: '#FFF' }}>Get Started</Text>
+          </TouchableOpacity>
         </View>
-      );
-    }
+      </View>
+    );
+  }
 }

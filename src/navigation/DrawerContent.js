@@ -4,19 +4,19 @@ import { NavigationActions } from 'react-navigation'
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import Icon from 'react-native-vector-icons/Ionicons';
 import I18n from "../Utils/i18n";
-import { 
-  GreyLogo, 
-  SignOut, 
-  Help, 
-  Calendar, 
-  Port, 
+import {
+  GreyLogo,
+  SignOut,
+  Help,
+  Calendar,
+  Port,
   Authentication,
   Battery,
   Valet,
   LootBox,
   Notifications,
   Close,
- } from '../img/svg';
+} from '../img/svg';
 
 
 export default class DrawerContent extends React.Component {
@@ -24,59 +24,59 @@ export default class DrawerContent extends React.Component {
   render() {
     const { navigation } = this.props
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: '#15191E'}}>
-      <View style={styles.container}>
-        
-        <View style={styles.headerView}>
-           <Text style={styles.header}>MATTHEW</Text>
-        </View>
-        
-        <TouchableOpacity style={styles.closeButton} onPress={()=>this.props.navigation.toggleDrawer()}>
-          <Close/>
-        </TouchableOpacity>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#15191E' }}>
+        <View style={styles.container}>
 
-        <View style={styles.mileageView}>
-          <Text style={styles.mileageText}>{I18n.t("mileage")}</Text>
-          <View style={styles.milesView}>
-            <Text style={styles.milesNumberText}>32,986</Text>
-            <Text style={styles.miText}>mi</Text>
+          <View style={styles.headerView}>
+            <Text style={styles.header}>MATTHEW</Text>
           </View>
-        </View>
 
-          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+          <TouchableOpacity style={styles.closeButton} onPress={() => this.props.navigation.toggleDrawer()}>
+            <Close />
+          </TouchableOpacity>
+
+          <View style={styles.mileageView}>
+            <Text style={styles.mileageText}>{I18n.t("mileage")}</Text>
+            <View style={styles.milesView}>
+              <Text style={styles.milesNumberText}>32,986</Text>
+              <Text style={styles.miText}>mi</Text>
+            </View>
+          </View>
+
+          <TouchableOpacity onPress={() => alert("temp")} style={styles.DrawerItem}>
             <Valet />
             <Text
               //onPress={() => navigation.navigate('MainScreen')}
-              onPress={()=>alert("tapped")}
+              onPress={() => alert("tapped")}
               style={styles.DrawerItemText}>
               {I18n.t("valet_mode")}
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+          <TouchableOpacity onPress={() => alert("temp")} style={styles.DrawerItem}>
             <LootBox />
             <Text
               onPress={() => navigation.navigate('LootScreen')}
               style={styles.DrawerItemText}>
               {I18n.t("loot_box")}
-              </Text>
+            </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+          <TouchableOpacity onPress={() => alert("temp")} style={styles.DrawerItem}>
             <Notifications />
             <Text
               //onPress={() => navigation.navigate('Screen')}
-              onPress={()=>alert("tapped")}
+              onPress={() => alert("tapped")}
               style={styles.DrawerItemText}>
               {I18n.t("notifications")}
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+          <TouchableOpacity onPress={() => alert("temp")} style={styles.DrawerItem}>
             <Battery />
             <Text
               //onPress={() => navigation.navigate('Screen')}
-              onPress={()=>alert("tapped")}
+              onPress={() => alert("tapped")}
               style={styles.DrawerItemText}>
               {I18n.t("battery")}
             </Text>
@@ -91,21 +91,21 @@ export default class DrawerContent extends React.Component {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+          <TouchableOpacity onPress={() => alert("temp")} style={styles.DrawerItem}>
             <Authentication />
             <Text
               //onPress={() => navigation.navigate('Screen')}
-              onPress={()=>alert("tapped")}
+              onPress={() => alert("tapped")}
               style={styles.DrawerItemText}>
               {I18n.t("authentication")}
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+          <TouchableOpacity onPress={() => alert("temp")} style={styles.DrawerItem}>
             <Calendar />
             <Text
               //onPress={() => navigation.navigate('Screen')}
-              onPress={()=>alert("tapped")}
+              onPress={() => alert("tapped")}
               style={styles.DrawerItemText}>
               {I18n.t("calendar")}
             </Text>
@@ -137,24 +137,23 @@ export default class DrawerContent extends React.Component {
               {I18n.t("settings")}
             </Text>
           </TouchableOpacity>
-          
-          <TouchableOpacity onPress={()=>alert("temp")} style={styles.DrawerItem}>
+
+          <TouchableOpacity onPress={() => alert("temp")} style={styles.DrawerItem}>
             <SignOut />
             <Text
-              //onPress={() => navigation.navigate('Screen')}
-              onPress={()=>alert("tapped")}
+              onPress={() => navigation.navigate('LoginScreen')}
               style={styles.DrawerItemText}>
               {I18n.t("sign_out")}
             </Text>
           </TouchableOpacity>
 
-        <View style={styles.logoView}>
-          <GreyLogo width="100px" height="50px" />
-          <Text style={styles.version}>v. 1.0.0</Text>
-        </View>
+          <View style={styles.logoView}>
+            <GreyLogo width="100px" height="50px" />
+            <Text style={styles.version}>v. 1.0.0</Text>
+          </View>
 
-    
-    </View>
+
+        </View>
       </SafeAreaView>
     )
   }
@@ -173,28 +172,28 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  header:{
+  header: {
     color: "#fff",
     textTransform: 'uppercase',
     fontFamily: 'Montserrat-Medium',
     fontSize: 15,
     textAlign: 'center',
   },
-  mileageView:{
+  mileageView: {
     marginTop: 30,
     marginBottom: 30,
   },
-  mileageText:{
+  mileageText: {
     fontFamily: 'Montserrat-Medium',
     fontSize: 14,
     color: '#fff',
     padding: 5,
     textAlign: 'left'
   },
-  milesView:{
+  milesView: {
     flexDirection: "row",
   },
-  milesNumberText:{
+  milesNumberText: {
     fontFamily: 'Montserrat-Medium',
     fontSize: 35,
     color: '#fff',
@@ -223,9 +222,9 @@ const styles = StyleSheet.create({
     textAlign: 'left'
   },
   logoView: {
-    width: '100%', 
-    backgroundColor: 'transparent', 
-    justifyContent: 'center', 
+    width: '100%',
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     bottom: 0
@@ -234,7 +233,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'transparent',
   },
-  version: { 
+  version: {
     fontFamily: 'Montserrat-Medium',
     fontSize: 10,
     fontWeight: 'bold',

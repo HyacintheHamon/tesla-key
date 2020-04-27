@@ -1,7 +1,7 @@
 import React from "react";
-import {StyleSheet, View, TouchableOpacity, PermissionsAndroid, Platform, Dimensions} from 'react-native';
-import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import MapView from 'react-native-map-clustering';
+import { StyleSheet, View, TouchableOpacity, PermissionsAndroid, Platform, Dimensions } from 'react-native';
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+//import MapView from 'react-native-map-clustering';
 import Geolocation from '@react-native-community/geolocation';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import mapStyle from '../json/mapStyle.json'
@@ -12,7 +12,7 @@ const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = height / 4;
 const CARD_WIDTH = CARD_HEIGHT - 50;
 const LATITUDE_DELTA = 0.0922;
-const LONGITUDE_DELTA =  0.0421;
+const LONGITUDE_DELTA = 0.0421;
 
 export default class SuperchargersMap extends React.Component {
 
@@ -30,107 +30,107 @@ export default class SuperchargersMap extends React.Component {
         longitude: 0.0,
       },
       dataSource: [{
-        "response":{
-          "congestion_sync_time_utc_secs":1545091987,
-          "destination_charging":[
+        "response": {
+          "congestion_sync_time_utc_secs": 1545091987,
+          "destination_charging": [
             {
-              "location":{
-                "lat":33.811484,
-                "long":-118.138451
+              "location": {
+                "lat": 33.811484,
+                "long": -118.138451
               },
-              "name":"Long Beach Marriott",
-              "type":"destination",
-              "distance_miles":2.201606
+              "name": "Long Beach Marriott",
+              "type": "destination",
+              "distance_miles": 2.201606
             },
             {
-              "location":{
-                "lat":33.767198,
-                "long":-118.191987
+              "location": {
+                "lat": 33.767198,
+                "long": -118.191987
               },
-              "name":"Renaissance Long Beach Hotel",
-              "type":"destination",
-              "distance_miles":4.071068
+              "name": "Renaissance Long Beach Hotel",
+              "type": "destination",
+              "distance_miles": 4.071068
             },
             {
-              "location":{
-                "lat":33.757146,
-                "long":-118.19861
+              "location": {
+                "lat": 33.757146,
+                "long": -118.19861
               },
-              "name":"Hotel Maya, a Doubletree by Hilton",
-              "type":"destination",
-              "distance_miles":4.843953
+              "name": "Hotel Maya, a Doubletree by Hilton",
+              "type": "destination",
+              "distance_miles": 4.843953
             },
             {
-              "location":{
-                "lat":33.832254,
-                "long":-118.079218
+              "location": {
+                "lat": 33.832254,
+                "long": -118.079218
               },
-              "name":"The Gardens Casino",
-              "type":"destination",
-              "distance_miles":6.449794
+              "name": "The Gardens Casino",
+              "type": "destination",
+              "distance_miles": 6.449794
             }
           ],
-          "superchargers":[
+          "superchargers": [
             {
-              "location":{
-                "lat":33.934471,
-                "long":-118.121217
+              "location": {
+                "lat": 33.934471,
+                "long": -118.121217
               },
-              "name":"Downey, CA - Stonewood Street",
-              "type":"supercharger",
-              "distance_miles":2.196721,
-              "available_stalls":5,
-              "total_stalls":12,
-              "site_closed":false
+              "name": "Downey, CA - Stonewood Street",
+              "type": "supercharger",
+              "distance_miles": 2.196721,
+              "available_stalls": 5,
+              "total_stalls": 12,
+              "site_closed": false
             },
             {
-              "location":{
-                "lat":33.953385,
-                "long":-118.112905
+              "location": {
+                "lat": 33.953385,
+                "long": -118.112905
               },
-              "name":"Downey, CA - Lakewood Boulevard",
-              "type":"supercharger",
-              "distance_miles":9.587273,
-              "available_stalls":6,
-              "total_stalls":12,
-              "site_closed":false
+              "name": "Downey, CA - Lakewood Boulevard",
+              "type": "supercharger",
+              "distance_miles": 9.587273,
+              "available_stalls": 6,
+              "total_stalls": 12,
+              "site_closed": false
             },
             {
-              "location":{
-                "lat":33.921063,
-                "long":-118.330074
+              "location": {
+                "lat": 33.921063,
+                "long": -118.330074
               },
-              "name":"Hawthorne, CA",
-              "type":"supercharger",
-              "distance_miles":12.197322,
-              "available_stalls":3,
-              "total_stalls":6,
-              "site_closed":false
+              "name": "Hawthorne, CA",
+              "type": "supercharger",
+              "distance_miles": 12.197322,
+              "available_stalls": 3,
+              "total_stalls": 6,
+              "site_closed": false
             },
             {
-              "location":{
-                "lat":33.894227,
-                "long":-118.367407
+              "location": {
+                "lat": 33.894227,
+                "long": -118.367407
               },
-              "name":"Redondo Beach, CA",
-              "type":"supercharger",
-              "distance_miles":13.125912,
-              "available_stalls":3,
-              "total_stalls":8,
-              "site_closed":false
+              "name": "Redondo Beach, CA",
+              "type": "supercharger",
+              "distance_miles": 13.125912,
+              "available_stalls": 3,
+              "total_stalls": 8,
+              "site_closed": false
             }
           ],
-          "timestamp":1545092157769
+          "timestamp": 1545092157769
         }
       }]
-     };
-   }
+    };
+  }
 
-   setNavigationColor = (color) => {
+  setNavigationColor = (color) => {
     changeNavigationBarColor(color);
   };
-   
- componentDidMount() {
+
+  componentDidMount() {
 
     this.setNavigationColor('#111117');
 
@@ -146,28 +146,28 @@ export default class SuperchargersMap extends React.Component {
       (error) => this.setState({ error: error.message }),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
     );
-  /*
-  fetch('https://owner-api.teslamotors.com/api/1/vehicles/'+id+'/nearby_charging_sites', { 
-    method: 'get', 
-    headers: new Headers({
-        'Authorization': 'Bearer ' + token, 
-        'Content-Type': 'application/json'
-    })
-    .then(response => response.json())
-    .then((responseJson)=> {
-      this.setState({
-        loading: false,
-        dataSource: responseJson
+    /*
+    fetch('https://owner-api.teslamotors.com/api/1/vehicles/'+id+'/nearby_charging_sites', { 
+      method: 'get', 
+      headers: new Headers({
+          'Authorization': 'Bearer ' + token, 
+          'Content-Type': 'application/json'
       })
-    })
-    .catch(error=>console.log(error)) 
-
-    console.log('latitude', StoreGlobal.currentLatitude);
-    console.log('longitude', StoreGlobal.currentLongitude);
-  */
-  console.log('data source : ',  this.state.dataSource);
-  console.log('data source superchargers : ',  this.state.dataSource[0].response.superchargers[0].location.lat);
- }
+      .then(response => response.json())
+      .then((responseJson)=> {
+        this.setState({
+          loading: false,
+          dataSource: responseJson
+        })
+      })
+      .catch(error=>console.log(error)) 
+  
+      console.log('latitude', StoreGlobal.currentLatitude);
+      console.log('longitude', StoreGlobal.currentLongitude);
+    */
+    console.log('data source : ', this.state.dataSource);
+    console.log('data source superchargers : ', this.state.dataSource[0].response.superchargers[0].location.lat);
+  }
 
 
   componentWillUnmount = () => {
@@ -175,67 +175,69 @@ export default class SuperchargersMap extends React.Component {
     this.animation = new Animated.Value(0);
     Geolocation.clearWatch(this.watchID);
   }
-   
 
-render(){
-return(
-  <View style={styles.container}>
-    <MapView
-      clustering = {true}
-      clusterColor = '#000'
-      clusterTextColor = '#fff'
-      clusterBorderColor = '#fff'
-      clusterBorderWidth = {4}
-      provider={ PROVIDER_GOOGLE }
-      customMapStyle= {mapStyle}
-      ref={map => this.map = map}
-      region={{ latitude: this.state.currentPosition.latitude,
-        longitude: this.state.currentPosition.longitude,
-        latitudeDelta: LATITUDE_DELTA,
-        longitudeDelta: LONGITUDE_DELTA,
-      }}
-      style={styles.container}
-      mapType="standard"
-      showsUserLocation={true}
-      userLocationAnnotationTitle="My position"
-      followsUserLocation={true}
-      showsMyLocationButton={true}
-      showsPointsOfInterest={true}
-      showsCompass={true}
-      showsIndoors={true}
-      zoomEnabled={true}
-      zoomControlEnabled={true}
-      loadingEnabled={true}
-      scrollEnabled={true}
-    >
 
-    {this.state.dataSource[0].response.superchargers.map((marker, index) => {
-
-      console.log('item lattitude', marker.location.lat);
-      console.log('item longitude', marker.location.long);
-
-      return (
-        <Marker 
-          cluster={true} 
-          key={index} 
-          coordinate={{
-            latitude:  marker.location.lat,
-            longitude: marker.location.long,
+  render() {
+    return (
+      <View style={styles.container}>
+        <MapView
+          clustering={true}
+          clusterColor='#000'
+          clusterTextColor='#fff'
+          clusterBorderColor='#fff'
+          clusterBorderWidth={4}
+          provider={PROVIDER_GOOGLE}
+          customMapStyle={mapStyle}
+          ref={map => this.map = map}
+          region={{
+            latitude: this.state.currentPosition.latitude,
+            longitude: this.state.currentPosition.longitude,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
           }}
-          title={marker.name}
-          description={"Distance: " + marker.distance_miles + " mi"}
+          style={styles.container}
+          mapType="standard"
+          showsUserLocation={true}
+          userLocationAnnotationTitle="My position"
+          followsUserLocation={true}
+          showsMyLocationButton={true}
+          showsPointsOfInterest={true}
+          showsCompass={true}
+          showsIndoors={true}
+          zoomEnabled={true}
+          zoomControlEnabled={true}
+          loadingEnabled={true}
+          scrollEnabled={true}
         >
-          <SuperchargerMarker width="24" height="24"/>
-          {/* <Text style={styles.batteryText}>{marker.battery}%</Text> */}
-        </Marker>
-      );
-    })}
-  </MapView>
-  <TouchableOpacity style={styles.closeButton} onPress={() => this.props.navigation.goBack()}>
-      <Back />
-  </TouchableOpacity>
-</View>
-)}
+
+          {this.state.dataSource[0].response.superchargers.map((marker, index) => {
+
+            console.log('item lattitude', marker.location.lat);
+            console.log('item longitude', marker.location.long);
+
+            return (
+              <Marker
+                cluster={true}
+                key={index}
+                coordinate={{
+                  latitude: marker.location.lat,
+                  longitude: marker.location.long,
+                }}
+                title={marker.name}
+                description={"Distance: " + marker.distance_miles + " mi"}
+              >
+                <SuperchargerMarker width="24" height="24" />
+                {/* <Text style={styles.batteryText}>{marker.battery}%</Text> */}
+              </Marker>
+            );
+          })}
+        </MapView>
+        <TouchableOpacity style={styles.closeButton} onPress={() => this.props.navigation.goBack()}>
+          <Back />
+        </TouchableOpacity>
+      </View>
+    )
+  }
 }
 const styles = StyleSheet.create({
   closeButton: {
