@@ -137,7 +137,7 @@ class ARScene extends Component {
 
     return carPosition !== null ? (
       <View style={styles.viroContainer}>
-        {/* <ViroARSceneNavigator
+        <ViroARSceneNavigator
           style={{ flex: 1 }}
           {...this.state.sharedProps}
           initialScene={{
@@ -147,7 +147,7 @@ class ARScene extends Component {
               carPosition,
             },
           }}
-        /> */}
+        />
         <View style={styles.bottomView}>
           <View style={styles.compassView}>
             <View
