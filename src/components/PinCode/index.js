@@ -9,7 +9,7 @@ import {
   Image,
 } from "react-native";
 import { fingerprintIcon, deleteIcon, closeIcon } from "./static";
-import TouchID from 'react-native-touch-id';
+import TouchID from "react-native-touch-id";
 
 const arrayOfNumbers = [
   { key: 1 },
@@ -38,10 +38,7 @@ const empties = [
 
 let counter = 0;
 
-
-
 export default class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +47,6 @@ export default class App extends Component {
       clearDisabled: false,
     };
   }
-
 
   onEnterDigit = (num, index) => {
     const { code } = this.state;
@@ -91,7 +87,6 @@ export default class App extends Component {
   };
 
   onPressTouchId = () => {
-
     function authenticate() {
       return TouchID.authenticate()
         .then((success) => {
@@ -153,7 +148,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.close}
-          onPress={() => this.props.navigation.goBack()}
+          onPress={() => this.props.navigation.navigate("Settings")}
         >
           <Image
             source={closeIcon.src}

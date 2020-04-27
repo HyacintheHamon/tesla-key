@@ -694,7 +694,10 @@ class MainScreen extends Component {
             backdropTransitionInTiming={300}
             backdropTransitionOutTiming={300}
           >
-            <MapModal onCloseMapModal={() => this.closeMapModal()} />
+            <MapModal
+              {...this.props}
+              onCloseMapModal={() => this.closeMapModal()}
+            />
           </Modal>
           <Modal
             style={{ margin: 0 }}
