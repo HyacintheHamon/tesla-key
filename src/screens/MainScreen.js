@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
+import RNAndroidLocationEnabler from "react-native-android-location-enabler";
 // import LinearGradient from 'react-native-linear-gradient';
 import Entypo from "react-native-vector-icons/Entypo";
 import { create, PREDEF_RES } from "react-native-pixel-perfect";
@@ -472,7 +473,19 @@ class MainScreen extends Component {
 
                   <TouchableOpacity
                     style={styles.calloutSearch}
-                    onPress={() => this.setState({ visibleMapModal: true })}
+                    onPress={async () => {
+                      try {
+                        await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded(
+                          {
+                            interval: 10000,
+                            fastInterval: 5000,
+                          }
+                        );
+                        this.setState({ visibleMapModal: true });
+                      } catch (e) {
+                        console.log(e);
+                      }
+                    }}
                   >
                     <Text style={styles.label}>{I18n.t("where_to")}</Text>
                   </TouchableOpacity>
