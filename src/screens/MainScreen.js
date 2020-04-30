@@ -449,6 +449,7 @@ class MainScreen extends Component {
                 leftIconType={"feather"}
               />
               <View style={styles.topView}>
+                <Text style={styles.carName}>Apollo</Text>
                 <View style={styles.milesView}>
                   <Text style={styles.milesViewTitle}>254</Text>
                   <Text style={styles.milesViewSubtitle}>mi</Text>
@@ -469,30 +470,29 @@ class MainScreen extends Component {
                 <View style={styles.calloutView}>
                   <View style={styles.calloutIconView}>
                     <LocationArrow style={styles.calloutIcon} />
+                    <TouchableOpacity
+                      style={styles.calloutSearch}
+                      onPress={async () => {
+                        try {
+                          await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded(
+                            {
+                              interval: 10000,
+                              fastInterval: 5000,
+                            }
+                          );
+                          this.setState({ visibleMapModal: true });
+                        } catch (e) {
+                          console.log(e);
+                        }
+                      }}
+                    >
+                      <Text style={styles.label}>{I18n.t("where_to")}</Text>
+                    </TouchableOpacity>
                   </View>
-
-                  <TouchableOpacity
-                    style={styles.calloutSearch}
-                    onPress={async () => {
-                      try {
-                        await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded(
-                          {
-                            interval: 10000,
-                            fastInterval: 5000,
-                          }
-                        );
-                        this.setState({ visibleMapModal: true });
-                      } catch (e) {
-                        console.log(e);
-                      }
-                    }}
-                  >
-                    <Text style={styles.label}>{I18n.t("where_to")}</Text>
-                  </TouchableOpacity>
 
                   <View style={styles.calloutIconView}>
                     <TouchableOpacity
-                      style={styles.calloutIconEnd}
+                      style={styles.calloutIcon}
                       onPress={() => this.props.navigation.navigate("ARScene")}
                     >
                       <Target />
@@ -514,7 +514,7 @@ class MainScreen extends Component {
                             this.state.animationsIndexSeatLeft
                           ]
                         }
-                        style={{ width: 40 }}
+                        style={{ width: 50, marginTop: 5 }}
                       />
                     </TouchableOpacity>
 
@@ -545,7 +545,7 @@ class MainScreen extends Component {
                           }}
                           loop={true}
                           source={fanAnimation}
-                          style={{ width: 40 }}
+                          style={{ width: 50 }}
                         />
                         <Text style={styles.text}>{I18n.t("manual")}</Text>
                       </TouchableOpacity>
@@ -578,7 +578,7 @@ class MainScreen extends Component {
                             this.state.animationsIndexSeatRight
                           ]
                         }
-                        style={{ width: 40 }}
+                        style={{ width: 50, marginTop: 5 }}
                       />
                     </TouchableOpacity>
                   </View>
@@ -1112,8 +1112,6 @@ Lock.defaultProps = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#111117",
     fontFamily: "Montserrat-Medium",
   },
@@ -1123,29 +1121,31 @@ const styles = StyleSheet.create({
   },
   status: {
     flexDirection: "row",
-    width: width * 0.9,
-    flex: 0.075,
     alignItems: "center",
-    marginBottom: 10,
   },
   inlineLabel: {
     color: "#98989b",
-    marginLeft: 10,
-    marginRight: 10,
-    fontFamily: "Montserrat-Medium",
+    paddingLeft: 10,
+    paddingRight: 15,
+    fontFamily: "Montserrat-Bold",
     fontSize: 13,
   },
   label: {
     color: "white",
-    margin: 10,
     fontFamily: "Montserrat-Bold",
   },
   topView: {
     flex: 1,
-    paddingTop: height / 5,
     backgroundColor: "transparent",
-    justifyContent: "flex-start",
     alignItems: "center",
+  },
+  carName: {
+    fontFamily: "Montserrat-Bold",
+    fontWeight: "300",
+    marginLeft: -15,
+    color: "#fff",
+    paddingVertical: 10,
+    fontSize: 20,
   },
   milesView: {
     flexDirection: "row",
@@ -1155,23 +1155,18 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     fontSize: 75,
     color: "#fff",
-    top: -height / 9.5,
   },
   milesViewSubtitle: {
-    fontFamily: "OpenSans-Light",
-    fontWeight: "300",
-    fontSize: 30,
-    color: "#fff",
-    top: -height / 22,
+    fontFamily: "Montserrat",
+    fontSize: 20,
+    color: "#98989b",
+    alignSelf: "center",
     marginLeft: 5,
   },
   bottomView: {
-    width: "100%",
+    flex: 1,
+    paddingHorizontal: 20,
     backgroundColor: "transparent",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
-    bottom: 0,
   },
   welcome: {
     fontFamily: "Montserrat-Medium",
@@ -1200,11 +1195,6 @@ const styles = StyleSheet.create({
   item: {
     justifyContent: "center",
     alignItems: "center",
-    width: 50,
-    height: 50,
-    maxWidth: 50,
-    maxHeight: 50,
-    margin: 5,
   },
   icon: {
     paddingBottom: 10,
@@ -1212,56 +1202,40 @@ const styles = StyleSheet.create({
   text: {
     color: "#98989b",
     textTransform: "uppercase",
-    fontSize: 10,
-    marginTop: 5,
+    fontFamily: "Montserrat-Bold",
+
+    fontSize: 12,
+    paddingTop: 5,
   },
   calloutView: {
     flexDirection: "row",
     backgroundColor: "#202026",
     borderRadius: 5,
-    width: "90%",
-    marginLeft: "30%",
-    marginRight: "30%",
-    marginTop: 10,
-    marginBottom: 40,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginVertical: 20,
+    justifyContent: "space-between",
   },
   calloutIconView: {
-    flex: 1,
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    textAlign: "center",
   },
   calloutIcon: {
     color: "#fff",
-    width: 50,
-    marginLeft: 20,
-  },
-  calloutIconEnd: {
-    color: "#fff",
-    width: 50,
-    marginRight: 0,
   },
   calloutSearch: {
     borderColor: "transparent",
     color: "#fff",
     marginLeft: 10,
-    width: "80%",
-    marginRight: 10,
-    height: 40,
-    borderWidth: 0.0,
+    justifyContent: "center",
   },
-  buttonGroup: {
-    flex: 1,
-    flexDirection: "column",
-    width: "90%",
-    marginBottom: 30,
-  },
+  buttonGroup: {},
   buttonRow: {
-    height: 80,
+    paddingVertical: 10,
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-evenly",
-    alignContent: "center",
+    justifyContent: "space-between",
   },
   button: {
     alignItems: "center",
@@ -1270,7 +1244,7 @@ const styles = StyleSheet.create({
   fanButton: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 30,
+    paddingTop: 20,
   },
   buttonIcon: {
     width: perfectSize(80),
@@ -1282,11 +1256,9 @@ const styles = StyleSheet.create({
   },
   temText: {
     color: "white",
-    width: "100%",
     justifyContent: "center",
     fontSize: 24,
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingVertical: 10,
   },
   ctrlTem: {
     flexDirection: "column",
