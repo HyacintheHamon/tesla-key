@@ -11,7 +11,10 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { Target, Close } from "../../img/svg/";
 import VectorIcon from "../VectorIcons/VectorIcon";
+import I18n from "../../Utils/i18n";
+
 const screen = Dimensions.get("window");
+
 export default class Search extends Component {
   state = {
     searchFocused: false,
@@ -53,7 +56,7 @@ export default class Search extends Component {
           }}
         >
           <GooglePlacesAutocomplete
-            placeholder="Where to?"
+            placeholder={I18n.t("where_to")}
             placeholderTextColor="#777"
             onPress={onLocationSelected}
             query={{

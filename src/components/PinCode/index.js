@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { fingerprintIcon, deleteIcon, closeIcon } from "./static";
 import TouchID from "react-native-touch-id";
+import I18n from "../../Utils/i18n";
 
 const arrayOfNumbers = [
   { key: 1 },
@@ -174,7 +175,7 @@ export default class App extends Component {
         </View>
         <View style={[styles.textView, styles.centerAlignment]}>
           <Text style={styles.instruction}>
-            {this.props.descriptionText || "Please enter pincode for entry"}
+            {this.props.descriptionText || I18n.t("enter_pin")}
           </Text>
         </View>
         <View style={styles.flatcontainer}>

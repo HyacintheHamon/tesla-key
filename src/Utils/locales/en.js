@@ -26,7 +26,7 @@ export default {
   notifications: "Notifications",
   battery: "Battery",
   media: "Media",
-  authentication:"Authentication",
+  authentication: "Authentication",
   calendar: "Calendar",
   superchargers_map: "Superchargers Map",
   help: "Help",
@@ -45,5 +45,9 @@ export default {
   valet_mode: "Valet Mode",
   sentry_mode: "Sentry Mode",
   speed_limit_mode: "Speed Limit Mode",
-  connection_error: "Connection Error. Please try again later."
+  connection_error: "Connection Error. Please try again later.",
+  create_pin: "Create 4-Digit Pin",
+  enter_pin: "Please enter pincode for entry",
+  vin: "VIN",
+  version: "Version"
 };

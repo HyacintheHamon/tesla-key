@@ -372,7 +372,7 @@ PODS:
     - react-native-video/Video (= 5.0.2)
   - react-native-video/Video (5.0.2):
     - React
-  - react-native-webview (9.2.1):
+  - react-native-webview (9.3.0):
     - React
   - React-RCTActionSheet (0.62.2):
     - React-Core/RCTActionSheetHeaders (= 0.62.2)
@@ -784,7 +784,7 @@ SPEC CHECKSUMS:
   react-native-onesignal: e8895a69983c8ffe953e1b0fc0f2ca75afc6af68
   react-native-safe-area-context: e200d4433aba6b7e60b52da5f37af11f7a0b0392
   react-native-video: d01ed7ff1e38fa7dcc6c15c94cf505e661b7bfd0
-  react-native-webview: 9fb615251c147d1b94157b31fa0ea9c68b234c04
+  react-native-webview: 60d883f994e96a560756c14592552e02a06d604d
   React-RCTActionSheet: f41ea8a811aac770e0cc6e0ad6b270c644ea8b7c
   React-RCTAnimation: 49ab98b1c1ff4445148b72a3d61554138565bad0
   React-RCTBlob: a332773f0ebc413a0ce85942a55b064471587a71
@@ -824,6 +824,6 @@ SPEC CHECKSUMS:
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: be094e28b2a36db389e3628f8cb3388aff84fabc
+PODFILE CHECKSUM: a6e549210b49461fd90c11d1caae1dfa176200ed
 
 COCOAPODS: 1.9.1

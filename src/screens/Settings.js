@@ -243,7 +243,7 @@ export default class Settings extends Component {
               >
                 <Block>
                   <Text style={{ marginBottom: 10, color: "#FFFFFF" }}>
-                    E-mail
+                    {I18n.t("email")}
                   </Text>
                   <Text style={{ color: "#FFFFFF", fontWeight: "bold" }}>
                     hamon.hyacinthe@gmail.com
@@ -273,12 +273,12 @@ export default class Settings extends Component {
                 textAlign: "center",
               }}
             >
-              VIN: 5YJ3E1EBOLF589216
+              {I18n.t("vin")}: 5YJ3E1EBOLF589216
             </Text>
             <Text
               style={{ fontSize: 12, color: "#C5CCD6", textAlign: "center" }}
             >
-              Version: 2020.4.1 4a4ad401858f
+              {I18n.t("version")}: 2020.4.1 4a4ad401858f
             </Text>
 
             {/* TEST FACE ID

@@ -498,7 +498,7 @@ class MainScreen extends Component {
                         }}
                         source={
                           this.state.animationsListSeatLeft[
-                            this.state.animationsIndexSeatLeft
+                          this.state.animationsIndexSeatLeft
                           ]
                         }
                         style={{ width: 40 }}
@@ -562,7 +562,7 @@ class MainScreen extends Component {
                         }}
                         source={
                           this.state.animationsListSeatRight[
-                            this.state.animationsIndexSeatRight
+                          this.state.animationsIndexSeatRight
                           ]
                         }
                         style={{ width: 40 }}
@@ -1012,7 +1012,7 @@ export class Lock extends Component {
             <Animatable.Text
               style={{ ...styles.lockText, opacity: this.funkAnimated }}
             >
-              Frunk
+              {I18n.t("frunk")}
             </Animatable.Text>
           </View>
           <View>
@@ -1025,7 +1025,7 @@ export class Lock extends Component {
             <Animatable.Text
               style={{ ...styles.lockText, opacity: this.lockAnimated }}
             >
-              Unlock
+              {I18n.t("unlock")}
             </Animatable.Text>
           </View>
           <View>
@@ -1033,7 +1033,7 @@ export class Lock extends Component {
             <Animatable.Text
               style={{ ...styles.lockText, opacity: this.trunkAnimated }}
             >
-              Trunk
+              {I18n.t("trunk")}
             </Animatable.Text>
           </View>
         </Animatable.View>
@@ -1070,7 +1070,7 @@ export class Lock extends Component {
               onPress={this.unLockFrunk}
             >
               <Image style={styles.lockButtonIcon} source={frunk_black} />
-              <Text style={styles.lockText}>Frunk</Text>
+              <Text style={styles.lockText}>{I18n.t("frunk")}</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={this.unLock}>
               <Entypo
@@ -1082,7 +1082,7 @@ export class Lock extends Component {
             </TouchableOpacity>
             <TouchableOpacity onPress={this.unLockTrunk}>
               <Image style={styles.lockButtonIcon} source={trunk_black} />
-              <Text style={styles.lockText}>Trunk</Text>
+              <Text style={styles.lockText}>{I18n.t("trunk")}</Text>
             </TouchableOpacity>
           </View>
         </MaskedView>

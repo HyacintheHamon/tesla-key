@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import Pincode from "../components/PinCode";
+import I18n from "../Utils/i18n";
 
 export default class PinCodeScreen extends Component {
   onDetectPin = (pin) => {
@@ -13,7 +14,7 @@ export default class PinCodeScreen extends Component {
         <View style={styles.container}>
           <Pincode
             {...this.props}
-            descriptionText={"Create 4-Pin Digit"}
+            descriptionText={I18n.t("create_pin")}
             spaceColor={"#FFFFFF"}
             closeButtonColor={"#FFFFFF"}
             onEnteredPincode={(pin) => this.onDetectPin(pin)}

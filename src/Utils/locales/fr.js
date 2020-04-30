@@ -18,7 +18,7 @@ export default {
   port: "PORT",
   frunk: "FRUNK",
   panic: "PANIC",
-  trunk: "TRUNK",  
+  trunk: "TRUNK",
   vent: "VENT",
   climate_controls: "CONTRÔLES CLIMATIQUES",
   mileage: "KILOMÉTRAGE",
@@ -26,7 +26,7 @@ export default {
   notifications: "Notifications",
   battery: "Batterie",
   media: "Média",
-  authentication:"Authentification",
+  authentication: "Authentification",
   calendar: "Calendrier",
   superchargers_map: "Carte des Superchargers",
   help: "Aide",
@@ -45,5 +45,9 @@ export default {
   valet_mode: "Mode Valet",
   sentry_mode: "Mode Sentry",
   speed_limit_mode: "Limite de vitesse",
-  connection_error: "Connection Error. Please try again later."
+  connection_error: "Erreur de connexion. Veuillez réessayer plus tard.",
+  create_pin: "Créer un code PIN à 4 chiffres",
+  enter_pin: "Veuillez saisir votre code PIN",
+  vin: "VIN",
+  version: "Version"
 };

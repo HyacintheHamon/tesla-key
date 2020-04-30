@@ -1,9 +1,9 @@
 import React, { PropTypes, Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Animated, Easing, SafeAreaView  } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Animated, Easing, SafeAreaView } from 'react-native'
 const { height, width } = Dimensions.get('window');
 const topView = require('../img/model-s-top-view.png');
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-import  { Close } from '../img/svg'
+import { Close } from '../img/svg'
 import I18n from "../Utils/i18n";
 import LottieView from 'lottie-react-native';
 import VectorIcon from "../components/VectorIcons/VectorIcon";
@@ -15,22 +15,22 @@ export default class SummonModalScreen extends Component {
     super(props);
 
     this.state = {
-        visibleSummonModal: null,
-        DescriptionText : 'Press and hold a direction button to start Summon',
-        progress: new Animated.Value(0),
+      visibleSummonModal: null,
+      DescriptionText: I18n.t("summon_description_default"),
+      progress: new Animated.Value(0),
     }
   }
 
-  handlePressIn =()=> {
+  handlePressIn = () => {
     this.setState({
-      DescriptionText : 'Release the direction button to stop your vehicle'
+      DescriptionText: I18n.t("summon_description_release"),
     })
     this.animation.play();
   }
 
-  handlePressOut =()=> {
+  handlePressOut = () => {
     this.setState({
-      DescriptionText : 'Press and hold a direction button to start Summon'
+      DescriptionText: I18n.t("summon_description_default"),
     })
     this.animation.reset();
   }
@@ -45,12 +45,12 @@ export default class SummonModalScreen extends Component {
 
   render() {
     return (
-        <SafeAreaView style={{flex:1}}>
-          <View style={styles.modalContent}>
-            <Text style={styles.header}>{I18n.t("summon")}</Text>
-            <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseSummonModal}>
-                <VectorIcon.MaterialVectorIcon color={'white'} size={30} name={'close'}/>
-            </TouchableOpacity>
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={styles.modalContent}>
+          <Text style={styles.header}>{I18n.t("summon")}</Text>
+          <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseSummonModal}>
+            <VectorIcon.MaterialVectorIcon color={'white'} size={30} name={'close'} />
+          </TouchableOpacity>
 
           <LottieView
             ref={animation => {
@@ -58,85 +58,85 @@ export default class SummonModalScreen extends Component {
             }}
             source={carAnimation}
             // style={{position:'relative', width:250, alignContent:'center', justifyContent:'center',alignItems:'center'}}
-            style={{width: width, height: height/1.8 , marginBottom: 100}}
-            // progress={this.state.progress}
-            // onAnimationFinish={()=>{ this.animation.reset(); }}
-            />
+            style={{ width: width, height: height / 1.8, marginBottom: 100 }}
+          // progress={this.state.progress}
+          // onAnimationFinish={()=>{ this.animation.reset(); }}
+          />
 
-            <View style={styles.bottomModal}>
-              <Text style={styles.descriptionText}> {this.state.DescriptionText} </Text>
-              <TouchableOpacity style={styles.button}
-                              onPressIn={this.handlePressIn}
-                              onPressOut={this.handlePressOut}>
-                <Text style={styles.buttonText}>{I18n.t("forward")}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.button}
-                              onPressIn={this.handlePressIn}
-                              onPressOut={this.handlePressOut}>
-                <Text style={styles.buttonText}>{I18n.t("reverse")}</Text>
-              </TouchableOpacity>
-            </View>
+          <View style={styles.bottomModal}>
+            <Text style={styles.descriptionText}> {this.state.DescriptionText} </Text>
+            <TouchableOpacity style={styles.button}
+              onPressIn={this.handlePressIn}
+              onPressOut={this.handlePressOut}>
+              <Text style={styles.buttonText}>{I18n.t("forward")}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button}
+              onPressIn={this.handlePressIn}
+              onPressOut={this.handlePressOut}>
+              <Text style={styles.buttonText}>{I18n.t("reverse")}</Text>
+            </TouchableOpacity>
           </View>
-        </SafeAreaView>
+        </View>
+      </SafeAreaView>
     )
   }
 }
 
 const styles = StyleSheet.create({
-    modalContent: {
-        flex: 1,
-        backgroundColor: '#111117',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    header:{
-        position: 'absolute',
-        top: 20,
-        color: "#fff",
-        textTransform: 'uppercase',
-        fontFamily: 'Montserrat-Medium',
-        fontSize: 15
-    },
-    descriptionText: {
-        color: "#fff",
-        fontFamily: 'Montserrat-Medium',
-        fontSize: 12,
-        textAlign: "center",
-        lineHeight: 15,
-        width: 200,
-        marginBottom: 40
-    },
-    buttonText: {
-        color: '#fff',
-        textTransform: 'uppercase',
-        fontFamily: 'Montserrat-Bold',
-        fontSize: 12,
-        fontWeight: '700',
-        letterSpacing: 1
-    },
-    button: {
-        backgroundColor: 'transparent',
-        padding: 10,
-        margin: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 25,
-        borderWidth: 2,
-        borderColor: '#A9A9A9',
-        width: width/2.5,
-        maxWidth: width/2.5
-    },
-    closeButton: {
-        position: 'absolute',
-        right: 20,
-        top: 15,
-    },
-    bottomModal: {
-        width: '100%',
-        backgroundColor: 'transparent',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        bottom: 0
-    }
+  modalContent: {
+    flex: 1,
+    backgroundColor: '#111117',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  header: {
+    position: 'absolute',
+    top: 20,
+    color: "#fff",
+    textTransform: 'uppercase',
+    fontFamily: 'Montserrat-Medium',
+    fontSize: 15
+  },
+  descriptionText: {
+    color: "#fff",
+    fontFamily: 'Montserrat-Medium',
+    fontSize: 12,
+    textAlign: "center",
+    lineHeight: 15,
+    width: 200,
+    marginBottom: 40
+  },
+  buttonText: {
+    color: '#fff',
+    textTransform: 'uppercase',
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 12,
+    fontWeight: '700',
+    letterSpacing: 1
+  },
+  button: {
+    backgroundColor: 'transparent',
+    padding: 10,
+    margin: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 25,
+    borderWidth: 2,
+    borderColor: '#A9A9A9',
+    width: width / 2.5,
+    maxWidth: width / 2.5
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 20,
+    top: 15,
+  },
+  bottomModal: {
+    width: '100%',
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 0
+  }
 })

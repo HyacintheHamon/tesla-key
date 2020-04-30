@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, Image, View, TouchableOpacity,SafeAreaView  } from 'react-native'
+import { StyleSheet, Text, Image, View, TouchableOpacity, SafeAreaView } from 'react-native'
 import { create, PREDEF_RES } from 'react-native-pixel-perfect';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import {
-  Fan, 
+  Fan,
   Power,
-  Plus, 
-  Minus, 
+  Plus,
+  Minus,
   Auto,
   AC,
   Loop,
@@ -15,26 +15,27 @@ import {
   ClimateSeatDown,
   ClimateSeatBack,
 } from "../img/svg/";
+import I18n from "../Utils/i18n";
 
 perfectSize = create(PREDEF_RES.iphoneX.px);
 
 export default class ClimateControlsModalScreen extends React.Component {
 
   constructor(props) {
-		super(props)
-      this.state = {
-        climate: {
-          seatUp: false,
-          seatFront: false,
-          seatDown: false,
-          seatBack: false,
-          auto: false,
-          ac: false,
-          powerOn: false,
-          turnFace: false,
-          velocity: 2
-        }
-      };
+    super(props)
+    this.state = {
+      climate: {
+        seatUp: false,
+        seatFront: false,
+        seatDown: false,
+        seatBack: false,
+        auto: false,
+        ac: false,
+        powerOn: false,
+        turnFace: false,
+        velocity: 2
+      }
+    };
   }
 
   setNavigationColor = (color) => {
@@ -46,76 +47,76 @@ export default class ClimateControlsModalScreen extends React.Component {
   }
 
   increaseVelocity = () => {
-    this.setState({climate: {...this.state.climate, velocity: ++this.state.climate.velocity}});
+    this.setState({ climate: { ...this.state.climate, velocity: ++this.state.climate.velocity } });
   }
 
   decreaseVelocity = () => {
-    if (this.state.climate.velocity>0) {
-      this.setState({climate: {...this.state.climate, velocity: --this.state.climate.velocity}});
+    if (this.state.climate.velocity > 0) {
+      this.setState({ climate: { ...this.state.climate, velocity: --this.state.climate.velocity } });
     }
   }
 
   render() {
-    const {climate} = this.state;
-    const {seatUp, seatFront, seatDown, seatBack, auto, ac, turnFace, powerOn, velocity} = climate;
+    const { climate } = this.state;
+    const { seatUp, seatFront, seatDown, seatBack, auto, ac, turnFace, powerOn, velocity } = climate;
     return (
-      <SafeAreaView style={{flex:1}}>
-        <TouchableOpacity  onPress={this.props.onCloseClimateControlsModal} style={{...styles.modalContent}}>
-          <View style={{flex: 0.05, justifyContent: 'center'}}>
-            <Text style={styles.header}>CLIMATE CONTROLS</Text>
+      <SafeAreaView style={{ flex: 1 }}>
+        <TouchableOpacity onPress={this.props.onCloseClimateControlsModal} style={{ ...styles.modalContent }}>
+          <View style={{ flex: 0.05, justifyContent: 'center' }}>
+            <Text style={styles.header}>{I18n.t("climate_controls")}</Text>
           </View>
-          <View style={{flex: 0.3, justifyContent: 'center'}}>
-            <Fan width="80" height="80" /> 
+          <View style={{ flex: 0.3, justifyContent: 'center' }}>
+            <Fan width="80" height="80" />
           </View>
-          <View style={{flex: 0.65}}>
+          <View style={{ flex: 0.65 }}>
             <View style={styles.buttonGroup}>
               <View style={styles.buttonRow}>
                 <View style={styles.buttonCol}>
-                  <TouchableOpacity style={seatUp?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, seatUp: !seatUp}})}>
-                    <ClimateSeatUp style={styles.buttonIcon}  />
+                  <TouchableOpacity style={seatUp ? styles.activeBtn : styles.button} onPress={() => this.setState({ climate: { ...climate, seatUp: !seatUp } })}>
+                    <ClimateSeatUp style={styles.buttonIcon} />
                   </TouchableOpacity>
-                  <TouchableOpacity style={seatFront?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, seatFront: !seatFront}})}>
-                    <ClimateSeatFront style={styles.buttonIcon}  />
+                  <TouchableOpacity style={seatFront ? styles.activeBtn : styles.button} onPress={() => this.setState({ climate: { ...climate, seatFront: !seatFront } })}>
+                    <ClimateSeatFront style={styles.buttonIcon} />
                   </TouchableOpacity>
-                  <TouchableOpacity style={seatDown?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, seatDown: !seatDown}})}>
+                  <TouchableOpacity style={seatDown ? styles.activeBtn : styles.button} onPress={() => this.setState({ climate: { ...climate, seatDown: !seatDown } })}>
                     <ClimateSeatDown style={styles.buttonIcon} />
                   </TouchableOpacity>
                 </View>
                 <View style={styles.buttonCol}>
-                  <TouchableOpacity style={auto?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, auto: !auto}})}>
-                    <Auto />                  
+                  <TouchableOpacity style={auto ? styles.activeBtn : styles.button} onPress={() => this.setState({ climate: { ...climate, auto: !auto } })}>
+                    <Auto />
                   </TouchableOpacity>
                   <View style={styles.longButton}>
                     <TouchableOpacity style={styles.volButton} onPress={this.increaseVelocity}>
-                      <Plus/>
+                      <Plus />
                     </TouchableOpacity>
-                    <Text style={{color: 'white', fontSize: 27}}>{velocity}</Text>
+                    <Text style={{ color: 'white', fontSize: 27 }}>{velocity}</Text>
                     <TouchableOpacity style={styles.volButton} onPress={this.decreaseVelocity}>
-                      <Minus/>
+                      <Minus />
                     </TouchableOpacity>
                   </View>
                 </View>
                 <View style={styles.buttonCol}>
-                  <TouchableOpacity style={ac?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, ac: !ac}})}>
-                    <AC/>
+                  <TouchableOpacity style={ac ? styles.activeBtn : styles.button} onPress={() => this.setState({ climate: { ...climate, ac: !ac } })}>
+                    <AC />
                   </TouchableOpacity>
-                  <TouchableOpacity style={turnFace?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, turnFace: !turnFace}})}>
+                  <TouchableOpacity style={turnFace ? styles.activeBtn : styles.button} onPress={() => this.setState({ climate: { ...climate, turnFace: !turnFace } })}>
                     <Loop />
                   </TouchableOpacity>
-                  <TouchableOpacity style={seatBack?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, seatBack: !seatBack}})}>
+                  <TouchableOpacity style={seatBack ? styles.activeBtn : styles.button} onPress={() => this.setState({ climate: { ...climate, seatBack: !seatBack } })}>
                     <ClimateSeatBack style={styles.buttonIcon} />
                   </TouchableOpacity>
                 </View>
               </View>
               <View style={styles.buttonRow}>
-                <TouchableOpacity style={powerOn?styles.activeBtn:styles.button} onPress={()=>this.setState({climate: {...climate, powerOn: !powerOn}})}>
-                  <Power />   
+                <TouchableOpacity style={powerOn ? styles.activeBtn : styles.button} onPress={() => this.setState({ climate: { ...climate, powerOn: !powerOn } })}>
+                  <Power />
                 </TouchableOpacity>
               </View>
             </View>
           </View>
         </TouchableOpacity>
-    </SafeAreaView>
+      </SafeAreaView>
     )
   }
 }
@@ -128,21 +129,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'column',
   },
-  header:{
-      color: "#fff",
-      textTransform: 'uppercase',
-      fontFamily: 'Montserrat-Medium',
-      fontSize: 15,
+  header: {
+    color: "#fff",
+    textTransform: 'uppercase',
+    fontFamily: 'Montserrat-Medium',
+    fontSize: 15,
   },
   closeButton: {
-      position: 'absolute',
-      right: 20,
-      top: 15,
+    position: 'absolute',
+    right: 20,
+    top: 15,
   },
   bottomModal: {
-    width: '100%', 
-    backgroundColor: 'transparent', 
-    justifyContent: 'center', 
+    width: '100%',
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     bottom: 0,
