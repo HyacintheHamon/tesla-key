@@ -16,7 +16,8 @@ import createStore from "./src/redux";
 
 // We're going to use navigation with redux
 import ReduxNavigation from "./src/navigation/ReduxNavigation";
-import AppNavigation from "./src/navigation/AppNavigation";
+// import AppNavigation from "./src/navigation/AppNavigation";
+import AppNavigation from './src/navigation'
 import changeNavigationBarColor from "react-native-navigation-bar-color";
 import OneSignal from "react-native-onesignal";
 

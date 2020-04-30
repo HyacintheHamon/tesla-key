@@ -283,3 +283,5 @@ var styles = StyleSheet.create({
 });
 
 module.exports = ARScene;
+
+export default ARScene
