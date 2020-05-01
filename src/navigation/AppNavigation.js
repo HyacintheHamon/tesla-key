@@ -7,6 +7,7 @@ import LoginScreen from "../screens/LoginScreen";
 import SplashScreen from "../screens/SplashScreen";
 import Walkthrough from "../screens/Walkthrough";
 import VideoWalkthrough from "../screens/VideoWalkthrough";
+import OnePageVideoWalkthrough from "../screens/OnePageVideoWalkthrough";
 import DrawerContent from "./DrawerContent";
 import MainScreen from "../screens/MainScreen";
 import MapModalScreen from "../screens/MapModalScreen";
@@ -65,7 +66,7 @@ const PrimaryNav = createStackNavigator(
   {
     SplashScreen: { screen: SplashScreen },
     Walkthrough: { screen: Walkthrough },
-    VideoWalkthrough: { screen: VideoWalkthrough },
+    OnePageVideoWalkthrough: { screen: OnePageVideoWalkthrough },
     //LoginStack: { screen: LoginStack },
     LoginScreen: { screen: LoginScreen },
     DrawerStack: { screen: DrawerStack },

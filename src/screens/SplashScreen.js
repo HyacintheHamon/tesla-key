@@ -36,7 +36,7 @@ export default class SplashScreen extends Component {
         AsyncStorage.setItem('alreadyLaunched', 'true').then(() => {
           // App has never been launched
           console.log('App has never been launched');
-          this.props.navigation.navigate('VideoWalkthrough');
+          this.props.navigation.navigate('OnePageVideoWalkthrough');
         });
 
       } else {

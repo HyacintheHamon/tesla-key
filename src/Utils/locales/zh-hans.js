@@ -1,4 +1,7 @@
 export default {
+  get_started: "开始使用",
+  walkthrough_title: "您的Tesla伴侣应用",
+  walkthrough_subtitle: "Tesla爱好者的一款应用程序，专门为Tesla用户设计。",
   continue: "继续",
   start_now: "现在开始",
   next: "下一个",

@@ -1,4 +1,7 @@
 export default {
+  get_started: "소개",
+  walkthrough_title: "Tesla 컴패니언 앱",
+  walkthrough_subtitle: "Tesla 사용자를위한 Tesla 애호가를위한 앱.",
   continue: "계속",
   start_now: "지금 시작",
   next: "다음",

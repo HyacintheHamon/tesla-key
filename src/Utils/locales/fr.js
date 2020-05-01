@@ -1,4 +1,7 @@
 export default {
+  get_started: "Commencer",
+  walkthrough_title: "Votre application compagnon Tesla",
+  walkthrough_subtitle: "Une application par les amoureux de Tesla, pour les utilisateurs de Tesla.",
   continue: "Continue",
   start_now: "Commencer",
   next: "SUIVANT",

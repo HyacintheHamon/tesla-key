@@ -1,4 +1,7 @@
 export default {
+  get_started: "Aan de slag",
+  walkthrough_title: "Uw Tesla-begeleidende app",
+  walkthrough_subtitle: "App voor Tesla-liefhebbers voor Tesla-gebruikers.",
   continue: "Doorgaan",
   start_now: "Start nu",
   next: "Next",

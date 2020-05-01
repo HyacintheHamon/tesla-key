@@ -1,4 +1,7 @@
 export default {
+  get_started: "Komme i gang",
+  walkthrough_title: "Din Tesla-ledsager-app",
+  walkthrough_subtitle: "App for Tesla-elskere for Tesla-brukere.",
   continue: "Fortsett",
   start_now: "Start nå",
   next: "Neste",

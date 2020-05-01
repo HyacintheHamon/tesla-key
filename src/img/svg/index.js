@@ -49,20 +49,21 @@ import ClimateSeatFront from "./climateControls/ClimateSeatFront";
 import ClimateSeatDown from "./climateControls/ClimateSeatDown";
 import ClimateSeatBack from "./climateControls/ClimateSeatBack";
 import Loop from "./climateControls/Loop";
+import WhiteLogo from "./WhiteLogo";
 
-export { 
-    User, 
-    Lock, 
+export {
+    User,
+    Lock,
     LockArrow,
-    SuperchargerMarker, 
-    SuperchargerMarkerGrey, 
-    GreyLogo, 
-    WhiteKey, 
-    Window, 
+    SuperchargerMarker,
+    SuperchargerMarkerGrey,
+    GreyLogo,
+    WhiteKey,
+    Window,
     Parked,
     Fan,
-    Port, 
-    Panic, 
+    Port,
+    Panic,
     Trunk,
     Frunk,
     Temperature,
@@ -101,5 +102,6 @@ export {
     ClimateSeatFront,
     ClimateSeatDown,
     ClimateSeatBack,
-    Power
+    Power,
+    WhiteLogo
 };
