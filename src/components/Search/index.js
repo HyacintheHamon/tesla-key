@@ -65,7 +65,7 @@ export default class Search extends Component {
                 disabled={!showClearButton}
                 onPress={() => {
                   this.GooglePlacesRef.setAddressText();
-                  this.props.searchFocused();
+                  this.props.clearSearch();
                   this.setState({ showClearButton: false });
                 }}
                 style={{

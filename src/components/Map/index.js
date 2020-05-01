@@ -257,6 +257,9 @@ export default class Map extends Component {
         <SearchInput
           {...this.props}
           searchFocused={() => this.setState({ searchFocused: true })}
+          clearSearch={() =>
+            this.setState({ searchFocused: false, destination: null })
+          }
           onLocationSelected={this.handleLocationSelected}
           onCloseMap={this.props.onCloseMapModal}
         />
