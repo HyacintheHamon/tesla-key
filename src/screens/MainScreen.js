@@ -461,13 +461,15 @@ class MainScreen extends Component {
                 leftIconName={"menu"}
                 leftIconType={"feather"}
               />
+              <Text style={styles.carName}>Apollo</Text>
               <View style={styles.topView}>
-                <Text style={styles.carName}>Apollo</Text>
-                <View style={styles.milesView}>
-                  <Text style={styles.milesViewTitle}>254</Text>
-                  <Text style={styles.milesViewSubtitle}>mi</Text>
+                <View>
+                  <View style={styles.milesView}>
+                    <Text style={styles.milesViewTitle}>254</Text>
+                    <Text style={styles.milesViewSubtitle}>mi</Text>
+                  </View>
+                  <YourCarPic />
                 </View>
-                <YourCarPic />
               </View>
               <View style={styles.bottomView}>
                 <View style={styles.status}>
@@ -1151,17 +1153,25 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "transparent",
     alignItems: "center",
+    justifyContent: "center",
   },
   carName: {
     fontFamily: "Montserrat-Bold",
     fontWeight: "300",
-    marginLeft: -15,
+    alignSelf: "center",
     color: "#fff",
-    paddingVertical: 10,
+    paddingVertical: 20,
     fontSize: 20,
   },
   milesView: {
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    top: -170,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   milesViewTitle: {
     fontFamily: "OpenSans-Light",
@@ -1177,7 +1187,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   bottomView: {
-    // flex: 1,
+    flex: 1.5,
     paddingHorizontal: 20,
     backgroundColor: "transparent",
   },

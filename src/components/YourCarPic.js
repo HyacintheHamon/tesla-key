@@ -21,8 +21,6 @@ export default class YourCarPic extends Component {
         style={{
           width: 321,
           height: 127,
-          position: "absolute",
-          top: 122,
         }}
       />
     );
