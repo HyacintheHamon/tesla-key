@@ -134,8 +134,7 @@ export default class DrawerContent extends React.Component {
           >
             <Calendar />
             <Text
-              //onPress={() => navigation.navigate('Screen')}
-              onPress={() => alert("tapped")}
+              onPress={() => navigation.navigate('CalendarScreen')}
               style={styles.DrawerItemText}
             >
               {I18n.t("calendar")}

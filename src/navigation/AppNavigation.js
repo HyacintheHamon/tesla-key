@@ -13,6 +13,7 @@ import MainScreen from "../screens/MainScreen";
 import MapModalScreen from "../screens/MapModalScreen";
 import SuperchargersMap from "../screens/SuperchargersMap";
 import ClimateControlsModalScreen from "../screens/ClimateControlsModalScreen";
+import CalendarScreen from "../screens/CalendarScreen";
 import ARScene from "../screens/ARScene";
 import HelpScreen from "../screens/HelpScreen";
 import Settings from "../screens/Settings";
@@ -32,6 +33,7 @@ const DrawerStack = createDrawerNavigator(
     MapModalScreen: { screen: MapModalScreen },
     ARScene: { screen: ARScene },
     ClimateControlsModalScreen: { screen: ClimateControlsModalScreen },
+    CalendarScreen: { screen: CalendarScreen },
     SuperchargersMap: { screen: SuperchargersMap },
     HelpScreen: { screen: HelpScreen },
     Settings: { screen: Settings },
