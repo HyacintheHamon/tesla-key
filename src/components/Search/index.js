@@ -19,10 +19,11 @@ export default class Search extends Component {
   state = {
     searchFocused: false,
     placeContent: "",
+    showClearButton: false,
   };
 
   render() {
-    const { searchFocused, placeContent } = this.state;
+    const { searchFocused, placeContent, showClearButton } = this.state;
     const { onLocationSelected } = this.props;
 
     return (
@@ -56,6 +57,34 @@ export default class Search extends Component {
           }}
         >
           <GooglePlacesAutocomplete
+            ref={(instance) => {
+              this.GooglePlacesRef = instance;
+            }}
+            renderRightButton={() => (
+              <TouchableOpacity
+                disabled={!showClearButton}
+                onPress={() => {
+                  this.GooglePlacesRef.setAddressText();
+                  this.props.searchFocused();
+                  this.setState({ showClearButton: false });
+                }}
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 42,
+                  backgroundColor: "rgb(32,32,38)",
+                  borderTopRightRadius: 5,
+                  borderBottomRightRadius: 5,
+                  paddingHorizontal: 10,
+                  marginTop: 7.5,
+                  marginLeft: -12,
+                }}
+              >
+                {showClearButton && (
+                  <VectorIcon.AntDesignVectorIcon name={"closecircle"} />
+                )}
+              </TouchableOpacity>
+            )}
             placeholder={I18n.t("where_to")}
             placeholderTextColor="#777"
             onPress={onLocationSelected}
@@ -64,12 +93,13 @@ export default class Search extends Component {
               language: "en",
             }}
             textInputProps={{
+              clearButtonMode: "never",
               onFocus: () => {
-                this.setState({ searchFocused: true });
+                this.setState({ searchFocused: true, showClearButton: false });
                 this.props.searchFocused();
               },
               onBlur: () => {
-                this.setState({ searchFocused: false });
+                this.setState({ searchFocused: false, showClearButton: true });
               },
               autoCapitalize: "none",
               autoCorrect: false,
@@ -86,7 +116,7 @@ export default class Search extends Component {
                 position: "absolute",
                 top: Platform.select({ ios: -50, android: -50 }),
                 left: "-5%",
-                width: "110%",
+                width: "105%",
               },
               textInput: {
                 backgroundColor: "rgb(32,32,38)",
