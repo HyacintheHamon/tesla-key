@@ -12,7 +12,7 @@ import {
   Animated,
   TouchableOpacity,
   Dimensions,
-  Platform
+  Platform,
 } from "react-native";
 import RNAndroidLocationEnabler from "react-native-android-location-enabler";
 // import LinearGradient from 'react-native-linear-gradient';
@@ -304,17 +304,15 @@ class MainScreen extends Component {
 
   showAndroidlocationEnabler = async () => {
     try {
-      await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded(
-        {
-          interval: 10000,
-          fastInterval: 5000,
-        }
-      );
+      await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded({
+        interval: 10000,
+        fastInterval: 5000,
+      });
       this.setState({ visibleMapModal: true });
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   next = async () => {
     if (this.state.introStep > 3) {
@@ -488,14 +486,24 @@ class MainScreen extends Component {
                     <TouchableOpacity
                       style={styles.calloutSearch}
                       onPress={async () => {
-                        Platform.OS === 'android' ? this.showAndroidlocationEnabler() : this.setState({ visibleMapModal: true });
+                        Platform.OS === "android"
+                          ? this.showAndroidlocationEnabler()
+                          : this.setState({ visibleMapModal: true });
                       }}
                     >
                       <Text style={styles.label}>{I18n.t("where_to")}</Text>
                     </TouchableOpacity>
                   </View>
 
-                  <View style={styles.calloutIconView}>
+                  <View
+                    style={[
+                      styles.calloutIconView,
+                      {
+                        borderLeftWidth: 1,
+                        borderLeftColor: "#98989b",
+                      },
+                    ]}
+                  >
                     <TouchableOpacity
                       style={styles.calloutIcon}
                       onPress={() => this.props.navigation.navigate("ARScene")}
@@ -516,10 +524,10 @@ class MainScreen extends Component {
                         }}
                         source={
                           this.state.animationsListSeatLeft[
-                          this.state.animationsIndexSeatLeft
+                            this.state.animationsIndexSeatLeft
                           ]
                         }
-                        style={{ width: 50, marginTop: 5 }}
+                        style={{ width: 50, marginTop: 10 }}
                       />
                     </TouchableOpacity>
 
@@ -580,10 +588,10 @@ class MainScreen extends Component {
                         }}
                         source={
                           this.state.animationsListSeatRight[
-                          this.state.animationsIndexSeatRight
+                            this.state.animationsIndexSeatRight
                           ]
                         }
-                        style={{ width: 50, marginTop: 5 }}
+                        style={{ width: 50, marginTop: 10 }}
                       />
                     </TouchableOpacity>
                   </View>
@@ -1169,7 +1177,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   bottomView: {
-    flex: 1,
+    // flex: 1,
     paddingHorizontal: 20,
     backgroundColor: "transparent",
   },
@@ -1217,7 +1225,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#202026",
     borderRadius: 5,
     paddingVertical: 10,
-    paddingHorizontal: 15,
     marginVertical: 20,
     justifyContent: "space-between",
   },
@@ -1225,6 +1232,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    paddingVertical: 5,
+    paddingHorizontal: 15,
   },
   calloutIcon: {
     color: "#fff",
@@ -1232,7 +1241,7 @@ const styles = StyleSheet.create({
   calloutSearch: {
     borderColor: "transparent",
     color: "#fff",
-    marginLeft: 10,
+    marginLeft: 20,
     justifyContent: "center",
   },
   buttonGroup: {},
@@ -1263,7 +1272,7 @@ const styles = StyleSheet.create({
     color: "white",
     justifyContent: "center",
     fontSize: 24,
-    paddingVertical: 10,
+    paddingVertical: 15,
   },
   ctrlTem: {
     flexDirection: "column",
