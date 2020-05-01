@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingTop: Platform.OS === "ios" ? 40 : 10,
+    paddingTop: Platform.OS === "ios" ? 60 : 10,
   },
   headerItem: {},
   title: {

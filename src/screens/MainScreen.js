@@ -526,7 +526,7 @@ class MainScreen extends Component {
                         }}
                         source={
                           this.state.animationsListSeatLeft[
-                            this.state.animationsIndexSeatLeft
+                          this.state.animationsIndexSeatLeft
                           ]
                         }
                         style={{ width: 50, marginTop: 10 }}
@@ -590,7 +590,7 @@ class MainScreen extends Component {
                         }}
                         source={
                           this.state.animationsListSeatRight[
-                            this.state.animationsIndexSeatRight
+                          this.state.animationsIndexSeatRight
                           ]
                         }
                         style={{ width: 50, marginTop: 10 }}
@@ -1176,7 +1176,7 @@ const styles = StyleSheet.create({
   milesViewTitle: {
     fontFamily: "OpenSans-Light",
     fontWeight: "300",
-    fontSize: 75,
+    fontSize: 90,
     color: "#fff",
   },
   milesViewSubtitle: {
@@ -1187,7 +1187,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   bottomView: {
-    flex: 1.5,
+    flex: 1.2,
     paddingHorizontal: 20,
     backgroundColor: "transparent",
   },
