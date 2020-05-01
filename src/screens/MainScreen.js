@@ -12,6 +12,7 @@ import {
   Animated,
   TouchableOpacity,
   Dimensions,
+  Platform
 } from "react-native";
 import RNAndroidLocationEnabler from "react-native-android-location-enabler";
 // import LinearGradient from 'react-native-linear-gradient';
@@ -301,6 +302,20 @@ class MainScreen extends Component {
     changeNavigationBarColor(color);
   };
 
+  showAndroidlocationEnabler = async () => {
+    try {
+      await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded(
+        {
+          interval: 10000,
+          fastInterval: 5000,
+        }
+      );
+      this.setState({ visibleMapModal: true });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   next = async () => {
     if (this.state.introStep > 3) {
       this.setState({ endIntro: true });
@@ -473,17 +488,7 @@ class MainScreen extends Component {
                     <TouchableOpacity
                       style={styles.calloutSearch}
                       onPress={async () => {
-                        try {
-                          await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded(
-                            {
-                              interval: 10000,
-                              fastInterval: 5000,
-                            }
-                          );
-                          this.setState({ visibleMapModal: true });
-                        } catch (e) {
-                          console.log(e);
-                        }
+                        Platform.OS === 'android' ? this.showAndroidlocationEnabler() : this.setState({ visibleMapModal: true });
                       }}
                     >
                       <Text style={styles.label}>{I18n.t("where_to")}</Text>
