@@ -1,7 +1,7 @@
 export default {
   get_started: "Get Started",
   walkthrough_title: "Your Tesla companion app",
-  walkthrough_subtitle: "App for Tesla lovers for Tesla users.",
+  walkthrough_subtitle: "An app by Tesla lovers, for Tesla users.",
   continue: "Continue",
   start_now: "Start Now",
   next: "Next",
