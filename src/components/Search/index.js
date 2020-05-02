@@ -81,7 +81,10 @@ export default class Search extends Component {
                 }}
               >
                 {showClearButton && (
-                  <VectorIcon.AntDesignVectorIcon name={"closecircle"} />
+                  <VectorIcon.AntDesignVectorIcon
+                    size={18}
+                    name={"closecircle"}
+                  />
                 )}
               </TouchableOpacity>
             )}
@@ -111,6 +114,28 @@ export default class Search extends Component {
             fetchDetails
             enablePoweredByContainer={false}
             textInputContainer
+            renderRow={(rowData) => (
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <VectorIcon.SimpleLineIcon size={18} name={"location-pin"} />
+                <Text
+                  style={{
+                    fontFamily: "Montserrat-Medium",
+                    fontSize: 16,
+                    color: "white",
+                    marginLeft: 10,
+                  }}
+                >
+                  {rowData.description ||
+                    rowData.formatted_address ||
+                    rowData.name}
+                </Text>
+              </View>
+            )}
             styles={{
               container: {
                 position: "absolute",
@@ -166,11 +191,6 @@ export default class Search extends Component {
                 color: "#FFF",
                 width: screen.width,
                 height: screen.height,
-              },
-              description: {
-                fontFamily: "Montserrat-Medium",
-                fontSize: 16,
-                color: "white",
               },
               row: {
                 padding: 20,
