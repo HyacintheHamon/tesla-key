@@ -1,7 +1,7 @@
 'use strict';
 
-import React, {Component} from 'react';
-import {StyleSheet} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 import Geolocation from '@react-native-community/geolocation'
 import {
     ViroARScene,
@@ -12,7 +12,7 @@ import {
     ViroARCamera,
     ViroMaterials,
 } from 'react-viro';
-import {getDistance, getPreciseDistance} from 'geolib';
+import { getDistance, getPreciseDistance } from 'geolib';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import merc from 'mercator-projection';
 //import { TeslaMarker } from '../img/svg';
@@ -61,12 +61,12 @@ export default class ARScene extends Component {
             { latitude: newLatLng.latitude, longitude: newLatLng.longitude },
             { latitude: carPosition.lat, longitude: carPosition.lng }
         );
-        const distance = dis >= 1000 ? `${dis/1000}km` : `${dis}m`;
+        const distance = dis >= 1000 ? `${dis / 1000}km` : `${dis}m`;
         await this.props.onDistanceChanged(distance);
         //console.log(`Distance\n${dis} Meter\nor\n${dis / 1000} KM`);
     };
     componentDidMount = async () => {
-        const {carPosition} = this.state;
+        const { carPosition } = this.state;
         this.setNavigationColor('#111117');
 
         // translate car position to xy
@@ -85,7 +85,7 @@ export default class ARScene extends Component {
             // console.log("currentDeviceLat ", latitude);
             // console.log("currentDeviceLong ", longitude);
             // translate current device position to a lat/lng
-            const currentDevicePos = merc.fromLatLngToPoint({lat: latitude, lng: longitude});
+            const currentDevicePos = merc.fromLatLngToPoint({ lat: latitude, lng: longitude });
 
             const imageFinalPosX = imagePos.x - currentDevicePos.x;
             const imageFinalPosZ = imagePos.y - currentDevicePos.y;
@@ -120,7 +120,7 @@ export default class ARScene extends Component {
     }
 
     render() {
-        const {imageFinalPosX, imageFinalPosZ, devicePosition, carPosition} = this.state;
+        const { imageFinalPosX, imageFinalPosZ, devicePosition, carPosition } = this.state;
         //console.log("image final position X in render method: ", imageFinalPosX);
         //console.log("image final position Z in render method: ", imageFinalPosZ);
 
@@ -132,6 +132,7 @@ export default class ARScene extends Component {
            */
             <ViroARScene onTrackingUpdated={this._onInitialized}>
                 {/* <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} /> */}
+                {/*}
                 <ViroImage
                     height={0.23}
                     width={0.2}
@@ -140,17 +141,17 @@ export default class ARScene extends Component {
                     // position={[imageFinalPosX, 1, imageFinalPosZ]}
                     source={TeslaMarker}
                     // animation={{ name: "animateImage", run: this.state.runAnimateImage }}
-                />
-                {/*             
-                <ViroARCamera>
-                  <Viro3DObject 
+                /> */}
+                <Viro3DObject
                     source={TeslaObject}
                     resources={[TeslaMTL]}
-                    position={[0.0, 0.0, -10]}
-                    scale={[0.02, 0.02, 0.0]}
+                    //materials={texture}
+                    scale={[0.01, 0.01, 0.01]}
+                    position={[-1, 0.0, -10]}
+                    // position={[imageFinalPosX, 1, imageFinalPosZ]}
+                    rotation={[-90, -90, 0]}
+                    // animation={{ name: "animateImage", run: this.state.runAnimateImage }}
                     type="OBJ" />
-                </ViroARCamera>
-                */}
             </ViroARScene>
         );
     }
