@@ -10,9 +10,9 @@ import {
   TouchableOpacity,
   Platform,
 } from "react-native";
-import { withNavigation } from "react-navigation";
-import { WhiteKey, LockArrow, Menu } from "../img/svg";
-import Entypo from "react-native-vector-icons/Entypo";
+// import { withNavigation } from "react-navigation";
+import { WhiteKey, LockArrow, Menu } from '../img/svg';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 var { width, height } = Dimensions.get("window");
 
@@ -115,4 +115,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(HeaderComponent);
+// export default withNavigation(HeaderComponent);
+export default HeaderComponent
