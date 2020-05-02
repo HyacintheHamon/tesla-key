@@ -256,6 +256,7 @@ export default class Map extends Component {
         )}
         <SearchInput
           {...this.props}
+          currentPosition={currentPosition}
           searchFocused={() => this.setState({ searchFocused: true })}
           clearSearch={() =>
             this.setState({ searchFocused: false, destination: null })

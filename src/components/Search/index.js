@@ -25,7 +25,7 @@ export default class Search extends Component {
 
   render() {
     const { searchFocused, placeContent, showClearButton } = this.state;
-    const { onLocationSelected } = this.props;
+    const { onLocationSelected, currentPosition } = this.props;
 
     return (
       <View
@@ -95,6 +95,9 @@ export default class Search extends Component {
             query={{
               key: "AIzaSyBI_lZSOEBQz7a1RwFS6qWTyhoIJkvOvyA",
               language: "en",
+              location: `${currentPosition.latitude},${currentPosition.longitude}`,
+              radius: 16000,
+              strictbounds: true,
             }}
             textInputProps={{
               clearButtonMode: "never",
@@ -111,6 +114,19 @@ export default class Search extends Component {
                 this.setState({ placeContent: text });
               },
             }}
+            ListEmptyComponent={() => (
+              <Text
+                style={{
+                  fontFamily: "Montserrat-Medium",
+                  fontSize: 16,
+                  color: "white",
+                  alignSelf: "center",
+                  paddingVertical: 20,
+                }}
+              >
+                Not Found!
+              </Text>
+            )}
             listViewDisplayed={searchFocused}
             fetchDetails
             enablePoweredByContainer={false}
@@ -120,8 +136,8 @@ export default class Search extends Component {
               container: {
                 position: "absolute",
                 top: Platform.select({ ios: -50, android: -50 }),
-                left: "-5%",
-                width: "105%",
+                left: "-1%",
+                width: "100%",
               },
               textInput: {
                 backgroundColor: "rgb(32,32,38)",
@@ -133,9 +149,13 @@ export default class Search extends Component {
                 flex: 1,
                 backgroundColor: "transparent",
                 height: 54,
-                marginHorizontal: 20,
+                marginHorizontal: 10,
                 borderTopWidth: 0,
                 borderBottomWidth: 0,
+              },
+              separator: {
+                marginHorizontal: 20,
+                marginVertical: 10,
               },
               textView: {
                 height: 54,
@@ -234,16 +254,20 @@ class SearchResult extends Component {
           alignItems: "center",
         }}
       >
-        {placeDetails && (
+        {placeDetails ? (
           <React.Fragment>
-            <VectorIcon.SimpleLineIcon size={18} name={"location-pin"} />
+            <VectorIcon.SimpleLineIcon
+              style={{ marginLeft: 10 }}
+              size={25}
+              name={"location-pin"}
+            />
             <View>
               <Text
                 style={{
                   fontFamily: "Montserrat-Medium",
                   fontSize: 16,
                   color: "white",
-                  marginLeft: 10,
+                  marginLeft: 20,
                 }}
               >
                 {this.formatString(placeDetails.name)}
@@ -254,13 +278,25 @@ class SearchResult extends Component {
                   fontFamily: "Montserrat-Medium",
                   fontSize: 16,
                   color: "#98989b",
-                  marginLeft: 10,
+                  marginLeft: 20,
+                  marginTop: 5,
                 }}
               >
                 {this.formatString(placeDetails.formatted_address)}
               </Text>
             </View>
           </React.Fragment>
+        ) : (
+          <Text
+            style={{
+              fontFamily: "Montserrat-Medium",
+              fontSize: 16,
+              color: "white",
+              marginLeft: 20,
+            }}
+          >
+            Loading...
+          </Text>
         )}
       </View>
     );
