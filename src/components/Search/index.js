@@ -12,6 +12,7 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import { Target, Close } from "../../img/svg/";
 import VectorIcon from "../VectorIcons/VectorIcon";
 import I18n from "../../Utils/i18n";
+import axios from "axios";
 
 const screen = Dimensions.get("window");
 
@@ -114,28 +115,7 @@ export default class Search extends Component {
             fetchDetails
             enablePoweredByContainer={false}
             textInputContainer
-            renderRow={(rowData) => (
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                <VectorIcon.SimpleLineIcon size={18} name={"location-pin"} />
-                <Text
-                  style={{
-                    fontFamily: "Montserrat-Medium",
-                    fontSize: 16,
-                    color: "white",
-                    marginLeft: 10,
-                  }}
-                >
-                  {rowData.description ||
-                    rowData.formatted_address ||
-                    rowData.name}
-                </Text>
-              </View>
-            )}
+            renderRow={(rowData) => <SearchResult data={rowData} />}
             styles={{
               container: {
                 position: "absolute",
@@ -226,3 +206,63 @@ const styles = StyleSheet.create({
     top: 47,
   },
 });
+
+class SearchResult extends Component {
+  state = {
+    placeDetails: null,
+  };
+  componentDidMount = async () => {
+    const { data } = this.props;
+    try {
+      const {
+        data: { result },
+      } = await axios.get(
+        `https://maps.googleapis.com/maps/api/place/details/json?place_id=${data.place_id}&key=AIzaSyBI_lZSOEBQz7a1RwFS6qWTyhoIJkvOvyA`
+      );
+      this.setState({ placeDetails: result });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  formatString = (string) => string.replace(/(^.{35}).*$/, "$1...");
+  render() {
+    const { placeDetails } = this.state;
+    return (
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        {placeDetails && (
+          <React.Fragment>
+            <VectorIcon.SimpleLineIcon size={18} name={"location-pin"} />
+            <View>
+              <Text
+                style={{
+                  fontFamily: "Montserrat-Medium",
+                  fontSize: 16,
+                  color: "white",
+                  marginLeft: 10,
+                }}
+              >
+                {this.formatString(placeDetails.name)}
+              </Text>
+
+              <Text
+                style={{
+                  fontFamily: "Montserrat-Medium",
+                  fontSize: 16,
+                  color: "#98989b",
+                  marginLeft: 10,
+                }}
+              >
+                {this.formatString(placeDetails.formatted_address)}
+              </Text>
+            </View>
+          </React.Fragment>
+        )}
+      </View>
+    );
+  }
+}
