@@ -1,7 +1,5 @@
 // Apollo
-import { NormalizedCacheObject } from 'apollo-cache-inmemory'
-import { ApolloClient } from 'apollo-client'
-import { ApolloCache } from 'apollo-cache'
+import { ApolloClient, ApolloCache, NormalizedCacheObject } from '@apollo/client'
 
 
 export type InputArgs<Input> = {
@@ -24,3 +22,9 @@ export type LocalResolver<
 > = (
     obj: TRoot, args: TArgs, context: TContext, info: TInfo
 ) => TResult
+
+export type AsyncLocalResolver<
+    TResult, TRoot, TArgs, TContext = Context, TInfo = any
+> = (
+    obj: TRoot, args: TArgs, context: TContext, info: TInfo
+) => Promise<TResult>

@@ -1,80 +1,57 @@
 // Apollo
-import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory'
-import { getMainDefinition } from 'apollo-utilities'
-import { setContext } from 'apollo-link-context'
-import { split, ApolloLink } from 'apollo-link'
-import { WebSocketLink } from 'apollo-link-ws'
-import { ApolloClient } from 'apollo-client'
-import { HttpLink } from 'apollo-link-http'
 import { RestLink } from 'apollo-link-rest'
-
-// Types
-// import introspectionQueryResultData from './types.json'
+import {
+    enableExperimentalFragmentVariables,
+    InMemoryCache,
+    ApolloClient,
+    ApolloLink,
+    HttpLink,
+} from '@apollo/client'
 
 // Env
-import env from '../env'
+import env from '@env'
+
+// Store
+import { initializeStore } from './store'
 
 // Utils
 import { authorization } from './helpers'
 
 // Local cache
 import resolvers from './resolvers'
-import defaults from './defaults'
 
 
 // Cache
-// const fragmentMatcher = new IntrospectionFragmentMatcher({
-//     introspectionQueryResultData,
-// });
+const cache = new InMemoryCache();
 
-const cache = new InMemoryCache({ /*fragmentMatcher*/ });
-
-// GraphQL endpoint
+// Links
 const httpLink = new HttpLink({ uri: env.GRAPHQL_URI });
-
 const restLink = new RestLink({ uri: env.API_URI });
 
-const useWS = !!env.GRAPHQL_WS_URI;
-
-if (useWS) {
-    const wsLink = new WebSocketLink({
-        uri: env.GRAPHQL_WS_URI,
-        options: {
-            reconnect: true,
-            connectionParams: () => (
-                authorization()
-            )
-        },
-    });
-
-    var link = split(
-        ({ query }) => {
-            const definition = getMainDefinition(query);
-            return definition.kind === 'OperationDefinition'
-                && (definition as any).operation === 'subscription';
-        },
-        wsLink,
-        httpLink,
-    );
-}
-
 // Auth middleware
-const auth = setContext(
-    (request, previousContext) => (
-        authorization()
-    )
+const auth = new ApolloLink(
+    (operation, forward) => {
+        // add the authorization to the headers
+        operation.setContext(authorization());
+        return forward(operation);
+    }
 );
 
 const client = new ApolloClient({
     cache,
     resolvers: resolvers,
-    link: !useWS ? (
-        ApolloLink.from([auth, restLink, httpLink])
-    ) : (
-        ApolloLink.from([auth, restLink, link])
-    ),
+    link: ApolloLink.from([auth, restLink, httpLink]),
 });
 
-cache.writeData({ data: defaults });
+// Features
+enableExperimentalFragmentVariables()
+
+// Initialize store
+initializeStore(cache)
+
+// Set reset store callback
+client.onResetStore(
+    () => initializeStore(cache)
+)
 
 export default client

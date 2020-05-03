@@ -22,7 +22,7 @@ import changeNavigationBarColor from "react-native-navigation-bar-color";
 import OneSignal from "react-native-onesignal";
 
 // Apollo
-import { ApolloProvider } from "react-apollo";
+import { ApolloProvider } from '@apollo/client';
 import client from "./src/graphql/client";
 
 import codePush from "react-native-code-push";

@@ -41,7 +41,6 @@ import MapModal from "../components/Map";
 // import Lock from '../components/Lock';
 import ClimateControlsModalScreen from "./ClimateControlsModalScreen";
 import helper from "../Utils/helper";
-import { Query, withApollo } from "react-apollo";
 import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 
 const fanAnimation = require("../animations/fan_animation.json");

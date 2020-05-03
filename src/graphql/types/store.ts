@@ -1,4 +1,3 @@
-// Types
-
-
-export type Store = {}
+export type Store = {
+    appName: string,
+}
