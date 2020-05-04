@@ -53,6 +53,8 @@ Raphael Hadjaj  - Developer
 
 Quynh NH - Developer
 
+Osama Khan - Developer
+
 ## Security
 
 Security: Login credentials are never stored in plain text and are encrypted using AES 128, CBC, and PKCS5 padding. 
