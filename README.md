@@ -42,6 +42,9 @@ ViroReact does not support the emulator on Android; the app will crash on startu
 
 ## Contributors
 
+
+![alt text](https://contributors-img.web.app/image?repo=HyacintheHamon/tesla "Contributors")
+
 Hyacinthe Hamon - Creator of the project and Developer
 
 Pauline Midon   - Designer
