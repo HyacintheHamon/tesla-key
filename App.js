@@ -20,6 +20,7 @@ import ReduxNavigation from "./src/navigation/ReduxNavigation";
 import AppNavigation from './src/navigation'
 import changeNavigationBarColor from "react-native-navigation-bar-color";
 import OneSignal from "react-native-onesignal";
+import GraphQLExample from './src/screens/GraphQLExample'
 
 // Apollo
 import { ApolloProvider } from '@apollo/client';
@@ -78,6 +79,7 @@ class App extends React.Component {
         <Provider store={store}>
           <View style={styles.container}>
             <AppNavigation />
+            {/* <GraphQLExample /> */}
           </View>
         </Provider>
       </ApolloProvider>

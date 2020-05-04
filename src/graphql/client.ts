@@ -26,7 +26,8 @@ const cache = new InMemoryCache();
 
 // Links
 const httpLink = new HttpLink({ uri: env.GRAPHQL_URI });
-const restLink = new RestLink({ uri: env.API_URI });
+// const restLink = new RestLink({ uri: env.API_URI });
+const restLink = new RestLink({ uri: 'https://api.tesla-key.com' });
 
 // Auth middleware
 const auth = new ApolloLink(

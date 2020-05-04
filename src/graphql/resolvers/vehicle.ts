@@ -1,5 +1,5 @@
 // Requests
-import { VEHICLE_STATE } from '../requests/vehicle'
+import { VEHICLE_STATE } from '../graph/vehicle'
 
 // Helpers
 import update from 'immutability-helper'
