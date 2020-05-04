@@ -1,4 +1,10 @@
-# Tesla Redesign
+# Tesla Key
+A react native redesign of the offical Tesla app, for iOS and Android.
+
+[![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://github.com/HyacintheHamon/tesla/blob/master/LICENSE)
+
+
+## Installation
 
 ```
 git clone
@@ -42,6 +48,9 @@ ViroReact does not support the emulator on Android; the app will crash on startu
 
 ## Contributors
 
+
+![alt text](https://contributors-img.web.app/image?repo=HyacintheHamon/tesla "Contributors")
+
 Hyacinthe Hamon - Creator of the project and Developer
 
 Pauline Midon   - Designer
@@ -49,6 +58,8 @@ Pauline Midon   - Designer
 Raphael Hadjaj  - Developer 
 
 Quynh NH - Developer
+
+Osama Khan - Developer
 
 ## Security
 
