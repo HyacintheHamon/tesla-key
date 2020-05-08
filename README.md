@@ -1,8 +1,7 @@
 # Tesla Key
 A react native redesign of the offical Tesla app, for iOS and Android.
 
-[![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://github.com/HyacintheHamon/tesla/blob/master/LICENSE)
-
+[![License MIT](http://img.shields.io/badge/license-MIT-orange.svg?style=flat)](https://github.com/HyacintheHamon/tesla/blob/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TYRQAQZMZ89H8&source=url)
 
 ## Installation
 
