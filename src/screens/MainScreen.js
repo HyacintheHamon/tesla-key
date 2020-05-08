@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import LottieView from "lottie-react-native";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { requestVehicleInfo } from "../actions";
 import {
   StyleSheet,
   Text,
@@ -1341,17 +1338,4 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStateToProps(state) {
-  const { vehicle } = state;
-  return {
-    vehicle,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    requestVehicleInfo: bindActionCreators(requestVehicleInfo, dispatch),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
+export default MainScreen;

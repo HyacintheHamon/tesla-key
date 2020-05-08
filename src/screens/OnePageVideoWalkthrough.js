@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-    AppRegistry,
     StyleSheet,
     View,
     Text,
@@ -101,4 +100,3 @@ const styles = StyleSheet.create({
         right: 0
     },
 });
-AppRegistry.registerComponent("Screen", () => Screen);

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import {
-  AppRegistry,
-  StyleSheet, 
-  View, 
+  StyleSheet,
+  View,
   Image,
   Dimensions
 } from "react-native";
@@ -32,7 +31,7 @@ export default class VideoWalkthrough extends Component {
         </View>
         {/* Second screen */}
         <View style={styles.slide}>
-        <Image source={require('../img/background.gif')}  style={{flex: 1 }} />
+          <Image source={require('../img/background.gif')} style={{ flex: 1 }} />
         </View>
       </Swiper>
     );
@@ -68,6 +67,5 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     bottom: 150,
     right: 0
-    },
+  },
 });
-AppRegistry.registerComponent("Screen", () => Screen);

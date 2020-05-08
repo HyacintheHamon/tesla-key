@@ -4,31 +4,75 @@
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
-        "lib": ["esnext"],
+        "lib": [
+            "esnext"
+        ],
         "target": "esnext",
         "baseUrl": ".",
         "paths": {
-            "@components*": ["./src/components*"],
-            "@components": ["./src/components"],
-            "@navigation*": ["./src/navigation*"],
-            "@navigation": ["./src/navigation"],
-            "@constants*": ["./src/constants*"],
-            "@constants": ["./src/constants"],
-            "@contexts*": ["./src/contexts*"],
-            "@contexts": ["./src/contexts"],
-            "@services*": ["./src/services*"],
-            "@services": ["./src/services"],
-            "@screens*": ["./src/screens*"],
-            "@screens": ["./src/screens"],
-            "@graphql*": ["./src/graphql*"],
-            "@graphql": ["./src/graphql"],
-            "@utils*": ["./src/utils*"],
-            "@utils": ["./src/utils"],
-            "@types*": ["./src/types*"],
-            "@types": ["./src/types"],
-            "@assets*": ["./assets*"],
-            "@assets": ["./assets"],
-            "@env": ["./src/env"],
+            "@components*": [
+                "./src/components*"
+            ],
+            "@components": [
+                "./src/components"
+            ],
+            "@navigation*": [
+                "./src/navigation*"
+            ],
+            "@navigation": [
+                "./src/navigation"
+            ],
+            "@constants*": [
+                "./src/constants*"
+            ],
+            "@constants": [
+                "./src/constants"
+            ],
+            "@contexts*": [
+                "./src/contexts*"
+            ],
+            "@contexts": [
+                "./src/contexts"
+            ],
+            "@services*": [
+                "./src/services*"
+            ],
+            "@services": [
+                "./src/services"
+            ],
+            "@screens*": [
+                "./src/screens*"
+            ],
+            "@screens": [
+                "./src/screens"
+            ],
+            "@graphql*": [
+                "./src/graphql*"
+            ],
+            "@graphql": [
+                "./src/graphql"
+            ],
+            "@utils*": [
+                "./src/utils*"
+            ],
+            "@utils": [
+                "./src/utils"
+            ],
+            "@types*": [
+                "./src/types*"
+            ],
+            "@types": [
+                "./src/types"
+            ],
+            "@assets*": [
+                "./assets*"
+            ],
+            "@assets": [
+                "./assets"
+            ],
+            "@env": [
+                "./src/env"
+            ],
         },
     }
 }

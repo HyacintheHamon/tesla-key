@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AppRegistry, Image, Dimensions } from "react-native";
+import { Image, Dimensions } from "react-native";
 const { height, width } = Dimensions.get("window");
 const car = require("../img/car.png");
 
@@ -26,6 +26,3 @@ export default class YourCarPic extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent("AwesomeProject", () => YourCarPic);

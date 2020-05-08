@@ -17,7 +17,7 @@ import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, prototype } from 'react-nat
 import mapStyle from '../json/mapStyle.json'
 import Geolocation from '@react-native-community/geolocation';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-import  { Close } from '../img/svg'
+import { Close } from '../img/svg'
 import VectorIcon from "../components/VectorIcons/VectorIcon";
 
 // Calculate map zoom
@@ -26,15 +26,15 @@ const ASPECT_RATIO = screen.width / screen.height;
 // const LATITUDE_DELTA = 0.001;
 // const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const LATITUDE_DELTA = 0.0922;
-const LONGITUDE_DELTA =  0.0421;
+const LONGITUDE_DELTA = 0.0421;
 
 
 // Dummy data
 const exampleMarker = [{
-    latlng: { latitude: 48.8983508, longitude: 2.3778904},
-    title: 'My Tesla car',
-    description: '427m',
-  },
+  latlng: { latitude: 48.8983508, longitude: 2.3778904 },
+  title: 'My Tesla car',
+  description: '427m',
+},
 ];
 
 // Dummy id for example map markers
@@ -42,7 +42,7 @@ var id = 0;
 
 export default class MapModalScreen extends React.Component {
 
-  constructor(){
+  constructor() {
     super();
     this.state = {
       markers: exampleMarker,
@@ -85,45 +85,46 @@ export default class MapModalScreen extends React.Component {
     return (
       <View style={styles.mainView}>
         <MapView
-        provider={ PROVIDER_GOOGLE }
-				style={ styles.container }
-				customMapStyle= {mapStyle}
-        region={{ latitude: this.state.currentPosition.latitude,
-                  longitude: this.state.currentPosition.longitude,
-                  latitudeDelta: LATITUDE_DELTA,
-                  longitudeDelta: LONGITUDE_DELTA,
-                  }}
-        mapType="standard"
-        showsUserLocation={true}
-        userLocationAnnotationTitle="My position"
-        followsUserLocation={true}
-        showsMyLocationButton={true}
-        showsPointsOfInterest={true}
-        showsCompass={true}
-        showsIndoors={true}
-        zoomEnabled={true}
-        zoomControlEnabled={true}
-        loadingEnabled={true}
-        scrollEnabled={true}
+          provider={PROVIDER_GOOGLE}
+          style={styles.container}
+          customMapStyle={mapStyle}
+          region={{
+            latitude: this.state.currentPosition.latitude,
+            longitude: this.state.currentPosition.longitude,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          }}
+          mapType="standard"
+          showsUserLocation={true}
+          userLocationAnnotationTitle="My position"
+          followsUserLocation={true}
+          showsMyLocationButton={true}
+          showsPointsOfInterest={true}
+          showsCompass={true}
+          showsIndoors={true}
+          zoomEnabled={true}
+          zoomControlEnabled={true}
+          loadingEnabled={true}
+          scrollEnabled={true}
         >
-        {this.state.markers.map(marker => (
-        <MapView.Marker
-          coordinate={marker.latlng}
-          title={marker.title}
-          description={marker.description}
-          key={id++}
-        />
-        ))}
+          {this.state.markers.map(marker => (
+            <MapView.Marker
+              coordinate={marker.latlng}
+              title={marker.title}
+              description={marker.description}
+              key={id++}
+            />
+          ))}
         </MapView>
         <TouchableOpacity style={styles.closeButton} onPress={this.props.onCloseMapModal}>
-          <VectorIcon.MaterialVectorIcon color={'white'} size={30} name={'close'}/>
+          <VectorIcon.MaterialVectorIcon color={'white'} size={30} name={'close'} />
         </TouchableOpacity>
         <View style={styles.searchBarContainer}>
-            <TextInput
-              placeholder=" Search..."
-              keyboardAppearance="dark"
-              style={styles.searchBar}
-            />
+          <TextInput
+            placeholder=" Search..."
+            keyboardAppearance="dark"
+            style={styles.searchBar}
+          />
         </View>
       </View>
     );
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.75,
     shadowRadius: 1,
     shadowColor: 'gray',
-    shadowOffset: { height: 0, width: 0},
+    shadowOffset: { height: 0, width: 0 },
   }
 });
 

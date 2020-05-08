@@ -1,11 +1,10 @@
 // Graphql
-import { gql } from '@apollo/client'
-
+import { gql } from '@apollo/client'
 
 export const CLIMATE_STATE = gql`
-    query ClimateState($vehicle: String!) {
-        state(vehicle: $vehicle) @rest(
-            path: "/vehicle/{args.vehicle}/climate"
+    query ClimateState($id: String!) {
+        state(id: $id) @rest(
+            path: "/api/1/vehicles/{args.id}/climate"
             type: "VehicleClimate"
             method: "GET"
         ) {

@@ -1,9 +1,6 @@
 import React from 'react'
 import { Text, TouchableOpacity, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet, Linking, Dimensions } from 'react-native';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { requestSignIn } from "../actions";
 import { Loading } from '../components/Common/Loading';
 import { User, Lock, GreyLogo } from '../img/svg';
 import I18n from "../Utils/i18n";
@@ -23,10 +20,6 @@ class LoginScreen extends React.Component {
 
   componentDidUpdate(nextProps) {
     this.props.navigation.navigate('DrawerStack');
-    const { userData } = nextProps.auth;
-    if (userData !== this.props.auth.userData) {
-      this.props.navigation.navigate('DrawerStack');
-    }
   }
 
   setNavigationColor = (color) => {
@@ -247,19 +240,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-
-function mapStateToProps(state) {
-  const { auth } = state;
-  return {
-    auth
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    requestSignIn: bindActionCreators(requestSignIn, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default LoginScreen;

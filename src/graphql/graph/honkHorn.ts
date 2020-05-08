@@ -2,7 +2,7 @@
 import { gql } from '@apollo/client'
 
 
-export type FlashLightsArgs = {
+export type HonkHornArgs = {
     input: {
         foo: string,
         bar: number,
@@ -10,25 +10,25 @@ export type FlashLightsArgs = {
     id: string,
 }
 
-export type FlashLightsPayload = {
+export type HonkHornPayload = {
     reason: string,
     result: boolean,
 }
 
-export type FlashLightsResult = {
-    flashLights: FlashLightsPayload,
+export type HonkHornResult = {
+    honkHorn: HonkHornPayload,
 }
 
-export const FLASH_LIGHTS = gql`
-    mutation FlashLights(
-        $input: FlashLightsInput!
+export const HONK_HORN = gql`
+    mutation HonkHorn(
+        $input: HonkHornInput!
         $id: String!
     ) {
-        flashLights(
+        honkHorn(
             body: $input
             id: $id
         ) @rest(
-            path: "/api/1/vehicles/{args.id}/command/flash_lights"
+            path: "/api/1/vehicles/{args.id}/command/honk_horn"
             type: "DriverState"
             bodyKey: "body"
             method: "POST"

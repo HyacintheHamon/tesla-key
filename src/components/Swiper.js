@@ -6,7 +6,6 @@
  */
 import React, { Component } from "react";
 import {
-  AppRegistry,
   Dimensions, // Detects screen dimensions
   Platform, // Detects platform running the app
   ScrollView, // Handles navigation between screens
