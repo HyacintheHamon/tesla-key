@@ -9,6 +9,7 @@ import VideoWalkthrough from '../screens/VideoWalkthrough'
 import SplashScreen from '../screens/SplashScreen'
 import LoginScreen from '../screens/LoginScreen'
 import Walkthrough from '../screens/Walkthrough'
+import BatteryScreen from '../screens/BatteryScreen'
 import DrawerStack from './drawer'
 
 
@@ -38,6 +39,10 @@ export default () => (
         <Stack.Screen
             component={DrawerStack}
             name='DrawerStack'
+        />
+        <Stack.Screen
+            component={BatteryScreen}
+            name='BatteryScreen'
         />
     </Stack.Navigator>
 )

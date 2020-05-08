@@ -20,6 +20,7 @@ import LootScreen from '../screens/LootScreen'
 import DrawerContent from './DrawerContent'
 import Settings from '../screens/Settings'
 import ARScene from '../screens/ARScene'
+import BatteryScreen from '../screens/BatteryScreen'
 
 
 const Drawer = createDrawerNavigator()
@@ -69,6 +70,10 @@ export default () => (
         <Drawer.Screen
             component={ARScene}
             name='ARScene'
+        />
+        <Drawer.Screen
+            component={BatteryScreen}
+            name='BatteryScreen'
         />
     </Drawer.Navigator>
 )

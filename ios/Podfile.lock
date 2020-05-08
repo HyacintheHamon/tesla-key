@@ -367,6 +367,9 @@ PODS:
     - React (< 1.0.0, >= 0.13.0)
   - react-native-safe-area-context (0.7.3):
     - React
+  - react-native-shimmer (0.6.0):
+    - React (>= 0.45.1)
+    - Shimmer (~> 1)
   - react-native-video (5.0.2):
     - React
     - react-native-video/Video (= 5.0.2)
@@ -451,6 +454,7 @@ PODS:
     - React
   - RNVectorIcons (6.6.0):
     - React
+  - Shimmer (1.0.2)
   - SSZipArchive (2.2.2)
   - TouchID (4.4.1):
     - React
@@ -520,6 +524,7 @@ DEPENDENCIES:
   - react-native-maps (from `../node_modules/react-native-maps`)
   - react-native-onesignal (from `../node_modules/react-native-onesignal`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-shimmer (from `../node_modules/react-native-shimmer`)
   - react-native-video (from `../node_modules/react-native-video`)
   - react-native-webview (from `../node_modules/react-native-webview`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -585,6 +590,7 @@ SPEC REPOS:
     - nanopb
     - OneSignal
     - OpenSSL-Universal
+    - Shimmer
     - SSZipArchive
     - YogaKit
 
@@ -651,6 +657,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-onesignal"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-shimmer:
+    :path: "../node_modules/react-native-shimmer"
   react-native-video:
     :path: "../node_modules/react-native-video"
   react-native-webview:
@@ -783,6 +791,7 @@ SPEC CHECKSUMS:
   react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
   react-native-onesignal: e8895a69983c8ffe953e1b0fc0f2ca75afc6af68
   react-native-safe-area-context: e200d4433aba6b7e60b52da5f37af11f7a0b0392
+  react-native-shimmer: 2fdba9953215a29106febc9d147caa31a0080a8a
   react-native-video: d01ed7ff1e38fa7dcc6c15c94cf505e661b7bfd0
   react-native-webview: 60d883f994e96a560756c14592552e02a06d604d
   React-RCTActionSheet: f41ea8a811aac770e0cc6e0ad6b270c644ea8b7c
@@ -804,6 +813,7 @@ SPEC CHECKSUMS:
   RNScreens: cf198f915f8a2bf163de94ca9f5bfc8d326c3706
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
+  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   UMAppLoader: 90273a65f9b1d789214e0c913dfcabc7a1b1590e

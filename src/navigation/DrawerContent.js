@@ -96,8 +96,7 @@ export default class DrawerContent extends React.Component {
           >
             <Battery />
             <Text
-              //onPress={() => navigation.navigate('Screen')}
-              onPress={() => alert("tapped")}
+              onPress={() => navigation.navigate('BatteryScreen')}
               style={styles.DrawerItemText}
             >
               {I18n.t("battery")}

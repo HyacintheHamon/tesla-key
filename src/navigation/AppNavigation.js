@@ -20,6 +20,7 @@ import Settings from "../screens/Settings";
 import MediaScreen from "../screens/MediaScreen";
 import LootScreen from "../screens/LootScreen";
 import PinCodeScreen from "../screens/PinCodeScreen";
+import BatteryScreen from "../screens/BatteryScreen";
 
 const StackNavigatorOptions = {
   header: null,
@@ -40,6 +41,7 @@ const DrawerStack = createDrawerNavigator(
     MediaScreen: { screen: MediaScreen },
     LootScreen: { screen: LootScreen },
     PinCodeScreen: { screen: PinCodeScreen },
+    BatteryScreen: { screen: BatteryScreen },
   },
   {
     gesturesEnabled: false,
