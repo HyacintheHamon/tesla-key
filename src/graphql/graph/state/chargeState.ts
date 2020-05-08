@@ -8,53 +8,54 @@ export const CHARGE_STATE = gql`
             type: "VehicleChargeState"
             method: "GET"
         ) {
-            battery_heater_on
-            battery_level
-            battery_range 
-            charge_current_request 
-            charge_current_request_max 
-            charge_enable_request 
-            charge_energy_added 
-            charge_limit_soc 
-            charge_limit_soc_max 
-            charge_limit_soc_min 
-            charge_limit_soc_std
-            charge_miles_added_ideal 
-            charge_miles_added_rated 
-            charge_port_cold_weather_mode 
-            charge_port_door_open 
-            charge_port_latch 
-            charge_rate 
-            charge_to_max_range 
-            charger_actual_current
-            charger_phases
-            charger_pilot_current
-            charger_power
-            charger_voltage
-            charging_state
-            conn_charge_cable
-            est_battery_range
-            fast_charger_brand
-            fast_charger_present
-            fast_charger_type
-            ideal_battery_range
-            managed_charging_active
-            managed_charging_start_time
-            managed_charging_user_canceled
-            max_range_charge_counter
-            minutes_to_full_charge
-            not_enough_power_to_heat
-            scheduled_charging_pending
-            scheduled_charging_start_time
-            time_to_full_charge
-            timestamp
-            trip_charging
-            usable_battery_level 
-            user_charge_enable_request 
+              battery_heater_on
+              battery_level
+              battery_range 
+              charge_current_request 
+              charge_current_request_max 
+              charge_enable_request 
+              charge_energy_added 
+              charge_limit_soc 
+              charge_limit_soc_max 
+              charge_limit_soc_min 
+              charge_limit_soc_std
+              charge_miles_added_ideal 
+              charge_miles_added_rated 
+              charge_port_cold_weather_mode 
+              charge_port_door_open 
+              charge_port_latch 
+              charge_rate 
+              charge_to_max_range 
+              charger_actual_current
+              charger_phases
+              charger_pilot_current
+              charger_power
+              charger_voltage
+              charging_state
+              conn_charge_cable
+              est_battery_range
+              fast_charger_brand
+              fast_charger_present
+              fast_charger_type
+              ideal_battery_range
+              managed_charging_active
+              managed_charging_start_time
+              managed_charging_user_canceled
+              max_range_charge_counter
+              minutes_to_full_charge
+              not_enough_power_to_heat
+              scheduled_charging_pending
+              scheduled_charging_start_time
+              time_to_full_charge
+              timestamp
+              trip_charging
+              usable_battery_level 
+              user_charge_enable_request 
         }
     }
 `
 /* SAMPLE RESPONSE
+// Information on the state of charge in the battery and its various settings.
 {
   "response": {
     "battery_heater_on": false,
@@ -102,5 +103,4 @@ export const CHARGE_STATE = gql`
     "user_charge_enable_request": null
   }
 }
-
 */

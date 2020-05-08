@@ -1,12 +1,7 @@
 // Graphql
 import { gql } from '@apollo/client'
 
-
 export type HonkHornArgs = {
-    input: {
-        foo: string,
-        bar: number,
-    },
     id: string,
 }
 
@@ -38,3 +33,10 @@ export const HONK_HORN = gql`
         }
     }
 `
+/* SAMPLE RESPONSE
+// Honks the horn twice.
+{
+  "reason": "",
+  "result": true
+}
+*/

@@ -1,5 +1,5 @@
 // Graphql
-import { gql } from '@apollo/client'
+import { gql } from '@apollo/client'
 
 
 export type DriverStateArgs = {
@@ -47,3 +47,22 @@ export const DRIVER_STATE = gql`
         }
     }
 `
+/* SAMPLE RESPONSE
+// Returns the driving and position state of the vehicle.
+{
+  "response": {
+    "gps_as_of": 1543187664,
+    "heading": 8,
+    "latitude": 33.111111,
+    "longitude": -88.111111,
+    "native_latitude": 33.111111,
+    "native_location_supported": 1,
+    "native_longitude": -88.111111,
+    "native_type": "wgs",
+    "power": 0,
+    "shift_state": null,
+    "speed": null,
+    "timestamp": 1543187666472
+  }
+}
+*/

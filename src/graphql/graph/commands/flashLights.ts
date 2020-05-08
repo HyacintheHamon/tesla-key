@@ -3,10 +3,6 @@ import { gql } from '@apollo/client'
 
 
 export type FlashLightsArgs = {
-    input: {
-        foo: string,
-        bar: number,
-    },
     id: string,
 }
 
@@ -38,3 +34,11 @@ export const FLASH_LIGHTS = gql`
         }
     }
 `
+
+/* SAMPLE RESPONSE
+// Flashes the headlights once.
+{
+  "reason": "",
+  "result": true
+}
+*/

@@ -3,10 +3,6 @@ import { gql } from '@apollo/client'
 
 
 export type WakesArgs = {
-    input: {
-        foo: string,
-        bar: number,
-    },
     id: string,
 }
 
