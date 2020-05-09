@@ -38,41 +38,29 @@ jobs:
       - checkout:
           path: ~/tesla
 
-      - attach_workspace:
-          at: ~/tesla
+      - run:
+          name: set Ruby version
+          command:  echo "ruby-2.4" > ~/.ruby-version
 
       - restore_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
 
-      - run: bundle install
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      # not using a workspace here as Node and Yarn versions
+      # differ between our macOS executor image and the Docker containers above
+      - run: yarn install
 
       - save_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
           paths:
-            - vendor/bundle
+            - ~/.cache/yarn
 
-      - restore_cache:
-          key: v1-pods-{{ checksum "Podfile.lock" }}
-
-      - run:
-          name: Install CocoaPods
-          # Accelerate repository fetches using SCI archives provided by CircleCI
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-            bundle exec pod install
-
-      - run:
-          name: fastlane tests
-          command: |
-            mkdir -p test-results/fastlane
-            bundle exec fastlane test
-            mv fastlane/report.xml test-results/fastlane
-
-      - store_test_results:
-          path: test-results
-
-      - store_artifacts:
-          path: test-results
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
 
   ios:
     macos:
@@ -84,6 +72,7 @@ jobs:
 
     steps:
       - checkout
+      path: ~/tesla
 
       - run:
           name: set Ruby version
@@ -110,35 +99,14 @@ jobs:
             - node_modules
 
       - restore_cache:
-          key: bundle-v1-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
+          key: v1-pods-{{ checksum "Podfile.lock" }}
 
       - run:
-          command: bundle install
-          working_directory: ios
-
-      - save_cache:
-          key: bundle-v1-{{ checksum "ios/Gemfile.lock" }}-{{ arch }}
-          paths:
-            - vendor/bundle
-
-      - run:
-          command: bundle exec fastlane test
-          working_directory: ios
-      
-      - run:
-          name: set up test results
-          working_directory: ios
-          when: always
+          name: Install CocoaPods
+          # Accelerate repository fetches using SCI archives provided by CircleCI
           command: |
-            mkdir -p test-results/fastlane test-results/xcode
-            mv fastlane/report.xml test-results/fastlane
-            mv fastlane/test_output/report.junit test-results/xcode/junit.xml
-
-      - store_test_results:
-          path: ios/test-results
-
-      - store_artifacts:
-          path: ios/test-results
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+            bundle exec pod install
 
 workflows:
   version: 2
