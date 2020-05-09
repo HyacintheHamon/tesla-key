@@ -70,10 +70,6 @@ jobs:
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
     shell: /bin/bash --login -o pipefail
 
-    steps:
-      - checkout
-      path: ~/tesla
-
       - run:
           name: set Ruby version
           command:  echo "ruby-2.4" > ~/.ruby-version
