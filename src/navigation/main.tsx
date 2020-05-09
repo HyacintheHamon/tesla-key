@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 // Screens
 import VideoWalkthrough from '../screens/VideoWalkthrough'
+import OnePageVideoWalkthrough from '../screens/OnePageVideoWalkthrough'
 import SplashScreen from '../screens/SplashScreen'
 import LoginScreen from '../screens/LoginScreen'
 import Walkthrough from '../screens/Walkthrough'
@@ -23,6 +24,10 @@ export default () => (
         <Stack.Screen
             component={VideoWalkthrough}
             name='VideoWalkthrough'
+        />
+        <Stack.Screen
+            component={OnePageVideoWalkthrough}
+            name='OnePageVideoWalkthrough'
         />
         <Stack.Screen
             component={SplashScreen}
