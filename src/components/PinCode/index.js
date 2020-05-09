@@ -149,7 +149,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.close}
-          onPress={() => this.props.navigation.navigate("Settings")}
+          onPress={() => this.props.navigation.goBack()}
         >
           <Image
             source={closeIcon.src}

@@ -50,7 +50,9 @@ export default class HelpScreen extends Component {
             style={styles.closeButton}
             onPress={() => this.props.navigation.goBack()}
           >
-            <Close />
+            <View style={{ width: 40, height: 40 }}>
+              <Close />
+            </View>
           </TouchableOpacity>
           <View
             style={{ alignItems: "center", justifyContent: "center", flex: 1 }}
@@ -137,9 +139,8 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   closeButton: {
-    position: "absolute",
     left: 20,
-    top: 15,
+    top: 10,
   },
   text: {
     color: "#fff",

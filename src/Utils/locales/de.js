@@ -52,5 +52,7 @@ export default {
   create_pin: "Create 4-Digit Pin",
   enter_pin: "Bitte geben Sie den PIN-Code für die Eingabe ein",
   vin: "VIN",
-  version: "Ausführung"
+  version: "Ausführung",
+  open_charge_port: "Ladeanschluss öffnen",
+  close_charge_port: "Ladeanschluss schließen",
 };

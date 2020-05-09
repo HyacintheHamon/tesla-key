@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, ScrollView, SafeAreaView, TouchableOpacity, Dimensions } from "react-native";
 import Back from '../img/svg/Back';
+import I18n from "../Utils/i18n";
 
 var { width } = Dimensions.get('window');
 
@@ -10,10 +11,19 @@ export default class CalendarScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.headerContainer}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-            <Back style={styles.backButton} />
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => this.props.navigation.goBack()}
+          >
+            <Back />
           </TouchableOpacity>
-          <Text style={styles.header}>Calendar</Text>
+          <View style={styles.header}>
+            <Text
+              style={{ fontSize: 32, fontWeight: "bold", color: "#FFFFFF" }}
+            >
+              {I18n.t("calendar")}
+            </Text>
+          </View>
         </View>
         <View style={styles.bodyContainer}>
           <Text style={styles.textArea}>To get calendar events in your car, make sure the following phone settings are ON.</Text>
@@ -44,17 +54,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#111117"
   },
   headerContainer: {
-    justifyContent: "center",
-    marginTop: 30
+    flexDirection: "row",
+    paddingVertical: 10,
+  },
+  backButton: {
+    marginLeft: 30,
+    marginTop: 10
+  },
+  header: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    marginLeft: 20
   },
   backButton: {
     marginLeft: 30
-  },
-  header: {
-    paddingHorizontal: 34,
-    fontSize: 32,
-    fontWeight: "bold",
-    color: "#FFFFFF"
   },
   bodyContainer: {
     flex: 1,

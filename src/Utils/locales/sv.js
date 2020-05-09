@@ -52,5 +52,7 @@ export default {
   create_pin: "Skapa en 4-siffrig stift",
   enter_pin: "Vänligen ange pincode för post",
   vin: "VIN",
-  version: "Version"
+  version: "Version",
+  open_charge_port: "öppna laddningsporten",
+  close_charge_port: "stäng laddningsporten",
 };

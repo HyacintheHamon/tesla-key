@@ -52,5 +52,7 @@ export default {
     create_pin: "Создать четырехзначный пин-код",
     enter_pin: "Пожалуйста, введите пин-код",
     vin: "VIN",
-    version: "Версия"
+    version: "Версия",
+    open_charge_port: "ткрыть порт зарядки",
+    close_charge_port: "закройте зарядный порт",
 };

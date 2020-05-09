@@ -52,5 +52,7 @@ export default {
   create_pin: "4 자리 핀 만들기",
   enter_pin: "입력을 위해 암호를 입력하십시오",
   vin: "VIN",
-  version: "버전"
+  version: "버전",
+  open_charge_port: "충전 포트를 엽니 다",
+  close_charge_port: "충전 포트를 닫습니다",
 };

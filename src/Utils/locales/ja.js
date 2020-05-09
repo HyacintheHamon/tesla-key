@@ -52,5 +52,7 @@ export default {
   create_pin: "4桁のピンを作成",
   enter_pin: "エントリのPINコードを入力してください",
   vin: "VIN",
-  version: "バージョン"
+  version: "バージョン",
+  open_charge_port: "充電ポートを開く",
+  close_charge_port: "充電ポートを閉じる",
 };

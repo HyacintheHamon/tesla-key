@@ -216,20 +216,21 @@ export default class Settings extends Component {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: "#111117" }}>
         <Block style={{ justifyContent: "center", marginTop: 30 }}>
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={() => this.props.navigation.goBack()}
-          >
-            <Back />
-          </TouchableOpacity>
-          <Block flex={false} row center space="between" style={styles.header}>
-            <Text
-              style={{ fontSize: 32, fontWeight: "bold", color: "#FFFFFF" }}
+          <View style={styles.headerContainer}>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => this.props.navigation.goBack()}
             >
-              {I18n.t("settings")}
-            </Text>
-          </Block>
-
+              <Back />
+            </TouchableOpacity>
+            <View style={styles.header}>
+              <Text
+                style={{ fontSize: 32, fontWeight: "bold", color: "#FFFFFF" }}
+              >
+                {I18n.t("settings")}
+              </Text>
+            </View>
+          </View>
           <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{ justifyContent: "center" }}
@@ -305,11 +306,19 @@ export default class Settings extends Component {
 }
 
 const styles = StyleSheet.create({
-  closeButton: {
+  headerContainer: {
+    flexDirection: "row",
+    paddingVertical: 10,
+  },
+  backButton: {
     marginLeft: 30,
+    marginTop: 10
   },
   header: {
-    paddingHorizontal: 16 * 2,
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    marginLeft: 20
   },
   inputs: {
     marginTop: 16 * 0.7,

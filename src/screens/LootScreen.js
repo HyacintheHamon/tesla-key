@@ -11,10 +11,19 @@ export default class LootScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.headerContainer}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-            <Back style={styles.backButton} />
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => this.props.navigation.goBack()}
+          >
+            <Back />
           </TouchableOpacity>
-          <Text style={styles.header}>{I18n.t("loot_box")}</Text>
+          <View style={styles.header}>
+            <Text
+              style={{ fontSize: 32, fontWeight: "bold", color: "#FFFFFF" }}
+            >
+              {I18n.t("loot_box")}
+            </Text>
+          </View>
         </View>
         <ScrollView style={styles.bodyContainer} >
           <Text style={styles.greyText}>Free Supercharger Miles Remaining</Text>
@@ -47,17 +56,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#111117"
   },
   headerContainer: {
-    justifyContent: "center",
-    marginTop: 30
+    flexDirection: "row",
+    paddingVertical: 10,
   },
   backButton: {
-    marginLeft: 30
+    marginLeft: 30,
+    marginTop: 10
   },
   header: {
-    paddingHorizontal: 34,
     fontSize: 32,
-    fontWeight: "bold",
-    color: "#FFFFFF"
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    marginLeft: 20
   },
   bodyContainer: {
     flex: 1,

@@ -52,5 +52,7 @@ export default {
   create_pin: "Maak een 4-cijferige pin",
   enter_pin: "Voer pincode in voor invoer",
   vin: "VIN",
-  version: "Versie"
+  version: "Versie",
+  open_charge_port: "open de oplaadpoort",
+  close_charge_port: "sluit de laadpoort",
 };

@@ -52,5 +52,7 @@ export default {
   create_pin: "创建4位数字密码",
   enter_pin: "请输入您的密码",
   vin: "VIN",
-  version: "版"
+  version: "版",
+  open_charge_port: "打开充电口",
+  close_charge_port: "关闭充电口",
 };

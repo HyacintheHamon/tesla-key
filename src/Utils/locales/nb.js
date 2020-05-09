@@ -52,5 +52,7 @@ export default {
   create_pin: "Opprett en 4-sifret pin-kode",
   enter_pin: "Vennligst skriv inn din pinkode",
   vin: "VIN",
-  version: "Versjon"
+  version: "Versjon",
+  open_charge_port: "åpne ladeporten",
+  close_charge_port: "lukk ladehavnen",
 };

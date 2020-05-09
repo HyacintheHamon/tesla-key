@@ -10,10 +10,19 @@ export default class MediaScreen extends Component {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.headerContainer}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <Back style={styles.backButton} />
+                    <TouchableOpacity
+                        style={styles.backButton}
+                        onPress={() => this.props.navigation.goBack()}
+                    >
+                        <Back />
                     </TouchableOpacity>
-                    <Text style={styles.header}>{I18n.t("media")}</Text>
+                    <View style={styles.header}>
+                        <Text
+                            style={{ fontSize: 32, fontWeight: "bold", color: "#FFFFFF" }}
+                        >
+                            {I18n.t("media")}
+                        </Text>
+                    </View>
                 </View>
                 <View style={styles.bodyContainer}>
                     <View style={styles.controlsContainer}>
@@ -41,7 +50,7 @@ export default class MediaScreen extends Component {
                                 name="volume-up"
                                 size={20}
                                 color="#93A8B3"
-                               style={[styles.playButton, { marginLeft: 8 }]}
+                                style={[styles.playButton, { marginLeft: 8 }]}
                             ></FontAwesome5>
                         </TouchableOpacity>
                         <TouchableOpacity>
@@ -60,29 +69,30 @@ const styles = StyleSheet.create({
         backgroundColor: "#111117"
     },
     headerContainer: {
-        justifyContent:"center",
-        marginTop:30
+        flexDirection: "row",
+        paddingVertical: 10,
     },
-    backButton:{
-        marginLeft:30
+    backButton: {
+        marginLeft: 30,
+        marginTop: 10
     },
     header: {
-        paddingHorizontal: 34,
-        fontSize:32, 
-        fontWeight: "bold", 
-        color:"#FFFFFF"
+        fontSize: 32,
+        fontWeight: 'bold',
+        color: '#FFFFFF',
+        marginLeft: 20
     },
     bodyContainer: {
-        flex:1,
-        justifyContent: "center", 
+        flex: 1,
+        justifyContent: "center",
         alignItems: "center",
     },
     controlsContainer: {
-        justifyContent: "center", 
+        justifyContent: "center",
         alignItems: "center",
-        flexDirection: "row", 
-        justifyContent: "center", 
-        alignItems: "center", 
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
         marginTop: 16
     },
     playButtonContainer: {
@@ -102,9 +112,9 @@ const styles = StyleSheet.create({
         // shadowOpacity: 0.5
     },
     volumeControlsContainer: {
-        flexDirection: "row", 
-        justifyContent: "center", 
-        alignItems: "center", 
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
         marginTop: 35
     },
     volumeContainer: {

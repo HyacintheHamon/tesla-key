@@ -21,6 +21,7 @@ import DrawerContent from './DrawerContent'
 import Settings from '../screens/Settings'
 import ARScene from '../screens/ARScene'
 import BatteryScreen from '../screens/BatteryScreen'
+import CalendarScreen from '../screens/CalendarScreen'
 
 
 const Drawer = createDrawerNavigator()
@@ -74,6 +75,10 @@ export default () => (
         <Drawer.Screen
             component={BatteryScreen}
             name='BatteryScreen'
+        />
+        <Drawer.Screen
+            component={CalendarScreen}
+            name='CalendarScreen'
         />
     </Drawer.Navigator>
 )

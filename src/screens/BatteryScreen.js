@@ -3,24 +3,25 @@ import {
     StyleSheet,
     Text,
     View,
-    Image,
     SafeAreaView,
-    Dimensions,
+    TouchableOpacity,
     Animated,
-    ScrollView,
+    Dimensions
 } from 'react-native';
-
-import * as Progress from 'react-native-progress';
+import Back from "../img/svg/Back";
+import I18n from "../Utils/i18n";
 import LinearGradient from 'react-native-linear-gradient';
 import Shimmer from 'react-native-shimmer';
 
-var { windowWidth } = Dimensions.get('window');
-
-var shimmerBg = require('../img/transparent.png');
+const { height, width } = Dimensions.get('window');
 
 export default class BatteryScreen extends Component {
 
-    state = { progress: 0.5, progressStatus: 50 };
+    state = {
+        progress: 0,
+        portOpen: false,
+    };
+
     anim = new Animated.Value(0);
 
     componentDidMount() {
@@ -29,27 +30,48 @@ export default class BatteryScreen extends Component {
 
     onAnimate = () => {
         this.anim.addListener(({ value }) => {
-            this.setState({ progressStatus: parseInt(value, 10) });
+            this.setState({ progress: parseInt(value, 10) });
         });
         Animated.timing(this.anim, {
             toValue: 100,
-            duration: 50000,
+            duration: 100000,
             useNativeDriver: true
         }).start();
     };
 
+    onPressPortBtn = () => {
+        this.setState({
+            portOpen: !this.state.portOpen,
+        })
+    }
+
     render() {
-        const { progress } = this.state;
+
+        const buttonText = this.state.portOpen ? I18n.t("close_charge_port") : I18n.t("open_charge_port");
+
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.headerContainer}>
-                    <Text style={styles.header}>Battery</Text>
-                </View>
-                <ScrollView>
-                    <View style={styles.bodyContainer}>
-                        <Text style={{ color: '#FFF', marginTop: 10, marginBottom: 10 }}>
-                            New Test - Animated View with Shimmer
+                    <TouchableOpacity
+                        style={styles.backButton}
+                        onPress={() => this.props.navigation.goBack()}
+                    >
+                        <Back />
+                    </TouchableOpacity>
+                    <View style={styles.header}>
+                        <Text
+                            style={{ fontSize: 32, fontWeight: "bold", color: "#FFFFFF" }}
+                        >
+                            {I18n.t("battery")}
                         </Text>
+                    </View>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <View style={styles.bodyContainer}>
+                        <View style={styles.milesView}>
+                            <Text style={styles.milesViewTitle}>254</Text>
+                            <Text style={styles.milesViewSubtitle}>mi</Text>
+                        </View>
                         <View style={styles.batteryContainer}>
                             <View style={styles.batteryTip} />
                             <View style={styles.inner}>
@@ -61,147 +83,25 @@ export default class BatteryScreen extends Component {
                                         locations={[0.0, 1.0]}
                                         style={[
                                             styles.batteryLinearGradient,
-                                            { width: this.state.progressStatus + '%' },
+                                            { width: this.state.progress + '%' },
                                         ]}
                                     />
                                 </Shimmer>
                             </View>
-                            <Text style={styles.label}>{this.state.progressStatus}%</Text>
+                            <Text style={styles.label}>{this.state.progress}%</Text>
                         </View>
-
-                        {/* Regular progress bar */}
                         <Text style={{ color: '#FFF', marginTop: 10, marginBottom: 10 }}>
-                            Test 0
+                            {I18n.t("charging")}
                         </Text>
-                        <Shimmer direction={'right'}>
-                            <Progress.Bar
-                                animated={true}
-                                progress={progress}
-                                color={'green'}
-                                unfilledColor={'grey'}
-                                borderWidth={1}
-                                borderColor={'#fff'}
-                                width={200}
-                                height={50}
-                                //borderRadius={3}
-                                useNativeDriver={true}
-                                // animationConfig
-                                animationType={'timing'}
-                            />
-                        </Shimmer>
-                        <View style={styles.buttonView}>
-                            <Text
-                                onPress={() =>
-                                    this.setState({ progress: progress <= 0 ? 0 : progress - 0.1 })
-                                }
-                                style={styles.buttonText}>
-                                Minus
-                            </Text>
-                            <Text
-                                onPress={() =>
-                                    this.setState({ progress: progress >= 1 ? 1 : progress + 0.1 })
-                                }
-                                style={styles.buttonText}>
-                                Plus
-                            </Text>
+                        <View style={styles.buttonContainer}>
+                            <TouchableOpacity onPress={this.onPressPortBtn}>
+                                <View style={styles.button}>
+                                    <Text style={styles.buttonText}>{buttonText}</Text>
+                                </View>
+                            </TouchableOpacity>
                         </View>
-
-                        <Text style={{ color: '#FFF', marginTop: 10, marginBottom: 10 }}>
-                            Test 1 - Progress bar
-                        </Text>
-                        <Progress.Bar
-                            animated={true}
-                            progress={0.7}
-                            color={'green'}
-                            unfilledColor={'grey'}
-                            borderWidth={0}
-                            borderColor={'#111117'}
-                            width={200}
-                            height={50}
-                            //borderRadius={3}
-                            useNativeDriver={true}
-                            // animationConfig
-                            animationType={'timing'}
-                        />
-                        {/* Shimmer on Text */}
-                        <Text style={{ color: '#FFF', marginTop: 10, marginBottom: 10 }}>
-                            Test 2 - Shimmer effect
-                        </Text>
-                        <Shimmer
-                            direction={'right'}
-                            autoRun={true}
-                            style={{ width: 180, height: 40 }}>
-                            <Text style={{ fontSize: 30, color: '#FFF' }}>
-                                .........................
-                            </Text>
-                        </Shimmer>
-
-                        <Text style={{ color: '#FFF', marginTop: 10, marginBottom: 10 }}>
-                            Test 3 - Shimmer effect + progress bar
-                        </Text>
-                        {/* Shimmer on View with Text. Shimmer isn't working */}
-                        <Shimmer
-                            direction={'right'}
-                            autoRun={true}
-                            style={{ width: 180, height: 40 }}>
-                            <View style={{ backgroundColor: 'green', width: 180, height: 40 }}>
-                                <Text style={{ fontSize: 30, color: '#FFF' }}>
-                                    .........................
-                                </Text>
-                            </View>
-                        </Shimmer>
-
-                        <Text style={{ color: '#FFF', marginTop: 10, marginBottom: 10 }}>
-                            Test 4 - Shimmer on view
-                        </Text>
-                        {/* Shimmer on View without Text. Shimmer isn't working */}
-                        <Shimmer
-                            direction={'right'}
-                            autoRun={true}
-                            style={{ width: 180, height: 40 }}>
-                            <View
-                                style={{ backgroundColor: 'green', width: 180, height: 40 }}
-                            />
-                        </Shimmer>
-
-                        <Text style={{ color: '#FFF', marginTop: 10, marginBottom: 10 }}>
-                            Test 5 - Shimmer + Linear gradient
-                        </Text>
-                        {/* Shimmer + Linear Gradient. Shimmer isn't working */}
-                        <Shimmer direction={'right'}>
-                            <LinearGradient
-                                colors={['#397C5D', '#37DD5D']}
-                                start={{ x: 0.0, y: 0.5 }}
-                                end={{ x: 1.0, y: 0.5 }}
-                                locations={[0.0, 1.0]}
-                                style={styles.linearGradient}>
-                                <View style={styles.gradientView} />
-                            </LinearGradient>
-                        </Shimmer>
-
-                        <Text style={{ color: '#FFF', marginTop: 10, marginBottom: 10 }}>
-                            Test 6 - Linear gradient + Shimmer
-                        </Text>
-                        {/* Shimmer + Linear Gradient. Shimmer isn't working */}
-                        <LinearGradient
-                            colors={['#397C5D', '#37DD5D']}
-                            start={{ x: 0.0, y: 0.5 }}
-                            end={{ x: 1.0, y: 0.5 }}
-                            locations={[0.0, 1.0]}
-                            style={styles.linearGradient}>
-                            <Shimmer direction={'right'}>
-                                <View style={{ width: 170, height: 50 }} />
-                            </Shimmer>
-                        </LinearGradient>
-
-                        <Text style={{ color: '#FFF', marginTop: 10, marginBottom: 10 }}>
-                            Test 7 - Shimmer + Image
-                        </Text>
-                        <Shimmer autoRun={true} direction={'right'}>
-                            <Image source={shimmerBg} />
-                        </Shimmer>
                     </View>
-                </ScrollView>
+                </View>
             </SafeAreaView>
         );
     }
@@ -213,18 +113,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#111117',
     },
     headerContainer: {
-        justifyContent: 'center',
+        flexDirection: "row",
         paddingVertical: 10,
     },
+    backButton: {
+        marginLeft: 30,
+        marginTop: 10
+    },
     header: {
-        paddingHorizontal: 34,
         fontSize: 32,
         fontWeight: 'bold',
         color: '#FFFFFF',
+        marginLeft: 20
     },
     bodyContainer: {
         flex: 1,
-        marginTop: 20,
+        marginTop: 50,
         alignItems: 'center',
     },
     linearGradient: {
@@ -233,35 +137,24 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         height: 40,
     },
-    buttonView: {
-        flexDirection: 'row',
+    milesView: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
     },
-    buttonText: {
-        padding: 10,
-        fontSize: 18,
-        fontFamily: 'Gill Sans',
-        textAlign: 'center',
-        margin: 10,
-        color: '#ffffff',
-        borderColor: '#fff',
-        borderWidth: 1,
-        backgroundColor: 'transparent',
+    milesViewTitle: {
+        fontFamily: "OpenSans-Light",
+        fontWeight: "300",
+        fontSize: 70,
+        color: "#fff",
     },
-    gradientView: {
-        width: 170,
-        height: 50,
+    milesViewSubtitle: {
+        fontFamily: "Montserrat",
+        fontSize: 20,
+        color: "#98989b",
+        marginLeft: 5,
+        marginTop: 40,
     },
-    progressBar: {
-        flexDirection: 'row',
-        height: 20,
-        width: '100%',
-        backgroundColor: 'white',
-        borderColor: '#000',
-        borderWidth: 2,
-        borderRadius: 5,
-    },
-
-    //battery
     batteryContainer: {
         borderWidth: 1,
         borderColor: '#fff',
@@ -299,4 +192,28 @@ const styles = StyleSheet.create({
         color: '#fff',
         position: 'absolute',
     },
+    buttonContainer: {
+        marginTop: 50,
+        alignSelf: 'center',
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    button: {
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "#FFFFFF",
+        paddingHorizontal: 20,
+        width: width / 1.6,
+        height: 50,
+        justifyContent: 'center',
+    },
+    buttonText: {
+        color: "#FFFFFF",
+        fontFamily: "Avenir",
+        fontSize: 16,
+        marginHorizontal: 20,
+        textAlign: "center",
+        textTransform: 'uppercase',
+    }
 });

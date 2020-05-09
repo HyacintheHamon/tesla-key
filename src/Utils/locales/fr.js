@@ -52,5 +52,7 @@ export default {
   create_pin: "Créer un code PIN à 4 chiffres",
   enter_pin: "Veuillez saisir votre code PIN",
   vin: "VIN",
-  version: "Version"
+  version: "Version",
+  open_charge_port: "ouvrir le port de charge",
+  close_charge_port: "fermer le port de charge",
 };
