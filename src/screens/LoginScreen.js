@@ -122,7 +122,7 @@ class LoginScreen extends React.Component {
       this.props.navigation.navigate('DrawerStack');
 
     } catch (e) {
-      alert(JSON.stringify(e));
+      //alert(JSON.stringify(e));
     }
 
     // await this.getBearerToken(this.state.email, this.state.password, this.props.setEstablishedConnection);

@@ -247,7 +247,6 @@ class MainScreen extends Component {
 
   closeLockModal(lock_state) {
     this.setState({ visibleLockModal: false });
-    this.props.requestVehicleInfo({ lockState: lock_state });
   }
 
   handlerfanButtonLongPress = () => {
