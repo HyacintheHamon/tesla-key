@@ -18,7 +18,7 @@ const { height, width } = Dimensions.get('window');
 export default class BatteryScreen extends Component {
 
     state = {
-        progress: 0,
+        progress: 80,
         portOpen: false,
     };
 
@@ -32,11 +32,11 @@ export default class BatteryScreen extends Component {
         this.anim.addListener(({ value }) => {
             this.setState({ progress: parseInt(value, 10) });
         });
-        Animated.timing(this.anim, {
-            toValue: 100,
-            duration: 100000,
-            useNativeDriver: true
-        }).start();
+        // Animated.timing(this.anim, {
+        //     toValue: 100,
+        //     duration: 100000,
+        //     useNativeDriver: true
+        // }).start();
     };
 
     onPressPortBtn = () => {
@@ -75,17 +75,19 @@ export default class BatteryScreen extends Component {
                         <View style={styles.batteryContainer}>
                             <View style={styles.batteryTip} />
                             <View style={styles.inner}>
-                                <Shimmer direction={'right'} opacity={0.9}>
-                                    <LinearGradient
-                                        colors={['#397C5D', '#37DD5D']}
-                                        start={{ x: 0.0, y: 0.5 }}
-                                        end={{ x: 1.0, y: 0.5 }}
-                                        locations={[0.0, 1.0]}
-                                        style={[
-                                            styles.batteryLinearGradient,
-                                            { width: this.state.progress + '%' },
-                                        ]}
-                                    />
+                                <Shimmer duration={4000} opacity={0.7}>
+                                    <View style={{ width: '100%' }}>
+                                        <LinearGradient
+                                            colors={['#397C5D', '#37DD5D']}
+                                            start={{ x: 0.0, y: 0.5 }}
+                                            end={{ x: 1.0, y: 0.5 }}
+                                            locations={[0.0, 1.0]}
+                                            style={[
+                                                styles.batteryLinearGradient,
+                                                { width: this.state.progress + '%' },
+                                            ]}
+                                        />
+                                    </View>
                                 </Shimmer>
                             </View>
                             <Text style={styles.label}>{this.state.progress}%</Text>
