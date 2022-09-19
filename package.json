@@ -25,7 +25,7 @@
     "appcenter": "^3.0.1",
     "appcenter-analytics": "^3.0.1",
     "appcenter-crashes": "^3.0.1",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "expo-sensors": "^8.1.0",
     "geolib": "^3.2.1",
     "graphql-anywhere": "4.2.6",
