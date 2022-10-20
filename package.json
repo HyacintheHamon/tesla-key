@@ -58,7 +58,7 @@
     "react-native-onesignal": "^3.7.2",
     "react-native-pages": "^0.9.0",
     "react-native-pixel-perfect": "^1.0.2",
-    "react-native-reanimated": "1.8.0",
+    "react-native-reanimated": "2.10.0",
     "react-native-safe-area-context": "0.7.3",
     "react-native-screens": "2.7.0",
     "react-native-shimmer": "0.6.0",
