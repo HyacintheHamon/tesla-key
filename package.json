@@ -34,7 +34,7 @@
     "immutability-helper": "^3.0.2",
     "lottie-react-native": "^3.3.2",
     "mercator-projection": "^0.0.2",
-    "qs": "^6.9.3",
+    "qs": "^6.9.7",
     "react": "16.13.1",
     "react-native": "0.62.3",
     "react-native-android-location-enabler": "^1.2.1",
